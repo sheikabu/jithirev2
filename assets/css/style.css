@@ -1,0 +1,633 @@
+html, body, .container{
+	height:100%
+}
+
+ul, li{
+  list-style: none;
+}
+label{
+  font-weight: 600;
+  font-size:13px;
+}
+
+.hidden{display:none;}
+.mBot-0{
+  margin-bottom:0px!important;
+}
+.mTop-0{
+  margin-top:0px!important;
+}
+.mRight-0{
+  margin-right:0px!important;
+}
+.mLeft-0{
+  margin-left:0px!important;
+}
+.mBot-10{
+	margin-bottom: 10px;
+}
+.mTop-10{
+	margin-top: 10px;
+}
+.mRight-10{
+	margin-right: 10px;
+}
+.mLeft-10{
+	margin-left:10px;
+}
+.mBot-20{
+  margin-bottom: 20px;
+}
+.mTop-20{
+  margin-top: 20px;
+}
+.mRight-20{
+  margin-right: 20px;
+}
+.mLeft-20{
+  margin-left:20px;
+}
+.mBot-30{
+  margin-bottom: 30px;
+}
+.mTop-30{
+  margin-top: 30px;
+}
+.mRight-30{
+  margin-right: 30px;
+}
+.mLeft-30{
+  margin-left:30px;
+}
+
+.border{
+  border:1px solid #ced4da;
+}
+.border-top{
+  border-top:1px solid #ced4da;
+}
+.border-bottom{
+  border-bottom:1px solid #ced4da;
+}
+.padding-5{
+  padding: 5px!important;
+}
+.padding-10{
+  padding: 10px;
+}
+.padding-15{
+  padding: 15px;
+}
+.padding-20{
+  padding: 20px;
+}
+.paddingL-0{
+  padding-left: 0!important;
+}
+.paddingR-0{
+  padding-right: 0!important;
+}
+.paddingL-5{
+  padding-left: 5px;
+}
+.paddingR-5{
+  padding-right: 5px;
+}
+a .fa{
+	color:#3a5270!important
+}
+.width-fluid{
+	width:100%
+}
+#message {
+	font-size:12px;
+	text-align:right
+	}
+/*---- header -------------------*/
+.masthead{
+	height:93%;
+	min-height:580px
+}
+
+/**
+ * =========================
+ * Form Style 
+ * =========================
+ */
+.single-form {
+  width: 100%;
+  display: inline-table;
+}
+.single-form .form-control {
+  height: 34px;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 300;
+  border: 1px solid;
+  border-color: rgba(115, 115, 115, 0.2);
+  box-shadow: 0 0 0 0 #fff;
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 0 10px ;
+  background-color: #f2f4f3;
+  color: #737373;
+  border-radius: 3px 3px 3px 3px ;
+  -webkit-border-radius: 3px 3px 3px 3px ;
+  -moz-border-radius: 3px 3px 3px 3px ;
+  -ms-border-radius: 3px 3px 3px 3px ;
+  -o-border-radius: 3px 3px 3px 3px ;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  -o-transition: all 0.4s ease-out;
+  -ms-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.single-form .form-control::-webkit-input-placeholder {
+  color: rgba(115, 115, 115, 0.85) !important;
+}
+.single-form .form-control:-moz-placeholder {
+  color: rgba(115, 115, 115, 0.85) !important;
+}
+.single-form .form-control::-moz-placeholder {
+  color: rgba(115, 115, 115, 0.85) !important;
+}
+.single-form .form-control:-ms-input-placeholder {
+  color: rgba(115, 115, 115, 0.85) !important;
+}
+.single-form .form-control:focus {
+  border-color: #2b323f;
+}
+.single-form textarea {
+  height: 175px !important;
+  padding: 10px !important;
+}
+.single-form .select-outer {
+  position: relative;
+}
+.single-form .select-outer::after {
+  content: "";
+  position: absolute;
+  top: 19px;
+  right: 15px;
+  border-width: 7px 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent;
+}
+.single-form select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.single-form input[type=checkbox] {
+  visibility: hidden;
+}
+.single-form .checkbox {
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+.single-form .checkbox label {
+  padding-left: 10px;
+}
+.single-form .checkbox label::after,
+.single-form .checkbox label::before {
+  content: '';
+  position: absolute;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  -o-transition: all 0.4s ease-out;
+  -ms-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.single-form .checkbox label::after {
+  height: 20px;
+  width: 20px;
+  left: 0;
+  top: 4px;
+  background: #f2f4f3;
+  border: 1px solid;
+  border-color: rgba(115, 115, 115, 0.2);
+  border-radius: 5px 5px 5px 5px ;
+  -webkit-border-radius: 5px 5px 5px 5px ;
+  -moz-border-radius: 5px 5px 5px 5px ;
+  -ms-border-radius: 5px 5px 5px 5px ;
+  -o-border-radius: 5px 5px 5px 5px ;
+}
+.single-form .checkbox label::before {
+  border: 2px solid;
+  border-color: transparent;
+  width: 10px;
+  height: 20px;
+  left: 9px;
+  top: -2px;
+  transform: translateX(0) translateY(0) translateZ(0) rotate(45deg) scale(1);
+  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(45deg) scale(1);
+  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(45deg) scale(1);
+  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(45deg) scale(1);
+  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(45deg) scale(1);
+  z-index: 11;
+}
+.single-form .checkbox label:hover::before {
+  border-color: transparent rgba(115, 115, 115, 0.5) rgba(115, 115, 115, 0.5) transparent;
+}
+.single-form .checkbox input[type=checkbox]:checked + label::before {
+  border-color: transparent #737373 #737373 transparent;
+}
+.single-form .squaredFour .btn {
+  margin-top: 25px;
+}
+.single-form .form-group {
+  margin: 0px;
+}
+.single-form .p-right {
+  padding-left: 0px;
+}
+.single-form .p-left {
+  padding-right: 0px;
+}
+.single-form .m-right {
+  margin-right: 0px;
+}
+.single-form .m-left {
+  margin-left: 0px;
+}
+/***/
+.checkbox, .radio {
+	position: relative;
+	display: block;
+}
+.sign-in-wrap{
+	padding-top: 200px;
+  	padding-bottom: 200px
+}
+.sign-form .btn.btn-fill {
+    min-width: 100%
+}
+.sign-form .btn-group span{
+	margin-left: 10px
+}
+.salary-form-group label{
+	display:block
+}
+.salary-form-group .lakhs,.salary-form-group .thousands{
+	width:49%;
+	display:inline-block
+}
+/*------touch frirndly toggle button -----*/
+label.btn span {
+font-size: 1.2em
+}
+label input[type="radio"] ~ i.fa.fa-circle-o {
+color: #c8c8c8;
+display: inline
+}
+label input[type="radio"] ~ i.fa.fa-check-circle-o {
+display: none
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o {
+display: none
+}
+label input[type="radio"]:checked ~ i.fa.fa-check-circle-o {
+color: #7AA3CC;
+display: inline
+}
+label:hover input[type="radio"] ~ i.fa {
+color: #7AA3CC
+}
+div[data-toggle="buttons"] label.active {
+color: #7AA3CC
+}
+div[data-toggle="buttons"] label {
+display: inline-block;
+cursor: pointer;
+color: #c8c8c8;
+user-select: none
+}
+div[data-toggle="buttons"] label:hover {
+color: #7AA3CC
+}
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+box-shadow: none
+}
+/*--------------------------------------*/
+.btn-fill{
+	color: #fff;
+    background-color: #3a5270;
+    border-color: #3a5270;
+    font-size:13px!important
+}
+.btn-fill:hover{
+	background-color:#2196F3
+}
+a.btn-fill{
+	color:#fff!important;
+}
+.sign-in-social {
+    /*padding: 15px*/
+}
+/* The radio button container */
+.sign-in-options-wrap .label {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    padding-left:35px;
+    padding-right:35px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.sign-in-options-wrap .label:hover{
+	color:#222
+}
+/* Hide the browser's default radio button */
+.sign-in-options-wrap .label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.sign-in-options-wrap .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.sign-in-options-wrap .label:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.sign-in-options-wrap .label input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.sign-in-options-wrap .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.sign-in-options-wrap .label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.sign-in-options-wrap .label .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+.sign-form.modal .sign-in-options-wrap{
+	padding:5px 10px;	
+}
+
+/*-------- social nav ---------*/
+.social-nav{
+	margin: 15px 0;
+	text-align: left;
+    	line-height: 20px
+}
+.social-nav a{
+	background: #efefef;
+	display: block;
+	text-decoration: none;
+	line-height: 20px
+}
+.social-nav a:hover{
+	color: #fff!important;
+	text-decoration: none;
+	/*background-color:#2196F3;*/
+	text-align:center
+}
+.social-nav a:hover i{
+	display:none;
+}
+.google a:hover{
+	background: #DF4932;
+}
+.facebook a:hover{
+	background: #3B5898
+}
+.linkedin a:hover{
+	background: #0274B3
+}
+
+.social-nav .icon{
+	font-size: 16px;
+	margin-right: 5px
+}
+.social-nav span{
+	position: relative;
+	bottom: 0px;
+	left: 0;
+	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size:13px
+}
+
+.social-nav .icons8-google-logo-filled{
+	color: #DF4932
+}
+.social-nav .icons8-facebook-filled{
+	color: #3B5898
+}
+.social-nav .icons8-linkedin-filled{
+	color: #0274B3
+}
+.intro-heading span{
+	/*background: #268ac0;
+	color: #fff;*/
+	background: #fff;
+	color: #3a5270;
+	padding: 0px 5px;
+	border-radius: 5px;
+	font-size: 35px;
+    font-weight:700
+}
+.spot-view{
+	background: url(../img/spotview.png) 0 center;
+	background-repeat: no-repeat;
+	background-size: 99%;
+   	background-origin: content-box;
+}
+.notification-user{
+      display: flex;
+      text-transform: lowercase;
+     /* border-left: 1px solid #ced4da;*/
+      padding-left: 0;
+}
+.notification-user li{ 
+  list-style: none;
+  display: list-item;
+}
+.notification-user a{
+  position: relative;
+}
+.notification-user .notification-count{
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    z-index: 1000;
+    background: #007bff;
+    color: #fff;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 0px 4px;
+    border-radius: 30px;
+    border: 2px solid #fff;
+}
+.sign-in-options-wrap{
+ padding:20px 10px;
+ font-size:15px;
+ font-weight:bold;
+}
+.sign-in-options-wrap .company{
+ margin-left:50px;
+ margin-right:5px
+}
+h2.section-heading{
+	color:#b8c9de
+}
+/*------------- dashboard--------------------*/
+.dashboard-wrap ul{
+  padding-left: 0;
+}
+/*.dashboard-wrap a{
+  color: #1D9ACF;
+}
+.dashboard-wrap a:hover{
+  color: #1D9ACF;
+}*/
+.title{
+    font-size: 20px; 
+    font-weight: bold;
+    color:#3a5270;
+    padding-bottom: 3px;
+}
+.sub-title{
+    font-size: 16px; 
+    font-weight: bold;
+    color:#3a5270;
+    padding-bottom: 3px;
+}
+.sub-title.line, .title.line{
+  /*border-bottom:2px solid  #DF9D4C;*/
+  border-bottom:2px solid  #ced4da;
+
+}
+.sub-title.line2, .title.line2{
+  border-bottom:1px solid  #ced4da;
+
+}
+.left-block, .right-block{
+  border-radius: 5px;
+}
+.nav-wrap li{ padding: 5px 0; }
+.application .count-jobs{
+  font-size: 15px;
+  font-weight: bold;
+  background:#007bff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 1px 6px;
+}
+.job-browse-block{
+  margin: 20px 0;
+}
+.single-form .checkbox label{
+	font-size:13px;
+	}
+/*------------------ Matching Job --------------------*/
+.posted{
+	font-size: 13px;
+	color: #666;
+}
+.matching_job_container label{
+	font-size: 13px;
+  	margin-right: 5px;
+  	margin-left: 5px;
+}
+.matching_job_container span{
+	width: 150px;
+    	display: inline-block;
+}
+.matching_job_container p{
+	line-height: normal;
+	margin-bottom: 10px;
+}
+/*--------------- user dropdown ------------------------*/
+.user-dropdown{
+	background:#fff;
+	border:none;
+	color:#3a5270;
+	margin-top:13px;
+}
+#mainNav .navbar-nav .nav-item .nav-link{
+	font-size:14px!important;
+	}
+#mainNav .navbar-nav .dropdown .dropdown-menu{
+	box-shadow:3px 3px 5px #ccc;
+	min-width: 9rem;
+}
+#mainNav .navbar-nav .dropdown .dropdown-menu .nav-link{
+	text-transform: lowercase;
+	padding: .5em 1em !important;
+}
+#mainNav .navbar-nav .dropdown .dropdown-menu .nav-link:hover{
+	background:#f5f5f5;
+}
+/*--------------------------------- */
+
+.status{
+	padding:2px;
+	font-weight: bold;
+}
+.status.approved{
+	color:#008C23;
+}
+.status.rejected{
+	color:#B20000;
+}
+.status.waiting{
+	color:#D9A300;
+}
+#skills-view #skill{
+	width:165px;
+}
+@media (min-width: 992px) {
+    #mainNav {
+        padding-top: 5px!important;
+        padding-bottom: 5px!important;
+        background:#fff!important;
+    }
+    section {
+    padding: 70px 0!important;
+   }
+}
+
+
+/*-------------------------footer--------------------*/
