@@ -241,6 +241,7 @@ class User extends CI_Controller {
 
 				   $this->user_profile->insert_user_profile($user_details);
 				   echo $message = 'Basic Infomraion Successfully updated.';exit;
+				   echo 'end';
 	}
 
 	public function do_upload(){
