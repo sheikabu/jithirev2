@@ -220,7 +220,7 @@ class User extends CI_Controller {
                 
 	}
 
-	public function basic_info() { 
+	public function basic_info() { echo 'test'; exit;
 				 $user_details=array(
 		 			'name' => $this->input->post('first_name'), 			
 		 			'email' => $this->input->post('email'), 

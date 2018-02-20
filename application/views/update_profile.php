@@ -39,7 +39,7 @@ if(!$email){
 
             <!-- profile details start -->
             <div id="message"></div>
-            <form method="post" name="basic-info" id="basic-info-view">
+            <form method="post" name="basic-info" action="basic_info" id="basic-info-view" enctype="multipart/form-data"> 
             <div class="details" id="basic-info">
               <h1 class="title"></h1>
              
@@ -194,7 +194,7 @@ if(!$email){
 	    <div class="col-md-4">
 	    
 	            <div id="upload_photo-view">
-	                  <form method="post" name="upload_photo" id="upload_photo-view" enctype="multipart/form-data">
+	                  
 	            	<div class="details col-md-12" id="basic-info">
 	             	 <h1 class="title line2">Upload Photo</h1>
 	              
@@ -208,7 +208,7 @@ if(!$email){
 			</div>
 			</div>
 	       		<div class="col-md-8">
-				     <label class="col-md-12">Upload your Latest Photo </label><div class="col-md-12"><input type="file" name="image_file" id="image_file" size="20" required />
+				     <label class="col-md-12">Upload your Latest Photo </label><div class="col-md-12"><input type="file" name="image_file" id="image_file" size="20"  />
 				</div>
 			</div>
 			</div>
@@ -216,7 +216,7 @@ if(!$email){
 	                  <button class="btn btn-fill mBot-10">Update Photo</button>
 	                </div> -->
 	            </div>
-	            </form>
+	           
 	            </div>
 	       </div>
             <!--End Upload Photo -->
@@ -224,7 +224,7 @@ if(!$email){
 	 <div class="col-md-4">
 	              <div id="upload_resume-view">
 	              <div id="resume-view-smsg"></div>
-	                  <form method="post" name="upload_resume" id="upload_resume-view" enctype="multipart/form-data">
+	                 
 	            <div class="details col-md-12" id="basic-info">
 	              <h1 class="title line2">Upload Resume</h1>
 	                <div class="row">
@@ -238,7 +238,7 @@ if(!$email){
 	                  </div>
 	                    <div class="col-md-12">
 	                  <label>Upload your Latest Resume </label>
-	                  <div><input type="file" name="resume_file" id="image_file" size="20" required />
+	                  <div><input type="file" name="resume_file" id="image_file" size="20"  />
 	</div>
 			</div>
 	                </div>
@@ -246,7 +246,7 @@ if(!$email){
 	                  <button class="btn btn-fill mBot-10">Upload Resume</button>
 	                </div> -->
 	            </div>
-	            </form>
+	          
 	            </div>
          </div>
             <!--End Resume -->
@@ -254,7 +254,7 @@ if(!$email){
             <!-- Skills -->
              <div class="col-md-4">
             <div id="skills-view">
-                  <form method="post" name="skills" id="skills-view">
+                 
             <div class="details col-md-12" id="basic-info">
               <h1 class="title line2">Skills</h1>
                 <div class="row">
@@ -265,7 +265,7 @@ if(!$email){
         <div id="sections">
         <?php foreach($skills as $keys => $values) { ?>
                   <input name="skill[]" id="skill" value="<?php echo $keys; ?>" placeholder="Skill" type="text" required />
-                  <select name="proficiency[]" id="proficiency" required>
+                  <select name="proficiency[]" id="proficiency" >
                     <option <?php if($values=='Basic') { echo 'selected'; } ?> >Basic</option>
                     <option <?php if($values=='Intermediate') { echo 'selected'; } ?> >Intermediate</option>
                     <option <?php if($values=='Advanced') { echo 'selected'; } ?> >Advanced</option>
@@ -277,7 +277,7 @@ if(!$email){
           
                 
               <fieldset>
-                <input name="skill[]" id="skill" value="" placeholder="Skill" type="text" required />
+                <input name="skill[]" id="skill" value="" placeholder="Skill" type="text"  />
                   <select name="proficiency[]" id="proficiency" required>
                     <option>Basic</option>
                     <option>Intermediate</option>
@@ -300,8 +300,8 @@ if(!$email){
                   <button class="btn btn-fill mBot-10">Update Skills</button>
                 </div> -->
             </div>
+         
             </form>
-            
                
             </div>
        </div>     
