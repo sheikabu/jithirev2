@@ -97,11 +97,9 @@ if(!$email){
 	                  <label class="col-md-12">Industry</label><div class="col-md-12"> 
 	                  <select name="industry"  class="form-control" required>
 	                    <option value=''>--select--</option>
-	                    <option value ='1' <?php if($get_candidate_info['industry'] == '1') echo"selected"; ?> >Accounting/Finance</option>
-	                    <option value ='2' <?php if($get_candidate_info['industry'] == '2') echo"selected"; ?> >Advertising/PR/MR/Events</option>
-	                    <option value ='3' <?php if($get_candidate_info['industry'] == '3') echo"selected"; ?> >Animation</option>
-	                    <option value ='4' <?php if($get_candidate_info['industry'] == '4') echo"selected"; ?> >IT-Software/Software Services</option>
-	                    <option value ='5' <?php if($get_candidate_info['industry'] == '5') echo"selected"; ?> >KPO / Research /Analytics</option>
+	                    
+	                    <option value ='1' <?php if($get_candidate_info['industry'] == '1') echo"selected"; ?> >IT-Software/Software Services</option>
+	                   
 	                  </select>
 	                </div>
 	                </div>
@@ -181,6 +179,7 @@ if(!$email){
 	                  </select>
 	                </div>
 	 </div>
+	 
 	 </div>
 	 
 	 	
@@ -208,7 +207,7 @@ if(!$email){
 			</div>
 			</div>
 	       		<div class="col-md-8">
-				     <label class="col-md-12">Upload your Latest Photo </label><div class="col-md-12"><input type="file" name="image_file" id="image_file" size="20"  />
+				     <label class="col-md-12">Upload your Latest Photo </label><div class="col-md-12"><input value='<?php echo $get_candidate_info['photos']; ?>' type="file" name="image_file" id="image_file" size="20"  />
 				</div>
 			</div>
 			</div>

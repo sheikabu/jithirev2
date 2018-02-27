@@ -221,8 +221,52 @@ class User extends CI_Controller {
 	}
 
 	public function basic_info() { 
+	echo $_FILES["image_file"]["name"];exit;
+	if(isset($_FILES["image_file"]["name"]))  
+           {  
+                $config['upload_path'] = 'upload/photos';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+                $this->upload->initialize($config);
+                $this->load->library('upload', $config); //image upload
+                
+                
+             } 
+				if(isset($_FILES["resume_file"]["name"]))  
+           {  
+                $config['upload_path'] = 'upload/resumes';
+                $config['overwrite'] = TRUE;
+                $config['allowed_types'] = 'pdf|doc|docx';  
+                $this->upload->initialize($config);
+                $this->load->library('upload', $config); 
+                
+                if(!$this->upload->do_upload('resume_file'))  
+                {  
+                     $this->upload->display_errors();  
+                }  
+                else  
+                { 
+                	 $user_details=array('resume' => $_FILES["resume_file"]["name"], 'user_id' => $this->session->userdata("id"));
+                     $data = $this->upload->data(); 
+                     $this->user_profile->insert_user_profile($user_details);
+                     echo '<a target="_blank" href="'.base_url().'upload/resumes/'.$data["file_name"].'">'.$data["file_name"].'</a>';  
+                      
+				   	 
+					}
+                }  
+				$skill_array =  $this->input->post('skill');
+				$profi_array = $this->input->post('proficiency');
+				$results = array_combine($skill_array, $profi_array);
+				$skills = json_encode($results, true);
+		 		 
+				 
+				 
 				 $user_details=array(
-		 			'name' => $this->input->post('first_name'), 			
+		 			'name' => $this->input->post('first_name'), 
+					
+'photos' => $_FILES["image_file"]["name"],
+'resume' => $_FILES["resume_file"]["name"],
+'skills' => $skills,			
+
 		 			'email' => $this->input->post('email'), 
 					'pancard' => $this->input->post('pancard'),
 					'mobile_number' => $this->input->post('mobile_number'),
@@ -244,7 +288,7 @@ class User extends CI_Controller {
 				   echo 'end';
 	}
 
-	public function do_upload(){
+	/* public function do_upload(){
 
 		if(isset($_FILES["image_file"]["name"]))  
            {  
@@ -269,9 +313,9 @@ class User extends CI_Controller {
                 }  
             
    			
-     }
+     } */
 
-     public function do_upload_resume(){
+    /*  public function do_upload_resume(){
 
 		if(isset($_FILES["resume_file"]["name"]))  
            {  
@@ -297,9 +341,9 @@ class User extends CI_Controller {
                 }  
             
    			
-     }
+     } */
 
-      public function do_skills(){
+     /*  public function do_skills(){
      			$skill_array =  $this->input->post('skill');
 				$profi_array = $this->input->post('proficiency');
 				$results = array_combine($skill_array, $profi_array);
@@ -313,7 +357,7 @@ class User extends CI_Controller {
 		 		 $this->user_profile->insert_user_profile($user_details);
 				 echo $message = 'Skills Successfully updated.';exit;
 
-				}
+				} */
 
 	public function forgot() 
 	{

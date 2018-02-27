@@ -111,7 +111,10 @@ if(!$email){
 		                  <label class="col-md-4">Preferred Roles: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['preferred_roles']; ?></span>
 		                </div>
-		                
+		                <div class="col-xs-12">
+		                  <label class="col-md-4">Skills: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['skills']; ?></span>
+		                </div>
 		               
 			</div>
 			<div class="col-md-5">
@@ -141,15 +144,8 @@ if(!$email){
 		                </div>
 		                <?php
 		                if($get_candidate_info['industry'] == '1') {
-		               $industry = 'Accounting/Finance'; 
-		               } elseif($get_candidate_info['industry'] == '2') {
-		               $industry = 'Advertising/PR/MR/Events'; 
-		               }elseif($get_candidate_info['industry'] == '3') {
-		               $industry = 'Animation'; 
-		               }elseif($get_candidate_info['industry'] == '4') {
 		               $industry = 'IT-Software/Software Services'; 
-		               }elseif($get_candidate_info['industry'] == '5') {
-		               $industry = 'KPO / Research /Analytics'; 
+		               
 		               }
 		                ?>
 		                <div class="col-xs-12">
@@ -175,6 +171,7 @@ if(!$email){
 		                  <label class="col-md-4">Preferred location: </label>
 		                  <span class="col-md-8"><?php echo $locations; ?></span>
 		                </div>
+						
 		                
 			</div>
 		    </div>
