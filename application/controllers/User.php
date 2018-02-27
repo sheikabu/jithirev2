@@ -221,7 +221,7 @@ class User extends CI_Controller {
 	}
 
 	public function basic_info() { 
-	echo $_FILES["image_file"]["name"];exit;
+	
 	if(isset($_FILES["image_file"]["name"]))  
            {  
                 $config['upload_path'] = 'upload/photos';
@@ -229,8 +229,20 @@ class User extends CI_Controller {
                 $this->upload->initialize($config);
                 $this->load->library('upload', $config); //image upload
                 
-                
-             } 
+                if(!$this->upload->do_upload('image_file'))  
+                {  
+                     echo $this->upload->display_errors();  
+                }  
+                else  
+                { 
+                	 $user_details=array('photos' => $_FILES["image_file"]["name"], 'user_id' => $this->session->userdata("id"));
+                     $data = $this->upload->data(); 
+                     $this->user_profile->insert_user_profile($user_details);
+                     echo '<img src="'.base_url().'upload/photos/'.$data["file_name"].'" width="100" height="125" class="img-thumbnail" />';  
+                      
+				   	 
+					}
+                } 
 				if(isset($_FILES["resume_file"]["name"]))  
            {  
                 $config['upload_path'] = 'upload/resumes';

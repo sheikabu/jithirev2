@@ -85,22 +85,10 @@ if(!$email){
 		                  <span class="col-md-8"><?php echo $get_candidate_info['dob']; ?></span>
 		                </div>
 		                
-		                   <?php 
-		                if($get_candidate_info['role'] == '1') {
-		               $role= 'Software Developer'; 
-		               } elseif($get_candidate_info['role'] == '2') {
-		               $role= 'Team Lead/Tech Lead'; 
-		               }elseif($get_candidate_info['role'] == '3') {
-		               $role= 'System Analyst'; 
-		               }elseif($get_candidate_info['role'] == '4') {
-		               $role= 'Tech Architect'; 
-		               }elseif($get_candidate_info['role'] == '5') {
-		               $role= 'Release Mgr'; 
-		               }
-		                ?>
+		                  
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Previous Role: </label>
-		                  <span class="col-md-8"><?php echo $role; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['role']; ?></span>
 		                </div>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Expected CTC: </label>

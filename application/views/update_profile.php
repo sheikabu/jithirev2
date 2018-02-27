@@ -106,14 +106,7 @@ if(!$email){
 	                  <div class="col-xs-12 mTop-10">
 	                  <label class="col-md-12">Previous Role</label><div class="col-md-12"> 
 	                  
-	                   <select name="role" required class="form-control">
-	                      <option value=''>--select--</option>
-	                      <option value ='1' <?php if($get_candidate_info['role'] == '1') echo"selected"; ?>>Software Developer</option>
-	                      <option value ='2' <?php if($get_candidate_info['role'] == '2') echo"selected"; ?>>Team Lead/Tech Lead</option>
-	                      <option value ='3' <?php if($get_candidate_info['role'] == '3') echo"selected"; ?>>System Analyst</option>
-	                      <option value ='4' <?php if($get_candidate_info['role'] == '4') echo"selected"; ?>>Tech Architect</option>
-	                      <option value ='5' <?php if($get_candidate_info['role'] == '5') echo"selected"; ?>>Release Mgr</option>
-	                    </select>
+	                   <input type="text" name="role" class="form-control" placeholder="role" value="<?php echo $get_candidate_info['role']; ?>" required>
 	                </div>
 	                </div>
 	
@@ -263,7 +256,7 @@ if(!$email){
           
         <div id="sections">
         <?php foreach($skills as $keys => $values) { ?>
-                  <input name="skill[]" id="skill" value="<?php echo $keys; ?>" placeholder="Skill" type="text" required />
+                  <input name="skill[]" id="skill" value='<?php echo $keys; ?>' placeholder="Skill" type="text" required />
                   <select name="proficiency[]" id="proficiency" >
                     <option <?php if($values=='Basic') { echo 'selected'; } ?> >Basic</option>
                     <option <?php if($values=='Intermediate') { echo 'selected'; } ?> >Intermediate</option>
