@@ -37,7 +37,14 @@ if(!$email){
         <div class="row">
          
           <div class="col-md-12">
-
+          		<?php 
+          			 $link = $_SERVER['PHP_SELF'];
+    				$link_array = explode('/',$link);
+    				$message = end($link_array); 
+    				if($message==1) {
+    					echo '<div id="message">Infomraion Successfully updated</div>';
+    				}
+          		 ?>
             <!-- Full profile view -->
               <div id="full-profile-view">
               <div>

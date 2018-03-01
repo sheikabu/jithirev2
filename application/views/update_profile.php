@@ -39,7 +39,7 @@ if(!$email){
 
             <!-- profile details start -->
             <div id="message"></div>
-            <form method="post" name="basic-info" action="basic_info" id="basic-info-view" enctype="multipart/form-data"> 
+            <?php echo form_open_multipart('user/basic_info');?>
             <div class="details" id="basic-info">
               <h1 class="title"></h1>
              
@@ -200,7 +200,9 @@ if(!$email){
 			</div>
 			</div>
 	       		<div class="col-md-8">
-				     <label class="col-md-12">Upload your Latest Photo </label><div class="col-md-12"><input value='<?php echo $get_candidate_info['photos']; ?>' type="file" name="image_file" id="image_file" size="20"  />
+				     <label class="col-md-12">Upload your Latest Photo </label><div class="col-md-12">
+				     <input type="file" name="image_file" size="20"  />
+				     <input type="hidden" value="<?php echo $get_candidate_info['photos']; ?>" name="old_image">
 				</div>
 			</div>
 			</div>
@@ -231,6 +233,7 @@ if(!$email){
 	                    <div class="col-md-12">
 	                  <label>Upload your Latest Resume </label>
 	                  <div><input type="file" name="resume_file" id="image_file" size="20"  />
+	                  <input type="hidden" value="<?php echo $get_candidate_info['resume']; ?>" name="old_resume">
 	</div>
 			</div>
 	                </div>
@@ -244,65 +247,50 @@ if(!$email){
             <!--End Resume -->
 
             <!-- Skills -->
-             <div class="col-md-4">
-            <div id="skills-view">
-                 
-            <div class="details col-md-12" id="basic-info">
-              <h1 class="title line2">Skills</h1>
+
+		<div class="col-md-4">
+		<div id="skills-view">
+		<div class="details col-md-12" id="basic-info">
+		<h1 class="title line2">Skills</h1>
                 <div class="row">
                 <div class="col-md-12">
-                <?php $skills = json_decode($get_candidate_info['skills']); ?>
-                  <div class="form-group">
-          
-        <div id="sections">
-        <?php foreach($skills as $keys => $values) { ?>
-                  <input name="skill[]" id="skill" value='<?php echo $keys; ?>' placeholder="Skill" type="text" required />
-                  <select name="proficiency[]" id="proficiency" >
-                    <option <?php if($values=='Basic') { echo 'selected'; } ?> >Basic</option>
-                    <option <?php if($values=='Intermediate') { echo 'selected'; } ?> >Intermediate</option>
-                    <option <?php if($values=='Advanced') { echo 'selected'; } ?> >Advanced</option>
-                  </select>
-                  </br></br>
-                <?php } ?>
-        <div class="section">
-      
-          
-                
-              <fieldset>
-                <input name="skill[]" id="skill" value="" placeholder="Skill" type="text"  />
-                  <select name="proficiency[]" id="proficiency" required>
-                    <option>Basic</option>
-                    <option>Intermediate</option>
-                    <option>Advanced</option>
-                  </select>
-
-              <a href="#" class='remove'><i class="fa fa-times" aria-hidden="true"></i></a>
-
-          </fieldset>
-        </div>
-      </div>
-	</div>
-      <div class="col-md-12 paddingL-0">
-      		<button class="btn btn-fill mBot-10" href="#" class='addsection'><i class="fa fa-plus" aria-hidden="true"></i></button>
-      </div>
-      </div>
-                </div>
-                </div>
-                <!--  <div class="btn-form text-right col-xs-12">
-                  <button class="btn btn-fill mBot-10">Update Skills</button>
-                </div> -->
-            </div>
-         
-            </form>
+                 <div id="sections">
+                 <?php $skills = json_decode($get_candidate_info['skills']); ?>
+				    <fieldset>
+					<div class="container" >
+					<div class='element' id='div_1'>
+					<?php $index = 1; foreach($skills as $keys => $values) { ?>
+					<input type='text' name="skill[]" value='<?php echo $keys; ?>' placeholder='Enter your skill' id='txt_<?php echo $index ;?>' >
+					 <select name="proficiency[]" id="proficiency_1" required>
+					        <option <?php if($values=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+		                    <option <?php if($values=='Basic') { echo 'selected'; } ?>>Basic</option>
+		                    <option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
+		                    <option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
+		                  </select>
+		                  <span id='remove_<?php echo $index ;?>' class='remove'>Remove</span>
+		                   <?php $index++; } ?>
+		                    
+		                  <span class='add'><span class="btn btn-fill mBot-10" class='addsection'><i class="fa fa-plus" aria-hidden="true"></i></span></span>
+					</div>
+					</div>
+					</fieldset>
+					</div>
+				</div>
+				</div>
+		</div>
+		</div>
+		</div>
+		<!--End Skills -->
+           </form>
                
-            </div>
-       </div>     
+              
             <div class="row">
 	          <div class="btn-form text-right mTop-10 col-md-12">
 	                  <button class="btn btn-fill mBot-10 mRight-10">Update Profile</button>
 	          </div>
             </div>
-   <!--End Skills -->
+
+   
    </div>         
          </div>
         </div>
@@ -333,7 +321,46 @@ if(!$email){
 
 </script>
 
+<script type="text/javascript">
+	$(document).ready(function(){
 
+ // Add new element
+ $(".add").click(function(){
+
+  // Finding total number of elements added
+  var total_element = $(".element").length;
+ 
+  // last <div> with element class id
+  var lastid = $(".element:last").attr("id");
+  var split_id = lastid.split("_");
+  var nextindex = Number(split_id[1]) + 1;
+
+  var max = 5;
+  // Check total number elements
+  if(total_element < max ){
+   // Adding new div container after last occurance of element class
+   $(".element:last").after("<div class='element' id='div_"+ nextindex +"'></div>");
+ 
+   // Adding element to <div>
+   $("#div_" + nextindex).append("<input type='text' placeholder='Enter your skill' id='txt_"+ nextindex +"' name='skill1[]'> <select id='proficiency_"+ nextindex +"' name='proficiency1[]'><option>Fresher</option><option>Basic</option><option>Intermediate</option><option>Advanced</option></select><span id='remove_" + nextindex + "' class='remove'><i class='fa fa-times' aria-hidden='true'></span>");
+ 
+  }
+ 
+ });
+
+ // Remove element
+ $('.container').on('click','.remove',function(){
+ 
+  var id = this.id;
+  var split_id = id.split("_");
+  var deleteindex = split_id[1];
+
+  // Remove <div> with id
+  $("#div_" + deleteindex).remove();
+
+ }); 
+});
+</script>
 
 
 
