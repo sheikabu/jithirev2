@@ -279,21 +279,19 @@ if(!$email){
               <label class="col-md-12 paddingL-0 line2">Primary Skill</label>
                 <div class="row">
                 <div class="col-md-12">
-                <?php $skills = json_decode($get_candidate_info['skills']); ?>
+                
                   <div class="form-group">
           
         <div id="sections">
-        <?php foreach($skills as $keys => $values) { ?>
-                  <input name="skill[]" id="skill" value="<?php echo $keys; ?>" placeholder="Skill" type="text" required />
-                  <select name="proficiency[]" id="proficiency" required>
-                   
-                    <option <?php if($values=='Basic') { echo 'selected'; } ?> >Basic</option>
-                    <option <?php if($values=='Intermediate') { echo 'selected'; } ?> >Intermediate</option>
-                    <option <?php if($values=='Advanced') { echo 'selected'; } ?> >Advanced</option>
-                  </select>
-                  
-                <?php } ?>
         
+                  <input name="primaryskill" placeholder="Skill" type="text" required />
+                  <select name="primaryproficiency" id="proficiency" required>
+
+                    <option>Basic</option>
+                    <option>Intermediate</option>
+                    <option>Advanced</option>
+                  </select>
+   
       </div>
 	</div>
       
@@ -331,7 +329,11 @@ if(!$email){
 				<option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
 				<option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
 				</select>
+<<<<<<< HEAD
 				<span id='remove_<?php echo $index ;?>' class='remove hidden'></span>
+=======
+				<span id='remove_<?php echo $index ;?>' class='remove'>Remove</span>
+>>>>>>> e1f7714a34f28684ecd402e6b6018077700dc567
 				<?php $index++; } } else { ?>
 				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1'>
 				<select name="proficiency" id="proficiency_1" required>
