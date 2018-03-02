@@ -262,18 +262,20 @@ class User extends CI_Controller {
 
 				$skill_array =  $this->input->post('skill');
 				$profi_array = $this->input->post('proficiency');
-				$skill_array1 =  $this->input->post('skill1');
-				$profi_array1 = $this->input->post('proficiency1');
 
-				$cskill = array_combine($skill_array, $profi_array);
-				$cpro = array_combine($skill_array1, $profi_array1);
+				//$skill_array1 =  $this->input->post('skill1');
+				//$profi_array1 = $this->input->post('proficiency1');
+
+				$firstsetskills = array_combine($skill_array, $profi_array);
+				var_dump($firstsetskills);
+				//$cpro = array_combine($skill_array1, $profi_array1);
 				
 				//$results = array_combine($cskill, $cpro);
-				$results  = array_merge($cskill,$cpro);
+				//$results  = array_merge($cskill,$cpro);
 
-				$skills = json_encode($results, true);			
+				$skills = json_encode($firstsetskills, true);			
 		 		 
-				
+				var_dump($Skills); exit;
 
 				 
 				 $user_details=array(
