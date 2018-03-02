@@ -288,7 +288,7 @@ if(!$email){
 			<div class="col-md-4">
 			<div id="skills-view">
 			<div class="details col-md-12" id="basic-info">
-			<h1 class="title line2">Skills</h1>
+			<label class="col-md-12 paddingL-0 line2">Skills</label>
 			<div class="row">
 			<div class="col-md-12">
 			<div id="sections">
@@ -306,9 +306,9 @@ if(!$email){
 				<option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
 				<option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
 				</select>
-				<span id='remove_<?php echo $index ;?>' class='remove'>Remove</span>
+				<span id='remove_<?php echo $index ;?>' class='remove'></span>
 				<?php $index++; } } else { ?>
-				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1' >
+				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1' class="mTop-5" >
 				<select name="proficiency" id="proficiency_1" required>
 				<option>Fresher</option>
 				<option>Basic</option>
