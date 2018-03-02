@@ -280,9 +280,9 @@ if(!$email){
                 <div class="row">
                 <div class="col-md-12">
                 
-                  <div class="form-group">
+        <div class="form-group">
           
-        <div id="sections">
+        	<div id="sections">
         
                   <input name="primaryskill" placeholder="Skill" type="text" required />
                   <select name="primaryproficiency" id="proficiency" required>
@@ -292,8 +292,8 @@ if(!$email){
                     <option>Advanced</option>
                   </select>
    
-      </div>
-	</div>
+      		</div>
+		</div>
       
       </div>
                 </div>
@@ -329,11 +329,11 @@ if(!$email){
 				<option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
 				<option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
 				</select>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 				<span id='remove_<?php echo $index ;?>' class='remove hidden'></span>
-=======
-				<span id='remove_<?php echo $index ;?>' class='remove'>Remove</span>
->>>>>>> e1f7714a34f28684ecd402e6b6018077700dc567
+<!-- ======= -->
+				<!-- <span id='remove_<?php echo $index ;?>' class='remove'>Remove</span> -->
+<!-- >>>>>>> e1f7714a34f28684ecd402e6b6018077700dc567 -->
 				<?php $index++; } } else { ?>
 				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1'>
 				<select name="proficiency" id="proficiency_1" required>
