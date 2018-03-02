@@ -108,42 +108,46 @@ if(!$email){
 	                </div>
 	              
 	              	 <div class="col-xs-12 mTop-5">
-	                  <label class="col-md-12">Total IT experience</label><div class="col-md-12"> 
-	                    <select name="total_experience" required class="form-control">
-	                    <option value ='1' <?php if($get_candidate_info['total_experience'] == '1') echo"selected"; ?>>Fresher</option>
+	                   <label class="col-md-12">Total IT experience</label><div class="col-md-12"> 
+	                    <select name="total_experience" class="form-control" placeholder="total_experience" value="<?php echo $get_candidate_info['total_experience']; ?>"required >
 	                    <option value=''>--YEAR--</option>
-	                    
-	                    <option value ='2' <?php if($get_candidate_info['total_experience'] == '2') echo"selected"; ?>>1</option>
-	                    <option value ='3' <?php if($get_candidate_info['total_experience'] == '3') echo"selected"; ?>>2</option>
-	                    <option value ='4' <?php if($get_candidate_info['total_experience'] == '4') echo"selected"; ?>>3</option>
-	                    <option value ='5' <?php if($get_candidate_info['total_experience'] == '5') echo"selected"; ?>>4</option>
-	                    
+	                    <option value ='0-1' <?php if($get_candidate_info['total_experience'] == '0-1') echo"selected"; ?>>Fresher</option>
+	                    <option value ='1-2' <?php if($get_candidate_info['total_experience'] == '1-2') echo"selected"; ?>>1-2</option>
+	                    <option value ='2-3' <?php if($get_candidate_info['total_experience'] == '2-3') echo"selected"; ?>>2-3</option>
+	                    <option value ='3-4' <?php if($get_candidate_info['total_experience'] == '3-4') echo"selected"; ?>>3-4</option>
+	                    <option value ='4-5' <?php if($get_candidate_info['total_experience'] == '4-5') echo"selected"; ?>>4-5</option>
+						<option value ='5-6' <?php if($get_candidate_info['total_experience'] == '5-6') echo"selected"; ?>>5-6</option>
+	                    <option value ='6-7' <?php if($get_candidate_info['total_experience'] == '6-7') echo"selected"; ?>>6-7</option>
+	                    <option value ='7-8' <?php if($get_candidate_info['total_experience'] == '7-8') echo"selected"; ?>>7-8</option>
+	                    <option value ='8-9' <?php if($get_candidate_info['total_experience'] == '8-9') echo"selected"; ?>>8-9</option>
+						<option value ='9-10' <?php if($get_candidate_info['total_experience'] == '9-10') echo"selected"; ?>>9-10</option>
+						<option value ='10-12' <?php if($get_candidate_info['total_experience'] == '10-12') echo"selected"; ?>>10-12</option>
+	                    <option value ='12-14' <?php if($get_candidate_info['total_experience'] == '12-14') echo"selected"; ?>>12-14</option>
+	                    <option value ='14-16' <?php if($get_candidate_info['total_experience'] == '14-16') echo"selected"; ?>>14-16</option>
+	                    <option value ='16-18' <?php if($get_candidate_info['total_experience'] == '16-18') echo"selected"; ?>>16-18</option>
+						<option value ='18-20' <?php if($get_candidate_info['total_experience'] == '18-20') echo"selected"; ?>>18-20</option>
+	                    <option value ='20-25' <?php if($get_candidate_info['total_experience'] == '20-25') echo"selected"; ?>>20-25</option>
+	                    <option value ='25-30' <?php if($get_candidate_info['total_experience'] == '25-30') echo"selected"; ?>>25-30</option>
+	                   
 	                  </select>
 	                </div>
 	                </div>
 	              
 	                  <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Previous Role</label><div class="col-md-12"> 
-	                  <input type="text" name="previous_role" class="form-control" placeholder="Previous Role" value="" required>
-	                   <!-- <select name="role" required class="form-control">
-	                      <option value=''>--select--</option>
-	                      <option value ='1' <?php if($get_candidate_info['role'] == '1') echo"selected"; ?>>Software Developer</option>
-	                      <option value ='2' <?php if($get_candidate_info['role'] == '2') echo"selected"; ?>>Team Lead/Tech Lead</option>
-	                      <option value ='3' <?php if($get_candidate_info['role'] == '3') echo"selected"; ?>>System Analyst</option>
-	                      <option value ='4' <?php if($get_candidate_info['role'] == '4') echo"selected"; ?>>Tech Architect</option>
-	                      <option value ='5' <?php if($get_candidate_info['role'] == '5') echo"selected"; ?>>Release Mgr</option>
-	                    </select> -->
+	                  <input type="text" name="role" class="form-control" placeholder="Role" value="<?php echo $get_candidate_info['role']; ?>" required>
+	                  
 	                </div>
 	                </div>
  					
 	                <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Job Type</label><div class="col-md-12"> 
-	                    <select name="total_experience" required class="form-control">
+	                    <select name="" required class="form-control">
 	                   
 	                    
-	                    <option value ='2' <?php if($get_candidate_info['total_experience'] == '2') echo"selected"; ?>>Permanent</option>
-	                    <option value ='3' <?php if($get_candidate_info['total_experience'] == '3') echo"selected"; ?>>Short Term</option>
-	                    <option value ='4' <?php if($get_candidate_info['total_experience'] == '4') echo"selected"; ?>>Both</option>
+	                    <option value ='2' <?php if($get_candidate_info[''] == '2') echo"selected"; ?>>Permanent</option>
+	                    <option value ='3' <?php if($get_candidate_info[''] == '3') echo"selected"; ?>>Short Term</option>
+	                    <option value ='4' <?php if($get_candidate_info[''] == '4') echo"selected"; ?>>Both</option>
 	                  </select>
 	                </div>
 	                </div>
@@ -159,7 +163,7 @@ if(!$email){
 	 	<div class="col-xs-12">
 		                  <label class="col-md-12">Expected CTC</label>
 		                  <div class="col-md-12"> 
-		                <input type="text" name="expected_ctc" class="form-control" placeholder="Expected CTC" value="" required>
+		                <input type="text" name="salary_lakhs" class="form-control" placeholder="salary_lakhs" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required>
 		        </div>
 	                </div>
 	 	 <div class="col-xs-12 mTop-5">
@@ -169,32 +173,32 @@ if(!$email){
 	                  <label class="col-md-6">Preferred location</label>
 	                  <div class="col-md-6 pull-right">
                                                 <div class="checkbox">
-                                                    <input type="checkbox" id="any-location">
-                                                    <label for="any-location">Any locaton</label>
+                                                    <input type="checkbox" name="preferred_location[]" value="<?php echo $get_candidate_info['preferred_location']; ?>" id="any-location">
+                                                    <label for="any-location" >Any locaton</label>
                                                 </div>
                         </div>
 					</div>
 				
 	                  <div class="col-md-12"> 
 	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
-	                  <select name="preferred_location[]" required class="form-control" multiple>
+	                  <select name="preferred_location[]" class="form-control"  placeholder="preferred_location[]" value="<?php echo $get_candidate_info['preferred_location']; ?>"required multiple>
 	                    <option value=''>--select--</option>
-	                    <option value ='1' <?php if (in_array('1', $locations)) { echo"selected"; } ?>>Trivandrum</option>
-	                    <option value ='2' <?php if (in_array('2', $locations)) { echo"selected"; } ?>>Chennai</option>
-	                    <option value ='3' <?php if (in_array('3', $locations)) { echo"selected"; } ?>>Madurai</option>
-	                    <option value ='4' <?php if (in_array('4', $locations)) { echo"selected"; } ?>>Kochi</option>
-	                    <option value ='5' <?php if (in_array('5', $locations)) { echo"selected"; } ?>>Bengalore</option>
+	                    <option value ='1' <?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
+	                    <option value ='2' <?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
+	                    <option value ='3' <?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
+	                    <option value ='4' <?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
+	                    <option value ='5' <?php if (in_array('Bengalore', $locations)) { echo"selected"; } ?>>Bengalore</option>
 	                  </select>
 	                </div>
 	    </div>
 	     <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Add Domain</label><div class="col-md-12"> 
-	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
-	                  <select name="preferred_location[]" required class="form-control" multiple>
+	                    <?php $locations  = json_decode($get_candidate_info['']); ?>
+	                  <select name="preferred_location1[]" required class="form-control" multiple>
 	                    <option value=''>--select--</option>
-	                    <option value ='1' <?php if (in_array('1', $locations)) { echo"selected"; } ?>>PM</option>
-	                    <option value ='2' <?php if (in_array('2', $locations)) { echo"selected"; } ?>>Software Engineer</option>
-	                    <option value ='5' <?php if (in_array('5', $locations)) { echo"selected"; } ?>>Programmer Trainee</option>
+	                    <option value ='1' <?php if (in_array('1', $locat)) { echo"selected"; } ?>>PM</option>
+	                    <option value ='2' <?php if (in_array('2', $locat)) { echo"selected"; } ?>>Software Engineer</option>
+	                    <option value ='5' <?php if (in_array('5', $locat)) { echo"selected"; } ?>>Programmer Trainee</option>
 	                  </select>
 	                </div>
 	    </div>

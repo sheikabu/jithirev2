@@ -99,7 +99,7 @@ if(!$email){
 		                </div>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Expected CTC: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs <?php echo $get_candidate_info['salary_thousands']; ?> Thousands</span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs </span>
 		                </div>
 		                
 		                 <div class="col-xs-12">
