@@ -8,6 +8,7 @@ body {
     overflow-x: hidden;
     /*font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif*/
     color: #3a5270;
+    font-size:13px!important;
 }
 p {
     line-height: 1.75
@@ -174,7 +175,7 @@ body {
 header.masthead {
     text-align: center;
     color: rgba(58, 82, 112, 0.6);
-    background: linear-gradient(#fff, #DBE0E4)
+    background: linear-gradient(#fff,#fff, #DBE0E4)
     /*background-image:url(../img/header-bg.jpg);background-repeat:no-repeat;background-attachment:scroll;background-position:center center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover*/
 }
 header.masthead .intro-text {
