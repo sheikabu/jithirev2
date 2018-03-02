@@ -110,13 +110,14 @@ if(!$email){
 	              	 <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Total IT experience</label><div class="col-md-12"> 
 	                    <select name="total_experience" required class="form-control">
+	                    <option value ='1' <?php if($get_candidate_info['total_experience'] == '1') echo"selected"; ?>>Fresher</option>
 	                    <option value=''>--YEAR--</option>
 	                    
 	                    <option value ='2' <?php if($get_candidate_info['total_experience'] == '2') echo"selected"; ?>>1</option>
 	                    <option value ='3' <?php if($get_candidate_info['total_experience'] == '3') echo"selected"; ?>>2</option>
 	                    <option value ='4' <?php if($get_candidate_info['total_experience'] == '4') echo"selected"; ?>>3</option>
 	                    <option value ='5' <?php if($get_candidate_info['total_experience'] == '5') echo"selected"; ?>>4</option>
-	                    <option value ='1' <?php if($get_candidate_info['total_experience'] == '1') echo"selected"; ?>>Fresher</option>
+	                    
 	                  </select>
 	                </div>
 	                </div>
@@ -134,7 +135,19 @@ if(!$email){
 	                    </select> -->
 	                </div>
 	                </div>
- 
+ 					
+	                <div class="col-xs-12 mTop-5">
+	                  <label class="col-md-12">Job Type</label><div class="col-md-12"> 
+	                    <select name="total_experience" required class="form-control">
+	                   
+	                    
+	                    <option value ='2' <?php if($get_candidate_info['total_experience'] == '2') echo"selected"; ?>>Permanent</option>
+	                    <option value ='3' <?php if($get_candidate_info['total_experience'] == '3') echo"selected"; ?>>Short Term</option>
+	                    <option value ='4' <?php if($get_candidate_info['total_experience'] == '4') echo"selected"; ?>>Both</option>
+	                  </select>
+	                </div>
+	                </div>
+
 	
 			<div class="col-xs-12 mTop-5">
 		                  <label class="col-md-12">Preferred Roles</label><div class="col-md-12"> 
@@ -150,7 +163,19 @@ if(!$email){
 		        </div>
 	                </div>
 	 	 <div class="col-xs-12 mTop-5">
-	                  <label class="col-md-12">Preferred location</label><div class="col-md-12"> 
+	 	 		
+
+	 	 			<div class="col-xs-12">
+	                  <label class="col-md-6">Preferred location</label>
+	                  <div class="col-md-6 pull-right">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="any-location">
+                                                    <label for="any-location">Any locaton</label>
+                                                </div>
+                        </div>
+					</div>
+				
+	                  <div class="col-md-12"> 
 	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
 	                  <select name="preferred_location[]" required class="form-control" multiple>
 	                    <option value=''>--select--</option>
@@ -294,7 +319,7 @@ if(!$email){
 			<div id="sections">
 
 				<fieldset>
-				<div class="container" >
+				<div class="container paddingL-0" >
 				<div class='element' id='div_1'>
 				<?php $skills = json_decode($get_candidate_info['skills']);
 				if($skills!='') {
@@ -306,9 +331,9 @@ if(!$email){
 				<option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
 				<option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
 				</select>
-				<span id='remove_<?php echo $index ;?>' class='remove'></span>
+				<span id='remove_<?php echo $index ;?>' class='remove hidden'></span>
 				<?php $index++; } } else { ?>
-				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1' class="mTop-5" >
+				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1'>
 				<select name="proficiency" id="proficiency_1" required>
 				<option>Fresher</option>
 				<option>Basic</option>
