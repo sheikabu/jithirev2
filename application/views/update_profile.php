@@ -145,32 +145,9 @@ if(!$email){
 	 	<div class="col-md-4">
 	 	<div class="col-xs-12">
 		                  <label class="col-md-12">Expected CTC</label>
-		                  
-		                  <div class="row">
-		                  	<b class="col-md-5 small mLeft-20">Lakhs</b><b class="col-md-5 small mRight-20">Thousands</b>
-		                  </div>
-		                  <div class="row">
-			                  <div class="col-md-5 mLeft-20"> 
-			                    <select name="lakhs" required class="form-control">
-			                      <option value=''>--Lakhs--</option>
-			                      <option value ='0' <?php if($get_candidate_info['salary_lakhs'] == '0') echo"selected"; ?>>0</option>
-			                      <option value ='1' <?php if($get_candidate_info['salary_lakhs'] == '1') echo"selected"; ?>>1</option>
-			                      <option value ='2' <?php if($get_candidate_info['salary_lakhs'] == '2') echo"selected"; ?>>2</option>
-			                      <option value ='3' <?php if($get_candidate_info['salary_lakhs'] == '3') echo"selected"; ?>>3</option>
-			                      <option value ='4' <?php if($get_candidate_info['salary_lakhs'] == '4') echo"selected"; ?>>4</option>
-			                    </select>
-			                </div>
-			                <div class="col-md-6"> 
-			                    <select name="thousands" required class="form-control">
-			                    <option value=''>--Thousands--</option>
-			                    <option value ='0' <?php if($get_candidate_info['salary_thousands'] == '0') echo"selected"; ?>>0</option>
-			                    <option value ='5' <?php if($get_candidate_info['salary_thousands'] == '5') echo"selected"; ?>>5</option>
-			                    <option value ='10' <?php if($get_candidate_info['salary_thousands'] == '10') echo"selected"; ?>>10</option>
-			                    <option value ='15' <?php if($get_candidate_info['salary_thousands'] == '15') echo"selected"; ?>>15</option>
-			                    <option value ='20' <?php if($get_candidate_info['salary_thousands'] == '20') echo"selected"; ?>>20</option>
-			                  </select>
-			                </div>
-		               	</div>
+		                  <div class="col-md-12"> 
+		                <input type="text" name="expected_ctc" class="form-control" placeholder="Expected CTC" value="" required>
+		        </div>
 	                </div>
 	 	 <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Preferred location</label><div class="col-md-12"> 
@@ -184,7 +161,18 @@ if(!$email){
 	                    <option value ='5' <?php if (in_array('5', $locations)) { echo"selected"; } ?>>Bengalore</option>
 	                  </select>
 	                </div>
-	 </div>
+	    </div>
+	     <div class="col-xs-12 mTop-5">
+	                  <label class="col-md-12">Add Domain</label><div class="col-md-12"> 
+	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
+	                  <select name="preferred_location[]" required class="form-control" multiple>
+	                    <option value=''>--select--</option>
+	                    <option value ='1' <?php if (in_array('1', $locations)) { echo"selected"; } ?>>PM</option>
+	                    <option value ='2' <?php if (in_array('2', $locations)) { echo"selected"; } ?>>Software Engineer</option>
+	                    <option value ='5' <?php if (in_array('5', $locations)) { echo"selected"; } ?>>Programmer Trainee</option>
+	                  </select>
+	                </div>
+	    </div>
 	 </div>
 	 
 	 	
@@ -298,7 +286,7 @@ if(!$email){
 			<div class="col-md-4">
 			<div id="skills-view">
 			<div class="details col-md-12" id="basic-info">
-			<h1 class="title line2">Skills</h1>
+			<label class="col-md-12 paddingL-0 line2">Skills</label>
 			<div class="row">
 			<div class="col-md-12">
 			<div id="sections">
@@ -316,9 +304,9 @@ if(!$email){
 				<option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
 				<option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
 				</select>
-				<span id='remove_<?php echo $index ;?>' class='remove'>Remove</span>
+				<span id='remove_<?php echo $index ;?>' class='remove'></span>
 				<?php $index++; } } else { ?>
-				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1' >
+				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1' class="mTop-5" >
 				<select name="proficiency" id="proficiency_1" required>
 				<option>Fresher</option>
 				<option>Basic</option>
