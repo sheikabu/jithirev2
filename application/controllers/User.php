@@ -262,20 +262,24 @@ class User extends CI_Controller {
 
 				$skill_array =  $this->input->post('skill');
 				$profi_array = $this->input->post('proficiency');
-
-				//$skill_array1 =  $this->input->post('skill1');
-				//$profi_array1 = $this->input->post('proficiency1');
-
-				$firstsetskills = array_combine($skill_array, $profi_array);
-				var_dump($firstsetskills);
-				//$cpro = array_combine($skill_array1, $profi_array1);
+				//$firstsetskills = $skill_array.'@'.$skill_array;
+				$fpro = array_combine($skill_array, $profi_array);
+				$firstsetskills = json_encode($fpro, true);	
+				var_dump($firstsetskills); echo '<br>';
+				$skills = $firstsetskills;
 				
-				//$results = array_combine($cskill, $cpro);
-				//$results  = array_merge($cskill,$cpro);
+				if($this->input->post('skill1')!=''){
+				$skill_array1 =  $this->input->post('skill1');
+				$profi_array1 = $this->input->post('proficiency1');
+				$cpro = array_combine($skill_array1, $profi_array1);
+				$secsetskills = json_encode($cpro, true);	
+				var_dump($secsetskills); echo '<br>';
+				$skills =json_encode(array_merge(json_decode($firstsetskills, true),json_decode($secsetskills, true)));
+			    }
 
-				$skills = json_encode($firstsetskills, true);			
-		 		 
-				var_dump($Skills); exit;
+				
+
+				var_dump($skills);  exit;
 
 				 
 				 $user_details=array(
