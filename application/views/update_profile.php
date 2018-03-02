@@ -304,7 +304,7 @@ if(!$email){
 				<option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
 				<option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
 				</select>
-				<span id='remove_<?php echo $index ;?>' class='remove'></span>
+				<span id='remove_<?php echo $index ;?>' class='remove'>Remove</span>
 				<?php $index++; } } else { ?>
 				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1' class="mTop-5" >
 				<select name="proficiency" id="proficiency_1" required>

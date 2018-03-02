@@ -279,8 +279,6 @@ class User extends CI_Controller {
 
 				
 
-				var_dump($skills);  exit;
-
 				 
 				 $user_details=array(
 		 			'name' => $this->input->post('first_name'),					
