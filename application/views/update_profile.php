@@ -109,7 +109,7 @@ if(!$email){
 	              
 	              	 <div class="col-xs-12 mTop-5">
 	                   <label class="col-md-12">Total IT experience</label><div class="col-md-12"> 
-	                    <select name="total_experience" class="form-control" placeholder="total_experience" value="<?php echo $get_candidate_info['total_experience']; ?>"required >
+	                    <select name="total_experience" id="total_experience" class="form-control" placeholder="total_experience" required onchange="showDiv(this)">
 	                    <option value=''>--YEAR--</option>
 	                    <option value ='0-1' <?php if($get_candidate_info['total_experience'] == '0-1') echo"selected"; ?>>Fresher</option>
 	                    <option value ='1-2' <?php if($get_candidate_info['total_experience'] == '1-2') echo"selected"; ?>>1-2</option>
@@ -133,7 +133,7 @@ if(!$email){
 	                </div>
 	                </div>
 	              
-	                  <div class="col-xs-12 mTop-5">
+	                  <div class="col-xs-12 mTop-5" id="pre-role">
 	                  <label class="col-md-12">Previous Role</label><div class="col-md-12"> 
 	                  <input type="text" name="role" class="form-control" placeholder="Role" value="<?php echo $get_candidate_info['role']; ?>" required>
 	                  
@@ -173,13 +173,13 @@ if(!$email){
 	                  <label class="col-md-6">Preferred location</label>
 	                  <div class="col-md-6 pull-right">
                                                 <div class="checkbox">
-                                                    <input type="checkbox" name="preferred_location[]" value="<?php echo $get_candidate_info['preferred_location']; ?>" id="any-location">
+                                                    <input type="checkbox" name="anylocation" id="any-location">
                                                     <label for="any-location" >Any locaton</label>
                                                 </div>
                         </div>
 					</div>
 				
-	                  <div class="col-md-12"> 
+	                  <div class="col-md-12" id="preferred_location"> 
 	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
 	                  <select name="preferred_location[]" class="form-control"  placeholder="preferred_location[]" value="<?php echo $get_candidate_info['preferred_location']; ?>"required multiple>
 	                    <option value=''>--select--</option>
@@ -195,11 +195,14 @@ if(!$email){
 	                  <label class="col-md-12">Add Domain</label><div class="col-md-12"> 
 	                    <?php $locations  = json_decode($get_candidate_info['']); ?>
 	                  <select name="preferred_location1[]" required class="form-control" multiple>
-	                    <option value=''>--select--</option>
-	                    <option value ='1' <?php if (in_array('1', $locat)) { echo"selected"; } ?>>PM</option>
-	                    <option value ='2' <?php if (in_array('2', $locat)) { echo"selected"; } ?>>Software Engineer</option>
-	                    <option value ='5' <?php if (in_array('5', $locat)) { echo"selected"; } ?>>Programmer Trainee</option>
-	                  </select>
+	                <option value=''>--select--</option>
+	                <option value ='1' <?php if (in_array('1$', $locat)) { echo"selected"; } ?>>Finance</option>
+	  				<option value ='2' <?php if (in_array('2', $locat)) { echo"selected"; } ?>>Operations Management</option>
+	                <option value ='5' <?php if (in_array('5', $locat)) { echo"selected"; } ?>>Supply Chain & Logistics</option>
+					<option value ='6' <?php if (in_array('6', $locat)) { echo"selected"; } ?>>Banking & Insurance</option>
+					<option value ='7' <?php if (in_array('7', $locat)) { echo"selected"; } ?>>Manufacturing & Product Design</option>
+					<option value ='8' <?php if (in_array('8', $locat)) { echo"selected"; } ?>>Health</option>
+						                  </select>
 	                </div>
 	    </div>
 	 </div>
@@ -449,9 +452,29 @@ if(!$email){
 </script>
 
 
+<script>
+$('#any-location').change(function(){
+    if($(this).is(":checked"))
+    $('#preferred_location').fadeOut('slow');
+    else
+    $('#preferred_location').fadeIn('slow');
 
+    });
+</script>
 
+<script>
+$(document).ready(function(){
+  // Use className or Id instead of direct tag name
+  $('#total_experience').on('change', function() {
+    var val = $(this).val();
+    if(val=='0-1')
+    $('#pre-role').fadeOut('slow');
+    else
+    $('#pre-role').fadeIn('slow');
+  })
+});
 
+</script>
        
  
      
