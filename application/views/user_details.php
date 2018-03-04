@@ -106,6 +106,20 @@ if(!$email){
 		                  <label class="col-md-4">Preferred Roles: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['preferred_roles']; ?></span>
 		                </div>
+						 <?php
+		                  	if($get_candidate_info['job_type'] == 'Permanent') {
+			               $job_type= 'Permanent'; 
+			               } elseif($get_candidate_info['job_type'] == 'Short Term') {
+			               $job_type= 'Short Term'; 
+			               }elseif($get_candidate_info['job_type'] == 'Both') {
+			               $job_type= 'Both'; 
+			               }
+						   
+		                ?>
+						 <div class="col-xs-12">
+		                  <label class="col-md-4">Job Type: </label>
+		                  <span class="col-md-8"><?php echo $job_type; ?></span>
+		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Skills: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['skills']; ?></span>
@@ -145,25 +159,41 @@ if(!$email){
 		                
 		                <?php
 		                $locations  = json_decode($get_candidate_info['preferred_location']);
-		                if(in_array('1', $locations)) {
+		                if(in_array('Trivandrum', $locations)) {
 		               $locations= 'Trivandrum'; 
-		               } elseif(in_array('2', $locations)) {
+		               } elseif(in_array('Chennai', $locations)) {
 		               $locations= 'Chennai'; 
-		               }elseif(in_array('3', $locations)) {
+		               }elseif(in_array('Madurai', $locations)) {
 		               $locations= 'Madurai'; 
-		               }elseif(in_array('4', $locations)) {
+		               }elseif(in_array('Kochi', $locations)) {
 		               $locations= 'Kochi'; 
-		               }elseif(in_array('5', $locations)) {
-		               $locations= 'Bangalore'; 
+		               }elseif(in_array('Bengalore', $locations)) {
+		               $locations= 'Bengalore'; 
 		               }
 		                ?>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Preferred location: </label>
 		                  <span class="col-md-8"><?php echo $locations; ?></span>
 		                </div>
+						 <?php
+		                $locations  = json_decode($get_candidate_info['add_domain']);
+		                if(in_array('Finance', $locat)) {
+		               $locations= 'Finance'; 
+		               } elseif(in_array('Operations Management', $locat)) {
+		               $locations= 'Operations Management'; 
+		               }elseif(in_array('Supply Chain & Logistics', $locat)) {
+		               $locations= 'Supply Chain & Logistics'; 
+		               }elseif(in_array('Banking & Insurance', $locat)) {
+		               $locations= 'Banking & Insurance'; 
+		               }elseif(in_array('Manufacturing & Product Design', $locat)) {
+		               $locations= 'Manufacturing & Product Design'; 
+		               }elseif(in_array('Health', $locat)) {
+		               $locations= 'Health'; 
+		               }
+		                ?>
 						 <div class="col-xs-12">
 		                  <label class="col-md-4">Add Domain: </label>
-		                  <span class="col-md-8"><?php echo $add_domain; ?></span>
+		                  <span class="col-md-8"><?php echo $locat; ?></span>
 		                </div>
 						
 		                

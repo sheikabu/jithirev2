@@ -1,3 +1,4 @@
+`
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -135,12 +136,11 @@ if(!$email){
  					
 	                <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Job Type</label><div class="col-md-12"> 
-	                    <select name="" required class="form-control">
-	                   
-	                    
-	                    <option value ='2' <?php if($get_candidate_info[''] == '2') echo"selected"; ?>>Permanent</option>
-	                    <option value ='3' <?php if($get_candidate_info[''] == '3') echo"selected"; ?>>Short Term</option>
-	                    <option value ='4' <?php if($get_candidate_info[''] == '4') echo"selected"; ?>>Both</option>
+	                   <select name="job_type"  required class="form-control">
+						 <option value=''>--select--</option>
+	                    <option value ='Permanent' <?php if($get_candidate_info['job_type'] == 'Permanent') echo"selected"; ?>>Permanent</option>
+	                    <option value ='Short Term' <?php if($get_candidate_info['job_type'] == 'Short Term') echo"selected"; ?>>Short Term</option>
+	                    <option value ='Both' <?php if($get_candidate_info['job_type'] == 'Both') echo"selected"; ?>>Both</option>
 	                  </select>
 	                </div>
 	                </div>
@@ -156,7 +156,7 @@ if(!$email){
 	 	<div class="col-xs-12">
 		                  <label class="col-md-12">Expected CTC</label>
 		                  <div class="col-md-12"> 
-		                <input type="text" name="salary_lakhs" class="form-control" placeholder="salary_lakhs" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required>
+		                <input type="text" name="salary_lakhs" class="form-control" placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required>
 		        </div>
 	                </div>
 	 	 <div class="col-xs-12 mTop-5">
@@ -176,25 +176,25 @@ if(!$email){
 	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
 	                  <select name="preferred_location[]" class="form-control"  placeholder="preferred_location[]" value="<?php echo $get_candidate_info['preferred_location']; ?>"required multiple>
 	                    <option value=''>--select--</option>
-	                    <option value ='1' <?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
-	                    <option value ='2' <?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
-	                    <option value ='3' <?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
-	                    <option value ='4' <?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
-	                    <option value ='5' <?php if (in_array('Bengalore', $locations)) { echo"selected"; } ?>>Bengalore</option>
+	                    <option value ='Trivandrum' <?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
+	                    <option value ='Chennai' <?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
+	                    <option value ='Madurai' <?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
+	                    <option value ='Kochi' <?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
+	                    <option value ='Bengalore' <?php if (in_array('Bengalore', $locations)) { echo"selected"; } ?>>Bengalore</option>
 	                  </select>
 	                </div>
 	    </div>
-	     <div class="col-xs-12 mTop-5">
-	                  <label class="col-md-12">Add Domain</label><div class="col-md-12"> 
-	                    <?php $locations  = json_decode($get_candidate_info['']); ?>
-	                  <select name="preferred_location1[]" required class="form-control" multiple>
+	     <div class="col-xs-12 mTop-5" >
+	                  <label class="col-md-12">Add Domain</label><div class="col-md-12" id="add_domain"> 
+	                    <?php $locat  = json_decode($get_candidate_info['add_domain']); ?>
+	                  <select name="add_domain[]"  class="form-control"  placeholder="add_domain[]" value="<?php echo $get_candidate_info['add_domain']; ?>" required  multiple>
 	                <option value=''>--select--</option>
-	                <option value ='1' <?php if (in_array('1$', $locat)) { echo"selected"; } ?>>Finance</option>
-	  				<option value ='2' <?php if (in_array('2', $locat)) { echo"selected"; } ?>>Operations Management</option>
-	                <option value ='5' <?php if (in_array('5', $locat)) { echo"selected"; } ?>>Supply Chain & Logistics</option>
-					<option value ='6' <?php if (in_array('6', $locat)) { echo"selected"; } ?>>Banking & Insurance</option>
-					<option value ='7' <?php if (in_array('7', $locat)) { echo"selected"; } ?>>Manufacturing & Product Design</option>
-					<option value ='8' <?php if (in_array('8', $locat)) { echo"selected"; } ?>>Health</option>
+	                <option value ='Finance' <?php if (in_array('Finance', $locat)) { echo"selected"; } ?>>Finance</option>
+	  				<option value ='Operations Management' <?php if (in_array('Operations Management', $locat)) { echo"selected"; } ?>>Operations Management</option>
+	                <option value ='Supply Chain & Logistics' <?php if (in_array('Supply Chain & Logistics', $locat)) { echo"selected"; } ?>>Supply Chain & Logistics</option>
+					<option value ='Banking & Insurance' <?php if (in_array('Banking & Insurance', $locat)) { echo"selected"; } ?>>Banking & Insurance</option>
+					<option value ='Manufacturing & Product Design' <?php if (in_array('Manufacturing & Product Design', $locat)) { echo"selected"; } ?>>Manufacturing & Product Design</option>
+					<option value ='Health' <?php if (in_array('Health', $locat)) { echo"selected"; } ?>>Health</option>
 						                  </select>
 	                </div>
 	    </div>
@@ -324,10 +324,10 @@ if(!$email){
 				$index = 1; foreach($skills as $keys => $values) { ?>
 				<input type='text' name="skill[]" value='<?php echo $keys; ?>' placeholder='Enter your skill' id='txt_<?php echo $index ;?>' >
 				<select name="proficiency[]" id="proficiency_1" required>
-				<option <?php if($values=='Fresher') { echo 'selected'; } ?>>Fresher</option>
-				<option <?php if($values=='Basic') { echo 'selected'; } ?>>Basic</option>
-				<option <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
-				<option <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
+				<option value="Fresher" <?php if($values=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+				<option value="Fresher" <?php if($values=='Basic') { echo 'selected'; } ?>>Basic</option>
+				<option value="Fresher" <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
+				<option value="Fresher" <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
 				</select>
 <!-- <<<<<<< HEAD -->
 				<span id='remove_<?php echo $index ;?>' class='remove hidden'></span>
