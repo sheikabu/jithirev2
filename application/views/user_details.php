@@ -137,15 +137,10 @@ if(!$email){
 		                  <label class="col-md-4">IT experience: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['total_experience']; ?> Year(s)</span>
 		                </div>
-		                <?php
-		                if($get_candidate_info['industry'] == '1') {
-		               $industry = 'IT-Software/Software Services'; 
-		               
-		               }
-		                ?>
+		                
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Industry: </label>
-		                  <span class="col-md-8"><?php echo $industry; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['industry']; ?></span>
 		                </div>
 		                
 		                <?php
@@ -165,6 +160,10 @@ if(!$email){
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Preferred location: </label>
 		                  <span class="col-md-8"><?php echo $locations; ?></span>
+		                </div>
+						 <div class="col-xs-12">
+		                  <label class="col-md-4">Add Domain: </label>
+		                  <span class="col-md-8"><?php echo $add_domain; ?></span>
 		                </div>
 						
 		                

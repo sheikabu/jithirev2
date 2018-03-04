@@ -95,15 +95,8 @@ if(!$email){
 	
 			<div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Industry</label><div class="col-md-12"> 
-	                   <input type="text" name="" class="form-control" placeholder="IT-Software/Software Services" >
-	                  <!-- <select name="industry"  class="form-control" required>
-	                    <option value=''>--select--</option>
-	                    <option value ='1' <?php if($get_candidate_info['industry'] == '1') echo"selected"; ?> >Accounting/Finance</option>
-	                    <option value ='2' <?php if($get_candidate_info['industry'] == '2') echo"selected"; ?> >Advertising/PR/MR/Events</option>
-	                    <option value ='3' <?php if($get_candidate_info['industry'] == '3') echo"selected"; ?> >Animation</option>
-	                    <option value ='4' <?php if($get_candidate_info['industry'] == '4') echo"selected"; ?> >IT-Software/Software Services</option>
-	                    <option value ='5' <?php if($get_candidate_info['industry'] == '5') echo"selected"; ?> >KPO / Research /Analytics</option>
-	                  </select> -->
+	                   <input type="text" name="industry" class="form-control" placeholder="IT-Software/Software Services" value="<?php echo $get_candidate_info['industry']; ?>">
+	                  
 	                </div>
 	                </div>
 	              
@@ -292,7 +285,7 @@ if(!$email){
         	<div id="sections">
         
                   <input name="primaryskill" placeholder="Skill" type="text" required />
-                  <select name="primaryproficiency" id="proficiency" required>
+                  <select name="primary" id="ttyty" required>
 
                     <option>Basic</option>
                     <option>Intermediate</option>
