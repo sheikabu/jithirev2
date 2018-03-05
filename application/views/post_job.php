@@ -23,14 +23,52 @@ if(!$email){
 			<?php echo form_open('user/insert_job_post');?>
 <div class="row">
 	<div class="col-md-6">
+	 <div class="form-group">
+               <label>Jobcode </label>
+                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="" required>
+            </div>
 			 <div class="form-group">
                <label>Role</label>
                 <input name="role" class="form-control" placeholder="Role*" type="text" value="" required>
             </div>
-          <div class="form-group">
-                <label>Min Experience</label><br>
-              <input name="min_exp" class="form-control" placeholder="Min Experience*" type="text" value="" required>
-            </div> 
+			 <div class="form-group salary-form-group">
+				<label>Experience</label>
+				 <div class="min_exp">Min Experience
+					<select name="min_exp" required class="form-control">
+					<option value=''>--MIN EXP--</option>
+					<option value ='0'>0</option>
+					<option value ='1'>1</option>
+					<option value ='2'>2</option>
+					<option value ='3'>3</option>
+					<option value ='4'>4</option>
+					<option value ='5'>5</option>
+					<option value ='6'>6</option>
+					<option value ='7'>7</option>
+					<option value ='8'>8</option>
+					<option value ='9'>9</option>
+					<option value ='10'>10</option>
+				</select>
+				</div>
+				<div class="thousands">Max Experience
+					<select name="max_exp" required class="form-control">
+					<option value=''>--MAX EXP--</option>
+					<option value ='0'>0</option>
+					<option value ='1'>1</option>
+					<option value ='2'>2</option>
+					<option value ='3'>3</option>
+					<option value ='4'>4</option>
+					<option value ='5'>5</option>
+					<option value ='6'>6</option>
+					<option value ='7'>7</option>
+					<option value ='8'>8</option>
+					<option value ='9'>9</option>
+					<option value ='10'>10</option>
+					<option value ='15'>15</option>
+					<option value ='20'>20</option>
+				</select>
+				</div>
+			</div>
+           
 
             <div class="form-group">
             <label>Skills</label>
