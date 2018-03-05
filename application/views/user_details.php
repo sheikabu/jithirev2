@@ -105,37 +105,40 @@ if(!$email){
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Preferred Roles: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['preferred_roles']; ?></span>
-		                </div>
-						 <?php
-		                  	if($get_candidate_info['job_type'] == 'Permanent') {
-			               $job_type= 'Permanent'; 
-			               } elseif($get_candidate_info['job_type'] == 'Short Term') {
-			               $job_type= 'Short Term'; 
-			               }elseif($get_candidate_info['job_type'] == 'Both') {
-			               $job_type= 'Both'; 
-			               }
-						   
-		                ?>
+		                </div>						
 						 <div class="col-xs-12">
 		                  <label class="col-md-4">Job Type: </label>
-		                  <span class="col-md-8"><?php echo $job_type; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['job_type']; ?></span>
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Skills: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['skills']; ?></span>
+		                  <span class="col-md-8">
+		                  <?php 
+		                  $skill1 = json_decode($get_candidate_info['skill1']);
+		                  $skill2 = json_decode($get_candidate_info['skill2']);
+		                  $skill3 = json_decode($get_candidate_info['skill3']);
+		                  $skill4 = json_decode($get_candidate_info['skill4']);
+		                  $skill5 = json_decode($get_candidate_info['skill5']);
+		                  foreach ($skill1 as $key1 => $value1)
+		                  echo $skill1 .= $key1.'-'.$value1.'<br>';
+			              foreach ($skill2 as $key2 => $value2)
+			                  echo $skill2 .= $key2.'-'.$value2.'<br>';
+			              foreach ($skill3 as $key3 => $value3)
+			                  echo $skill3 .= $key3.'-'.$value3.'<br>';
+			              foreach ($skill4 as $key4 => $value4)
+			                  echo $skill4 .= $key4.'-'.$value4.'<br>';
+			              foreach ($skill5 as $key5 => $value5)
+			                  echo $skill5 .= $key5.'-'.$value5.'<br>';
+			                  ?>
+		                  </span>
 		                </div>
 		               
-			</div>
-			<div class="col-md-5">
-				 <?php
-		                  	if($get_candidate_info['gender'] == 'm') {
-			               $gender= 'Male'; 
-			               } elseif($get_candidate_info['gender'] == 'f') {
-			               $gender= 'Female'; 
-			               }
-		                ?>
+						</div>
+						<div class="col-md-5">
+				
 		               <div class="col-xs-12">
 		                  <label class="col-md-4">Gender: </label>
+		                  <?php if($get_candidate_info['gender']=='m') { $gender = 'Male';} else { $gender = 'Female'; } ?>
 		                  <span class="col-md-8"><?php echo $gender; ?></span>
 		                </div>
 				<div class="col-xs-12">
@@ -158,42 +161,32 @@ if(!$email){
 		                </div>
 		                
 		                <?php
-		                $locations  = json_decode($get_candidate_info['preferred_location']);
-		                if(in_array('Trivandrum', $locations)) {
-		               $locations= 'Trivandrum'; 
-		               } elseif(in_array('Chennai', $locations)) {
-		               $locations= 'Chennai'; 
-		               }elseif(in_array('Madurai', $locations)) {
-		               $locations= 'Madurai'; 
-		               }elseif(in_array('Kochi', $locations)) {
-		               $locations= 'Kochi'; 
-		               }elseif(in_array('Bengalore', $locations)) {
-		               $locations= 'Bengalore'; 
-		               }
+		                $locations  = json_decode($get_candidate_info['preferred_location']);		                             
 		                ?>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Preferred location: </label>
-		                  <span class="col-md-8"><?php echo $locations; ?></span>
+		                  <span class="col-md-8">
+		                  <?php 
+		                  foreach ($locations as $key => $value) {
+		                  	 $location .= $value.', ';
+		                  } 
+		                  echo rtrim($location,', '); 
+		                  ?>
+		                 </span>
 		                </div>
 						 <?php
-		                $locations  = json_decode($get_candidate_info['add_domain']);
-		                if(in_array('Finance', $locat)) {
-		               $locations= 'Finance'; 
-		               } elseif(in_array('Operations Management', $locat)) {
-		               $locations= 'Operations Management'; 
-		               }elseif(in_array('Supply Chain & Logistics', $locat)) {
-		               $locations= 'Supply Chain & Logistics'; 
-		               }elseif(in_array('Banking & Insurance', $locat)) {
-		               $locations= 'Banking & Insurance'; 
-		               }elseif(in_array('Manufacturing & Product Design', $locat)) {
-		               $locations= 'Manufacturing & Product Design'; 
-		               }elseif(in_array('Health', $locat)) {
-		               $locations= 'Health'; 
-		               }
+		                $domains  = json_decode($get_candidate_info['add_domain']);		               
 		                ?>
 						 <div class="col-xs-12">
 		                  <label class="col-md-4">Add Domain: </label>
-		                  <span class="col-md-8"><?php echo $locat; ?></span>
+		                  <span class="col-md-8">
+							<?php 
+							foreach ($domains as $key => $value) {
+							$domain .= $value.', ';
+							} 
+							echo rtrim($domain,', ');
+							?>
+		                  </span>
 		                </div>
 						
 		                

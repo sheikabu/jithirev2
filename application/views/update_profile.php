@@ -96,7 +96,7 @@ if(!$email){
 	
 			<div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Industry</label><div class="col-md-12"> 
-	                   <input type="text" name="industry" class="form-control" placeholder="IT-Software/Software Services" value="<?php echo $get_candidate_info['industry']; ?>">
+	                   <input type="text" name="industry" value="IT-Software/Software Services" readonly class="form-control" placeholder="IT-Software/Software Services" value="<?php echo $get_candidate_info['industry']; ?>">
 	                  
 	                </div>
 	                </div>
@@ -165,13 +165,13 @@ if(!$email){
 	 	 			<div class="col-xs-12">
 	                  <label class="col-md-6">Preferred location</label>
 	                  <div class="col-md-6 pull-right">
-                                                <div class="checkbox">
-                                                    <input type="checkbox" name="anylocation" id="any-location">
-                                                    <label for="any-location" >Any locaton</label>
-                                                </div>
+                            <div class="checkbox">
+                                <input type="checkbox" <?php if ($get_candidate_info['preferred_location']=='on'){ echo"checked"; } ?> name="anylocation" id="any-location">
+                                <label for="any-location" >Any locaton</label>
+                            </div>
                         </div>
 					</div>
-				
+						
 	                  <div class="col-md-12" id="preferred_location"> 
 	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
 	                  <select name="preferred_location[]" class="form-control"  placeholder="preferred_location[]" value="<?php echo $get_candidate_info['preferred_location']; ?>"required multiple>
@@ -294,20 +294,20 @@ if(!$email){
                 <div class="col-md-12">
                 
         <div class="form-group">
-          
+        	<?php $primary_skill  = json_decode($get_candidate_info['primary_skill'],true); 
+        		foreach($primary_skill as $key => $val) {
+        	?>
         	<div id="sections">
-        
-                  <input name="primaryskill" placeholder="Skill" type="text" required />
-                  <select name="primary" id="ttyty" required>
-
-                    <option>Basic</option>
-                    <option>Intermediate</option>
-                    <option>Advanced</option>
+                  <input name="primaryskill[]" placeholder="Skill" type="text" required value="<?php echo $key; ?>" />
+                  <select name="primarypro[]" id="ttyty" required>
+                     <option <?php if($val=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
                   </select>
-   
       		</div>
+      		<?php } ?>
 		</div>
-      
       </div>
                 </div>
                 </div>
@@ -332,33 +332,73 @@ if(!$email){
 				<fieldset>
 				<div class="container paddingL-0" >
 				<div class='element' id='div_1'>
-				<?php $skills = json_decode($get_candidate_info['skills']);
-				if($skills!='') {
-				$index = 1; foreach($skills as $keys => $values) { ?>
-				<input type='text' name="skill[]" value='<?php echo $keys; ?>' placeholder='Enter your skill' id='txt_<?php echo $index ;?>' >
-				<select name="proficiency[]" id="proficiency_1" required>
-				<option value="Fresher" <?php if($values=='Fresher') { echo 'selected'; } ?>>Fresher</option>
-				<option value="Fresher" <?php if($values=='Basic') { echo 'selected'; } ?>>Basic</option>
-				<option value="Fresher" <?php if($values=='Intermediate') { echo 'selected'; } ?>>Intermediate</option>
-				<option value="Fresher" <?php if($values=='Advanced') { echo 'selected'; } ?>>Advanced</option>
-				</select>
-<!-- <<<<<<< HEAD -->
-				<span id='remove_<?php echo $index ;?>' class='remove hidden'></span>
-<!-- ======= -->
-				<!-- <span id='remove_<?php echo $index ;?>' class='remove'>Remove</span> -->
-<!-- >>>>>>> e1f7714a34f28684ecd402e6b6018077700dc567 -->
-				<?php $index++; } } else { ?>
-				<input type='text' name="skill" placeholder='Enter your skill' id='txt_1'>
-				<select name="proficiency" id="proficiency_1" required>
-				<option>Fresher</option>
-				<option>Basic</option>
-				<option>Intermediate</option>
-				<option>Advanced</option>
-				</select>
-				<span id='remove_<?php echo $index ;?>' class='remove'>Remove</span>
-				<?php } ?>
+				
+				<!--skill1-->
+				<?php $skill1  = json_decode($get_candidate_info['skill1'],true); 				
+        		foreach($skill1 as $key => $val)
+        		if($key=='') {$val = 'Fresher';}
+        	    ?>
+				 <input name="skill1[]" placeholder="Skill" type="text" value="<?php echo $key; ?>"  />
+                  <select name="skillpro1[]" required>
+                     <option <?php if($val=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
+                  </select>                  
+                  <!--skill1 END-->
+                  <!--skill2-->
+                  <?php $skill2  = json_decode($get_candidate_info['skill2'],true); 					
+	        		foreach($skill2 as $key2 => $val2)
+	        		if($key2=='') {$val2 = 'Fresher';}
+	        	    ?>
+				 <input name="skill2[]" placeholder="Skill" type="text" value="<?php echo $key2; ?>"  />
+                  <select name="skillpro2[]" required>
+                     <option <?php if($val2=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
+                  </select>                  
+                  <!--skill2 END-->
+                  <!--skill3-->
+                  <?php $skill3  = json_decode($get_candidate_info['skill3'],true); 					
+	        		foreach($skill3 as $key3 => $val3)
+	        		if($key3=='') {$val3 = 'Fresher';}
+	        	    ?>
+				 <input name="skill3[]" placeholder="Skill" type="text"  value="<?php echo $key3; ?>"  />
+                  <select name="skillpro3[]" required>
+                     <option <?php if($val3=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val3=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val3=='Advanced') { echo"selected"; } ?>>Advanced</option>
+                  </select>
+                  <!--skill3 END-->
+                  <!--skill4-->
+                   <?php $skill4  = json_decode($get_candidate_info['skill4'],true); 					
+	        		foreach($skill4 as $key4 => $val4)
+	        		if($key4=='') {$val4 = 'Fresher';}
+	        	    ?>
+				 <input name="skill4[]" placeholder="Skill" type="text"  value="<?php echo $key4; ?>" />
+                  <select name="skillpro4[]" required>
+                     <option <?php if($val4=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val4=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val4=='Advanced') { echo"selected"; } ?>>Advanced</option>
+                  </select>
+                  <!--skill4 END-->
+                  <!--skill5-->
+                  <?php $skill5  = json_decode($get_candidate_info['skill5'],true); 					
+	        		foreach($skill5 as $key5 => $val5)
+	        		if($key5=='') {$val5 = 'Fresher';}
+	        	    ?>
+				 <input name="skill5[]" placeholder="Skill" type="text"  value="<?php echo $key5; ?>" />
+                  <select name="skillpro5[]" required>
+                     <option <?php if($val5=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if ($val5=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val5=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val5=='Advanced') { echo"selected"; } ?>>Advanced</option>
+                  </select>
+                  <!--skill5 END-->
 
-				<span class='add'><span class="btn btn-fill mBot-10" class='addsection'><i class="fa fa-plus" aria-hidden="true"></i></span></span>
 				</div>
 				</div>
 				</fieldset>

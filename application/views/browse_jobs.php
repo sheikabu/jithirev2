@@ -20,19 +20,10 @@ if(!$email){
 <!-- Matching Job -->
     <section id="matching-job">
       <div class="container matching_job_container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="section-heading text-uppercase">Matching Job</h2>
-          </div>
-        </div>
+        
         <div class="row">
           
-          <div class="col-md-12 mTop-20">
-            <div class="row">
-              <div class="col-md-12">
-                <h6><a href="#"><?php echo $values['role'];?></a></h6>
-              </div>
-            </div>
+          <div class="col-md-12 mTop-20">         
             <div class="row">
               <div class="col-md-12">
                 <span>Company:</span><label><?php echo $values['company_name'];?></label>
