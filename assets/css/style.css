@@ -670,11 +670,17 @@ select.form-control:not([size]):not([multiple]) {
     text-indent: -9999px;
     width: 88px;
     height: 88px;
-    background: url('http://localhost/jithirev2/upload/photos/peo.jpg');
+    /*background: url('http://localhost/jithirev2/upload/photos/peo.jpg');*/
     background-size:cover;
     cursor: pointer;
 }	
-
+section#matching-job{
+  padding: 10px 0 !important;
+}
+#matching-job .btn-form{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+}
 
  /*---------------------------------------------- */ 
 @media (min-width: 992px) {
