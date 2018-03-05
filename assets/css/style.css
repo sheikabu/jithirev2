@@ -666,7 +666,17 @@ select.form-control:not([size]):not([multiple]) {
    text-decoration: underline;
    color: #007bff; 
 }
-	
+.upload-photo-wrap .photo{
+    text-indent: -9999px;
+    width: 88px;
+    height: 88px;
+    background: url('http://localhost/jithirev2/upload/photos/peo.jpg');
+    background-size:cover;
+    cursor: pointer;
+}	
+
+
+ /*---------------------------------------------- */ 
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 5px!important;
