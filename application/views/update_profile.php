@@ -210,25 +210,38 @@ if(!$email){
 	    <!-- Upload photo -->
 	    <div class="col-md-4">
 	    
-	            <div id="upload_photo-view">
+	            <div id="upload_photo-view" class="upload-photo-wrap">
 	                 
 	            	<div class="details col-md-12" id="basic-info">
 	             	 
-	              	<label class="col-md-12 paddingL-0 line2">Upload Photo</label>
+	              	<label class="col-md-12 paddingL-0 line2">Upload Photo and Resume</label>
 	                  <!-- photo view -->
 	                  <div class="row">
-	                  <div class="col-md-4">
+	                  <!-- <div class="col-md-4">
 	                  
 	                  <div id="photo-view"></div>
-	                  <div id="photo-show">
-	                   <img src="<?php echo base_url();?>upload/photos/<?php echo $get_candidate_info['photos']; ?>" width="100" height="125" class="img-thumbnail" />
-			</div>
-			</div>
-	       		<div class="col-md-8">
-				     <label class="col-md-12">Upload your Latest Photo </label><div class="col-md-12">
-				      <input type="file" name="image_file" size="20"  />
-				      <input type="hidden" value="<?php echo $get_candidate_info['photos']; ?>" name="old_image">
-				</div>
+	                  	<div id="photo-show">
+	                   		<img src="<?php echo base_url();?>upload/photos/<?php echo $get_candidate_info['photos']; ?>" width="100" height="125" class="img-thumbnail" />
+						</div>
+					</div> -->
+	       		<div class="col-md-12">
+	       			<div class="row">
+					     <!-- <label class="col-md-12">Upload your Latest Photo </label> -->
+					     <div class="col-md-4">
+					      <input type="file" name="image_file" size="20" class="photo"   />
+					      <input type="hidden" value="<?php echo $get_candidate_info['photos']; ?>" name="old_image">
+						</div>
+						<div class="col-md-8">
+							<!-- <label>Upload your Latest Resume </label> -->
+							<div id="resume-show">
+			                   	<div><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a>
+			                   	</div>
+			                </div>
+							<div><input type="file" name="resume_file" id="image_file" size="20"  />
+		                   		<input type="hidden" value="<?php echo $get_candidate_info['resume']; ?>" name="old_resume">
+							</div>
+						</div>
+					</div>
 			</div>
 			</div>
 	               <!--  <div class="btn-form text-right  mTop-5 col-xs-12">
@@ -237,35 +250,35 @@ if(!$email){
 	            </div>
 	            </form>
 	            </div>
-	            <!-- Resume -->
-	            	  <div id="upload_resume-view" class=" mTop-20">
+	            <!-- Resume hidden -->
+	            <!-- <div id="upload_resume-view" class=" mTop-20">
 	              <div id="resume-view-smsg"></div>
 	                  
 	            <div class="details col-md-12" id="basic-info">
 	              
 	              <label class="col-md-12 paddingL-0 line2">Upload Resume</label>
-	                <div class="row">
+	                <div class="row"> -->
 	                  <!-- First Name -->
-	                  <div class="col-md-12">
+	                  <!-- <div class="col-md-12">
 	                  <div id="resume-view"></div>
 	
 	                  <div id="resume-show">
 	                   <div><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a></div>
 	                  </div>
 	                  </div>
-	                    <div class="col-md-12">
+	                <div class="col-md-12">
 	                  <label>Upload your Latest Resume </label>
-	                  <div><input type="file" name="resume_file" id="image_file" size="20"  />
-	                   <input type="hidden" value="<?php echo $get_candidate_info['resume']; ?>" name="old_resume">
-	</div>
-			</div>
-	                </div>
+	                  	<div><input type="file" name="resume_file" id="image_file" size="20"  />
+	                   		<input type="hidden" value="<?php echo $get_candidate_info['resume']; ?>" name="old_resume">
+						</div>
+					</div>
+	                </div> -->
 	                <!--  <div class="btn-form text-right mTop-5 col-xs-12">
 	                  <button class="btn btn-fill mBot-10">Upload Resume</button>
 	                </div> -->
-	            </div>
+	            <!-- </div>
 	            </form>
-	            </div>
+	            </div> -->
 	            <!-- end Resume -->
 	            
 	       </div>
