@@ -661,6 +661,11 @@ h2.section-heading{
 select.form-control:not([size]):not([multiple]) {
     height: calc(1.8rem + 2px) !important;
 }
+
+.active{
+   text-decoration: underline;
+   color: #007bff; 
+}
 	
 @media (min-width: 992px) {
     #mainNav {
