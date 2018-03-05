@@ -284,12 +284,30 @@ class User extends CI_Controller {
 				$skill1_combine = array_combine($skill1_array, $skillpro1_array);
 				$skill1 = json_encode($skill1_combine, true);	
 				//SKILL 1 END	
-				//SKILL 1
+				//SKILL 2
 				$skill2_array =  $this->input->post('skill2');
 				$skillpro2_array = $this->input->post('skillpro2');				
 				$skill2_combine = array_combine($skill2_array, $skillpro2_array);
 				$skill2 = json_encode($skill2_combine, true);				
-				//SKILL 1 END				
+				//SKILL 2 END	
+				//SKILL 3
+				$skill3_array =  $this->input->post('skill3');
+				$skillpro3_array = $this->input->post('skillpro3');				
+				$skill3_combine = array_combine($skill3_array, $skillpro3_array);
+				$skill3 = json_encode($skill3_combine, true);				
+				//SKILL 3 END	
+				//SKILL 4
+				$skill4_array =  $this->input->post('skill4');
+				$skillpro4_array = $this->input->post('skillpro4');				
+				$skill4_combine = array_combine($skill4_array, $skillpro4_array);
+				$skill4 = json_encode($skill4_combine, true);				
+				//SKILL 4 END				
+				//SKILL 5
+				$skill5_array =  $this->input->post('skill5');
+				$skillpro5_array = $this->input->post('skillpro5');				
+				$skill5_combine = array_combine($skill5_array, $skillpro5_array);
+				$skill5 = json_encode($skill5_combine, true);				
+				//SKILL 5 END				
 				
 				if($this->input->post('anylocation')=='on') {
 					$preferred_location = 'on';
@@ -303,9 +321,9 @@ class User extends CI_Controller {
 					'resume' => $resume,
 					'skill1' => $skill1,
 					'skill2' => $skill2,
-					'skill3' => $skill1,
-					'skill4' => $skill1,
-					'skill5' => $skill1,
+					'skill3' => $skill3,
+					'skill4' => $skill4,
+					'skill5' => $skill5,
 		 			'email' => $this->input->post('email'), 
 					'pancard' => $this->input->post('pancard'),
 					'mobile_number' => $this->input->post('mobile_number'),
