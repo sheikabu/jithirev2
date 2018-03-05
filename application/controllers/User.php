@@ -221,9 +221,7 @@ class User extends CI_Controller {
 	}
 
 	public function basic_info() { 
-	
-	
-	
+		
 			if(!empty($_FILES["image_file"]["name"]))  
 			{   
 				$config['upload_path'] = 'upload/photos';
@@ -264,27 +262,50 @@ class User extends CI_Controller {
 				$profi_array = $this->input->post('proficiency');
 				//$firstsetskills = $skill_array.'@'.$skill_array;
 				$fpro = array_combine($skill_array, $profi_array);
-				$firstsetskills = json_encode($fpro, true);	
-				var_dump($firstsetskills); echo '<br>';
+				$firstsetskills = json_encode($fpro, true);					
 				$skills = $firstsetskills;
 				
 				if($this->input->post('skill1')!=''){
 				$skill_array1 =  $this->input->post('skill1');
 				$profi_array1 = $this->input->post('proficiency1');
 				$cpro = array_combine($skill_array1, $profi_array1);
-				$secsetskills = json_encode($cpro, true);	
-				var_dump($secsetskills); echo '<br>';
+				$secsetskills = json_encode($cpro, true);					
 				$skills =json_encode(array_merge(json_decode($firstsetskills, true),json_decode($secsetskills, true)));
 			    }
 
-				
+				$p_skill_array =  $this->input->post('primaryskill');
+				$p_profi_array = $this->input->post('primarypro');				
+				$pri_spro = array_combine($p_skill_array, $p_profi_array);
+				$primaryskills = json_encode($pri_spro, true);
 
-				 
+				//SKILL 1
+				$skill1_array =  $this->input->post('skill1');
+				$skillpro1_array = $this->input->post('skillpro1');				
+				$skill1_combine = array_combine($skill1_array, $skillpro1_array);
+				$skill1 = json_encode($skill1_combine, true);	
+				//SKILL 1 END	
+				//SKILL 1
+				$skill2_array =  $this->input->post('skill2');
+				$skillpro2_array = $this->input->post('skillpro2');				
+				$skill2_combine = array_combine($skill2_array, $skillpro2_array);
+				$skill2 = json_encode($skill2_combine, true);				
+				//SKILL 1 END				
+				
+				if($this->input->post('anylocation')=='on') {
+					$preferred_location = 'on';
+				} else {
+					$preferred_location  = json_encode($this->input->post('preferred_location'));
+				}
+
 				 $user_details=array(
 		 			'name' => $this->input->post('first_name'),					
 					'photos' => $image,
 					'resume' => $resume,
-					'skills' => $skills,
+					'skill1' => $skill1,
+					'skill2' => $skill2,
+					'skill3' => $skill1,
+					'skill4' => $skill1,
+					'skill5' => $skill1,
 		 			'email' => $this->input->post('email'), 
 					'pancard' => $this->input->post('pancard'),
 					'mobile_number' => $this->input->post('mobile_number'),
@@ -292,12 +313,15 @@ class User extends CI_Controller {
 					'gender' => $this->input->post('gender'),
 					'user_id' => $this->session->userdata("id"),
 					'total_experience' => $this->input->post("total_experience"),
-					'preferred_location' => json_encode($this->input->post('preferred_location')),
-					'salary_lakhs' => $this->input->post('lakhs'),
+					'preferred_location' => $preferred_location,
+					'salary_lakhs' => $this->input->post('salary_lakhs'),
 					'salary_thousands' => $this->input->post('thousands'),
 					'industry' => $this->input->post('industry'),
 					'preferred_roles' =>$this->input->post('preferred_roles'),
-					'role' => $this->input->post('role')
+					'role' => $this->input->post('role'),
+					'job_type' => $this->input->post('job_type'),
+					'primary_skill' => $primaryskills,
+					'add_domain' =>json_encode($this->input->post('add_domain')),
 					
 		 			);
 
