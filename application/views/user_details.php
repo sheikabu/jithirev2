@@ -110,6 +110,16 @@ if(!$email){
 		                  <label class="col-md-4">Job Type: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['job_type']; ?></span>
 		                </div>
+						<div class="col-xs-12">
+		                  <label class="col-md-4">Primary Skill: </label>
+		                  <span class="col-md-8">
+		                  <?php 
+		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
+		                  foreach ($primary_skill as $key => $value)
+		                  echo $primary_skill .= $key.'-'.$value.'<br>';
+			                ?>
+		                  </span>
+		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Skills: </label>
 		                  <span class="col-md-8">
