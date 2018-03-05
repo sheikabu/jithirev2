@@ -138,7 +138,8 @@ if(!$email){
 				
 		               <div class="col-xs-12">
 		                  <label class="col-md-4">Gender: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['gender']; ?></span>
+		                  <?php if($get_candidate_info['gender']=='m') { $gender = 'Male';} else { $gender = 'Female'; } ?>
+		                  <span class="col-md-8"><?php echo $gender; ?></span>
 		                </div>
 				<div class="col-xs-12">
 		                  <label class="col-md-4">Mobile No:</label>
