@@ -23,6 +23,7 @@ if(!$email){
 			<?php //echo form_open('post_job/insert_job_post');?>
 			<?php foreach($job_list as $key=>$values) { ?>
 				<div class="row">
+				<div class="col-md-6"><span>Job code:</span> <label><?php echo $values['Job_code'];?></label></div>
 				<div class="col-md-6"><span>Role:</span> <label><?php echo $values['role'];?></label></div>
 				<div class="col-md-6"><span>Location:</span><label>
 				<?php $locations= json_decode($values['preferred_location'], true);
