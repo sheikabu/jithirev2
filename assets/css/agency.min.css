@@ -36,12 +36,12 @@ h6 {
 section {
     padding: 100px 0
 }
-section h2.section-heading {
+h2.section-heading {
     font-size: 22px;
     margin-top: 0;
     margin-bottom: 10px;
 }
-section h3.section-subheading {
+h3.section-subheading {
     font-size: 16px;
     font-weight: 400;
     font-style: italic;

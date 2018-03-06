@@ -14,6 +14,7 @@ if(!$email){
 
 <div id="message"></div>
   <div class="mTop-70">
+    
 			<?php //echo form_open('post_job/insert_job_post');?>
 			<?php foreach($job_list as $key=>$values) { ?>
 
