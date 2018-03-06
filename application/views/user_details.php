@@ -122,7 +122,7 @@ if(!$email){
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Skills: </label>
-		                  <span class="col-md-8">
+		                  <span class="col-md-8 pull-right">
 		                  <?php 
 		                  $skill1 = json_decode($get_candidate_info['skill1']);
 		                  $skill2 = json_decode($get_candidate_info['skill2']);
