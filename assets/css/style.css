@@ -342,6 +342,9 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
 box-shadow: none
 }
 /*--------------------------------------*/
+.btn{
+  font-size:13px!important
+}
 .btn-fill{
 	color: #fff;
     background-color: #3a5270;
