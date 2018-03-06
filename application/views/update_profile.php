@@ -229,6 +229,9 @@ if(!$email){
 					     <!-- <label class="col-md-12">Upload your Latest Photo </label> -->
 					     <div class="col-md-4">
 					      <input type="file" name="image_file" size="20" class="photo"   />
+
+					       <img src="<?php echo base_url();?>upload/photos/<?php echo $get_candidate_info['photos']; ?>" width="100" height="125" class="img-thumbnail" />
+					       
 					      <input type="hidden" value="<?php echo $get_candidate_info['photos']; ?>" name="old_image">
 						</div>
 						<div class="col-md-8">
