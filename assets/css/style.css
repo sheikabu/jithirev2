@@ -681,6 +681,10 @@ select.form-control:not([size]):not([multiple]) {
     background-size:cover;
     cursor: pointer;
 }	
+/* IE 10+ */
+.upload-photo-wrap .photo{
+  opacity:0.0;
+}
 section#matching-job{
   padding: 0px 0 !important;
 }
