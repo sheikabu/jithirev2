@@ -33,13 +33,17 @@ if(!$email){
 						?>
 						</label>
 				</div>
+				
+				<div class="col-md-4"><span>Experience:</sapn><label>Min Exp: <?php echo $values['min_exp'];?> ,Max Exp: <?php echo $values['max_exp'];?> </label></div>
+				
 				</div>
 				<div class="row">
 				<div class="col-md-12"><label>Job Description:</label><p> <?php echo $values['job_description'];?></p></div>
 				</div>
 				<div class="row">
 				<div class="col-md-6"><span>No of Positions:</span><label> <?php echo $values['no_positions'];?></label></div>
-				<div class="col-md-3"><span>Max Salary:</sapn><label><?php echo $values['salary_lakhs'];?>Lakhs <?php echo $values['salary_thousands'];?> </label>Thousands </div>
+				<div class="col-md-6"><span>Duration:</span><label> <?php echo $values['duration'];?></label></div>
+				<div class="col-md-4"><span>Max Salary:</sapn><label><?php echo $values['salary_lakhs'];?>Lakhs  </label></div>
 				</div>
 				<div class="row">
 				<div class="col-md-6"><span>Skills: </span><label><?php $skills = json_decode($values['skills'], true);

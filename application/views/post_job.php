@@ -31,11 +31,11 @@ if(!$email){
                <label>Role</label>
                 <input name="role" class="form-control" placeholder="Role*" type="text" value="" required>
             </div>
-			 <div class="form-group salary-form-group">
+			 <div class="form-group ">
 				<label>Experience</label>
-				 <div class="min_exp">Min Experience
+				 <div class="salary">Min Experience
 					<select name="min_exp" required class="form-control">
-					<option value=''>--MIN EXP--</option>
+					<option value=''>Min exp</option>
 					<option value ='0'>0</option>
 					<option value ='1'>1</option>
 					<option value ='2'>2</option>
@@ -51,7 +51,7 @@ if(!$email){
 				</div>
 				<div class="thousands">Max Experience
 					<select name="max_exp" required class="form-control">
-					<option value=''>--MAX EXP--</option>
+					<option value=''>Max exp</option>
 					<option value ='0'>0</option>
 					<option value ='1'>1</option>
 					<option value ='2'>2</option>
@@ -68,9 +68,32 @@ if(!$email){
 				</select>
 				</div>
 			</div>
-           
+			 <div class="form-group">
+            <label>Primary Skill :</label>
+			  <div id="sections">
+			  <div class="section">
+			
+			    <fieldset>
+			            <input name="skill[]" id="skill" value="" placeholder="Skill" type="text" required />
+			            <select name="proficiency[]" id="proficiency" required>
+			            	<option>Basic</option>
+			            	<option>Intermediate</option>
+			            	<option>Advanced</option>
+			            </select>
+						</fieldset>
+						
+			     
 
-            <div class="form-group">
+			    </fieldset>
+			    <br>
+			  </div>
+			</div>
+
+			
+			</div>
+        
+
+        <!-- <div class="form-group">
             <label>Skills</label>
 			  <div id="sections">
 			  <div class="section">
@@ -82,15 +105,38 @@ if(!$email){
 			            	<option>Intermediate</option>
 			            	<option>Advanced</option>
 			            </select>
-			        <a href="#" class='remove'><i class="fa fa-times" aria-hidden="true"></i></a>
+						</fieldset>
+						<fieldset>
+						<input name="skill[]" id="skill" value="" placeholder="Skill" type="text" required />
+			            <select name="proficiency[]" id="proficiency" required>
+			            	<option>Basic</option>
+			            	<option>Intermediate</option>
+			            	<option>Advanced</option>
+			            </select>
+						</fieldset>
+						<input name="skill[]" id="skill" value="" placeholder="Skill" type="text" required />
+			            <select name="proficiency[]" id="proficiency" required>
+			            	<option>Basic</option>
+			            	<option>Intermediate</option>
+			            	<option>Advanced</option>
+			            </select>
+						</fieldset>
+						<fieldset>
+						<input name="skill[]" id="skill" value="" placeholder="Skill" type="text" required />
+			            <select name="proficiency[]" id="proficiency" required>
+			            	<option>Basic</option>
+			            	<option>Intermediate</option>
+			            	<option>Advanced</option>
+			            </select>
+			     
 
 			    </fieldset>
 			    <br>
 			  </div>
 			</div>
 
-			<p><a href="#" class='addsection'><i class="fa fa-plus" aria-hidden="true"></i>Add More</a></p>
-			</div>
+			
+			</div>-->
 		
 		     <div class="form-group">
                 <!-- First Name --><label>Job Description</label><br>
@@ -121,26 +167,7 @@ if(!$email){
             </div>
             <div class="form-group salary-form-group">
 				<label>Salary</label>
-				 <div class="lakhs">Lakhs
-					<select name="lakhs" required class="form-control">
-					<option value=''>--Lakhs--</option>
-					<option value ='0'>0</option>
-					<option value ='1'>1</option>
-					<option value ='2'>2</option>
-					<option value ='3'>3</option>
-					<option value ='4'>4</option>
-				</select>
-				</div>
-				<div class="thousands">Thousands
-					<select name="thousands" required class="form-control">
-					<option value=''>--Thousands--</option>
-					<option value ='0'>0</option>
-					<option value ='5'>5</option>
-					<option value ='10'>10</option>
-					<option value ='15'>15</option>
-					<option value ='20'>20</option>
-				</select>
-				</div>
+				  <input name="salary_lakhs" class="form-control" placeholder="salary*" type="text" value="" required>
 			</div>
 			<div class="form-group">
 				<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
