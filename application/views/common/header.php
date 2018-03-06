@@ -43,7 +43,7 @@
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
+          <ul class="navbar-nav text-uppercase ml-auto" id="menu">
           <?php if(!$this->session->userdata('role')){ ?>
             <li class="nav-item">
               <!-- Button trigger modal -->
@@ -114,3 +114,13 @@
         </div>
       </div>
     </nav>
+<script type="text/javascript">
+$('ul li a').click(function() {
+  $('li a').removeClass("active");
+  $(this).addClass("active");
+  localStorage.setItem('active', $(this).parent().index());
+});
+
+var ele = localStorage.getItem('active');
+$('ul li:eq(' + ele + ')').find('a').addClass('active');
+</script>
