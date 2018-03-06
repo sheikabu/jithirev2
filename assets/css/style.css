@@ -72,7 +72,9 @@ label{
 .mLeft-30{
   margin-left:30px;
 }
-
+.mTop-70{
+  margin-top: 70px;
+}
 .border{
   border:1px solid #ced4da;
 }
@@ -677,11 +679,11 @@ select.form-control:not([size]):not([multiple]) {
     cursor: pointer;
 }	
 section#matching-job{
-  padding: 10px 0 !important;
+  padding: 0px 0 !important;
 }
 #matching-job .btn-form{
     border-bottom: 1px solid #ccc;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 }
 
  /*---------------------------------------------- */ 

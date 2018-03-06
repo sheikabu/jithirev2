@@ -13,11 +13,13 @@ if(!$email){
  ?>
 
 <div id="message"></div>
+  <div class="mTop-70">
 			<?php //echo form_open('post_job/insert_job_post');?>
 			<?php foreach($job_list as $key=>$values) { ?>
 
 
 <!-- Matching Job -->
+
     <section id="matching-job">
       <div class="container matching_job_container">
         
@@ -85,7 +87,7 @@ if(!$email){
           </div>
         </div>
     </section>
-
+  </div>
 
 
        
