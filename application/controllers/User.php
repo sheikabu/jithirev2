@@ -643,19 +643,61 @@ class User extends CI_Controller {
 				$profi_array = $this->input->post('proficiency');
 				$results = array_combine($skill_array, $profi_array);
 				$skills = json_encode($results, true);
+				
+				$primary_array =  $this->input->post('primary');
+				$proprimary_array = $this->input->post('proprimary');
+				$results = array_combine($primary_array, $proprimary_array);
+				$primary_skill = json_encode($results, true);
+				
+				//SKILL 1
+				$skill1_array =  $this->input->post('skill1');
+				$skillpro1_array = $this->input->post('skillpro1');				
+				$skill1_combine = array_combine($skill1_array, $skillpro1_array);
+				$skill1 = json_encode($skill1_combine, true);	
+				//SKILL 1 END	
+				//SKILL 2
+				$skill2_array =  $this->input->post('skill2');
+				$skillpro2_array = $this->input->post('skillpro2');				
+				$skill2_combine = array_combine($skill2_array, $skillpro2_array);
+				$skill2 = json_encode($skill2_combine, true);				
+				//SKILL 2 END	
+				//SKILL 3
+				$skill3_array =  $this->input->post('skill3');
+				$skillpro3_array = $this->input->post('skillpro3');				
+				$skill3_combine = array_combine($skill3_array, $skillpro3_array);
+				$skill3 = json_encode($skill3_combine, true);				
+				//SKILL 3 END	
+				//SKILL 4
+				$skill4_array =  $this->input->post('skill4');
+				$skillpro4_array = $this->input->post('skillpro4');				
+				$skill4_combine = array_combine($skill4_array, $skillpro4_array);
+				$skill4 = json_encode($skill4_combine, true);				
+				//SKILL 4 END				
+								
+				
 				//$decode_skills = json_decode($skills, true);
+				
+				
 
                     $user_details=array(
-		 			
+		 			'Job_code' => $this->input->post('Job_code'),
 		 			'role' => $this->input->post('role'), 			
 		 			'min_exp' => $this->input->post('min_exp'), 
+					'max_exp' => $this->input->post('max_exp'),
+					'primary_skill' => $primary_skill,
 		 			'skills' => $skills, 
+					'skill1' => $skill1,
+					'skill2' => $skill2, 
+					'skill3' => $skill3,
+					'skill4' => $skill4, 
+					
+					
 		 			'job_description' => $this->input->post('job_description'),
 					'preferred_location' => json_encode($this->input->post('preferred_location')),
 					'no_positions' => $this->input->post('no_positions'),
 					'duration' => $this->input->post('duration'), 
-					'salary_lakhs' => $this->input->post('lakhs'),
-					'salary_thousands' => $this->input->post('thousands'),
+					'salary_lakhs' => $this->input->post('salary_lakhs'),
+					'job_type' => $this->input->post('job_type'),
 
 							
 					//'company' => $this->input->post($company),
