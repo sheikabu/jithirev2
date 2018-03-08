@@ -298,18 +298,17 @@ if(!$email){
                 
         <div class="form-group">
         	<?php $primary_skill  = json_decode($get_candidate_info['primary_skill'],true); 
-        		foreach($primary_skill as $key => $val) {
+        		foreach($primary_skill as $pkey => $pval)
         	?>
         	<div id="sections">
-                  <input name="primaryskill[]" placeholder="Skill" type="text" required value="<?php echo $key; ?>" />
+                  <input name="primaryskill[]" placeholder="Skill" type="text" required value="<?php echo $pkey; ?>" />
                   <select name="primarypro[]" id="ttyty" required>
-                     <option <?php if($val=='Fresher') { echo 'selected'; } ?>>Fresher</option>
-                    <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
-                    <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
-                    <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
+                     <option <?php if($pval=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if ($pval=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($pval=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($pval=='Advanced') { echo"selected"; } ?>>Advanced</option>
                   </select>
-      		</div>
-      		<?php } ?>
+      		</div>      		
 		</div>
       </div>
                 </div>

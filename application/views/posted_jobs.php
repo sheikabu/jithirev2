@@ -34,7 +34,7 @@ if(!$email){
 						</label>
 				</div>
 				
-				<div class="col-md-6"><span>Experience:</span><label>Min Exp: <?php echo $values['min_exp'];?> ,Max Exp: <?php echo $values['max_exp'];?> </label></div>
+				<div class="col-md-6"><span>Experience:</span><label><?php echo $values['min_exp'];?> - <?php echo $values['max_exp'];?> Years</label></div>
 				
 				</div>
 				<div class="row">
@@ -43,24 +43,33 @@ if(!$email){
 				<div class="row">
 				<div class="col-md-6"><span>No of Positions:</span><label> <?php echo $values['no_positions'];?></label></div>
 				<div class="col-md-6"><span>Duration:</span><label> <?php echo $values['duration'];?></label></div>
-				<div class="col-md-6"><span>Max Salary:</span><label><?php echo $values['salary_lakhs'];?>Lakhs  </label></div>
+				<div class="col-md-6"><span>Max Salary:</span><label><?php echo $values['salary_lakhs'];?> Lakhs  </label></div>
 				<div class="col-md-6"><span>Job Type:</span><label><?php echo $values['job_type'];?></label></div>
 				</div>
 				
 				<div class="row">
 				
-				<div class="col-md-6"><span>Primary skills: </span><label><?php echo $values['primary_skill'];
-						?></label></div> 
+				<div class="col-md-6"><span>Primary skills: </span><label>
+				<?php $primary_skill =  json_decode($values['primary_skill']);
+				foreach ($primary_skill as $pkey => $pvalue) {
+					echo $pkey.' - '.$pvalue;
+				}
+			    ?></label></div>
 				 
-				<div class="col-md-6"><span>Skills: </span><label><?php echo $values['skills'];
+				<div class="col-md-6"><span>Skills: </span><label><?php  $skill1 = json_decode($values['skills']);
+						foreach ($skill1 as $skey1 => $svalue1)	echo $skey1.' - '.$svalue1;
 						?></label><br>
-						<label><?php echo $values['skill1'];
+						<label><?php $skill2 = json_decode($values['skill1']);
+						foreach ($skill2 as $skey2 => $svalue2)	echo $skey2.' - '.$svalue2;
 						?></label><br>
-						<label><?php echo $values['skill2'];
+						<label><?php $skill3 = json_decode($values['skill2']);
+						foreach ($skill3 as $skey3 => $svalue3)	echo $skey3.' - '.$svalue3;
 						?></label><br>
-						<label><?php echo $values['skill3'];
+						<label><?php $skill4 = json_decode($values['skill3']);
+						foreach ($skill4 as $skey4 => $svalue4)	echo $skey4.' - '.$svalue4;
 						?></label><br>
-						<label><?php echo $values['skill4'];
+						<label><?php $skill5 =  json_decode($values['skill4']);
+						foreach ($skill5 as $skey5 => $svalue5)	echo $skey5.' - '.$svalue5;
 						?></label>
 						
 						
