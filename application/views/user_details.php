@@ -92,11 +92,12 @@ if(!$email){
 		                  <span class="col-md-8"><?php echo $get_candidate_info['dob']; ?></span>
 		                </div>
 		                
-		                  
+		                 <?php if($get_candidate_info['total_experience']!='Fresher') { ?>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Previous Role: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['role']; ?></span>
 		                </div>
+		                <?php } ?>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Expected CTC: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs </span>
@@ -162,7 +163,7 @@ if(!$email){
 		                
 		                  <div class="col-xs-12">
 		                  <label class="col-md-4">IT experience: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['total_experience']; ?> Year(s)</span>
+		                  <span class="col-md-8"><?php if($get_candidate_info['total_experience']=='Fresher') { echo $get_candidate_info['total_experience']; } else { echo $get_candidate_info['total_experience'].' Year(s)'; } ?></span>
 		                </div>
 		                
 		                <div class="col-xs-12">

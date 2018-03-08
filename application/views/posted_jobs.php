@@ -24,7 +24,7 @@ if(!$email){
 			<?php foreach($job_list as $key=>$values) { ?>
 				<div class="row">
 				<div class="col-md-6"><span>Job code:</span> <label><?php echo $values['Job_code'];?></label></div>
-				<div class="col-md-6"><span>Role:</span> <label><?php echo $values['role'];?></label></div>
+				<div class="col-md-6"><span>Role:</span> <label><?php echo $values['job_role'];?></label></div>
 				<div class="col-md-6"><span>Location:</span><label>
 				<?php $locations= json_decode($values['preferred_location'], true);
 						foreach($locations as $lkey => $lvalues) {
@@ -75,6 +75,17 @@ if(!$email){
 						
 						</div> 
 				</div>
+				 <div class="row">
+              <div class="col-md-6">
+                <span>Opening:</span><label><?php
+                $open_timestamp = strtotime($values['open_date_time']);
+                echo $opening_date = date('d-m-Y', $open_timestamp);  
+                ?></label>
+              </div>
+              <div class="col-md-6">
+                <span>Closing:</span><label>12/01/2018</label>
+              </div>
+            </div>
 		   
 			<?php echo '<br><hr>'; } ?> 
 			
