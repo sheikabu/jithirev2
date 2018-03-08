@@ -115,6 +115,7 @@ class Valid_m extends CI_Model{
 	$this->db->select('jh_job_posting.*,jh_company_details.*');
 	  $this->db->from('jh_job_posting');
 	   $this->db->join('jh_company_details', 'jh_job_posting.company_id = jh_company_details.id');
+	   $this->db->order_by("jh_job_posting.job_id","desc");
 	  //$this->db->where('jh_registration.id',$candidate_id);
 
 	  
@@ -128,6 +129,7 @@ class Valid_m extends CI_Model{
 	  $this->db->select('*');
 	  $this->db->from('jh_job_posting');
 	  $this->db->where('company_id',$cid);
+	  $this->db->order_by("job_id","desc");
 	  $query=$this->db->get();
 	  $results = $query->result_array();
 	  return $results;

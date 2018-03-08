@@ -681,7 +681,7 @@ class User extends CI_Controller {
 
                     $user_details=array(
 		 			'Job_code' => $this->input->post('Job_code'),
-		 			'role' => $this->input->post('role'), 			
+		 			'job_role' => $this->input->post('role'), 			
 		 			'min_exp' => $this->input->post('min_exp'), 
 					'max_exp' => $this->input->post('max_exp'),
 					'primary_skill' => $primary_skill,
@@ -704,7 +704,7 @@ class User extends CI_Controller {
 					//'previous_experience' => $this->input->post('previous_experience'),
 					'company_id' => $this->input->post('company_id'),
 					'status' => $this->input->post('status'),
-					'date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
+					'open_date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
 
 		 			);
 					//print_r ($user_details['employer_name']); exit;

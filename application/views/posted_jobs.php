@@ -26,12 +26,12 @@ if(!$email){
 					</div>
 					<div class="row">
 						<div class="col-md-4"><label class="col-md-5">Job code:</label> <span class="col-md-7"><?php echo $values['Job_code'];?></span></div>
-						<div class="col-md-4"><label class="col-md-5">Role:</label> <span class="col-md-7"><?php echo $values['role'];?></span></div>
+						<div class="col-md-4"><label class="col-md-5">Role:</label> <span class="col-md-7"><?php echo $values['job_role'];?></span></div>
 						<div class="col-md-4"><label class="col-md-5">Location:</label><span class="col-md-7">
 						<?php $locations= json_decode($values['preferred_location'], true);
 								foreach($locations as $lkey => $lvalues) {
-									echo $lvalues.',';
-								} 
+									$ploca .= $lvalues.', ';
+								} echo rtrim($ploca,', ');
 								?>
 								</span>
 						</div>
@@ -81,17 +81,30 @@ if(!$email){
 						
 						</div>
 
-					</div>
-			   
-				<?php echo '<br><hr>'; } ?> 
+
+		
+</div>
+				 <div class="row">
+              <div class="col-md-6">
+                <span>Opening:</span><label><?php
+                $open_timestamp = strtotime($values['open_date_time']);
+                echo $opening_date = date('d-m-Y', $open_timestamp);  
+                ?></label>
+              </div>
+              <div class="col-md-6">
+                <span>Closing:</span><label>12/01/2018</label>
+              </div>
+            </div>
+		   
+			<?php echo '<br><hr>'; } ?> 
+			
+			<div class="form-group">
 				
-				<div class="form-group">
-					
-					<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
-				</div>
-				
-				<!--<button type="submit" class="btn btn-primary" >submit</button>-->
-				
+				<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
+			</div>
+
+			
+
 				</div>
 		</div>
 

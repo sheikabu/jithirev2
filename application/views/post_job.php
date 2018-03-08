@@ -174,7 +174,7 @@ if(!$email){
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset>
-								<!-- <fieldset>
+								<fieldset>
 					            <input name="skill3[]" id="skill3" value="<?php echo $key4; ?>" placeholder="Skill" type="text" required />
 					            <select name="skillpro3[]" id="skillpro3" required>
 					            	<option value = 'basic'> Basic</option>
@@ -189,7 +189,7 @@ if(!$email){
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
-								</fieldset> -->
+								</fieldset>
 						
 					</div>
 				</div>

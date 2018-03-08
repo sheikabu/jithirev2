@@ -105,7 +105,7 @@ if(!$email){
 	                   <label class="col-md-12">Total IT experience</label><div class="col-md-12"> 
 	                    <select name="total_experience" id="total_experience" class="form-control" placeholder="total_experience" required onchange="showDiv(this)">
 	                    <option value=''>--YEAR--</option>
-	                    <option value ='0-1' <?php if($get_candidate_info['total_experience'] == '0-1') echo"selected"; ?>>Fresher</option>
+	                    <option value ='Fresher' <?php if($get_candidate_info['total_experience'] == 'Fresher') echo"selected"; ?>>Fresher</option>
 	                    <option value ='1-2' <?php if($get_candidate_info['total_experience'] == '1-2') echo"selected"; ?>>1-2</option>
 	                    <option value ='2-3' <?php if($get_candidate_info['total_experience'] == '2-3') echo"selected"; ?>>2-3</option>
 	                    <option value ='3-4' <?php if($get_candidate_info['total_experience'] == '3-4') echo"selected"; ?>>3-4</option>
@@ -515,7 +515,7 @@ $(document).ready(function(){
   // Use className or Id instead of direct tag name
   $('#total_experience').on('change', function() {
     var val = $(this).val();
-    if(val=='0-1')
+    if(val=='Fresher')
     $('#pre-role').fadeOut('slow');
     else
     $('#pre-role').fadeIn('slow');
