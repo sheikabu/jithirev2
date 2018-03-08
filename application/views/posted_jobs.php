@@ -77,7 +77,7 @@ if(!$email){
 						</div> 
 						<div class="col-md-8">
 							
-							<label class="col-md-4">Job Description:</label><div class="col-md-10 mLeft-10"> <?php echo $values['job_description'];?></div>
+							<label class="col-md-4">Job Description:</label><div class="col-md-10"> <?php echo $values['job_description'];?></div>
 						
 						</div>
 
