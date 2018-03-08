@@ -27,7 +27,7 @@ if(!$email){
 					<div class="row">
 						<div class="col-md-4"><label class="col-md-5">Job code:</label> <span class="col-md-7"><?php echo $values['Job_code'];?></span></div>
 						<div class="col-md-4"><label class="col-md-5">Role:</label> <span class="col-md-7"><?php echo $values['job_role'];?></span></div>
-						<div class="col-md-4"><label class="col-md-5">Location:</label><span class="col-md-7">
+						<div class="col-md-4"><label class="col-md-5">Location:</label><span class="col-md-7 inline-flex">
 						<?php $locations= json_decode($values['preferred_location'], true);
 								foreach($locations as $lkey => $lvalues) {
 									$ploca .= $lvalues.', ';
