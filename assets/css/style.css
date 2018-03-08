@@ -118,6 +118,9 @@ a .fa{
 	font-size:12px;
 	text-align:right
 	}
+.inline-flex{
+  display: inline-flex !important;
+}
 /*---- header -------------------*/
 .masthead{
 	 height:96%; 
