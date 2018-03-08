@@ -93,7 +93,6 @@ if(!$email){
 				<!--<button type="submit" class="btn btn-primary" >submit</button>-->
 				
 				</div>
-			
 		</div>
 
 	</div>
