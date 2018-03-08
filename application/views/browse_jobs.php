@@ -51,8 +51,8 @@ if(!$email){
                 <span>Location:</span><label>
                 <?php $locations = json_decode($values['preferred_location']); 
                         foreach($locations as $location => $lvalues) {
-                        echo $lvalues.',';
-                     } ?>
+                        $ploca .= $lvalues.', ';
+                     } echo rtrim($ploca,', '); ?>
                 </label>
               </div>
             </div>
@@ -67,7 +67,7 @@ if(!$email){
                 </label>
               </div>
               <div class="col-md-6">
-                <span>Salary:</span><label><?php echo $values['salary_lakhs']; ?> Lakhs <?php echo $values['salary_thousands'];?> Thousands</label>
+                <span>Salary:</span><label><?php echo $values['salary_lakhs']; ?> Lakhs</label>
               </div>
             </div>
             <div class="row">
@@ -108,7 +108,10 @@ if(!$email){
                 ?></label>
               </div>
               <div class="col-md-6">
-                <span>Closing:</span><label>12/01/2018</label>
+                <span>Closing:</span><label><?php
+                $open_timestamp = strtotime($values['close_date_time']);
+                echo $opening_date = date('d-m-Y', $open_timestamp);  
+                ?></label>
               </div>
             </div>
               <div class="row">

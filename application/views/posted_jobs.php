@@ -30,8 +30,8 @@ if(!$email){
 						<div class="col-md-4"><label class="col-md-5">Location:</label><span class="col-md-7">
 						<?php $locations= json_decode($values['preferred_location'], true);
 								foreach($locations as $lkey => $lvalues) {
-									echo $lvalues.',';
-								} 
+									$ploca .= $lvalues.', ';
+								} echo rtrim($ploca,', ');
 								?>
 								</span>
 						</div>
