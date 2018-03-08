@@ -85,14 +85,16 @@ if(!$email){
 		
 </div>
 				 <div class="row">
-              <div class="col-md-6">
-                <span>Opening:</span><label><?php
+              <div class="col-md-4">
+                <label class="col-md-5">Opening:</label><span class="col-md-7"><?php
                 $open_timestamp = strtotime($values['open_date_time']);
                 echo $opening_date = date('d-m-Y', $open_timestamp);  
-                ?></label>
+                ?></span>
               </div>
-              <div class="col-md-6">
-                <span>Closing:</span><label>12/01/2018</label>
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                <label class="col-md-5">Closing:</label><span class="col-md-7">12/01/2018</span>
               </div>
             </div>
 		   
