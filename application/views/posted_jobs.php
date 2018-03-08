@@ -80,23 +80,20 @@ if(!$email){
 							<label class="col-md-4">Job Description:</label><div class="col-md-10 mLeft-5"> <?php echo $values['job_description'];?></div>
 						
 						</div>
-
-
-		
-</div>
-				 <div class="row">
-              <div class="col-md-4">
-                <label class="col-md-5">Opening:</label><span class="col-md-7"><?php
-                $open_timestamp = strtotime($values['open_date_time']);
-                echo $opening_date = date('d-m-Y', $open_timestamp);  
-                ?></span>
-              </div>
-              <div class="col-md-4">
-              </div>
-              <div class="col-md-4">
-                <label class="col-md-5">Closing:</label><span class="col-md-7">12/01/2018</span>
-              </div>
-            </div>
+					</div>
+				    <div class="row">
+			            <div class="col-md-4">
+			                <label class="col-md-5">Opening:</label><span class="col-md-7"><?php
+			                $open_timestamp = strtotime($values['open_date_time']);
+			                echo $opening_date = date('d-m-Y', $open_timestamp);  
+			                ?></span>
+			            </div>
+			            <div class="col-md-4">
+			            </div>
+			            <div class="col-md-4">
+			                <label class="col-md-5">Closing:</label><span class="col-md-7">12/01/2018</span>
+			            </div>
+            		</div>
 		   
 			<?php echo '<br><hr>'; } ?> 
 			
