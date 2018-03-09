@@ -715,6 +715,9 @@ class User extends CI_Controller {
 		 		//redirect('post_job/job_posting_page/'.$msg);
                 
 	}
+	public function apply_jobs()
+	{
+	}
 
 }
    
