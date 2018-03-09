@@ -207,15 +207,18 @@ a .fa{
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-/*.single-form input[type=checkbox] {
-  visibility: hidden;
-}*/
+.single-form input[type=checkbox] {
+ /* visibility: hidden;*/
+  width: 18px;
+  height: 18px;
+}
 .single-form .checkbox {
   margin: 0 0 10px 0;
   text-align: left;
 }
 .single-form .checkbox label {
-  padding-left: 10px;
+  padding-left: 5px;
+  margin-top: -6px;
 }
 /*.single-form .checkbox label::after,
 .single-form .checkbox label::before {
