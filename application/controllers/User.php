@@ -715,8 +715,11 @@ class User extends CI_Controller {
 		 		//redirect('post_job/job_posting_page/'.$msg);
                 
 	}
-	public function apply_jobs()
+	public function apply_job()
 	{
+		$data['job_list'] = $this->valid_m->job_list();
+		//$this->load->view('common/header');
+		$this->load_view('apply_job',$data);
 	}
 
 }

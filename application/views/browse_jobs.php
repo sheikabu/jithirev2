@@ -116,8 +116,8 @@ if(!$email){
             </div>
               <div class="row">
               <div class="btn-form text-center mTop-20 col-md-12">
-                <button class="btn btn-fill mRight-10" href="<?php echo site_url() ?>
-				apply_job">Apply</button>
+             <a href="<?php echo site_url() ?>
+				user/apply_job" > <button class="btn btn-fill mRight-10" >Apply</button></a>
                 <button class="btn">Reject</button>
               </div>
             </div>

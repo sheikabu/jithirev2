@@ -28,7 +28,7 @@ if(!$email){
 
     
     <!-- job applied history dashboard -->
-    <section id="">
+    <section id="posted_jobs">
       <div class="container">
       
     	<div class="row">
@@ -44,24 +44,27 @@ if(!$email){
 		    </tr>
 		  </thead>
 		  <tbody>
+		
 		    <tr>
-		      <th scope="row">Jithhire</th>
-		      <td>Company description here..</td>
-		      <td>Thiruvananthapuram</td>
-		      <td><span class="status approved">Approved</span></td>
+		      <th scope="row">jithirev</th>
+		      <td>company_Description</td>
+		      <td>trichy</td>
+		      <td class = "select">
+             <select>        
+                <option value="approved" class="status approved">approved</option>
+                <option value="Rejected" class="status rejected">Rejected</option>
+                <option value="Waiting" class="status waiting">Waiting</option>
+               
+            </select>
+            <td ALIGN="center"></td>
+            </td>
 		    </tr>
-		   <tr>
-		      <th scope="row">Wipro</th>
-		      <td>Company description here..</td>
-		      <td>Bangalore</td>
-		      <td><span class="status rejected">Rejected</span></td>
-		    </tr>
-		    <tr>
-		      <th scope="row">Jithhire</th>
-		      <td>Company description here..</td>
-		      <td>Thiruvananthapuram</td>
-		      <td><span class="status waiting">Waiting</span></td>
-		    </tr>
+		 
+			
+			<div class="form-group">
+				
+				<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
+			</div>
 		  </tbody>
 		</table>
     		
