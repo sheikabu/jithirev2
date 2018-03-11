@@ -717,7 +717,7 @@ class User extends CI_Controller {
 	}
 	public function apply_job()
 	{
-		$data['job_list'] = $this->valid_m->job_list();
+		//$data['job_apply'] = $this->valid_m->job_apply();
 		//$this->load->view('common/header');
 		$this->load_view('apply_job',$data);
 	}
