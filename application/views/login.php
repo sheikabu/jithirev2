@@ -9,14 +9,14 @@
         <!-- =============== Start: Sign In Form =================== -->
                         <div class="sign-in-wrap col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-1">
                          <div class="sign-in-options-wrap">
-                         <label class="label">Jobseeker's
-                          <input type="radio" name='Srole' id="candidate-sign-in" class="candidate" value="candidate" checked> 
-                           <span class="checkmark"></span>
-                          </label>
-                          <label class="label">Employer's
-                          <input type="radio" name='Srole' id="company-sign-in" class="company" value="company">
-                           <span class="checkmark"></span>
-                          </label>
+                           <label class="label">Jobseeker's
+                            <input type="radio" name='Srole' id="candidate-sign-in" class="candidate" value="candidate" checked> 
+                             <span class="checkmark"></span>
+                            </label>
+                            <label class="label">Employer's
+                            <input type="radio" name='Srole' id="company-sign-in" class="company" value="company">
+                             <span class="checkmark"></span>
+                            </label>
                          </div>
                         <!-- Job Seeker Login -->
 
@@ -138,7 +138,10 @@
                             <!-- First Name -->
                             <input name="first_name" class="contact-first-name form-control" placeholder="Name*" required="" type="text">
                         </div>
-                       
+                        <div class="col-xs-12">
+                            <!-- Pancard -->
+                            <input name="pancard_no" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
+                        </div>
                         <div class="col-xs-12">
                             <!-- Email -->
                             <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">

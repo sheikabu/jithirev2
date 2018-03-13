@@ -431,6 +431,9 @@ a.btn-fill{
 	border-radius: 50%;
 	background: white;
 }
+.sign-in-options-wrap .label > input:checked {
+  color: #f00 !important;
+}
 .sign-form.modal .sign-in-options-wrap{
 	padding:5px 10px;	
 }

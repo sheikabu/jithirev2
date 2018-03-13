@@ -170,7 +170,10 @@ if(!$email){
 		                  <label class="col-md-4">Industry: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['industry']; ?></span>
 		                </div>
-		                
+		                <div class="col-xs-12">
+		                  <label class="col-md-4">Current location: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['current_location_dummy']; ?></span>
+		                </div>
 		                <?php
 		                $locations  = json_decode($get_candidate_info['preferred_location']);		                             
 		                ?>
