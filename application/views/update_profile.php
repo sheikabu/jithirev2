@@ -224,10 +224,11 @@ if(!$email){
 	                   		<img src="<?php echo base_url();?>upload/photos/<?php echo $get_candidate_info['photos']; ?>" width="100" height="125" class="img-thumbnail" />
 						</div>
 					</div> -->
-	       		<div class="col-md-12">
+	       			<div class="col-md-12">
 	       			<div class="row">
 					     <!-- <label class="col-md-12">Upload your Latest Photo </label> -->
 					     <div class="col-md-4">
+					    	<i class="fa fa-edit" aria-hidden="true"></i>
 					      <input type="file" name="image_file" size="20" class="photo"   />
 
 					       <img src="<?php echo base_url();?>upload/photos/<?php echo $get_candidate_info['photos']; ?>" width="100" height="125" class="img-thumbnail" />

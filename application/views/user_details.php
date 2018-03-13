@@ -48,19 +48,17 @@ if(!$email){
             <!-- Full profile view -->
               <div id="full-profile-view">
               <div>
-             <h1 class="title"></h1>
-             
+             		<div class="line2 mBot-10">
+             			<h1 class="title mRight-20">Software Engineer</h1> <span class="primary_skill mRight-20">.NET</span> <span class="experience"><span>7 </span>years Experience</span>
+             		</div>
              
              		<div class="row text-right">
              		
              			<div class="col-md-12">
-             			<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_profile"><i class="fa fa-edit" aria-hidden="true"></i></a>
-	        		<a class="pull-right  nav-link js-scroll-trigger" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
-		        	</div>
+	             			<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_profile"><i class="fa fa-edit" aria-hidden="true"></i></a>
+			        		<a class="pull-right  nav-link js-scroll-trigger" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+			        	</div>
 		        	
-             		
-             		
-             		
              		</div>
 	        	
 	        
@@ -193,7 +191,7 @@ if(!$email){
 		                  <span class="col-md-8"><?php echo $get_candidate_info['year_completion_dummy']; ?></span>
 		                </div>
 		                <div class="col-xs-12">
-		                  <label class="col-md-4">score: </label>
+		                  <label class="col-md-4">Score: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['score_dummy']; ?></span>
 		                </div>
 		                <div class="col-xs-12">
