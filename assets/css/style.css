@@ -84,6 +84,12 @@ label{
 .border-bottom{
   border-bottom:1px solid #ced4da;
 }
+.border-left{
+  border-left:1px solid #ced4da;
+}
+.border-right{
+  border-right:1px solid #ced4da;
+}
 .padding-5{
   padding: 5px!important;
 }

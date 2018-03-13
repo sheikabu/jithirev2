@@ -235,7 +235,7 @@ if(!$email){
 					       
 					      <input type="hidden" value="<?php echo $get_candidate_info['photos']; ?>" name="old_image">
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-8 border-left">
 							<!-- <label>Upload your Latest Resume </label> -->
 							<div id="resume-show">
 			                   	<div><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a>
