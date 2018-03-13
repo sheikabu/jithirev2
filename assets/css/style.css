@@ -504,7 +504,7 @@ a.btn-fill{
 	padding: 0px 5px;
 	border-radius: 5px;
 	font-size: 35px;
-    font-weight:700
+  font-weight:700
 }
 .spot-view{
 	background: url(../img/spotview.png) 0 center;
@@ -699,7 +699,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 .upload-photo-wrap .fa-edit{
     position: absolute;
-    right: 19px;
+    left: 20px;
     bottom: 2px;
     background: #fff;
     padding: 5px;
