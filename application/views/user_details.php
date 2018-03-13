@@ -49,7 +49,13 @@ if(!$email){
               <div id="full-profile-view">
               <div>
              		<div class="line2 mBot-10">
-             			<h1 class="title mRight-20">Software Engineer</h1> <span class="primary_skill mRight-20">.NET</span> <span class="experience"><span>7 </span>years Experience</span>
+             			<h1 class="title mRight-20">Software Engineer</h1> <span class="col-md-8">
+		                  <?php 
+		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
+		                  foreach ($primary_skill as $key => $value)
+		                  echo $primary_skill .= $key.'-'.$value.'<br>';
+			                ?>
+		                  </span>  <span class="col-md-8"><?php echo $get_candidate_info['year_completion']; ?> years Experience</span>
              		</div>
              
              		<div class="row text-right">
@@ -188,23 +194,39 @@ if(!$email){
 		                
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Year of completion: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['year_completion_dummy']; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['year_completion']; ?></span>
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Score: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['score_dummy']; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['score']; ?></span>
 		                </div>
+						<div class="col-xs-12">
+		                  <label class="col-md-4">Degree</label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['degree']; ?></span>
+		                </div>
+						  
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">branch: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['Branch_dummy']; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['branch']; ?></span>
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Industry: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['industry']; ?></span>
 		                </div>
+						  <?php
+		                $clocations  = json_decode($get_candidate_info['current_location']);		                             
+		                ?>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Current location: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['preferred_location']; ?></span>
+						  <span class="col-md-8">
+		                  <?php 
+		                  foreach ($clocations as $key => $value) {
+		                  	 $clocation .= $value.', ';
+		                  } 
+		                  echo rtrim($clocation,', '); 
+		                  ?>
+		                 </span>
+		                
 		                </div>
 		                <?php
 		                $locations  = json_decode($get_candidate_info['preferred_location']);		                             

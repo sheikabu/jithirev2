@@ -137,31 +137,31 @@ if(!$email){
  					<div class="col-xs-12 mTop-5" id="pre-role">
 	                  	<label class="col-md-12">Year of completion</label>
 	                 	<div class="col-md-12"> 
-	                  		<input type="text" name="year_completion" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion_dummy']; ?>" required>
+	                  		<input type="text" name="year_completion" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion']; ?>" required>
 	                 	</div>
 	                </div>
 					<div class="col-xs-12 mTop-5" id="pre-role">
 							<label class="col-md-12">Institute</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="institute" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute_dummy']; ?>" required>
+							    <input type="text" name="institute" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute']; ?>" required>
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="pre-role">
 							<label class="col-md-12">Score</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="score" class="form-control" placeholder="Score" value="<?php echo $get_candidate_info['score_dummy']; ?>" required>
+							    <input type="text" name="score" class="form-control" placeholder="Score" value="<?php echo $get_candidate_info['score']; ?>" required>
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="pre-role">
 							<label class="col-md-12">Degree</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="degree" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree_dummy']; ?>" required>
+							    <input type="text" name="degree" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree']; ?>" required>
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="pre-role">
 							<label class="col-md-12">Branch</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="branch" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch_dummy']; ?>" required>
+							    <input type="text" name="branch" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch']; ?>" required>
 						</div>
 					</div>
 	                <div class="col-xs-12 mTop-5">
@@ -189,6 +189,26 @@ if(!$email){
 		                <input type="text" name="salary_lakhs" class="form-control" placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required>
 		        </div>
 	                </div>
+					 <div class="col-xs-12 mTop-5">
+	 	 		
+
+	 	 			<div class="col-xs-12">
+	                  <label class="col-md-6">Current location</label>
+	                  					</div>
+										
+						
+	                  <div class="col-md-12" id="current_location">
+	                    <?php $clocations  = json_decode($get_candidate_info['current_location']); ?>
+	                  <select name="current_location[]" class="form-control"  placeholder="current_location[]" value="<?php echo $get_candidate_info['current_location']; ?>"required multiple>
+	                    <option value=''>--select--</option>
+	                    <option value ='Trivandrum' <?php if (in_array('Trivandrum', $clocations)) { echo"selected"; } ?>>Trivandrum</option>
+	                    <option value ='Chennai' <?php if (in_array('Chennai', $clocations)) { echo"selected"; } ?>>Chennai</option>
+	                    <option value ='Madurai' <?php if (in_array('Madurai', $clocations)) { echo"selected"; } ?>>Madurai</option>
+	                    <option value ='Kochi' <?php if (in_array('Kochi', $clocations)) { echo"selected"; } ?>>Kochi</option>
+	                    <option value ='Bengalore' <?php if (in_array('Bengalore', $clocations)) { echo"selected"; } ?>>Bengalore</option>
+	                  </select>
+	                </div>
+	    </div>
 	 	 <div class="col-xs-12 mTop-5">
 	 	 		
 

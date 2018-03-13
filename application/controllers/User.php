@@ -196,6 +196,7 @@ class User extends CI_Controller {
 					'industry' => $this->input->post('industry'),
 					'functional_area' =>$this->input->post('functional_area'),
 					'role' => $this->input->post('role'),
+					
 					'preferred_location' => json_encode($this->input->post('preferred_location')),
 					'salary_lakhs' => $this->input->post('lakhs'),
 					'salary_thousands' => $this->input->post('thousands'),
@@ -313,7 +314,7 @@ class User extends CI_Controller {
 					$preferred_location = 'on';
 				} else {
 					$preferred_location  = json_encode($this->input->post('preferred_location'));
-				}
+				} 
 
 				 $user_details=array(
 		 			'name' => $this->input->post('first_name'),					
@@ -331,6 +332,12 @@ class User extends CI_Controller {
 					'gender' => $this->input->post('gender'),
 					'user_id' => $this->session->userdata("id"),
 					'total_experience' => $this->input->post("total_experience"),
+					'current_location' => $current_location,
+					'year_completion' => $this->input->post("year_completion"),
+					'institute' => $this->input->post("institute"),
+					'score' => $this->input->post("score"),
+					'degree' => $this->input->post("degree"),
+					'branch' => $this->input->post("branch"),
 					'preferred_location' => $preferred_location,
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
 					'salary_thousands' => $this->input->post('thousands'),
