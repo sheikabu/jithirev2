@@ -130,7 +130,10 @@ if(!$email){
 		                  <label class="col-md-4">Institute: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['institute_dummy']; ?> Institute </span>
 		                </div>
-
+						<div class="col-xs-12">
+		                  <label class="col-md-4">Degree: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['degree_dummy']; ?> Degree </span>
+		                </div>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Expected CTC: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs </span>
@@ -192,6 +195,10 @@ if(!$email){
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">score: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['score_dummy']; ?></span>
+		                </div>
+		                <div class="col-xs-12">
+		                  <label class="col-md-4">branch: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['Branch_dummy']; ?></span>
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Industry: </label>
