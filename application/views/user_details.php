@@ -72,11 +72,14 @@ if(!$email){
               		<div class="col-md-2">
 	              		<div id="photo-show2" class="col-md-12">
 		                   <img src="<?php echo base_url();?>upload/photos/<?php echo $get_candidate_info['photos']; ?>" width="100" height="125" class="img-thumbnail" />
-				</div>
-				<!--  <div class="col-md-12"><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a></div> -->
-			</div>
-			
-			<div class="col-md-5">
+						</div>
+						<!--  <div class="col-md-12"><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a></div> -->
+					</div>
+					
+
+
+
+					<div class="col-md-5">
 			
 	              		
 		                <div class="col-xs-12">
@@ -91,8 +94,35 @@ if(!$email){
 		                  <label class="col-md-4">DOB: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['dob']; ?></span>
 		                </div>
+		               
+		               
+					</div>
+					<div class="col-md-5">
+				
+		               <div class="col-xs-12">
+		                  <label class="col-md-4">Gender: </label>
+		                  <?php if($get_candidate_info['gender']=='m') { $gender = 'Male';} else { $gender = 'Female'; } ?>
+		                  <span class="col-md-8"><?php echo $gender; ?></span>
+		                </div>
+						<div class="col-xs-12">
+		                  <label class="col-md-4">Mobile No:</label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['mobile_number']; ?></span>
+		                </div>
+		                 <div class="col-xs-12">
+		                  <label class="col-md-4">Pancard: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['pancard']; ?></span>
+		                </div>
 		                
-		                 <?php if($get_candidate_info['total_experience']!='Fresher') { ?>
+		        </div>
+		    </div>
+
+		    <div class="row">
+		    	<div class="col-md-12 mTop-10 mBot-10"></div>
+		    	<div class="col-md-2">
+		    	</div>
+			    <div class="col-md-5">
+
+		                <?php if($get_candidate_info['total_experience']!='Fresher') { ?>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Previous Role: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['role']; ?></span>
@@ -143,25 +173,9 @@ if(!$email){
 			                  ?>
 		                  </span>
 		                </div>
-		               
-						</div>
-						<div class="col-md-5">
-				
-		               <div class="col-xs-12">
-		                  <label class="col-md-4">Gender: </label>
-		                  <?php if($get_candidate_info['gender']=='m') { $gender = 'Male';} else { $gender = 'Female'; } ?>
-		                  <span class="col-md-8"><?php echo $gender; ?></span>
-		                </div>
-				<div class="col-xs-12">
-		                  <label class="col-md-4">Mobile No:</label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['mobile_number']; ?></span>
-		                </div>
-		                 <div class="col-xs-12">
-		                  <label class="col-md-4">Pancard: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['pancard']; ?></span>
-		                </div>
-		                
-		                  <div class="col-xs-12">
+			    </div>
+			    <div class="col-md-5">
+			    		<div class="col-xs-12">
 		                  <label class="col-md-4">IT experience: </label>
 		                  <span class="col-md-8"><?php if($get_candidate_info['total_experience']=='Fresher') { echo $get_candidate_info['total_experience']; } else { echo $get_candidate_info['total_experience'].' Year(s)'; } ?></span>
 		                </div>
@@ -172,7 +186,7 @@ if(!$email){
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Current location: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['current_location_dummy']; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['preferred_location']; ?></span>
 		                </div>
 		                <?php
 		                $locations  = json_decode($get_candidate_info['preferred_location']);		                             
@@ -202,11 +216,9 @@ if(!$email){
 							?>
 		                  </span>
 		                </div>
-						
-		                
-			</div>
-		    </div>
-		</div> 
+		            </div>
+
+			</div> 
             </div>
             <!-- End Full profile -->
 
