@@ -121,13 +121,16 @@ if(!$email){
 		    	<div class="col-md-2">
 		    	</div>
 			    <div class="col-md-5">
-
-		                <?php if($get_candidate_info['total_experience']!='Fresher') { ?>
-		                 <div class="col-xs-12">
-		                  <label class="col-md-4">Previous Role: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['role']; ?></span>
+			    		<div class="col-xs-12">
+		                  <label class="col-md-4">IT experience: </label>
+		                  <span class="col-md-8"><?php if($get_candidate_info['total_experience']=='Fresher') { echo $get_candidate_info['total_experience']; } else { echo $get_candidate_info['total_experience'].' Year(s)'; } ?></span>
 		                </div>
-		                <?php } ?>
+		                
+		                <div class="col-xs-12">
+		                  <label class="col-md-4">Institute: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['institute_dummy']; ?> Institute </span>
+		                </div>
+
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Expected CTC: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs </span>
@@ -153,7 +156,7 @@ if(!$email){
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Skills: </label>
-		                  <span class="col-md-8 pull-right">
+		                  <span class="col-md-8 pull-right skills-wrap">
 		                  <?php 
 		                  $skill1 = json_decode($get_candidate_info['skill1']);
 		                  $skill2 = json_decode($get_candidate_info['skill2']);
@@ -161,25 +164,35 @@ if(!$email){
 		                  $skill4 = json_decode($get_candidate_info['skill4']);
 		                  $skill5 = json_decode($get_candidate_info['skill5']);
 		                  foreach ($skill1 as $key1 => $value1)
-		                  echo $skill1 .= $key1.'-'.$value1.'<br>';
+		                  echo $skill1 .= $key1.'<span class="skill-level">- '.$value1.'</span><br>';
 			              foreach ($skill2 as $key2 => $value2)
-			                  echo $skill2 .= $key2.'-'.$value2.'<br>';
+			                  echo $skill2 .= $key2.'<span class="skill-level">- '.$value2.'</span><br>';
 			              foreach ($skill3 as $key3 => $value3)
-			                  echo $skill3 .= $key3.'-'.$value3.'<br>';
+			                  echo $skill3 .= $key3.'<span class="skill-level">- '.$value3.'</span><br>';
 			              foreach ($skill4 as $key4 => $value4)
-			                  echo $skill4 .= $key4.'-'.$value4.'<br>';
+			                  echo $skill4 .= $key4.'<span class="skill-level">- '.$value4.'</span><br>';
 			              foreach ($skill5 as $key5 => $value5)
-			                  echo $skill5 .= $key5.'-'.$value5.'<br>';
+			                  echo $skill5 .= $key5.'<span class="skill-level">- '.$value5.'</span><br>';
 			                  ?>
 		                  </span>
 		                </div>
 			    </div>
 			    <div class="col-md-5">
-			    		<div class="col-xs-12">
-		                  <label class="col-md-4">IT experience: </label>
-		                  <span class="col-md-8"><?php if($get_candidate_info['total_experience']=='Fresher') { echo $get_candidate_info['total_experience']; } else { echo $get_candidate_info['total_experience'].' Year(s)'; } ?></span>
+			    		<?php if($get_candidate_info['total_experience']!='Fresher') { ?>
+		                 <div class="col-xs-12">
+		                  <label class="col-md-4">Previous Role: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['role']; ?></span>
 		                </div>
+		                <?php } ?>
 		                
+						<div class="col-xs-12">
+		                  <label class="col-md-4">Year of completion: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['year_completion_dummy']; ?></span>
+		                </div>
+		                <div class="col-xs-12">
+		                  <label class="col-md-4">score: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['score_dummy']; ?></span>
+		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Industry: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['industry']; ?></span>

@@ -701,8 +701,17 @@ section#matching-job{
     border-bottom: 1px solid #ccc;
     padding-bottom: 40px;
 }
-
+.skills-wrap .skill-level{ 
+    float: right;
+    width: 45%; 
+  }
+ #mainNav {
+        padding-top: 5px!important;
+        padding-bottom: 5px!important;
+        background:#fff!important;
+    }
  /*---------------------------------------------- */ 
+}
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 5px!important;
