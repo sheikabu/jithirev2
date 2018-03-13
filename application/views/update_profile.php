@@ -68,7 +68,16 @@ if(!$email){
 	                  <!-- birth day -->
 	                  <label class="col-md-12">Date of Birth</label><div class="col-md-12"> <input type="date" name="bday" class="form-control"  value="<?php echo $get_candidate_info['dob']; ?>" required> </div>
 	                </div>
-	                
+	                 <div class="col-xs-12">
+	                  	<label class="col-md-12">Gender</label>
+	                  	<div class="col-md-12"> 
+		                  	<select name="gender" required class="form-control">
+			        			<option value=''>--select--</option>
+			        			<option value ='m' <?php if($get_candidate_info['gender'] == 'm') echo"selected"; ?>>Male</option>
+			        			<option value ='f' <?php if($get_candidate_info['gender'] == 'f') echo"selected"; ?>>Female</option>
+		        			</select> 
+					</div>
+	                </div>
 	               </div>
 	                <div class="col-md-4">
 	              
@@ -84,15 +93,7 @@ if(!$email){
 	                    </select>
 	                </div>
 	                </div>-->
-	                <div class="col-xs-12">
-	                  	<label class="col-md-12">Gender</label><div class="col-md-12"> 
-	                  	<select name="gender" required class="form-control">
-	        			<option value=''>--select--</option>
-	        			<option value ='m' <?php if($get_candidate_info['gender'] == 'm') echo"selected"; ?>>Male</option>
-	        			<option value ='f' <?php if($get_candidate_info['gender'] == 'f') echo"selected"; ?>>Female</option>
-	        		</select> 
-			</div>
-	                </div>
+
 	
 			<div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Industry</label><div class="col-md-12"> 
@@ -127,13 +128,42 @@ if(!$email){
 	                </div>
 	                </div>
 	              
-	                  <div class="col-xs-12 mTop-5" id="pre-role">
-	                  <label class="col-md-12">Previous Role</label><div class="col-md-12"> 
-	                  <input type="text" name="role" class="form-control" placeholder="Role" value="<?php echo $get_candidate_info['role']; ?>" required>
-	                  
+	                <div class="col-xs-12 mTop-5" id="pre-role">
+	                  	<label class="col-md-12">Previous Role</label>
+	                 	<div class="col-md-12"> 
+	                  		<input type="text" name="role" class="form-control" placeholder="Role" value="<?php echo $get_candidate_info['role']; ?>" required>
+	                 	</div>
 	                </div>
+ 					<div class="col-xs-12 mTop-5" id="pre-role">
+	                  	<label class="col-md-12">Year of completion</label>
+	                 	<div class="col-md-12"> 
+	                  		<input type="text" name="year_completion" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion_dummy']; ?>" required>
+	                 	</div>
 	                </div>
- 					
+					<div class="col-xs-12 mTop-5" id="pre-role">
+							<label class="col-md-12">Institute</label>
+							<div class="col-md-12"> 
+							    <input type="text" name="institute" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute_dummy']; ?>" required>
+						</div>
+					</div>
+					<div class="col-xs-12 mTop-5" id="pre-role">
+							<label class="col-md-12">Score</label>
+							<div class="col-md-12"> 
+							    <input type="text" name="score" class="form-control" placeholder="Score" value="<?php echo $get_candidate_info['score_dummy']; ?>" required>
+						</div>
+					</div>
+					<div class="col-xs-12 mTop-5" id="pre-role">
+							<label class="col-md-12">Degree</label>
+							<div class="col-md-12"> 
+							    <input type="text" name="degree" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree_dummy']; ?>" required>
+						</div>
+					</div>
+					<div class="col-xs-12 mTop-5" id="pre-role">
+							<label class="col-md-12">Branch</label>
+							<div class="col-md-12"> 
+							    <input type="text" name="branch" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch_dummy']; ?>" required>
+						</div>
+					</div>
 	                <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Job Type</label><div class="col-md-12"> 
 	                   <select name="job_type"  required class="form-control">
