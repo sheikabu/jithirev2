@@ -12,9 +12,9 @@ class User extends CI_Controller {
 		$this->load->helper('date');
 		$this->load->model('valid_m');
 		$this->load->model('user_profile');
+		$this->load->model('job_applied');
 		//$this->load->model('job_post');
 		//$this->load->model('jobs_browse');
-	
 		$this->load->library('upload');
 	}
 
@@ -724,9 +724,29 @@ class User extends CI_Controller {
 	}
 	public function apply_job()
 	{
-		//$data['job_apply'] = $this->valid_m->job_apply();
-		//$this->load->view('common/header');
-		$this->load_view('apply_job',$data);
+    
+		if (isset($_POST['apply'])) {
+		    $user_details=array(
+			'job_id' => $this->input->post('job_id'), 
+			'comp_id' => $this->input->post('company_id'),
+			'user_id' => $this->input->post('user_id'),
+			'job_status' => $this->input->post('job_applied_status'), 
+			'applied_date' => mdate('%Y-%m-%d %H:%i:%s', now())
+			);
+		   $this->job_applied->insert_job_applied($user_details);	
+		} else {
+		     $user_details=array(
+			'job_id' => $this->input->post('job_id'), 
+			'comp_id' => $this->input->post('company_id'),
+			'user_id' => $this->input->post('user_id'),
+			'job_status' => $this->input->post('job_rejected_status'), 
+			'applied_date' => mdate('%Y-%m-%d %H:%i:%s', now())
+			);
+		   $this->job_applied->insert_job_applied($user_details);	
+		}
+
+		   //$this->load_view('history',$data);
+		   redirect('user/browse_jobs');
 	}
 
 }

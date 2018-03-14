@@ -49,11 +49,11 @@ if(!$email){
               <div id="full-profile-view">
               <div>
              		<div class="line2 mBot-10">
-             			<h1 class="title mRight-20">Software Engineer</h1> <span class="col-md-8">
+             			<h1 class="title mRight-20 ">Software Engineer</h1> <span class="col-md-8">
 		                  <?php 
 		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
 		                  foreach ($primary_skill as $key => $value)
-		                  echo $primary_skill .= $key.'-'.$value.'<br>';
+		                  echo $primary_skill .= $key.'-'.$value;
 			                ?>
 		                  </span>  <span class="col-md-8"><?php echo $get_candidate_info['year_completion']; ?> years Experience</span>
              		</div>

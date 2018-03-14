@@ -13,21 +13,17 @@ if(!$email){
  ?>
 
 <div id="message"></div>
-  <div class="mTop-50">
-    
-			<?php //echo form_open('post_job/insert_job_post');?>
-			
-
-
 <!-- Matching Job -->
 
     <section id="matching-job">
-     <?php echo form_open('user/apply_job');?>
+
+   
     <?php foreach($job_list as $key=>$values) { ?>
       <div class="container matching_job_container">
         
         <div class="row">
-          
+            
+            <form action="apply_job" method="post" name="apply_job">
           <div class="col-md-12 mTop-20">            
             <div class="row">
               <div class="col-md-6">
@@ -54,7 +50,7 @@ if(!$email){
                 <?php $locations = json_decode($values['preferred_location']); 
                         foreach($locations as $location => $lvalues) {
                         $ploca .= $lvalues.', ';
-                     } echo rtrim($ploca,', '); ?>
+                     } echo rtrim($ploca,', '); unset($ploca); ?>
                 </label>
               </div>
             </div>
@@ -119,20 +115,21 @@ if(!$email){
              <input type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
              <input type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
              <input type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
+             <input type="text" value="Interested" name="job_applied_status">
+             <input type="text" value="Rejected" name="job_rejected_status">
 
               <div class="row">
-              <div class="btn-form text-center mTop-20 col-md-12">
-                <button class="btn btn-fill mRight-10">Apply</button>                
-                <button class="btn">Reject</button>
+              <div class="btn-form text-center mTop-20 col-md-12"> 
+                <?php echo $values['job_status']; ?>     
+                <input type="submit"  class="btn btn-fill mRight-10" name="apply" value="Apply">
+                <input type="submit"  class="btn" name="reject" value="Reject">             
               </div>
               
             </div>
             </div>
-            
+            </form>
           </div>
         </div>
-         <?php } ?>
+
+        <?php } ?> 
     </section>
-  </div>
-
-
