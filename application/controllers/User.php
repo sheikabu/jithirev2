@@ -13,6 +13,7 @@ class User extends CI_Controller {
 		$this->load->model('valid_m');
 		$this->load->model('user_profile');
 		$this->load->model('job_applied');
+		$this->load->model('job_history');
 		//$this->load->model('job_post');
 		//$this->load->model('jobs_browse');
 		$this->load->library('upload');
@@ -139,9 +140,18 @@ class User extends CI_Controller {
 	}
 	public function history() // add user full details
 	{
-		//$candidate_id = $this->session->userdata("id");
-		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
-		$this->load_view('history');
+		$data['job_history'] = $this->valid_m->job_history();
+		$this->load_view('history',$data);
+		/* $user_details=array(
+			'job_id' => $this->input->post('job_id'), 
+			'comp_id' => $this->input->post('company_id'),
+			'user_id' => $this->input->post('user_id'),
+			'job_status' => $this->input->post('job_rejected_status'), 
+			'applied_date' => mdate('%Y-%m-%d %H:%i:%s', now())
+			);
+		   $this->job_history->insert_job_history($user_details);
+		    redirect('user/history'); */
+		
 		
 	}
 	public function insert_user_profile() //login_check
@@ -332,7 +342,7 @@ class User extends CI_Controller {
 					'gender' => $this->input->post('gender'),
 					'user_id' => $this->session->userdata("id"),
 					'total_experience' => $this->input->post("total_experience"),
-					'current_location' => $current_location,
+					'current_location' =>json_encode($this->input->post('current_location')),
 					'year_completion' => $this->input->post("year_completion"),
 					'institute' => $this->input->post("institute"),
 					'score' => $this->input->post("score"),
@@ -745,10 +755,11 @@ class User extends CI_Controller {
 		   $this->job_applied->insert_job_applied($user_details);	
 		}
 
-		   //$this->load_view('history',$data);
+		 $this->load_view('history',$data);
 		   redirect('user/browse_jobs');
 	}
 
+	
 }
    
    
