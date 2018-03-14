@@ -16,12 +16,14 @@ if(!$email){
   <div class="mTop-50">
     
 			<?php //echo form_open('post_job/insert_job_post');?>
-			<?php foreach($job_list as $key=>$values) { ?>
+			
 
 
 <!-- Matching Job -->
 
     <section id="matching-job">
+     <?php echo form_open('user/apply_job');?>
+    <?php foreach($job_list as $key=>$values) { ?>
       <div class="container matching_job_container">
         
         <div class="row">
@@ -114,22 +116,23 @@ if(!$email){
                 ?></label>
               </div>
             </div>
+             <input type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
+             <input type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
+             <input type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
+
               <div class="row">
               <div class="btn-form text-center mTop-20 col-md-12">
-             <a href="<?php echo site_url() ?>
-				user/apply_job" > <button class="btn btn-fill mRight-10" >Apply</button></a>
+                <button class="btn btn-fill mRight-10">Apply</button>                
                 <button class="btn">Reject</button>
               </div>
+              
             </div>
             </div>
             
           </div>
         </div>
+         <?php } ?>
     </section>
   </div>
 
-
-       
- <?php } ?> 
-     
 
