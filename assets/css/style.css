@@ -716,8 +716,8 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 #matching-job .btn-form{
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 40px;
+    border-bottom: 1px solid #ced4da;
+    padding-bottom: 20px;
 }
 .skills-wrap .skill-level{ 
     float: right;
