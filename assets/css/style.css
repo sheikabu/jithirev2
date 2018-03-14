@@ -714,9 +714,7 @@ select.form-control:not([size]):not([multiple]) {
 .upload-photo-wrap .photo{
   opacity:0.0;
 }
-section#matching-job{
-  padding: 0px 0 !important;
-}
+
 #matching-job .btn-form{
     border-bottom: 1px solid #ccc;
     padding-bottom: 40px;

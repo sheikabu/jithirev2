@@ -13,15 +13,15 @@ if(!$email){
  ?>
 
 <div id="message"></div>
-  <div class="mTop-50">
-    
-			<?php //echo form_open('post_job/insert_job_post');?>
-			<?php foreach($job_list as $key=>$values) { ?>
+      
+		
 
 
 <!-- Matching Job -->
 
     <section id="matching-job">
+      <?php //echo form_open('post_job/insert_job_post');?>
+      <?php foreach($job_list as $key=>$values) { ?>
       <div class="container matching_job_container">
         
         <div class="row">
@@ -125,11 +125,11 @@ if(!$email){
             
           </div>
         </div>
+        <?php } ?> 
     </section>
-  </div>
-
+ 
 
        
- <?php } ?> 
+ 
      
 
