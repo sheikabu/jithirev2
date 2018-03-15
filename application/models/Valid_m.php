@@ -140,5 +140,16 @@ class Valid_m extends CI_Model{
 			return TRUE;
 	}
 	
+	public function job_history(){ //comments
+	
+	$this->db->select('*');
+	  $this->db->from('jh_job_applied');
+	  $this->db->where('comp_id',$cid);
+	  $this->db->order_by("aid","desc");
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	
 }
 ?>

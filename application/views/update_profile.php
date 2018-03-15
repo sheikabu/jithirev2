@@ -189,23 +189,19 @@ if(!$email){
 		                <input type="text" name="salary_lakhs" class="form-control" placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required>
 		        </div>
 	                </div>
-					 <div class="col-xs-12 mTop-5">
-	 	 		
-
-	 	 			<div class="col-xs-12">
-	                  <label class="col-md-6">Current location</label>
-	                  					</div>
+					<div class="col-xs-12 mTop-5" >
+	                  <label class="col-md-12">Current Location</label>
 										
 						
 	                  <div class="col-md-12" id="current_location">
-	                    <?php $clocations  = json_decode($get_candidate_info['current_location']); ?>
+	                    <?php $clocat  = json_decode($get_candidate_info['current_location']); ?>
 	                  <select name="current_location[]" class="form-control"  placeholder="current_location[]" value="<?php echo $get_candidate_info['current_location']; ?>"required multiple>
 	                    <option value=''>--select--</option>
-	                    <option value ='Trivandrum' <?php if (in_array('Trivandrum', $clocations)) { echo"selected"; } ?>>Trivandrum</option>
-	                    <option value ='Chennai' <?php if (in_array('Chennai', $clocations)) { echo"selected"; } ?>>Chennai</option>
-	                    <option value ='Madurai' <?php if (in_array('Madurai', $clocations)) { echo"selected"; } ?>>Madurai</option>
-	                    <option value ='Kochi' <?php if (in_array('Kochi', $clocations)) { echo"selected"; } ?>>Kochi</option>
-	                    <option value ='Bengalore' <?php if (in_array('Bengalore', $clocations)) { echo"selected"; } ?>>Bengalore</option>
+	                    <option value ='Trivandrum' <?php if (in_array('Trivandrum', $clocat)) { echo"selected"; } ?>>Trivandrum</option>
+	                    <option value ='Chennai' <?php if (in_array('Chennai', $clocat)) { echo"selected"; } ?>>Chennai</option>
+	                    <option value ='Madurai' <?php if (in_array('Madurai', $clocat)) { echo"selected"; } ?>>Madurai</option>
+	                    <option value ='Kochi' <?php if (in_array('Kochi', $clocat)) { echo"selected"; } ?>>Kochi</option>
+	                    <option value ='Bengalore' <?php if (in_array('Bengalore', $clocat)) { echo"selected"; } ?>>Bengalore</option>
 	                  </select>
 	                </div>
 	    </div>

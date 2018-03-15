@@ -214,13 +214,13 @@ if(!$email){
 		                  <span class="col-md-8"><?php echo $get_candidate_info['industry']; ?></span>
 		                </div>
 						  <?php
-		                $clocations  = json_decode($get_candidate_info['current_location']);		                             
+		                $clocat  = json_decode($get_candidate_info['current_location']);		                             
 		                ?>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Current location: </label>
 						  <span class="col-md-8">
 		                  <?php 
-		                  foreach ($clocations as $key => $value) {
+		                  foreach ($clocat as $key => $value) {
 		                  	 $clocation .= $value.', ';
 		                  } 
 		                  echo rtrim($clocation,', '); 
