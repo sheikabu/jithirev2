@@ -670,7 +670,7 @@ h2.section-heading{
 	color:#B20000;
 }
 .status.waiting{
-	color:#D9A300;
+	color:#1a69bd;
 }
 #skills-view #skill{
 	width:165px;
@@ -728,7 +728,21 @@ select.form-control:not([size]):not([multiple]) {
         padding-bottom: 5px!important;
         background:#fff!important;
     }
+.interested-status, .rejected-status{
+    
+    display: inline-block;
+    color: #13980a;
+    padding: 0.374rem .75rem;
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+.rejected-status{
+  color: #c30202;
+  margin-right: 0;
+}
  /*---------------------------------------------- */ 
+}
+}
 }
 @media (min-width: 992px) {
     #mainNav {
