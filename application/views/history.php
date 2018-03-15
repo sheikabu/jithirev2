@@ -28,36 +28,32 @@ if(!$email){
 
     
     <!-- job applied history dashboard -->
-    <section id="posted_jobs">
+    <section id="history_jobs">
+	  
       <div class="container">
       
     	<div class="row">
+		
     		<div class="col-md-12 job-history">
     		
     		<table class="table">
 		  <thead>
 		    <tr>
-		      <th>Company Name</th>
-		      <th>Description</th>
-		      <th>Location</th>
-		      <th>Status</th>
+		      <th>USER ID</th>
+		      <th>JOB ID</th>
+		      <th>COMPANY ID</th>
+		      <th>STATUS</th>
+			  <th>APPLIED DATE</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		
 		    <tr>
-		      <th scope="row">jithirev</th>
-		      <td>company_Description</td>
-		      <td>trichy</td>
-		      <td class = "select">
-             <select>        
-                <option value="approved" class="status approved">approved</option>
-                <option value="Rejected" class="status rejected">Rejected</option>
-                <option value="Waiting" class="status waiting">Waiting</option>
-               
-            </select>
-            <td ALIGN="center"></td>
-            </td>
+		      <th scope="row"><?php echo $this->session->userdata('id'); ?></th>
+		      <td><?php echo $values['job_id']; ?></td>
+		      <td><?php echo $values['comp_id']; ?></td>
+		      <td> <?php echo $values['job_status']; ?> </td>
+			  <td> <?php echo $values['applied_date']; ?> </td>
 		    </tr>
 		 
 			
@@ -95,14 +91,30 @@ if(!$email){
 				                  <span class="col-md-8 status-approved">Approved</span>
 				        </div>
 		    		</div>
+					 <tr>
+		      <th scope="row">jithirev</th>
+		      <td>company_Description</td>
+		      <td>trichy</td>
+		      <td class = "select">
+             <select>        
+                <option value="approved" class="status approved">approved</option>
+                <option value="Rejected" class="status rejected">Rejected</option>
+                <option value="Waiting" class="status waiting">Waiting</option>
+               
+            </select>
+            <td ALIGN="center"></td>
+            </td>
+		    </tr>
 		    	</div> -->
 		    	
 	    	</div>
+			 
     	</div>
     	
-    	
-     
+    	  
+    
       </div>
+	 
     </section>
 
 
