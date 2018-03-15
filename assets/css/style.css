@@ -137,6 +137,9 @@ a .fa{
 .width-70per{
   width: 70%;
 }
+.width-60per{
+  width: 60%;
+}
 #message {
 	font-size:12px;
 	text-align:right
