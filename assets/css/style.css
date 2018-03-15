@@ -10,7 +10,9 @@ label{
   font-size:13px;
   margin-bottom:5px!important;
 }
-
+textarea{
+      border: 1px solid #ced4da;
+}
 .hidden{display:none;}
 .mBot-0{
   margin-bottom:0px!important;
