@@ -109,7 +109,7 @@ if(!$email){
 					
 					    <fieldset>
 						 
-					            <input name="primary[]" id="primary" value="<?php echo $key; ?>" placeholder="Skill" type="text" required />
+					            <input class="width-70per" name="primary[]" id="primary" value="<?php echo $key; ?>" placeholder="Skill" type="text" required />
 					            <select name="proprimary[]" id="proprimary" required>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
@@ -120,7 +120,20 @@ if(!$email){
 					  </div>
 					</div>
 				</div>
-			 
+			 	  <div class="form-group ">
+					<label>Status</label>
+					<div class="row">
+						<div class="col-md-12">
+							<select name="status" required class="form-control">
+							<option value ='0'>Draft</option>
+							<option value ='1'>Open</option>
+							<option value ='2'>Closed</option>
+							<option value ='3'>Cancelled</option>
+						</select>
+						</div>
+					</div>
+				</div>
+
 				<div class="form-group">
 					<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
 				</div>
@@ -150,40 +163,40 @@ if(!$email){
 		            <label>Skills</label>
 					  <div id="sections">
 					  <div class="section">
-					 <fieldset>
-					            <input name="skill[]" id="skill" value="<?php echo $key1; ?>" placeholder="Skill" type="text" required />
+					 		<fieldset class="mTop-5">
+					            <input name="skill[]" id="skill" class="width-70per"  value="<?php echo $key1; ?>" placeholder="Skill" type="text" required />
 					            <select name="proficiency[]" id="proficiency" required>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset>
-								<fieldset>
-					            <input name="skill1[]" id="skill1" value="<?php echo $key2; ?>" placeholder="Skill" type="text" required />
+								<fieldset class="mTop-5">
+					            <input name="skill1[]" id="skill1" class="width-70per" value="<?php echo $key2; ?>" placeholder="Skill" type="text" required />
 					            <select name="skillpro1[]" id="skillpro1" required>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
-								</fieldset>
-								<fieldset>
-					            <input name="skill2[]" id="skill2" value="<?php echo $key3; ?>" placeholder="Skill" type="text" required />
+								</fieldset class="mTop-5">
+								<fieldset class="mTop-5">
+					            <input name="skill2[]" id="skill2" class="width-70per" value="<?php echo $key3; ?>" placeholder="Skill" type="text" required />
 					            <select name="skillpro2[]" id="skillpro2" required>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset>
-								<fieldset>
-					            <input name="skill3[]" id="skill3" value="<?php echo $key4; ?>" placeholder="Skill" type="text" required />
+								<fieldset class="mTop-5">
+					            <input name="skill3[]" id="skill3" class="width-70per" value="<?php echo $key4; ?>" placeholder="Skill" type="text" required />
 					            <select name="skillpro3[]" id="skillpro3" required>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset>
-								<fieldset>
-					            <input name="skill4[]" id="skill4" value="<?php echo $key5; ?>" placeholder="Skill" type="text" required />
+								<fieldset class="mTop-5">
+					            <input name="skill4[]" id="skill4" class="width-70per" value="<?php echo $key5; ?>" placeholder="Skill" type="text" required />
 					            <select name="skillpro4[]" id="skillpro4" required>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
@@ -194,7 +207,6 @@ if(!$email){
 					</div>
 				</div>
 			</div>
-	            
 			</div>
 		</div>
 		<div class="row">
