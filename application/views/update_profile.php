@@ -134,31 +134,31 @@ if(!$email){
 	                  		<input type="text" name="role" class="form-control" placeholder="Role" value="<?php echo $get_candidate_info['role']; ?>" required>
 	                 	</div>
 	                </div>
- 					<div class="col-xs-12 mTop-5" id="pre-role">
+ 					<div class="col-xs-12 mTop-5" id="year_completion">
 	                  	<label class="col-md-12">Year of completion</label>
 	                 	<div class="col-md-12"> 
 	                  		<input type="text" name="year_completion" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion']; ?>" required>
 	                 	</div>
 	                </div>
-					<div class="col-xs-12 mTop-5" id="pre-role">
+					<div class="col-xs-12 mTop-5" id="institute">
 							<label class="col-md-12">Institute</label>
 							<div class="col-md-12"> 
 							    <input type="text" name="institute" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute']; ?>" required>
 						</div>
 					</div>
-					<div class="col-xs-12 mTop-5" id="pre-role">
+					<div class="col-xs-12 mTop-5" id="score">
 							<label class="col-md-12">Score</label>
 							<div class="col-md-12"> 
 							    <input type="text" name="score" class="form-control" placeholder="Score" value="<?php echo $get_candidate_info['score']; ?>" required>
 						</div>
 					</div>
-					<div class="col-xs-12 mTop-5" id="pre-role">
+					<div class="col-xs-12 mTop-5" id="degree">
 							<label class="col-md-12">Degree</label>
 							<div class="col-md-12"> 
 							    <input type="text" name="degree" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree']; ?>" required>
 						</div>
 					</div>
-					<div class="col-xs-12 mTop-5" id="pre-role">
+					<div class="col-xs-12 mTop-5" id="branch">
 							<label class="col-md-12">Branch</label>
 							<div class="col-md-12"> 
 							    <input type="text" name="branch" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch']; ?>" required>
@@ -562,11 +562,24 @@ $(document).ready(function(){
   // Use className or Id instead of direct tag name
   $('#total_experience').on('change', function() {
     var val = $(this).val();
-    if(val=='Fresher')
+    if(val=='Fresher') {
     $('#pre-role').fadeOut('slow');
-    else
+    $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
+    } else {
     $('#pre-role').fadeIn('slow');
+    $('#year_completion, #institute, #score, #degree, #branch').fadeOut('slow');
+    }
   })
+
+  var loadval = $("#total_experience").val());
+	if(loadval=='Fresher') {
+    $('#pre-role').fadeOut('slow');
+    $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
+    } else {
+    $('#pre-role').fadeIn('slow');
+    $('#year_completion, #institute, #score, #degree, #branch').fadeOut('slow');
+    }
+
 });
 
 </script>
