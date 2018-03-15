@@ -115,7 +115,7 @@ class Valid_m extends CI_Model{
 	  $this->db->select('jh_job_posting.*,jh_company_details.*, jh_job_applied.*');
 	  $this->db->from('jh_job_posting');
 	  $this->db->join('jh_company_details', 'jh_job_posting.company_id = jh_company_details.id', 'left');
-	  $this->db->join('jh_job_applied', 'jh_job_applied.job_id = jh_job_posting.job_id', 'left');
+	  $this->db->join('jh_job_applied', 'jh_job_applied.applied_job_id = jh_job_posting.job_id', 'left');
 	  $this->db->order_by("jh_job_posting.job_id","desc");
 	  //$this->db->where('jh_registration.id',$candidate_id);
 
@@ -140,16 +140,6 @@ class Valid_m extends CI_Model{
 			return TRUE;
 	}
 	
-	public function job_history(){ //comments
-	
-	$this->db->select('*');
-	  $this->db->from('jh_job_applied');
-	  $this->db->where('comp_id',$cid);
-	  $this->db->order_by("aid","desc");
-	  $query=$this->db->get();
-	  $results = $query->result_array();
-	  return $results;
-	}
 	
 }
 ?>

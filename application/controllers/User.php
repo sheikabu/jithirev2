@@ -140,7 +140,7 @@ class User extends CI_Controller {
 	}
 	public function history() // add user full details
 	{
-		$data['job_history'] = $this->valid_m->job_history();
+		$data['job_history'] = $this->job_history->job_history();
 		$this->load_view('history',$data);
 		/* $user_details=array(
 			'job_id' => $this->input->post('job_id'), 
@@ -737,7 +737,7 @@ class User extends CI_Controller {
     
 		if (isset($_POST['apply'])) {
 		    $user_details=array(
-			'job_id' => $this->input->post('job_id'), 
+			'applied_job_id' => $this->input->post('job_id'), 
 			'comp_id' => $this->input->post('company_id'),
 			'user_id' => $this->input->post('user_id'),
 			'job_status' => $this->input->post('job_applied_status'), 
@@ -746,7 +746,7 @@ class User extends CI_Controller {
 		   $this->job_applied->insert_job_applied($user_details);	
 		} else {
 		     $user_details=array(
-			'job_id' => $this->input->post('job_id'), 
+			'applied_job_id' => $this->input->post('job_id'), 
 			'comp_id' => $this->input->post('company_id'),
 			'user_id' => $this->input->post('user_id'),
 			'job_status' => $this->input->post('job_rejected_status'), 

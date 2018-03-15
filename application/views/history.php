@@ -24,47 +24,40 @@ if(!$email){
 }
 
  ?>
-
-
-    
+   
     <!-- job applied history dashboard -->
     <section id="history_jobs">
-	  
       <div class="container">
-      
     	<div class="row">
-		
     		<div class="col-md-12 job-history">
-    		
     		<table class="table">
 		  <thead>
 		    <tr>
-		      <th>USER ID</th>
-		      <th>JOB ID</th>
-		      <th>COMPANY ID</th>
-		      <th>STATUS</th>
-			  <th>APPLIED DATE</th>
+		      <th>Job Code</th>
+		      <th>Job Role</th>
+		      <th>Company</th>
+			  <th>Applied Date</th>
+			  <th>Status</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		
+		    <?php foreach($job_history as $key=>$values) { ?>
 		    <tr>
-		      <th scope="row"><?php echo $this->session->userdata('id'); ?></th>
-		      <td><?php echo $values['job_id']; ?></td>
-		      <td><?php echo $values['comp_id']; ?></td>
-		      <td> <?php echo $values['job_status']; ?> </td>
-			  <td> <?php echo $values['applied_date']; ?> </td>
+		      <td><?php echo $values['Job_code']; ?></td>
+		      <td><?php echo $values['job_role']; ?></td>
+		      <td><?php echo $values['company_name']; ?></td>
+		      <td> <?php echo $values['applied_date']; ?> </td>
+		      <?php if($values['job_status']=='Interested') { ?>
+		      <td class="interested-status"><?php echo $values['job_status']; ?></td>
+		      <?php } ?>
+		      <?php if($values['job_status']=='Rejected') { ?>
+		      <td class="rejected-status"><?php echo $values['job_status']; ?></td>
+		      <?php } ?>
+			  
 		    </tr>
-		 
-			
-			<div class="form-group">
-				
-				<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
-			</div>
+		    <?php } ?>			
 		  </tbody>
 		</table>
-    		
-    		
     			<!-- <div class="row">
 		    		<div class="col-md-4">
 		    			<div class="col-xs-12">
