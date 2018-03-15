@@ -83,7 +83,7 @@ if(!$email){
 				<div class="form-group">
 	                <!-- First Name --><label>Job Description</label><br>
 
-	                <textarea rows="4" cols="54" name="job_description" required></textarea>
+	                <textarea rows="4" class="width-fluid" name="job_description" required></textarea>
 	            </div>
 	        </div>
 
