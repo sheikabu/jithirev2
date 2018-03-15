@@ -721,7 +721,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 .skills-wrap .skill-level{ 
     float: right;
-    width: 45%; 
+    width: 55%; 
   }
  #mainNav {
         padding-top: 5px!important;
