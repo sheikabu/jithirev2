@@ -17,7 +17,7 @@ if(!$email){
 
     <section id="matching-job">
 
-   
+  
     <?php foreach($job_list as $key=>$values) { ?>
       <div class="container matching_job_container">
         
@@ -112,18 +112,23 @@ if(!$email){
                 ?></span>
               </div>
             </div>
-             <input class="hidden" type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
-             <input class="hidden" type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
-             <input class="hidden" type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
-             <input class="hidden" type="text" value="Interested" name="job_applied_status">
-             <input class="hidden" type="text" value="Rejected" name="job_rejected_status">
+             <input class="hidden1" type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
+             <input class="hidden1" type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
+             <input class="hidden1" type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
+             <input class="hidden1" type="text" value="Interested" name="job_applied_status">
+             <input class="hidden1" type="text" value="Rejected" name="job_rejected_status">
 
               <div class="row">
-              <div class="btn-form text-center mTop-20 col-md-12"> 
-                <div class="interested-status"><i class="fa fa-check" aria-hidden="true"></i>   <?php echo $values['job_status']; ?>   </div>
+              <div class="btn-form text-center mTop-20 col-md-12">
+              <?php if($values['job_status'] == 'Interested') { ?>
+                <div class="interested-status"><i class="fa fa-check" aria-hidden="true"></i>Interested</div>
+                <?php } elseif ($values['job_status'] == 'Rejected') { ?>
                 <div class="rejected-status"><i class="fa fa-times" aria-hidden="true"></i>   <?php echo $values['job_status']; ?>   </div>
+                <?php } else { ?>
                 <input type="submit"  class="btn btn-fill mRight-10" name="apply" value="Apply">
-                <input type="submit"  class="btn" name="reject" value="Reject">             
+                <input type="submit"  class="btn" name="reject" value="Reject">
+                <?php } ?>
+               
               </div>
               
             </div>
