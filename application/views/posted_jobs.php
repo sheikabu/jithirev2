@@ -21,7 +21,7 @@ if(!$email){
 				<?php foreach($job_list as $key=>$values) { ?>
 					<div class="row">
 						<div class="col-md-12">
-							<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_profile"><i class="fa fa-edit" aria-hidden="true"></i></a>
+							<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_post"><i class="fa fa-edit" aria-hidden="true"></i></a>
 						</div>
 					</div>
 					<div class="row">
