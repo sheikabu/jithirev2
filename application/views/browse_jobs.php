@@ -41,15 +41,17 @@ if(!$email){
             </div>
              <div class="col-xs-12">
               <label class="col-md-4">Keyskills: </label>
-              <span class="col-md-8"><?php $primary_skill =  json_decode($values['primary_skill']);
+              <span class="col-md-8 skills-wrap"><span><?php $primary_skill =  json_decode($values['primary_skill']);
                   foreach ($primary_skill as $pkey => $pvalue) {
-                    echo $pkey.' - '.$pvalue;
+                    echo $pkey.'<span class="skill-level">- '.$pvalue;
                   }
-                    ?></span>
+                    ?>
+                  </span>    
+              </span>
             </div>
              <div class="col-xs-12">
               <label class="col-md-4 pull-left">Skills: </label>
-              <span class="col-md-8 skills-wrap">
+              <span class="col-md-8 pull-left skills-wrap">
                 <span><?php  $skill1 = json_decode($values['skills']);
                 foreach ($skill1 as $skey1 => $svalue1) echo $skey1.'<span class="skill-level">- '.$svalue1;
                 ?></span><br>
@@ -100,28 +102,28 @@ if(!$email){
           </div>          
         </div>
         <div class="row">
-          <label class="col-md-4 mTop-10">Job Description: </label>
-          <div class="col-md-12 mLeft-10  mBot-10"><?php echo $values['job_description'];?></div>
+          <label class="col-md-4 mLeft-15 mTop-10">Job Description: </label>
+          <div class="col-md-12 mLeft-15  mBot-10"><?php echo $values['job_description'];?></div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label>Opening:</label><span><?php
+                <label class="mLeft-15">Opening:</label><span><?php
                 $open_timestamp = strtotime($values['open_date_time']);
                 echo $opening_date = date('d-m-Y', $open_timestamp);  
                 ?></span>
             </div>
             <div class="col-md-6 text-right">
-                <label>Closing:</label><span><?php
+                <label class="mLeft-15">Closing:</label><span><?php
                 $open_timestamp = strtotime($values['close_date_time']);
                 echo $opening_date = date('d-m-Y', $open_timestamp);  
                 ?></span>
              </div>
             </div>
-             <input class="hidden1" type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
-             <input class="hidden1" type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
-             <input class="hidden1" type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
-             <input class="hidden1" type="text" value="Interested" name="job_applied_status">
-             <input class="hidden1" type="text" value="Rejected" name="job_rejected_status">
+             <input class="hidden" type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
+             <input class="hidden" type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
+             <input class="hidden" type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
+             <input class="hidden" type="text" value="Interested" name="job_applied_status">
+             <input class="hidden" type="text" value="Rejected" name="job_rejected_status">
 
               <div class="row">
               <div class="btn-form text-center mTop-20 col-md-12">

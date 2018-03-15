@@ -48,6 +48,18 @@ label{
 .mLeft-10{
 	margin-left:10px;
 }
+.mBot-15{
+  margin-bottom: 15px;
+}
+.mTop-15{
+  margin-top: 15px;
+}
+.mRight-15{
+  margin-right: 15px;
+}
+.mLeft-15{
+  margin-left:15px;
+}
 .mBot-20{
   margin-bottom: 20px;
 }
@@ -606,14 +618,14 @@ h2.section-heading{
 	color: #666;
 }
 .matching_job_container label{
-	font-size: 13px;
-  	margin-right: 5px;
-  	margin-left: 5px;
+	 font-size: 13px;
+  	/*margin-right: 5px;
+  	margin-left: 5px;*/
 }
-.matching_job_container span{
+/*.matching_job_container span{
 	width: 150px;
     	display: inline-block;
-}
+}*/
 .matching_job_container p{
 	line-height: normal;
 	margin-bottom: 10px;
