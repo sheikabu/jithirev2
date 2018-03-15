@@ -31,7 +31,7 @@ if(!$email){
 						<?php $locations= json_decode($values['preferred_location'], true);
 								foreach($locations as $lkey => $lvalues) {
 									$ploca .= $lvalues.', ';
-								} echo rtrim($ploca,', ');
+								} echo rtrim($ploca,', '); unset($ploca);
 								?>
 								</span>
 						</div>

@@ -571,11 +571,12 @@ $(document).ready(function(){
     }
   })
 
-  var loadval = $("#total_experience").val());
-	if(loadval=='Fresher') {
+   var valload = $("#total_experience").val();
+   if(valload=='Fresher') {
     $('#pre-role').fadeOut('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
-    } else {
+    }
+    else {
     $('#pre-role').fadeIn('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeOut('slow');
     }

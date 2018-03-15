@@ -49,13 +49,13 @@ if(!$email){
               <div id="full-profile-view">
               <div>
              		<div class="line2 mBot-10">
-             			<h1 class="title mRight-20 ">Software Engineer</h1> <span class="col-md-8">
+             			<h1 class="title mRight-20 "><?php if($get_candidate_info['total_experience'] != 'Fresher') { echo $get_candidate_info['role']; } ?></h1> <span class="col-md-8">
 		                  <?php 
 		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
 		                  foreach ($primary_skill as $key => $value)
 		                  echo $primary_skill .= $key.'-'.$value;
 			                ?>
-		                  </span>  <span class="col-md-8"><?php echo $get_candidate_info['year_completion']; ?> years Experience</span>
+		                  </span><span class="col-md-8"><?php if($get_candidate_info['total_experience'] == 'Fresher') { echo 'Fresher';} else { echo $get_candidate_info['total_experience'].' years Experience'; } ?></span>
              		</div>
              
              		<div class="row text-right">
@@ -190,7 +190,7 @@ if(!$email){
 		                  <label class="col-md-4">Previous Role: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['role']; ?></span>
 		                </div>
-		                <?php } ?>
+		                <?php } else { ?>
 		                
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Year of completion: </label>
@@ -213,6 +213,7 @@ if(!$email){
 		                  <label class="col-md-4">Industry: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['industry']; ?></span>
 		                </div>
+		                <?php } ?>
 						  <?php
 		                $clocat  = json_decode($get_candidate_info['current_location']);		                             
 		                ?>
