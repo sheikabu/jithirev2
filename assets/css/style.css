@@ -735,6 +735,8 @@ select.form-control:not([size]):not([multiple]) {
     padding: 0.374rem .75rem;
     font-size: 1rem;
     margin-right: 10px;
+    font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
   }
 .rejected-status{
   color: #c30202;
