@@ -15,7 +15,7 @@ if(!$email){
 <div id="message"></div>
 <!-- Matching Job -->
 
-<section id="matching-job">
+<section id="browse_jobs">
 
 
   

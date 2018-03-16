@@ -75,12 +75,8 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/contact">Contact Us</a>
             </li>
-          
-         
-        <?php if($this->session->userdata('role')=='company'){ ?>
-         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-          
+           <?php if($this->session->userdata('role')=='company'){ ?>
+        
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/new_job">Post a Job</a>
             </li>
@@ -91,15 +87,11 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
             </li>
-          </ul>
-        </div>
+          
         <?php } ?>
         <?php if($this->session->userdata('role')=='candidate'){ ?>
-         <li class="nav-item">
-              <ul class="notification-user text-uppercase">
-             <!-- <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/user_details"> View Profile</a>
-                </li> -->
+
+         
               <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/browse_jobs"> Matching Jobs</a>
                 </li>
@@ -110,22 +102,18 @@
                 	<a class="nav-link js-scroll-trigger" href="#"><i class="fa fa-bell" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item">
-                	<div class="dropdown">
-			    <button class=" user-dropdown dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 
-			    <span class="caret"></span></button>
-			    <ul class="dropdown-menu">
-			      <li><a class="nav-link" href="<?php echo site_url() ?>user/user_details">View Profile</a></li>
-			      <li><a class="nav-link" href="<?php echo site_url() ?>user/update_profile">Edit Profile</a></li>
-			      
-			      <li><a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/logout">Logout</a></li>
-			    </ul>
-			  </div>
-                    
-                </li>
-                
-              </ul>
-            </li>
-        <?php } ?>
+                <div class="dropdown">
+          			    <button class=" user-dropdown dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 
+          			    <span class="caret"></span></button>
+          			    <ul class="dropdown-menu">
+          			      <li><a class="nav-link" href="<?php echo site_url() ?>user/user_details">View Profile</a></li>
+          			      <li><a class="nav-link" href="<?php echo site_url() ?>user/update_profile">Edit Profile</a></li>
+          			      
+          			      <li><a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/logout">Logout</a></li>
+          			    </ul>
+			         </div>
+              </li>
+         <?php } ?>
 
           </ul>
         </div>
