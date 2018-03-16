@@ -133,27 +133,27 @@
                          </div> 
                           <div id="candidate_view" class="mTop-20">
                             <form method="post" id="candidate_form" class="single-form">
-                              <div class="col-xs-12">
+                              <div class="col-xs-12" id="agreement1div">
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement1" type="checkbox" />
+                                      <input name="agreement" id="agreement1" type="checkbox" required="required"/>
                                       <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
                                   </div>
                               </div>
-                              <div class="col-xs-12">
+                              <div class="col-xs-12" id="agreement2div">
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement2" type="checkbox" />
+                                      <input name="agreement" id="agreement2" type="checkbox" required="required" />
                                       <label for="agreement2">  I will respond to job alerts/offer letter in four business hours</label>
                                   </div>
                               </div>
-                              <div class="col-xs-12">
+                              <div class="col-xs-12" id="agreement3div">
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement3" type="checkbox"/>
+                                      <input name="agreement" id="agreement3" type="checkbox" required="required"/>
                                       <label for="agreement3">  I am ready to attend telephonic interview any time during the business hours without prior notification</label>
                                   </div>
                               </div>
-                              <div class="col-xs-12">
+                              <div class="col-xs-12" id="agreement4div" >
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement4" type="checkbox"/>
+                                      <input name="agreement" id="agreement4" type="checkbox" required="required"/>
                                       <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
                                   </div>
                               </div>
@@ -276,6 +276,30 @@
               </div>
             </div>
         <!-- register modal end -->
+<script>
+$(document).ready(function(){
 
-    
+  $("#agreement1").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement2div").show();
+      }
+  });
+  $("#agreement2").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement3div").show();
+      }
+  });
+  $("#agreement3").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement4div").show();
+      }
+  });
 
+  $("#agreement2div").hide();
+  $("#agreement3div").hide();
+  $("#agreement4div").hide();
+
+
+});
+
+</script>

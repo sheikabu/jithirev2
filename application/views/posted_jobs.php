@@ -46,7 +46,6 @@ if(!$email){
 
 						<div class="col-md-4"><label class="col-md-5">No of Positions:</label><span class="col-md-7"> <?php echo $values['no_positions'];?></span></div>
 						<div class="col-md-4"><label class="col-md-5">Duration:</label><span class="col-md-7"> <?php echo $values['duration'];?></span></div>
-						
 					</div>
 					<div class="row">
 						<div class="col-md-4"><label class="col-md-5">Max Salary:</label><span class="col-md-7"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>

@@ -10,19 +10,25 @@ class user_profile extends CI_Model{
 
 	public function  get_user_profile_id($candidate_id){ //comments
 		
-	  $this->db->select('jh_registration.*,jh_user_profile.*');
-	  $this->db->from('jh_registration');
-	   $this->db->join('jh_user_profile', 'jh_registration.id = jh_user_profile.user_id');
-	  $this->db->where('jh_registration.id',$candidate_id);
-
-	  if($query=$this->db->get())
-	  {
-	      return $query->row_array();
-	     
-	  }
-	  else{
-	    return false;
-	  }
+	      $this->db->select('*');
+	  	 $this->db->from('jh_user_profile');
+		 $this->db->where('user_id',$candidate_id);
+		 $query=$this->db->get();
+		  if($query->num_rows()>0){ 
+		  	$this->db->select('jh_registration.*,jh_user_profile.*');
+		    $this->db->from('jh_registration');
+		    $this->db->join('jh_user_profile', 'jh_registration.id = jh_user_profile.user_id');
+		    $this->db->where('jh_registration.id',$candidate_id);
+		    $query=$this->db->get();
+		  }
+		  else
+		  {
+		  	$this->db->select('*');
+			$this->db->from('jh_registration');			
+			$this->db->where('id',$candidate_id);
+			$query=$this->db->get();
+		  }
+		  return $query->row_array();
 	}
 
 	public function  insert_user_profile($user_details){ //comments 
