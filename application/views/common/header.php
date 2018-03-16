@@ -76,7 +76,9 @@
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/contact">Contact Us</a>
             </li>
            <?php if($this->session->userdata('role')=='company'){ ?>
-        
+         <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+           -->
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/new_job">Post a Job</a>
             </li>
@@ -87,11 +89,16 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
             </li>
-          
+          <!-- </ul>
+        </div> -->
         <?php } ?>
         <?php if($this->session->userdata('role')=='candidate'){ ?>
 
-         
+         <!-- <li class="nav-item">
+              <ul class="notification-user text-uppercase"> -->
+             <!-- <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/user_details"> View Profile</a>
+                </li> -->
               <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/browse_jobs"> Matching Jobs</a>
                 </li>
@@ -112,8 +119,12 @@
           			      <li><a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/logout">Logout</a></li>
           			    </ul>
 			         </div>
-              </li>
-         <?php } ?>
+                    
+                </li>
+                
+             <!--  </ul>
+            </li> -->
+        <?php } ?>
 
           </ul>
         </div>
