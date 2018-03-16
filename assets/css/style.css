@@ -158,6 +158,16 @@ a .fa{
 	background:url(../img/logo-jithire.png) no-repeat;
 	text-indent: -9999px; 
 }
+#mainNav .navbar-nav .nav-item .nav-link.active {
+    color: #1b66b3;
+    text-decoration: none;
+    border-bottom: 2px solid #1b66b3;
+    font-weight: 700;
+}
+#mainNav .navbar-nav .nav-item .nav-link:hover{
+  background: #f5f5f5;
+  color: #222!important;
+}
 /**
  * =========================
  * Form Style 

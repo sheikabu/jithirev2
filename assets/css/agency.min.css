@@ -135,10 +135,10 @@ body {
     letter-spacing: 1px;
     font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
-#mainNav .navbar-nav .nav-item .nav-link.active,
+/*#mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #DF9D4C;
-}
+}*/
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 25px;
