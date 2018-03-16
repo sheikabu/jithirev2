@@ -42,23 +42,23 @@ if(!$email){
             <div id="message"></div>
             <?php echo form_open_multipart('user/basic_info');?>
             <div class="details" id="basic-info">
-              <h1 class="title"></h1>
+              <h1 class="title" value="<?php echo $get_candidate_info['first_name']; ?>"></h1>
              
               <div class="row">
               	 <div class="col-md-4">
 	                <div class="col-xs-12">
 	                  <!-- First Name -->
-	                  <label class="col-md-12">Name </label><div class="col-md-12"> <input name="first_name" class="form-control" placeholder="First Name*" type="text" value="<?php echo $get_candidate_info['first_name']; ?>" required></div>
+	                  <label class="col-md-12">Name </label><div class="col-md-12"> <input name="first_name" readonly class="form-control"  placeholder="First Name*" type="text" value="<?php echo $get_candidate_info['first_name']; ?>" required></div>
 	                </div>
 	                
 	                <div class="col-xs-12 mTop-5">
 	                  <!-- Email -->
-	                  <label class="col-md-12">Email </label><div class="col-md-12"> <input name="email" class="form-control" placeholder="Email*" type="email" value="<?php echo $get_candidate_info['email']; ?>" required></div>
+	                  <label class="col-md-12">Email </label><div class="col-md-12"> <input name="email" readonly class="form-control"  placeholder="Email*" type="email" value="<?php echo $get_candidate_info['email']; ?>" required></div>
 	                </div>
 	                
 	                <div class="col-xs-12 mTop-5">
 	                  <!-- Pancard -->
-	                  <label class="col-md-12">PAN </label><div class="col-md-12"> <input type="text" name="pancard" class="form-control" placeholder="Pancard" value="<?php echo $get_candidate_info['pancard']; ?>" required/></div>
+	                  <label class="col-md-12">PAN </label><div class="col-md-12"> <input type="text" name="pancard" readonly class="form-control"  placeholder="Pancard" value="<?php echo $get_candidate_info['pancard']; ?>" required/></div>
 	                </div>
 	                <div class="col-xs-12 mTop-5">
 	                  <!-- Mobile number -->
@@ -389,7 +389,7 @@ if(!$email){
         	    ?>
 				 <input name="skill1[]" placeholder="Skill" type="text" value="<?php echo $key; ?>"  />
                   <select name="skillpro1[]" required>
-                     <option <?php if($val=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if($val=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -400,9 +400,9 @@ if(!$email){
 	        		foreach($skill2 as $key2 => $val2)
 	        		if($key2=='') {$val2 = 'Fresher';}
 	        	    ?>
-				 <input name="skill2[]" placeholder="Skill" type="text" value="<?php echo $key2; ?>"  />
+				 <input name="skill2[]" placeholder="Skill" class="mTop-5" type="text" value="<?php echo $key2; ?>"  />
                   <select name="skillpro2[]" required>
-                     <option <?php if($val2=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if($val2=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -413,7 +413,7 @@ if(!$email){
 	        		foreach($skill3 as $key3 => $val3)
 	        		if($key3=='') {$val3 = 'Fresher';}
 	        	    ?>
-				 <input name="skill3[]" placeholder="Skill" type="text"  value="<?php echo $key3; ?>"  />
+				 <input name="skill3[]" placeholder="Skill" class="mTop-5" type="text"  value="<?php echo $key3; ?>"  />
                   <select name="skillpro3[]" required>
                      <option <?php if($val3=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
@@ -426,7 +426,7 @@ if(!$email){
 	        		foreach($skill4 as $key4 => $val4)
 	        		if($key4=='') {$val4 = 'Fresher';}
 	        	    ?>
-				 <input name="skill4[]" placeholder="Skill" type="text"  value="<?php echo $key4; ?>" />
+				 <input name="skill4[]" placeholder="Skill" class="mTop-5" type="text"  value="<?php echo $key4; ?>" />
                   <select name="skillpro4[]" required>
                      <option <?php if($val4=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
@@ -439,7 +439,7 @@ if(!$email){
 	        		foreach($skill5 as $key5 => $val5)
 	        		if($key5=='') {$val5 = 'Fresher';}
 	        	    ?>
-				 <input name="skill5[]" placeholder="Skill" type="text"  value="<?php echo $key5; ?>" />
+				 <input name="skill5[]" placeholder="Skill" class="mTop-5" type="text"  value="<?php echo $key5; ?>" />
                   <select name="skillpro5[]" required>
                      <option <?php if($val5=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val5=='Basic') { echo"selected"; } ?>>Basic</option>

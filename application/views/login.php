@@ -131,64 +131,64 @@
                            <span class="checkmark"></span>
                           </label>
                          </div> 
-                          <div id="candidate_view">
-                         <form method="post" id="candidate_form" class="single-form">
-                         
-                        <div class="col-xs-12">
-                            <!-- First Name -->
-                            <input name="first_name" class="contact-first-name form-control" placeholder="Name*" required="" type="text">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Pancard -->
-                            <input name="pancard_no" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Email -->
-                            <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Subject -->                            <input name="password" class="contact-password form-control" placeholder="Password" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Subject -->
-                            <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password" type="password"  value="<?php echo set_value('confirm_password'); ?>"><span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
-                        </div>
-                        <div class="col-xs-12">                          
-                            <input name="role" type="hidden" value="candidate">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Subject -->
-                            <input name="status" type="hidden" value="active">
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement1" type="checkbox" checked />
-                                <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement2" type="checkbox" checked />
-                                <label for="agreement2">	I will respond to job alerts/offer letter in four business hours</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement3" type="checkbox" checked />
-                                <label for="agreement3">	I am ready to attend telephonic interview any time during the business hours without prior notification</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement4" type="checkbox" checked />
-                                <label for="agreement4">	I am ready to join the next business after accepting the offer</label>
-                            </div>
-                        </div>
-                        <!-- Subject Button -->
-                        <div class="btn-form text-center col-xs-12">
-                            <button class="btn btn-fill">Sign Up</button>
-                        </div>
-                         </form>
+                          <div id="candidate_view" class="mTop-20">
+                            <form method="post" id="candidate_form" class="single-form">
+                              <div class="col-xs-12">
+                                  <div class="checkbox">
+                                      <input name="agreement" id="agreement1" type="checkbox" />
+                                      <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
+                                  </div>
+                              </div>
+                              <div class="col-xs-12 hidden">
+                                  <div class="checkbox">
+                                      <input name="agreement" id="agreement2" type="checkbox" />
+                                      <label for="agreement2">  I will respond to job alerts/offer letter in four business hours</label>
+                                  </div>
+                              </div>
+                              <div class="col-xs-12 hidden">
+                                  <div class="checkbox">
+                                      <input name="agreement" id="agreement3" type="checkbox"/>
+                                      <label for="agreement3">  I am ready to attend telephonic interview any time during the business hours without prior notification</label>
+                                  </div>
+                              </div>
+                              <div class="col-xs-12 hidden">
+                                  <div class="checkbox">
+                                      <input name="agreement" id="agreement4" type="checkbox"/>
+                                      <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
+                                  </div>
+                              </div>
+                              <div class="col-xs-12">
+                                  <!-- First Name -->
+                                  <input name="first_name" class="contact-first-name form-control" placeholder="Name*" required="" type="text">
+                              </div>
+                              <div class="col-xs-12">
+                                  <!-- Pancard -->
+                                  <input name="pancard_no" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
+                              </div>
+                              <div class="col-xs-12">
+                                  <!-- Email -->
+                                  <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
+                              </div>
+                              <div class="col-xs-12">
+                                  <!-- Subject -->                            <input name="password" class="contact-password form-control" placeholder="Password" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
+                              </div>
+                              <div class="col-xs-12">
+                                  <!-- Subject -->
+                                  <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password" type="password"  value="<?php echo set_value('confirm_password'); ?>"><span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
+                              </div>
+                              <div class="col-xs-12">                          
+                                  <input name="role" type="hidden" value="candidate">
+                              </div>
+                              <div class="col-xs-12">
+                                  <!-- Subject -->
+                                  <input name="status" type="hidden" value="active">
+                              </div>
+                              
+                              <!-- Subject Button -->
+                              <div class="btn-form text-center col-xs-12">
+                                  <button class="btn btn-fill">Sign Up</button>
+                              </div>
+                          </form>
                         </div>
                       
                          <div id="company_view">

@@ -49,13 +49,11 @@ if(!$email){
               <div id="full-profile-view">
               <div>
              		<div class="line2 mBot-10">
-             			<h1 class="title mRight-20 "><?php if($get_candidate_info['total_experience'] != 'Fresher') { echo $get_candidate_info['role']; } ?></h1> <span class="col-md-8">
-		                  <?php 
+             			<h2 class="title mRight-20 "><?php 
 		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
 		                  foreach ($primary_skill as $key => $value)
 		                  echo $primary_skill .= $key.'-'.$value;
-			                ?>
-		                  </span><span class="col-md-8"><?php if($get_candidate_info['total_experience'] == 'Fresher') { echo 'Fresher';} else { echo $get_candidate_info['total_experience'].' years Experience'; } ?></span>
+			                ?></h2> <span class="col-md-8"><?php if($get_candidate_info['total_experience'] == 'Fresher') { echo 'Fresher';} else { echo $get_candidate_info['total_experience'].' years Experience'; } ?></span>
              		</div>
              
              		<div class="row text-right">
