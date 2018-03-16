@@ -139,19 +139,19 @@
                                       <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
                                   </div>
                               </div>
-                              <div class="col-xs-12 hidden">
+                              <div class="col-xs-12">
                                   <div class="checkbox">
                                       <input name="agreement" id="agreement2" type="checkbox" />
                                       <label for="agreement2">  I will respond to job alerts/offer letter in four business hours</label>
                                   </div>
                               </div>
-                              <div class="col-xs-12 hidden">
+                              <div class="col-xs-12">
                                   <div class="checkbox">
                                       <input name="agreement" id="agreement3" type="checkbox"/>
                                       <label for="agreement3">  I am ready to attend telephonic interview any time during the business hours without prior notification</label>
                                   </div>
                               </div>
-                              <div class="col-xs-12 hidden">
+                              <div class="col-xs-12">
                                   <div class="checkbox">
                                       <input name="agreement" id="agreement4" type="checkbox"/>
                                       <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
