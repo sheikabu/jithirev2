@@ -186,7 +186,7 @@ if(!$email){
 			    		<?php if($get_candidate_info['total_experience']!='Fresher') { ?>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Previous Role: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['role']; ?></span>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['previous_role']; ?></span>
 		                </div>
 		                <?php } else { ?>
 		                

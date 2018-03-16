@@ -58,7 +58,7 @@ if(!$email){
 	                
 	                <div class="col-xs-12 mTop-5">
 	                  <!-- Pancard -->
-	                  <label class="col-md-12">PAN </label><div class="col-md-12"> <input type="text" name="pancard" readonly class="form-control"  placeholder="Pancard" value="<?php echo $get_candidate_info['pancard']; ?>" required/></div>
+	                  <label class="col-md-12">PAN </label><div class="col-md-12"> <input type="text" name="pancard" readonly class="form-control"  placeholder="Pancard" value="<?php echo $get_candidate_info['pan_card']; ?>" required/></div>
 	                </div>
 	                <div class="col-xs-12 mTop-5">
 	                  <!-- Mobile number -->
@@ -131,7 +131,7 @@ if(!$email){
 	                <div class="col-xs-12 mTop-5" id="pre-role">
 	                  	<label class="col-md-12">Previous Role</label>
 	                 	<div class="col-md-12"> 
-	                  		<input type="text" name="role" class="form-control" placeholder="Role" value="<?php echo $get_candidate_info['role']; ?>" required>
+	                  		<input type="text" name="role" class="form-control" placeholder="Previous Role" value="<?php echo $get_candidate_info['previous_role']; ?>" required>
 	                 	</div>
 	                </div>
  					<div class="col-xs-12 mTop-5" id="year_completion">
@@ -276,8 +276,10 @@ if(!$email){
 					     <div class="col-md-4">
 					    	<i class="fa fa-edit" aria-hidden="true"></i>
 					      <input type="file" name="image_file" size="20" class="photo"   />
+					       
+					       <?php if($get_candidate_info['photos']!=''){ $photo = $get_candidate_info['photos']; } else { $photo = 'dummy-profile-pic.jpg'; } ?>
 
-					       <img src="<?php echo base_url();?>upload/photos/<?php echo $get_candidate_info['photos']; ?>" width="100" height="125" class="img-thumbnail" />
+					       <img src="<?php echo base_url();?>upload/photos/<?php echo $photo; ?>" width="100" height="125" class="img-thumbnail" />
 					       
 					      <input type="hidden" value="<?php echo $get_candidate_info['photos']; ?>" name="old_image">
 						</div>

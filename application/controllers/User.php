@@ -128,13 +128,14 @@ class User extends CI_Controller {
 	{
 		$candidate_id = $this->session->userdata("id");
 		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
-		$this->load_view('user_details',$data);
+		if($data['get_candidate_info']['primary_skill']!='')
+		{ $this->load_view('user_details',$data); } else { $this->load_view('update_profile',$data); }
 		
 	}
 	public function update_profile() // add user full details
 	{
 		$candidate_id = $this->session->userdata("id");
-		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);		
 		$this->load_view('update_profile',$data);
 		
 	}
@@ -353,7 +354,7 @@ class User extends CI_Controller {
 					'salary_thousands' => $this->input->post('thousands'),
 					'industry' => $this->input->post('industry'),
 					'preferred_roles' =>$this->input->post('preferred_roles'),
-					'role' => $this->input->post('role'),
+					'previous_role' => $this->input->post('role'),
 					'job_type' => $this->input->post('job_type'),
 					'primary_skill' => $primaryskills,
 					'add_domain' =>json_encode($this->input->post('add_domain')),
@@ -544,10 +545,10 @@ class User extends CI_Controller {
                 {
                      $register_details=array(
 		 			'first_name' => $this->input->post('first_name'), 
-		 			//'last_name' => $this->input->post('last_name'), 
+		 			'pan_card' => $this->input->post('pancard_no'), 
 		 			'email' => $this->input->post('email'), 
 					'password' => md5($this->input->post('password')), 
-					'role' => $this->input->post('role'),
+					'user_role' => $this->input->post('role'),
 					'status' => $this->input->post('status'),
 					'date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
 		 			);
@@ -758,7 +759,7 @@ class User extends CI_Controller {
 		 $this->load_view('history',$data);
 		   redirect('user/browse_jobs');
 	}
-
+  
 	
 }
    
