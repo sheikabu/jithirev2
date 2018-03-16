@@ -36,8 +36,8 @@ h6 {
 section {
     padding: 100px 0
 }
-h2.section-heading {
-    font-size: 22px;
+h2,h2.section-heading {
+    font-size: 18px;
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -51,7 +51,7 @@ h3.section-subheading {
 }
 @media (min-width: 768px) {
     section {
-        padding: 150px 0
+        padding: 100px 0
     }
 }
 .btn {
@@ -584,7 +584,7 @@ section#contact:-ms-input-placeholder {
 footer {
     padding: 15px 0;
     text-align: center;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ced4da;
     font-size:12px;
 }
 footer span.copyright {
