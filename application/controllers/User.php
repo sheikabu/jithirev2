@@ -640,6 +640,34 @@ class User extends CI_Controller {
 		$data['job_list'] = $this->valid_m->posted_job_list($cid);
 		$this->load_view('posted_jobs',$data);		
 	}	
+	
+	public function update_post() // add user full details
+	{
+		$cid = $this->session->userdata("id");
+$data['get_job_list'] = $this->valid_m->posted_job_list($cid);		
+		$this->load_view('update_post',$data);
+		
+	}
+	
+	public function post_info() //login_check
+	{
+
+    			$company_details=array(
+		 			'id' => $this->input->post('id'), 
+		 			'company_name' => $this->input->post('company_name'),
+		 			'address' => $this->input->post('address'), 
+		 			'url' => $this->input->post('url'),
+					'city' => $this->input->post('city'),
+					'state' => $this->input->post('state'),
+					'country' => $this->input->post('country'), 
+					'role' => $this->input->post('role'),
+					'status' => $this->input->post('status')
+
+		 			);
+		 		 $this->user_profile->insert_user_profile($company_details);				   
+				   redirect('user/company_details/1');
+                
+	}
 	public function browse_jobs()
 	{
 		//$candidate_id = $this->session->userdata("id");

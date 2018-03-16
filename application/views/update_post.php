@@ -17,7 +17,7 @@ if(!$email){
 			<div class="col-md-12">
 				<div id="message"></div>
 			</div>
-				<?php echo form_open('user/update_post');?>
+				<?php echo form_open('user/post_info');?>
 	<div class="row">
 		<div class="col-md-4">
 		 <div class="form-group">

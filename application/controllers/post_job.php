@@ -80,7 +80,13 @@ class Post_job extends CI_Controller {
 		$data['job_list'] = $this->job_post->posted_job_list($cid);
 		$this->load_view('posted_jobs',$data);		
 	}
-
+public function update_p() // add user full details
+	{
+		$candidate_id = $this->session->userdata("id");
+		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);		
+		$this->load_view('update_profile',$data);
+		
+	}
 
 }
    
