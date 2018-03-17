@@ -125,10 +125,11 @@ if(!$email){
 					<div class="row">
 						<div class="col-md-12">
 							<select name="status" required class="form-control">
-							<option value ='0'>Draft</option>
-							<option value ='1'>Open</option>
-							<option value ='2'>Closed</option>
-							<option value ='3'>Cancelled</option>
+							<option value=''>--select--</option>
+							<option value ='Draft'>Draft</option>
+							<option value ='Open'>Open</option>
+							<option value ='Closed'>Closed</option>
+							<option value ='Cancelled'>Cancelled</option>
 						</select>
 						</div>
 					</div>
