@@ -644,7 +644,7 @@ class User extends CI_Controller {
 	public function update_post() // add user full details
 	{
 		$cid = $this->session->userdata("id");
-$data['get_job_list'] = $this->valid_m->posted_job_list($cid);		
+$data['job_list'] = $this->valid_m->posted_job_list($cid);		
 		$this->load_view('update_post',$data);
 		
 	}
@@ -652,20 +652,36 @@ $data['get_job_list'] = $this->valid_m->posted_job_list($cid);
 	public function post_info() //login_check
 	{
 
-    			$company_details=array(
-		 			'id' => $this->input->post('id'), 
-		 			'company_name' => $this->input->post('company_name'),
-		 			'address' => $this->input->post('address'), 
-		 			'url' => $this->input->post('url'),
-					'city' => $this->input->post('city'),
-					'state' => $this->input->post('state'),
-					'country' => $this->input->post('country'), 
-					'role' => $this->input->post('role'),
-					'status' => $this->input->post('status')
+    			$posted_jobs=array(
+                    'Job_code' => $this->input->post('Job_code'),
+		 			'job_role' => $this->input->post('role'), 			
+		 			'min_exp' => $this->input->post('min_exp'), 
+					'max_exp' => $this->input->post('max_exp'),
+					'primary_skill' => $primary_skill,
+		 			'skills' => $skills, 
+					'skill1' => $skill1,
+					'skill2' => $skill2, 
+					'skill3' => $skill3,
+					'skill4' => $skill4, 
+					
+					
+		 			'job_description' => $this->input->post('job_description'),
+					'preferred_location' => json_encode($this->input->post('preferred_location')),
+					'no_positions' => $this->input->post('no_positions'),
+					'duration' => $this->input->post('duration'), 
+					'salary_lakhs' => $this->input->post('salary_lakhs'),
+					'job_type' => $this->input->post('job_type'),
+
+							
+					//'company' => $this->input->post($company),
+					//'previous_experience' => $this->input->post('previous_experience'),
+					'company_id' => $this->input->post('company_id'),
+					'status' => $this->input->post('status'),
+					'open_date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
 
 		 			);
-		 		 $this->user_profile->insert_user_profile($company_details);				   
-				   redirect('user/company_details/1');
+		 		 $this->job_post->insert_job_posting($posted_jobs);				   
+				   redirect('user/posted_jobs/1');
                 
 	}
 	public function browse_jobs()

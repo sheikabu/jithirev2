@@ -18,11 +18,12 @@ if(!$email){
 				<div id="message"></div>
 			</div>
 				<?php echo form_open('user/post_info');?>
+				 <?php foreach($job_list as $key=>$values) { ?>
 	<div class="row">
 		<div class="col-md-4">
 		 <div class="form-group">
 	               <label>Jobcode </label>
-	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="" required>
+	                <input name="Job_code" readonly class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $values['Job_code'];?>" required>
 	            </div>
 				 
 				 <div class="form-group ">
@@ -90,7 +91,7 @@ if(!$email){
 	        <div class="col-md-4"> 
 	        	<div class="form-group">
 	               <label>Role</label>
-	                <input name="role" class="form-control" placeholder="Role*" type="text" value="" required>
+	                <input name="role" class="form-control" placeholder="Role*" type="text" value="<?php echo $values['job_role'];?>" required>
 	            </div>   
 	            
 				<div class="form-group">
@@ -146,12 +147,13 @@ if(!$email){
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Preferred Location</label>
-					<select name="preferred_location[]" required class="form-control" multiple>
-						<option value ='Trivandrum'>Trivandrum</option>
-						<option value ='Chennai'>Chennai</option>
-						<option value ='Madurai'>Madurai</option>
-						<option value ='Kochi'>Kochi</option>
-						<option value ='Bengalore'>Bengalore</option>
+					<?php $locations  = json_decode($values['preferred_location']); ?>
+					<select name="preferred_location[]" required class="form-control" placeholder="preferred_location[]" value="<?php echo $values['preferred_location']; ?>"required multiple>
+						<option value ='Trivandrum'<?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
+						<option value ='Chennai'<?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
+						<option value ='Madurai'<?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
+						<option value ='Kochi'<?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
+						<option value ='Bengalore'<?php if (in_array('Bengalore', $locations)) { echo"selected"; } ?>>Bengalore</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -209,11 +211,15 @@ if(!$email){
 			</div>
 			</div>
 		</div>
+		</div>
+		
+		<?php echo '<br><hr>'; } ?> 
 		<div class="row">
 			<div class="col-md-12">
 				<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
 			</div>
 		</div>
+		
 	</div>
 </section>
 
