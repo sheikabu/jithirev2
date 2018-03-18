@@ -681,7 +681,7 @@ $data['job_list'] = $this->valid_m->posted_job_list($cid);
 
 		 			);
 		 		 $this->job_post->insert_job_posting($posted_jobs);				   
-				   redirect('user/posted_jobs/1');
+				   redirect('user/posted_jobs');
                 
 	}
 	public function browse_jobs()

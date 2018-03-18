@@ -78,7 +78,7 @@ if(!$email){
 				</div>
 			 	 <div class="form-group salary-form-group">
 					<label>Closing Date :</label>
-					  <input name="closing_date" class="form-control" placeholder="" type="date" value="" required>
+					  <input name="close_date_time" class="form-control" placeholder="" type="date" value="" required>
 				</div>
 				<div class="form-group">
 	                <!-- First Name --><label>Job Description</label><br>
@@ -138,9 +138,7 @@ if(!$email){
 				<div class="form-group">
 					<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
 				</div>
-				<div class="form-group">
-					<input type="hidden" name="status" value="active" />
-				</div>
+				
 				
 				
 			</div>
@@ -166,7 +164,7 @@ if(!$email){
 					  <div class="section">
 					 		<fieldset class="mTop-5">
 					            <input name="skill[]" id="skill" class="width-60per"  value="<?php echo $key1; ?>" placeholder="Skill" type="text" required />
-					            <select name="proficiency[]" id="proficiency" required>
+					            <select name="skillpro[]" id="skillpro" required>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>

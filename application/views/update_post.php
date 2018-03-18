@@ -23,14 +23,14 @@ if(!$email){
 		<div class="col-md-4">
 		 <div class="form-group">
 	               <label>Jobcode </label>
-	                <input name="Job_code" readonly class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $values['Job_code'];?>" required>
+	                <input name="Job_code"  class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $values['Job_code'];?>" readonly required>
 	            </div>
 				 
 				 <div class="form-group ">
 					<label>Experience</label>
 					<div class="row">
 						<div class="salary col-md-6">
-							<select name="min_exp" required class="form-control"readonly>
+							<select name="min_exp" required class="form-control">
 							<option value=''>Min exp</option>
 							<option value ='0'<?php if($values['min_exp'] == '0') echo"selected"; ?>>0</option>
 							<option value ='1'<?php if($values['min_exp'] == '1') echo"selected"; ?>>1</option>
@@ -46,7 +46,7 @@ if(!$email){
 						</select>
 						</div>
 						<div class="thousands col-md-6">
-							<select name="max_exp" required class="form-control"readonly>
+							<select name="max_exp" required class="form-control">
 							<option value=''>Max exp</option>
 							<option value ='0'<?php if($values['max_exp'] == '0') echo"selected"; ?>>0</option>
 							<option value ='1'<?php if($values['max_exp'] == '1') echo"selected"; ?>>1</option>
@@ -68,7 +68,7 @@ if(!$email){
 				<div class="form-group ">
 					<label>Job Type</label>
 					 <div class="job_type">
-						<select name="job_type" required class="form-control" readonly>
+						<select name="job_type" required class="form-control" >
 						<option value='' >--select--</option>
 		                    <option value ='Permanent' <?php if($values['job_type'] == 'Permanent') echo"selected"; ?>>Permanent</option>
 		                    <option value ='Short Term' <?php if($values['job_type'] == 'Short Term') echo"selected"; ?>>Short Term</option>
@@ -79,29 +79,29 @@ if(!$email){
 				</div>
 			 	 <div class="form-group salary-form-group">
 					<label>Closing Date :</label>
-					  <input name="closing_date" class="form-control" placeholder="" type="date" value="" required>
+					  <input name="close_date_time" class="form-control" placeholder="" type="date" value="<?php echo $values['close_date_time'];?>"  required>
 				</div>
 				<div class="form-group">
 	                <!-- First Name --><label>Job Description</label><br>
 
-	                <textarea name="job_description" rows="4" class="form-control" name="job_description" type="text" value="<?php echo $values['job_description'];?>" required></textarea>
+	                <textarea  name="job_description" rows="4" class="form-control" placeholder="Job Description*" type="text" ><?php echo $values['job_description'];?>"</textarea>
 	            </div>
 	        </div>
 
 	        <div class="col-md-4"> 
 	        	<div class="form-group">
 	               <label>Role</label>
-	                <input name="job_role" class="form-control" placeholder="Role*" type="text" value="<?php echo $values['job_role'];?>" readonly required>
+	                <input name="job_role" class="form-control" placeholder="Role*" type="text" value="<?php echo $values['job_role'];?>" required>
 	            </div>   
 	            
 				<div class="form-group">
 	               <label>No: of positions</label>
-	                <input name="no_positions" class="form-control" placeholder="No: of positions*" type="text" value="<?php echo $values['no_positions'];?>"readonly required>
+	                <input name="no_positions" class="form-control" placeholder="No: of positions*" type="text" value="<?php echo $values['no_positions'];?>" required>
 	            </div>
 	            
 	            <div class="form-group salary-form-group">
 					<label>Salary</label>
-					  <input name="salary_lakhs" class="form-control" placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" readonly required>
+					  <input name="salary_lakhs" class="form-control" placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" required>
 				</div>
 				<div class="form-group">
 	            	<label>Primary Skill :</label>
@@ -111,10 +111,10 @@ if(!$email){
 					  <div id="sections">
 					  <div class="section">
 					
-					    <fieldset>
+					    <fieldset >
 						 
 					            <input class="width-60per" name="primary[]" id="primary" value="<?php echo $pkey; ?>" placeholder="Skill" type="text"  required />
-					            <select name="proprimary[]" id="proprimary"  readonly>
+					            <select name="proprimary[]" id="proprimary"  >
 					            	<option <?php if($pval==' Basic') { echo 'selected'; } ?>> Basic</option>
 					            	<option <?php if ($pval=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
 					            	<option <?php if ($pval=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -142,9 +142,7 @@ if(!$email){
 				<div class="form-group">
 					<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
 				</div>
-				<div class="form-group">
-					<input type="hidden" name="status" value="active" />
-				</div>
+				
 				
 				
 			</div>
@@ -162,7 +160,7 @@ if(!$email){
 				</div>
 				<div class="form-group">
 	               <label>Duration</label>
-	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="<?php echo $values['duration'];?>" readonly required>
+	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="<?php echo $values['duration'];?>"  required>
 	            </div>
 
 	            <div class="form-group">
@@ -170,43 +168,63 @@ if(!$email){
 					  <div id="sections">
 					  <div class="section">
 					 		<fieldset class="mTop-5">
-					            <input name="skill[]" id="skill" class="width-60per"  value="<?php echo $key1; ?>" placeholder="Skill" type="text" required />
-					            <select name="proficiency[]" id="proficiency" required>
-					            	<option value = 'basic'> Basic</option>
-					            	<option value = 'Intermediate'>Intermediate</option>
-					            	<option value = 'Advanced'>Advanced</option>
+							<?php $skills  = json_decode($values['skills'],true); 				
+        		foreach($skills as $key => $val)
+        		if($key=='') {$val = 'Basic';}
+        	    ?>
+					            <input name="skills[]" id="skill" class="width-60per"  value="<?php echo $key; ?>" placeholder="Skill" type="text" required />
+					            <select name="proficiency[]" required>
+					            	 <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
 								</fieldset>
 								<fieldset class="mTop-5">
-					            <input name="skill1[]" id="skill1" class="width-60per" value="<?php echo $key2; ?>" placeholder="Skill" type="text" required />
-					            <select name="skillpro1[]" id="skillpro1" required>
-					            	<option value = 'basic'> Basic</option>
-					            	<option value = 'Intermediate'>Intermediate</option>
-					            	<option value = 'Advanced'>Advanced</option>
+								<?php $skill1  = json_decode($values['skill1'],true); 				
+        		foreach($skill1 as $key1 => $val1)
+        		if($key1=='') {$val1 = 'Basic';}
+        	    ?>
+					            <input name="skill1[]" id="skill" class="width-60per" value="<?php echo $key1; ?>" placeholder="Skill" type="text" required />
+					            <select name="skillpro1[]"  required>
+					            	<option <?php if ($val1=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val1=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val1=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
-								</fieldset class="mTop-5">
+								</fieldset >
 								<fieldset class="mTop-5">
-					            <input name="skill2[]" id="skill2" class="width-60per" value="<?php echo $key3; ?>" placeholder="Skill" type="text" required />
-					            <select name="skillpro2[]" id="skillpro2" required>
-					            	<option value = 'basic'> Basic</option>
-					            	<option value = 'Intermediate'>Intermediate</option>
-					            	<option value = 'Advanced'>Advanced</option>
+								<?php $skill2  = json_decode($values['skill2'],true); 				
+        		foreach($skill2 as $key2 => $val2)
+        		if($key2=='') {$val2 = 'Basic';}
+        	    ?>
+					            <input name="skill2[]" id="skill" class="width-60per" value="<?php echo $key2; ?>" placeholder="Skill" type="text" required />
+					            <select name="skillpro2[]" required>
+					            	 <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
 								</fieldset>
 								<fieldset class="mTop-5">
-					            <input name="skill3[]" id="skill3" class="width-60per" value="<?php echo $key4; ?>" placeholder="Skill" type="text" required />
-					            <select name="skillpro3[]" id="skillpro3" required>
-					            	<option value = 'basic'> Basic</option>
-					            	<option value = 'Intermediate'>Intermediate</option>
-					            	<option value = 'Advanced'>Advanced</option>
+								<?php $skill3  = json_decode($values['skill3'],true); 				
+        		foreach($skill3 as $key3 => $val3)
+        		if($key3=='') {$val3 = 'Basic';}
+        	    ?>
+					            <input name="skill3[]" id="skill" class="width-60per" value="<?php echo $key3; ?>" placeholder="Skill" type="text" required />
+					            <select name="skillpro3[]"  required>
+					            	<option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val3=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val3=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
 								</fieldset>
 								<fieldset class="mTop-5">
-					            <input name="skill4[]" id="skill4" class="width-60per" value="<?php echo $key5; ?>" placeholder="Skill" type="text" required />
-					            <select name="skillpro4[]" id="skillpro4" required>
-					            	<option value = 'basic'> Basic</option>
-					            	<option value = 'Intermediate'>Intermediate</option>
-					            	<option value = 'Advanced'>Advanced</option>
+								<?php $skill4  = json_decode($values['skill4'],true); 				
+        		foreach($skill4 as $key4 => $val4)
+        		if($key4=='') {$val4 = 'Basic';}
+        	    ?>
+					            <input name="skill4[]" id="skill" class="width-60per" value="<?php echo $key4; ?>" placeholder="Skill" type="text" required />
+					            <select name="skillpro4[]" required>
+					            	<option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
+                    <option <?php if ($val4=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
+                    <option <?php if ($val4=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
 								</fieldset>
 						

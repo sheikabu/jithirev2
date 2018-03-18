@@ -36,7 +36,12 @@ class Job_post extends CI_Model{
 	  $this->db->from('jh_job_posting');
 	  $this->db->where('company_id',$cid);
 	  $query=$this->db->get();
-	  $results = $query->result_array();
+	   if($query->num_rows()>0){ 
+			$this->db->where('company_id',$cid);
+			$this->db->update('jh_job_posting', $user_details);
+		    return true;
+		  }else{
+		    $this->db->insert('jh_job_posting',$user_details);
 	  return $results;
 	}
 

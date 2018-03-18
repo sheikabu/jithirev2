@@ -21,7 +21,7 @@ if(!$email){
 				<?php foreach($job_list as $key=>$values) { ?>
 					<div class="row">
 						<div class="col-md-12">
-							<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_post"><i class="fa fa-edit" aria-hidden="true"></i></a>
+							<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_post/<?php echo $values['company_id']; ?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
 						</div>
 					</div>
 					<div class="row">
@@ -79,6 +79,9 @@ if(!$email){
 							<label class="col-md-4">Job Description:</label><div class="col-md-10 mLeft-5"> <?php echo $values['job_description'];?></div>
 						
 						</div>
+						 <div class="col-md-4">
+						  <label class="col-md-5">status:</label><span class="col-md-7"> <?php echo $values['status'];?></span>
+			            </div>
 					</div>
 				    <div class="row">
 					
@@ -88,11 +91,9 @@ if(!$email){
 			                echo $opening_date = date('d-m-Y', $open_timestamp);  
 			                ?></span>
 			            </div>
+			           
 			            <div class="col-md-4">
-						  <label class="col-md-5">status:</label><span class="col-md-7"> <?php echo $values['status'];?></span>
-			            </div>
-			            <div class="col-md-4">
-			                <label class="col-md-5">Closing:</label><span class="col-md-7">12/01/2018</span>
+			                <label class="col-md-5">Closing:</label><span class="col-md-7"> <?php echo $values['close_date_time'];?></span>
 			            </div>
             		</div>
 		   
