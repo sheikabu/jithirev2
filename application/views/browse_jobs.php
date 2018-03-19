@@ -107,13 +107,13 @@ if(!$email){
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label class="mLeft-15">Opening:</label><span><?php
+                <label class="mLeft-15 mRight-5">Opening:</label><span><?php
                 $open_timestamp = strtotime($values['open_date_time']);
                 echo $opening_date = date('d-m-Y', $open_timestamp);  
                 ?></span>
             </div>
             <div class="col-md-6 text-right">
-                <label class="mLeft-15">Closing:</label><span><?php
+                <label class="mLeft-15 mRight-5">Preferred Joining:</label><span><?php
                 $open_timestamp = strtotime($values['close_date_time']);
                 echo $opening_date = date('d-m-Y', $open_timestamp);  
                 ?></span>
@@ -126,14 +126,14 @@ if(!$email){
              <input class="hidden" type="text" value="Rejected" name="job_rejected_status">
 
               <div class="row">
-              <div class="btn-form text-center mTop-20 col-md-12">
+              <div class="btn-form text-center mTop-20 col-md-12 line2">
               <?php if($values['job_status'] == 'Interested') { ?>
                 <div class="interested-status"><i class="fa fa-check" aria-hidden="true"></i>Interested</div>
                 <?php } elseif ($values['job_status'] == 'Rejected') { ?>
                 <div class="rejected-status"><i class="fa fa-times" aria-hidden="true"></i>   <?php echo $values['job_status']; ?>   </div>
                 <?php } else { ?>
-                <input type="submit"  class="btn btn-fill mRight-10" name="apply" value="Apply">
-                <input type="submit"  class="btn" name="reject" value="Reject">
+                <input type="submit"  class="btn btn-fill mRight-10 mBot-10" name="apply" value="Apply">
+                <input type="submit"  class="btn mBot-10" name="reject" value="Reject">
                 <?php } ?>
                
               </div>
