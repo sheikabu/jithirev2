@@ -77,7 +77,7 @@ if(!$email){
 					</div>
 				</div>
 			 	 <div class="form-group salary-form-group">
-					<label>Closing Date :</label>
+					<label>Preferred Joining:</label>
 					  <input name="close_date_time" class="form-control" placeholder="" type="date" value="" required>
 				</div>
 				<div class="form-group">

@@ -97,7 +97,7 @@ if(!$email){
 			            </div>
 			           
 			            <div class="col-md-4">
-			                <label class="col-md-5">Closing:</label><span class="col-md-7"> <?php echo $values['close_date_time'];?></span>
+			                <label class="col-md-5">Preferred Joining:</label><span class="col-md-7"> <?php echo $values['close_date_time'];?></span>
 			            </div>
             		</div>
 		   
