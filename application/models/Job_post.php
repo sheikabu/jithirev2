@@ -44,6 +44,13 @@ class Job_post extends CI_Model{
 		    $this->db->insert('jh_job_posting',$user_details);
 	  return $results;
 	}
+	}
+	public function  update_job_posting($user_details, $uid){ //comments		    
+		    $this->db->where('job_id',$uid);
+		    $this->db->update('jh_job_posting',$user_details);
+		    //echo $this->db->last_query(); exit;
+			return TRUE;
+	}
 
 }
 ?>

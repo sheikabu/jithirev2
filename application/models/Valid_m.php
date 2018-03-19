@@ -125,8 +125,7 @@ class Valid_m extends CI_Model{
 	  return $results;
 	}
 	
-	public function posted_job_list($cid){ //comments
-	
+	public function posted_job_list($cid){
 	  $this->db->select('*');
 	  $this->db->from('jh_job_posting');
 	  $this->db->where('company_id',$cid);
@@ -135,6 +134,18 @@ class Valid_m extends CI_Model{
 	  $results = $query->result_array();
 	  return $results;
 	}
+
+	public function update_posted_job($uid){
+	  $this->db->select('*');
+	  $this->db->from('jh_job_posting');
+	  $this->db->where('job_id',$uid);
+	  $query=$this->db->get();
+	  //$this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+
+
 	public function  insert_job_posting($user_details){ //comments
 		    $this->db->insert('jh_job_posting',$user_details);
 			return TRUE;

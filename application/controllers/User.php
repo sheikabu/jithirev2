@@ -14,7 +14,7 @@ class User extends CI_Controller {
 		$this->load->model('user_profile');
 		$this->load->model('job_applied');
 		$this->load->model('job_history');
-		//$this->load->model('job_post');
+		$this->load->model('job_post');
 		//$this->load->model('jobs_browse');
 		$this->load->library('upload');
 	}
@@ -643,18 +643,58 @@ class User extends CI_Controller {
 	
 	public function update_post() // add user full details
 	{
-		$cid = $this->session->userdata("id");
-$data['job_list'] = $this->valid_m->posted_job_list($cid);		
+		
+		$link = $_SERVER['PHP_SELF'];
+		$link_array = explode('/',$link);
+		$job_uid = end($link_array);
+    	$data['job_list'] = $this->valid_m->update_posted_job($job_uid);		
 		$this->load_view('update_post',$data);
 		
 	}
 	
-	public function post_info() //login_check
-	{
+	public function update_post_info() //login_check
+	{   
+			    $primary_array =  $this->input->post('primary');
+				$proprimary_array = $this->input->post('proprimary');
+				$results = array_combine($primary_array, $proprimary_array);
+				$primary_skill = json_encode($results, true);
+				
 
-    			$posted_jobs=array(
-                    'Job_code' => $this->input->post('Job_code'),
-		 			'job_role' => $this->input->post('role'), 			
+
+			    //SKILL 1
+				$skill1_array =  $this->input->post('skill1');
+				$skillpro1_array = $this->input->post('skillpro1');				
+				$skill1_combine = array_combine($skill1_array, $skillpro1_array);
+				$skill1 = json_encode($skill1_combine, true);	
+				//SKILL 1 END	
+				//SKILL 2
+				$skill2_array =  $this->input->post('skill2');
+				$skillpro2_array = $this->input->post('skillpro2');				
+				$skill2_combine = array_combine($skill2_array, $skillpro2_array);
+				$skill2 = json_encode($skill2_combine, true);				
+				//SKILL 2 END	
+				//SKILL 3
+				$skill3_array =  $this->input->post('skill3');
+				$skillpro3_array = $this->input->post('skillpro3');				
+				$skill3_combine = array_combine($skill3_array, $skillpro3_array);
+				$skill3 = json_encode($skill3_combine, true);				
+				//SKILL 3 END	
+				//SKILL 4
+				$skill4_array =  $this->input->post('skill4');
+				$skillpro4_array = $this->input->post('skillpro4');				
+				$skill4_combine = array_combine($skill4_array, $skillpro4_array);
+				$skill4 = json_encode($skill4_combine, true);				
+				//SKILL 4 END				
+				//SKILL 5
+				$skill5_array =  $this->input->post('skill5');
+				$skillpro5_array = $this->input->post('skillpro5');				
+				$skill5_combine = array_combine($skill5_array, $skillpro5_array);
+				$skill5 = json_encode($skill5_combine, true);				
+				//SKILL 5 END	
+
+                $job_id = $this->input->post('job_id'); 
+    			$posted_jobs=array(    				
+		 			'job_role' => $this->input->post('job_role'), 			
 		 			'min_exp' => $this->input->post('min_exp'), 
 					'max_exp' => $this->input->post('max_exp'),
 					'primary_skill' => $primary_skill,
@@ -663,24 +703,17 @@ $data['job_list'] = $this->valid_m->posted_job_list($cid);
 					'skill2' => $skill2, 
 					'skill3' => $skill3,
 					'skill4' => $skill4, 
-					
-					
+					'skill5' => $skill5, 
 		 			'job_description' => $this->input->post('job_description'),
 					'preferred_location' => json_encode($this->input->post('preferred_location')),
 					'no_positions' => $this->input->post('no_positions'),
 					'duration' => $this->input->post('duration'), 
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
 					'job_type' => $this->input->post('job_type'),
-
-							
-					//'company' => $this->input->post($company),
-					//'previous_experience' => $this->input->post('previous_experience'),
-					'company_id' => $this->input->post('company_id'),
 					'status' => $this->input->post('status'),
-					'open_date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
-
 		 			);
-		 		 $this->job_post->insert_job_posting($posted_jobs);				   
+
+		 		   $this->job_post->update_job_posting($posted_jobs, $job_id);				   
 				   redirect('user/posted_jobs');
                 
 	}

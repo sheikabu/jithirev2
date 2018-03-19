@@ -21,7 +21,7 @@ if(!$email){
 				<?php foreach($job_list as $key=>$values) { ?>
 					<div class="row">
 						<div class="col-md-12">
-							<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_post/<?php echo $values['company_id']; ?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
+							<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_post/<?php echo $values['job_id']; ?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
 						</div>
 					</div>
 					<div class="row">
@@ -72,6 +72,10 @@ if(!$email){
 									?><br>
 									<?php $skill5 =  json_decode($values['skill4']);
 									foreach ($skill5 as $skey5 => $svalue5)	echo $skey5.' - '.$svalue5;
+									?>
+									<br>
+									<?php $skill6 =  json_decode($values['skill5']);
+									foreach ($skill6 as $skey6 => $svalue6)	echo $skey6.' - '.$svalue6;
 									?></span>
 						</div> 
 						<div class="col-md-8">
@@ -80,7 +84,7 @@ if(!$email){
 						
 						</div>
 						 <div class="col-md-4">
-						  <label class="col-md-5">status:</label><span class="col-md-7"> <?php echo $values['status'];?></span>
+						  <label class="col-md-5">Status:</label><span class="col-md-7"> <?php echo $values['status'];?></span>
 			            </div>
 					</div>
 				    <div class="row">
