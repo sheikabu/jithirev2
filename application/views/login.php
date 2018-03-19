@@ -9,12 +9,10 @@
         <!-- =============== Start: Sign In Form =================== -->
                         <div class="sign-in-wrap col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-1">
                          <div class="sign-in-options-wrap">
-                           <label class="label">Jobseeker's
-                            <input type="radio" name='Srole' id="candidate-sign-in" class="candidate" value="candidate" checked> 
+                           <label class="label">Jobseeker <input type="radio" name='Srole' id="candidate-sign-in" class="candidate" value="candidate" checked> 
                              <span class="checkmark"></span>
                             </label>
-                            <label class="label">Employer's
-                            <input type="radio" name='Srole' id="company-sign-in" class="company" value="company">
+                            <label class="label">Employer <input type="radio" name='Srole' id="company-sign-in" class="company" value="company">
                              <span class="checkmark"></span>
                             </label>
                          </div>
