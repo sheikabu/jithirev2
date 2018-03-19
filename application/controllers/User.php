@@ -711,6 +711,9 @@ class User extends CI_Controller {
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
 					'job_type' => $this->input->post('job_type'),
 					'status' => $this->input->post('status'),
+					
+					
+						'close_date_time'=> $this->input->post('close_date_time'),
 		 			);
 
 		 		   $this->job_post->update_job_posting($posted_jobs, $job_id);				   
@@ -799,7 +802,9 @@ class User extends CI_Controller {
 					//'previous_experience' => $this->input->post('previous_experience'),
 					'company_id' => $this->input->post('company_id'),
 					'status' => $this->input->post('status'),
+					'close_date_time'=> $this->input->post('close_date_time'),
 					'open_date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
+					
 
 		 			);
 					//print_r ($user_details['employer_name']); exit;
