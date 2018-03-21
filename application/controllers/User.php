@@ -839,9 +839,13 @@ class User extends CI_Controller {
 		}
 
 		 $this->load_view('history',$data);
-		   redirect('user/browse_jobs');
+		 redirect('user/browse_jobs');
 	}
   
+  public function candidates_apply()
+  {
+  	$this->load_view('candidates_apply',$data);  	
+  }
 	
 }
    
