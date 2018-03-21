@@ -12,7 +12,16 @@ if(!$email){
 
  ?>
 
-candidate applied
+<section id="post_job">
+	<div class="container">
+		Candidate applied page
+		
+	</div>
+</section>
+
+
+
+       
  
      
 
