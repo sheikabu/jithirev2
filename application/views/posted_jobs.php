@@ -99,6 +99,9 @@ if(!$email){
 			            <div class="col-md-4">
 			                <label class="col-md-5">Preferred Joining:</label><span class="col-md-7"> <?php echo $values['close_date_time'];?></span>
 			            </div>
+			            <div class="col-md-4 text-right">
+			                <a href="#" class="link">Applied Candidates <span>(5)</span></a>
+			            </div>
             		</div>
 		   
 			<?php echo '<br><hr>'; } ?> 
