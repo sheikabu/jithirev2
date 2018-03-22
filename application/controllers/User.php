@@ -844,6 +844,7 @@ class User extends CI_Controller {
   
   public function candidates_apply()
   {
+	// $data['user_applied'] = $this->user_applied->user_applied();
   	$this->load_view('candidates_apply',$data);  	
   }
 	

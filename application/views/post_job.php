@@ -11,6 +11,12 @@ if(!$email){
 }
 
  ?>
+  <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+
+        <script type="text/javascript" src="js/jquery.autocomplete.pack.js"></script>
+
+        <script type="text/javascript" src="js/script.js"></script>
+
 <section id="post_job">
 	<div class="container">
 		<div class="alert-success text-center"><?php if(!empty($message)) { echo $message; } ?></div>
@@ -145,6 +151,7 @@ if(!$email){
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Preferred Location</label>
+					
 					<select name="preferred_location[]" required class="form-control" multiple>
 						<option value ='Trivandrum'>Trivandrum</option>
 						<option value ='Chennai'>Chennai</option>
@@ -215,6 +222,15 @@ if(!$email){
 		</div>
 	</div>
 </section>
+<script>
+$(function(){
+   
+    $('#city').autocomplete('data.php?mode=sql', {
+        width: 200,
+        max: 5
+    });
+});
+</script>
 
 
 
