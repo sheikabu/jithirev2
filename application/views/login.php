@@ -1,6 +1,5 @@
-<!-- Button trigger modal -->
-    <!-- Header -->
-    <header class="masthead">
+ <section id="contact">
+    
       <div class="container">
         <div class="row">
         <div class="intro-text spot-view col-md-8 text-left">
@@ -98,7 +97,8 @@
                     <!-- End: Sign In Form
                     ================================== -->
       </div>
-    </header>
+
+    </section>
 
     
 
