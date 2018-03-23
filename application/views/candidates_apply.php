@@ -32,24 +32,25 @@ if(!$email){
     		<div class="col-md-12 job-history">
     		<table class="table">
 		  <thead>
-		    <tr>
-		      <th>Job Code</th>
-		      <th>Candidate name</th>
-		      <th>Candidate email<th><th>
-			 <th> Candidate No<th>
-			  <th>Applied Date</th>
-			  <th>Profile view</th>
-		    </tr>
+	    <tr>
+	      <th>Job Code</th>
+	      <th>Candidate name</th>
+	      <th>Candidate email</th>
+		 <th>Contact Number</th>
+		  <th>Applied Date</th>
+		  <th>View Profile</th>
+	    </tr>
 		  </thead>
 		  <tbody>
 		    <?php foreach($user_applied as $key=>$values) { ?>
-		    <tr>
-		      <td><?php echo $values['Job_code'];?></td>
-		      <td><?php echo $get_candidate_info['first_name']; ?></td>
-		      <td><?php echo $get_candidate_info['email']; ?></td>
-		      <td> <?php echo $get_candidate_info['mobile_number']; ?> </td>
-			   <td><?php echo $get_candidate_info['applied_date']; ?></td>
-		      <td> <?php echo $get_candidate_info['mobile_number']; ?> </td>
+	    <tr>
+	      <td><?php echo $values['Job_code'];?></td>
+	      <td><?php echo $values['name']; ?></td>
+	      <td><?php echo $values['email']; ?></td>
+	      <td> <?php echo $values['mobile_number']; ?> </td>
+		  <td><?php echo $values['applied_date']; ?></td>
+		  <td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>" class="link">View Profile</a></td>
+		      
 		     
 			  
 		    </tr>

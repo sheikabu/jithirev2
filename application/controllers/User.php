@@ -845,9 +845,18 @@ class User extends CI_Controller {
   
   public function candidates_apply($Job_id)
   {
-	$data['user_applied'] = $this->user_applied->user_applied();
+	$data['user_applied'] = $this->user_applied->user_applied($Job_id);
   	$this->load_view('candidates_apply',$data);  	
   }
+
+  public function view_profile($uid) // add user full details
+	{
+		$candidate_id = $uid;
+		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		if($data['get_candidate_info']['primary_skill']!='')
+		{ $this->load_view('user_details',$data); } else { $this->load_view('update_profile',$data); }
+		
+	}
 	
 }
    
