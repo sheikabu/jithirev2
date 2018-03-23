@@ -1,6 +1,5 @@
-<!-- Button trigger modal -->
-    <!-- Header -->
-    <header class="masthead">
+ <section id="login">
+    
       <div class="container">
         <div class="row">
         <div class="intro-text spot-view col-md-8 text-left">
@@ -94,15 +93,12 @@
                         </div>
                     </div>
                   </div>
-                </div>
+               
                     <!-- End: Sign In Form
                     ================================== -->
-      </div>
-    </header>
+</section>
 
-    
-
-    <!-- Footer -->
+<!-- Footer -->
     
 <!-- Register modal start -->
             <div class="sign-form modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

@@ -22,14 +22,16 @@ class User_applied extends CI_Model{
 	}*/
 
     //suganya
-	public function user_applied(){ //comments
-	  $this->db->select(' jh_user_profile.*, jh_job_applied.*, jh_company_details.*');
+	public function user_applied($Job_id){ //comments
+	
+	  $this->db->select('jh_job_applied.*, jh_user_profile.*');
 	  $this->db->from('jh_job_applied');	  
-	  $this->db->join(' jh_user_profile', ' jh_user_profile.id = jh_job_applied.applied_job_id', 'left');
-	  $this->db->join('jh_company_details', ' jh_user_profile.id = jh_company_details.id','left');
-	  $this->db->order_by("jh_job_applied.aid","desc");
+	  $this->db->join('jh_user_profile', ' jh_user_profile.id = jh_job_applied.applied_job_id');
+	
+	   $this->db->where('jh_user_profile.id',$user_id);
 	  
 	  $query=$this->db->get();
+	  $this->db->last_query();
 	  $results = $query->result_array();
 	  return $results;
 	}

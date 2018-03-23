@@ -13,6 +13,7 @@ class User extends CI_Controller {
 		$this->load->model('valid_m');
 		$this->load->model('user_profile');
 		$this->load->model('job_applied');
+		$this->load->model('user_applied');
 		$this->load->model('job_history');
 		$this->load->model('job_post');
 		//$this->load->model('jobs_browse');
@@ -842,9 +843,9 @@ class User extends CI_Controller {
 		 redirect('user/browse_jobs');
 	}
   
-  public function candidates_apply()
+  public function candidates_apply($Job_id)
   {
-	// $data['user_applied'] = $this->user_applied->user_applied();
+	$data['user_applied'] = $this->user_applied->user_applied();
   	$this->load_view('candidates_apply',$data);  	
   }
 	

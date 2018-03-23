@@ -44,8 +44,8 @@ if(!$email){
 		  <tbody>
 		    <?php foreach($user_applied as $key=>$values) { ?>
 		    <tr>
-		      <td><?php echo $values['Job_code']; ?></td>
-		      <td><?php echo $get_candidate_info['name']; ?></td>
+		      <td><?php echo $values['Job_code'];?></td>
+		      <td><?php echo $get_candidate_info['first_name']; ?></td>
 		      <td><?php echo $get_candidate_info['email']; ?></td>
 		      <td> <?php echo $get_candidate_info['mobile_number']; ?> </td>
 			   <td><?php echo $get_candidate_info['applied_date']; ?></td>
