@@ -773,7 +773,12 @@ class User extends CI_Controller {
 				$skill4 = json_encode($skill4_combine, true);				
 				//SKILL 4 END				
 								
-				
+				//SKILL 5
+				$skill5_array =  $this->input->post('skill5');
+				$skillpro5_array = $this->input->post('skillpro5');				
+				$skill5_combine = array_combine($skill5_array, $skillpro5_array);
+				$skill5 = json_encode($skill5_combine, true);				
+				//SKILL 5 END
 				//$decode_skills = json_decode($skills, true);
 				
 				
@@ -789,7 +794,7 @@ class User extends CI_Controller {
 					'skill2' => $skill2, 
 					'skill3' => $skill3,
 					'skill4' => $skill4, 
-					
+					'skill5' => $skill5,
 					
 		 			'job_description' => $this->input->post('job_description'),
 					'preferred_location' => json_encode($this->input->post('preferred_location')),
