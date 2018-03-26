@@ -131,37 +131,37 @@ if(!$email){
 	                <div class="col-xs-12 mTop-5" id="pre-role">
 	                  	<label class="col-md-12">Previous Role</label>
 	                 	<div class="col-md-12"> 
-	                  		<input type="text" name="role" class="form-control" placeholder="Previous Role" value="<?php echo $get_candidate_info['previous_role']; ?>" required>
+	                  		<input type="text" name="role" class="form-control" placeholder="Previous Role" value="<?php echo $get_candidate_info['previous_role']; ?>">
 	                 	</div>
 	                </div>
  					<div class="col-xs-12 mTop-5" id="year_completion">
 	                  	<label class="col-md-12">Year of completion</label>
 	                 	<div class="col-md-12"> 
-	                  		<input type="text" name="year_completion" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion']; ?>" required>
+	                  		<input type="text" name="year_completion" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion']; ?>">
 	                 	</div>
 	                </div>
 					<div class="col-xs-12 mTop-5" id="institute">
 							<label class="col-md-12">Institute</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="institute" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute']; ?>" required>
+							    <input type="text" name="institute" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute']; ?>">
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="score">
 							<label class="col-md-12">Score</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="score" class="form-control" placeholder="Score" value="<?php echo $get_candidate_info['score']; ?>" required>
+							    <input type="text" name="score" class="form-control" placeholder="Score" value="<?php echo $get_candidate_info['score']; ?>">
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="degree">
 							<label class="col-md-12">Degree</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="degree" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree']; ?>" required>
+							    <input type="text" name="degree" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree']; ?>">
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="branch">
 							<label class="col-md-12">Branch</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="branch" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch']; ?>" required>
+							    <input type="text" name="branch" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch']; ?>">
 						</div>
 					</div>
 	                <div class="col-xs-12 mTop-5">

@@ -38,6 +38,7 @@ if(!$email){
 	      <th>Candidate email</th>
 		 <th>Contact Number</th>
 		  <th>Applied Date</th>
+		  <th>Status</th>
 		  <th>View Profile</th>
 	    </tr>
 		  </thead>
@@ -49,6 +50,7 @@ if(!$email){
 	      <td><?php echo $values['email']; ?></td>
 	      <td> <?php echo $values['mobile_number']; ?> </td>
 		  <td><?php echo $values['applied_date']; ?></td>
+		  <td><?php echo $values['job_status']; ?></td>
 		  <td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>" class="link">View Profile</a></td>
 		      
 		     

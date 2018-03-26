@@ -352,7 +352,7 @@ class User extends CI_Controller {
 					'branch' => $this->input->post("branch"),
 					'preferred_location' => $preferred_location,
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
-					'salary_thousands' => $this->input->post('thousands'),
+					//'salary_thousands' => $this->input->post('thousands'),
 					'industry' => $this->input->post('industry'),
 					'preferred_roles' =>$this->input->post('preferred_roles'),
 					'previous_role' => $this->input->post('role'),
@@ -549,13 +549,15 @@ class User extends CI_Controller {
 		 			'pan_card' => $this->input->post('pancard_no'), 
 		 			'email' => $this->input->post('email'), 
 					'password' => md5($this->input->post('password')), 
-					'user_role' => $this->input->post('role'),
+					'role' => $this->input->post('role'),
 					'status' => $this->input->post('status'),
 					'date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
 		 			);
-					$email_check=$this->valid_m->email_check($register_details['email']); 
+
+					$email_check=$this->valid_m->email_check($register_details['email']);
+
 					if($email_check){
-					  	$this->valid_m->register_insert($register_details);
+					  	$this->valid_m->register_insert($register_details);					  	
 			 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
 					}
 					else{
