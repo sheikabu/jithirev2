@@ -240,6 +240,12 @@ if(!$email){
 		                
 		                </div>
 		                <?php
+		                if($get_candidate_info['preferred_location']=='on') { ?>
+		                	<div class="col-xs-12">
+			                  <label class="col-md-4">Preferred location: </label>
+			                  <span class="col-md-8">Any Location</span>
+			                  </div>
+		                <?php } else {
 		                $locations  = json_decode($get_candidate_info['preferred_location']);		                             
 		                ?>
 		                 <div class="col-xs-12">
@@ -253,6 +259,7 @@ if(!$email){
 		                  ?>
 		                 </span>
 		                </div>
+		                <?php } ?>
 						 <?php
 		                $domains  = json_decode($get_candidate_info['add_domain']);		               
 		                ?>
