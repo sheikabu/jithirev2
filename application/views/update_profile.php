@@ -131,37 +131,37 @@ if(!$email){
 	                <div class="col-xs-12 mTop-5" id="pre-role">
 	                  	<label class="col-md-12">Previous Role</label>
 	                 	<div class="col-md-12"> 
-	                  		<input type="text" name="role" class="form-control" placeholder="Previous Role" value="<?php echo $get_candidate_info['previous_role']; ?>" required>
+	                  		<input type="text" name="role" class="form-control" placeholder="Previous Role" value="<?php echo $get_candidate_info['previous_role']; ?>">
 	                 	</div>
 	                </div>
  					<div class="col-xs-12 mTop-5" id="year_completion">
 	                  	<label class="col-md-12">Year of completion</label>
 	                 	<div class="col-md-12"> 
-	                  		<input type="text" name="year_completion" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion']; ?>" required>
+	                  		<input type="text" name="year_completion" id="year_completion_input" class="form-control" placeholder="Year of completion" value="<?php echo $get_candidate_info['year_completion']; ?>">
 	                 	</div>
 	                </div>
 					<div class="col-xs-12 mTop-5" id="institute">
 							<label class="col-md-12">Institute</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="institute" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute']; ?>" required>
+							    <input type="text" name="institute" id="institute_input" class="form-control" placeholder="Institute" value="<?php echo $get_candidate_info['institute']; ?>">
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="score">
 							<label class="col-md-12">Score</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="score" class="form-control" placeholder="Score" value="<?php echo $get_candidate_info['score']; ?>" required>
+							    <input type="text" name="score" class="form-control" id="score_input" placeholder="Score" value="<?php echo $get_candidate_info['score']; ?>">
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="degree">
 							<label class="col-md-12">Degree</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="degree" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree']; ?>" required>
+							    <input type="text" name="degree" id="degree_input" class="form-control" placeholder="Degree" value="<?php echo $get_candidate_info['degree']; ?>">
 						</div>
 					</div>
 					<div class="col-xs-12 mTop-5" id="branch">
 							<label class="col-md-12">Branch</label>
 							<div class="col-md-12"> 
-							    <input type="text" name="branch" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch']; ?>" required>
+							    <input type="text" name="branch" id="branch_input" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch']; ?>">
 						</div>
 					</div>
 	                <div class="col-xs-12 mTop-5">
@@ -195,19 +195,24 @@ if(!$email){
 						
 	                  <div class="col-md-12" id="current_location">
 	                    <?php $clocat  = json_decode($get_candidate_info['current_location']); ?>
-	                  <select name="current_location[]" class="form-control"  placeholder="current_location[]" value="<?php echo $get_candidate_info['current_location']; ?>"required multiple>
-	                    <option value=''>--select--</option>
-	                    <option value ='Trivandrum' <?php if (in_array('Trivandrum', $clocat)) { echo"selected"; } ?>>Trivandrum</option>
-	                    <option value ='Chennai' <?php if (in_array('Chennai', $clocat)) { echo"selected"; } ?>>Chennai</option>
-	                    <option value ='Madurai' <?php if (in_array('Madurai', $clocat)) { echo"selected"; } ?>>Madurai</option>
-	                    <option value ='Kochi' <?php if (in_array('Kochi', $clocat)) { echo"selected"; } ?>>Kochi</option>
-	                    <option value ='Bengalore' <?php if (in_array('Bengalore', $clocat)) { echo"selected"; } ?>>Bengalore</option>
-	                  </select>
+	                 
+
+	                  <select id="current-location" name="current_location[]" class="demo-default" placeholder="Select locations...">
+							<option value="">Select location...</option>
+					<optgroup label="select location">
+					<option value="Trivandrum" <?php if (in_array('Trivandrum', $clocat)) { echo"selected"; } ?>>Trivandrum</option>
+					<option value="Chennai" <?php if (in_array('Chennai', $clocat)) { echo"selected"; } ?>>Chennai</option>
+					<option value="Madurai" <?php if (in_array('Madurai', $clocat)) { echo"selected"; } ?>>Madurai</option>
+					<option value="Kochi" <?php if (in_array('Kochi', $clocat)) { echo"selected"; } ?>>Kochi</option>
+					<option value="Bangalore" <?php if (in_array('Bangalore', $clocat)) { echo"selected"; } ?>>Bangalore</option>
+					  </optgroup>
+					</select>
 	                </div>
 	    </div>
-	 	 <div class="col-xs-12 mTop-5">
-	 	 		
 
+
+
+	 	 <div class="col-xs-12 mTop-5">
 	 	 			<div class="col-xs-12">
 	                  <label class="col-md-6">Preferred location</label>
 	                  <div class="col-md-6 pull-right">
@@ -219,29 +224,33 @@ if(!$email){
 					</div>
 						
 	                  <div class="col-md-12" id="preferred_location"> 
-	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
-	                  <select name="preferred_location[]" class="form-control"  placeholder="preferred_location[]" value="<?php echo $get_candidate_info['preferred_location']; ?>"required multiple>
-	                    <option value=''>--select--</option>
-	                    <option value ='Trivandrum' <?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
-	                    <option value ='Chennai' <?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
-	                    <option value ='Madurai' <?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
-	                    <option value ='Kochi' <?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
-	                    <option value ='Bengalore' <?php if (in_array('Bengalore', $locations)) { echo"selected"; } ?>>Bengalore</option>
-	                  </select>
-	                </div>
+	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>   
+					<select id="select-gear" name="preferred_location[]" class="demo-default" multiple placeholder="Select locations...">
+							<option value="">Select location...</option>
+					<optgroup label="select location">
+					<option value="Trivandrum" <?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
+					<option value="Chennai" <?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
+					<option value="Madurai" <?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
+					<option value="Kochi" <?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
+					<option value="Bangalore" <?php if (in_array('Bangalore', $locations)) { echo"selected"; } ?>>Bangalore</option>
+					  </optgroup>
+					</select>
+					 </div>
+				
+
 	    </div>
 	     <div class="col-xs-12 mTop-5" >
 	                  <label class="col-md-12">Add Domain</label><div class="col-md-12" id="add_domain"> 
 	                    <?php $locat  = json_decode($get_candidate_info['add_domain']); ?>
-	                  <select name="add_domain[]"  class="form-control"  placeholder="add_domain[]" value="<?php echo $get_candidate_info['add_domain']; ?>" required  multiple>
-	                <option value=''>--select--</option>
-	                <option value ='Finance' <?php if (in_array('Finance', $locat)) { echo"selected"; } ?>>Finance</option>
-	  				<option value ='Operations Management' <?php if (in_array('Operations Management', $locat)) { echo"selected"; } ?>>Operations Management</option>
-	                <option value ='Supply Chain & Logistics' <?php if (in_array('Supply Chain & Logistics', $locat)) { echo"selected"; } ?>>Supply Chain & Logistics</option>
-					<option value ='Banking & Insurance' <?php if (in_array('Banking & Insurance', $locat)) { echo"selected"; } ?>>Banking & Insurance</option>
-					<option value ='Manufacturing & Product Design' <?php if (in_array('Manufacturing & Product Design', $locat)) { echo"selected"; } ?>>Manufacturing & Product Design</option>
-					<option value ='Health' <?php if (in_array('Health', $locat)) { echo"selected"; } ?>>Health</option>
-						                  </select>
+	<select id="add-domain" name="add_domain[]" class="demo-default" multiple placeholder="Select domain...">	
+	<option value="">Select domain...</option>
+	<optgroup label="select domain">
+
+<?php foreach($get_domains as $domainlist => $domainlistval) { ?>
+<option value ='<?php echo $domainlistval['domains']; ?>' <?php if (in_array($domainlistval['domains'], $locat)) { echo"selected"; } ?>><?php echo $domainlistval['domains'] ?></option>
+<?php }	 ?>
+	</optgroup>
+	</select>
 	                </div>
 	    </div>
 	 </div>
@@ -346,13 +355,23 @@ if(!$email){
                 <div class="col-md-12">
                 
         <div class="form-group">
+
         	<?php $primary_skill  = json_decode($get_candidate_info['primary_skill'],true); 
-        		foreach($primary_skill as $pkey => $pval)
+        		foreach($primary_skill as $pkey => $pval)        	
         	?>
-        	<div id="sections">
-                  <input name="primaryskill[]" placeholder="Skill" type="text" required value="<?php echo $pkey; ?>" />
+        	<div id="sections">       	 
+                  <select id="primary-skill" class="demo-default" name="primaryskill[]" placeholder="Select Primary Skill...">
+						<option value="">Select Primary Skill...</option>
+						<optgroup label="primary skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($pkey==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
+
+                  <?php ?>
                   <select name="primarypro[]" id="ttyty" required>
-                     <option <?php if($pval=='Fresher') { echo 'selected'; } ?>>Fresher</option>
+                    <option <?php if($pval=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($pval=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($pval=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($pval=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -567,9 +586,11 @@ $(document).ready(function(){
     if(val=='Fresher') {
     $('#pre-role').fadeOut('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
+    $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',true);
     } else {
     $('#pre-role').fadeIn('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeOut('slow');
+    $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',false);
     }
   })
 
@@ -577,16 +598,31 @@ $(document).ready(function(){
    if(valload=='Fresher') {
     $('#pre-role').fadeOut('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
+    $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',true);
     }
     else {
     $('#pre-role').fadeIn('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeOut('slow');
+    $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',false);
     }
 
 });
 
 </script>
-       
- 
+
+<script>
+$('#select-gear').selectize({
+sortField: 'text'
+});
+$('#add-domain').selectize({
+sortField: 'text'
+});
+$('#primary-skill').selectize({
+sortField: 'text'
+});
+$('#current-location').selectize({
+sortField: 'text'
+});
+</script> 
      
 

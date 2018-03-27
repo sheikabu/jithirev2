@@ -335,8 +335,8 @@ a .fa{
 	display: block;
 }
 .sign-in-wrap{
-	padding-top: 150px;
-  	padding-bottom: 150px
+	padding-top: 100px;
+  padding-bottom: 100px
 }
 .sign-form .btn.btn-fill {
     min-width: 100%
@@ -818,4 +818,9 @@ footer{
     background: #fff;
     z-index: 1000;
     padding: 5px 0!important;
+}
+
+/*sheik mar 27*/
+.theme-selector {
+  display: none;
 }

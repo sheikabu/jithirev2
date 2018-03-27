@@ -46,7 +46,14 @@
     <!-- Dropdown -->
      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 	
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+
+     <script src="<?php echo base_url(); ?>assets/js/es5.js"></script>
+     <script src="<?php echo base_url(); ?>assets/js/index.js"></script>
+     <script src="<?php echo base_url(); ?>assets/js/selectize.js"></script>
+
   </head>
 
   <body id="page-top">
@@ -113,10 +120,10 @@
           			    <button class=" user-dropdown dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 
           			    <span class="caret"></span></button>
           			    <ul class="dropdown-menu">
-          			      <li><a class="nav-link" href="<?php echo site_url() ?>user/user_details">View Profile</a></li>
-          			      <li><a class="nav-link" href="<?php echo site_url() ?>user/update_profile">Edit Profile</a></li>
+          			      <li><a class="nav-link" id="profile" href="<?php echo site_url() ?>user/user_details">View Profile</a></li>
+          			      <li><a class="nav-link" id="profile" href="<?php echo site_url() ?>user/update_profile">Edit Profile</a></li>
           			      
-          			      <li><a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/logout">Logout</a></li>
+          			      <li><a class="nav-link js-scroll-trigger" id="profile" href="<?php echo site_url() ?>user/logout">Logout</a></li>
           			    </ul>
 			         </div>
                     
@@ -136,6 +143,10 @@ $('ul li a').click(function() {
   $(this).addClass("active");
   localStorage.setItem('active', $(this).parent().index());
 });
+ 
+$('ul li #profile').click(function() {
+  $('li a').removeClass("active");
+  });
 
 var ele = localStorage.getItem('active');
 $('ul li:eq(' + ele + ')').find('a').addClass('active');

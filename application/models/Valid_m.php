@@ -150,6 +150,23 @@ class Valid_m extends CI_Model{
 		    $this->db->insert('jh_job_posting',$user_details);
 			return TRUE;
 	}
+
+	public function get_skills(){
+	  $this->db->select('*');
+	  $this->db->from('jh_skills');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	public function get_domains(){
+	  $this->db->select('*');
+	  $this->db->from('jh_domains');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
 	
 	
 }
