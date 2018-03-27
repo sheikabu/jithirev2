@@ -819,3 +819,8 @@ footer{
     z-index: 1000;
     padding: 5px 0!important;
 }
+
+/*sheik mar 27*/
+.theme-selector {
+  display: none;
+}

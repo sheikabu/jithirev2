@@ -18,6 +18,7 @@ class User extends CI_Controller {
 		$this->load->model('job_post');
 		//$this->load->model('jobs_browse');
 		$this->load->library('upload');
+		$this->load->library('email');
 	}
 
 	public function load_view($view, $vars = array()) {
@@ -136,7 +137,9 @@ class User extends CI_Controller {
 	public function update_profile() // add user full details
 	{
 		$candidate_id = $this->session->userdata("id");
-		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);		
+		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		$data['get_skills'] = $this->valid_m->get_skills();	
+		$data['get_domains'] = $this->valid_m->get_domains();	
 		$this->load_view('update_profile',$data);
 		
 	}
@@ -533,8 +536,6 @@ class User extends CI_Controller {
 	//Candiate Registration
 	public function register_check() //login_check
 	{
-
-
 					$this->form_validation->set_rules('password','Password','trim|required|matches[password]'); 
 					$this->form_validation->set_rules('confirm_password','Confirm_password','trim|required|matches[password]'); 
 
@@ -556,13 +557,32 @@ class User extends CI_Controller {
 
 					$email_check=$this->valid_m->email_check($register_details['email']);
 
-					if($email_check){
-					  	$this->valid_m->register_insert($register_details);					  	
-			 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
-					}
-					else{
-					    echo $message = '<div class="alert alert-danger text-center">Email already Exist!</div>'; exit;		    
-					}
+				if($email_check){
+				  	$this->valid_m->register_insert($register_details);
+
+				  	/* Send a mail to user*/
+				  	$fromemail="Sony.George@ust-global.com";
+					$toemail = $this->input->post('email');
+					$subject = "Hi".$this->input->post('first_name').", Welcome to jithire.com";					
+					$mesg = $this->load->view('template/userregemail','',true);
+					$config=array(
+					'charset'=>'utf-8',
+					'wordwrap'=> TRUE,
+					'mailtype' => 'html'
+					);
+					$this->email->initialize($config);
+					$this->email->to($toemail);
+					$this->email->from($fromemail, "Title");
+					$this->email->subject($subject);
+					$this->email->message($mesg);
+					$mail = $this->email->send();
+				  	/*EMail end */
+
+		 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
+				}
+				else{
+				    echo $message = '<div class="alert alert-danger text-center">Email already Exist!</div>'; exit;		    
+				}
            }
 	}
 
