@@ -157,14 +157,14 @@
                               </div>
                               <div class="col-xs-12">
                                   <!-- Pancard -->
-                                  <input name="pancard_no" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
+                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
                               </div>
                               <div class="col-xs-12">
                                   <!-- Email -->
                                   <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
                               </div>
                               <div class="col-xs-12">
-                                  <!-- Subject -->                            <input name="password" class="contact-password form-control" placeholder="Password" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
+                                  <!-- Subject --> <input name="password" class="contact-password form-control" placeholder="Password" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
                               </div>
                               <div class="col-xs-12">
                                   <!-- Subject -->

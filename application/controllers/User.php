@@ -49,7 +49,8 @@ class User extends CI_Controller {
 			        $this->session->set_userdata('email',$data['email']);
 			        $this->session->set_userdata('first_name',$data['first_name']);
 			        $this->session->set_userdata('last_name',$data['last_name']);
-			        $this->session->set_userdata('role',$data['role']);
+					$this->session->set_userdata('role',$data['role']);
+			       
 			      	$this->session->set_flashdata('user_loggedin','you are now loggedin');
 			        $this->user_details();
 			        echo $message = 'success'; 
@@ -546,10 +547,10 @@ class User extends CI_Controller {
                 {
                      $register_details=array(
 		 			'first_name' => $this->input->post('first_name'), 
-		 			'pan_card' => $this->input->post('pancard_no'), 
 		 			'email' => $this->input->post('email'), 
-					'password' => md5($this->input->post('password')), 
-					'user_role' => $this->input->post('role'),
+					'password' => md5($this->input->post('password')),
+                    'pan_card' => $this->input->post('pan_card'),					
+					'role' => $this->input->post('role'),
 					'status' => $this->input->post('status'),
 					'date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
 		 			);
