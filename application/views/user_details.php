@@ -131,14 +131,8 @@ if(!$email){
 		                  <span class="col-md-8"><?php if($get_candidate_info['total_experience']=='Fresher') { echo $get_candidate_info['total_experience']; } else { echo $get_candidate_info['total_experience'].' Year(s)'; } ?></span>
 		                </div>
 		                
-		                <div class="col-xs-12">
-		                  <label class="col-md-4">Institute: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['institute_dummy']; ?> Institute </span>
-		                </div>
-						<div class="col-xs-12">
-		                  <label class="col-md-4">Degree: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['degree_dummy']; ?> Degree </span>
-		                </div>
+		                
+						
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Expected CTC: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs </span>
@@ -205,6 +199,10 @@ if(!$email){
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Year of completion: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['year_completion']; ?></span>
+		                </div>
+						<div class="col-xs-12">
+		                  <label class="col-md-4">Institute: </label>
+		                  <span class="col-md-8"><?php echo $get_candidate_info['institute']; ?></span>
 		                </div>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Score: </label>
