@@ -168,64 +168,64 @@ if(!$email){
 					  <div id="sections">
 					  <div class="section">
 					 		<fieldset class="mTop-5">
-							<?php $skills  = json_decode($values['skill1'],true); 				
-        		foreach($skills as $key => $val)
+							<div class="container paddingL-0" >
+				<div class='element' id='div_1'>
+							<?php $skill1  = json_decode($values['skill1'],true); 				
+        		foreach($skill1 as $key => $val)
         		if($key=='') {$val = 'Basic';}
         	    ?>
-					            <input name="skill1[]" id="skill" class="width-60per"  value="<?php echo $key; ?>" placeholder="Skill" type="text" />
+					            <input name="skill1[]" id="skill" class="mTop-5"  value="<?php echo $key; ?>" placeholder="Skill" type="text" />
 					            <select name="skillpro1[]" required>
 					            	 <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
-								</fieldset>
-								<fieldset class="mTop-5">
+								
 								<?php $skill1  = json_decode($values['skill2'],true); 				
         		foreach($skill1 as $key1 => $val1)
         		if($key1=='') {$val1 = 'Basic';}
         	    ?>
-					            <input name="skill2[]" id="skill" class="width-60per" value="<?php echo $key1; ?>" placeholder="Skill" type="text" />
+					            <input name="skill2[]" id="skill" class="mTop-5" value="<?php echo $key1; ?>" placeholder="Skill" type="text" />
 					            <select name="skillpro2[]"  required>
 					            	<option <?php if ($val1=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val1=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val1=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
-								</fieldset >
-								<fieldset class="mTop-5">
+								
 								<?php $skill2  = json_decode($values['skill3'],true); 				
         		foreach($skill2 as $key2 => $val2)
         		if($key2=='') {$val2 = 'Basic';}
         	    ?>
-					            <input name="skill3[]" id="skill" class="width-60per" value="<?php echo $key2; ?>" placeholder="Skill" type="text" />
+					            <input name="skill3[]" id="skill" class="mTop-5" value="<?php echo $key2; ?>" placeholder="Skill" type="text" />
 					            <select name="skillpro3[]" required>
 					            	 <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
-								</fieldset>
-								<fieldset class="mTop-5">
+								
 								<?php $skill3  = json_decode($values['skill4'],true); 				
         		foreach($skill3 as $key3 => $val3)
         		if($key3=='') {$val3 = 'Basic';}
         	    ?>
-					            <input name="skill4[]" id="skill" class="width-60per" value="<?php echo $key3; ?>" placeholder="Skill" type="text" />
+					            <input name="skill4[]" id="skill" class="mTop-5" value="<?php echo $key3; ?>" placeholder="Skill" type="text" />
 					            <select name="skillpro4[]"  required>
 					            	<option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val3=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val3=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
-								</fieldset>
-								<fieldset class="mTop-5">
+								
 								<?php $skill4  = json_decode($values['skill5'],true); 				
         		foreach($skill4 as $key4 => $val4)
         		if($key4=='') {$val4 = 'Basic';}
         	    ?>
-					            <input name="skill5[]" id="skill" class="width-60per" value="<?php echo $key4; ?>" placeholder="Skill" type="text" />
+					            <input name="skill5[]" id="skill" class="mTop-5" value="<?php echo $key4; ?>" placeholder="Skill" type="text" />
 					            <select name="skillpro5[]" required>
 					            	<option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val4=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val4=='Advanced') { echo"selected"; } ?>>Advanced</option>
 					            </select>
+								</div>
+								</div>
 								</fieldset>
 						
 					</div>
@@ -244,6 +244,82 @@ if(!$email){
 		
 	</div>
 </section>
+<script src="assets/jquery/jquery.min.js"></script>
+<script>
+ var i = 0;
+ var original = document.getElementById('duplicater');
+
+  function duplicate(){ 
+    var clone = original.cloneNode(true); // "deep" clone
+    i = ++i;
+    clone.id = "duplicetor"+ i; // there can only be one element with  an ID
+    original.parentNode.appendChild(clone);
+    clearCloneForm(clone.id);
+  }
+
+  function clearCloneForm(id){ 
+    var divId = '#'+id;
+    $(divId).find("input[type^='text'], input[type^='date']").each(function() {
+        $(this).val('');
+    }); 
+  }
+
+
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+ // Add new element
+ $(".add").click(function(){
+
+  // Finding total number of elements added
+  var total_element = $(".element").length;
+ 
+  // last <div> with element class id
+  var lastid = $(".element:last").attr("id");
+  var split_id = lastid.split("_");
+  var nextindex = Number(split_id[1]) + 1;
+
+  var max = 5;
+  // Check total number elements
+  if(total_element < max ){
+   // Adding new div container after last occurance of element class
+   $(".element:last").after("<div class='element' id='div_"+ nextindex +"'></div>");
+ 
+   // Adding element to <div>
+  ("#div_" + nextindex).append("<input type='text' placeholder='Enter your skill' id='txt_"+ nextindex +"' name='skill1[]'> <select id='proficiency_"+ nextindex +"' name='proficiency1[]'><option>Basic</option><option>Intermediate</option><option>Advanced</option></select><span id='remove_" + nextindex + "' class='remove'><i class='fa fa-times' aria-hidden='true'></span>");
+  }
+ 
+ });
+
+ // Remove element
+ $('.container').on('click','.remove',function(){
+ 
+  var id = this.id;
+  var split_id = id.split("_");
+  var deleteindex = split_id[1];
+
+  // Remove <div> with id
+  $("#div_" + deleteindex).remove();
+ 
+ }); 
+});
+</script>
+
+
+<script>
+$('#any-location').change(function(){
+    if($(this).is(":checked"))
+    $('#preferred_location').fadeOut('slow');
+    else
+    $('#preferred_location').fadeIn('slow');
+
+    });
+</script>
+
+
+
 
 
 

@@ -58,22 +58,37 @@ if(!$email){
 					    ?></span></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Skills: </label><span class="col-md-7 inline-flex"><?php  $skill1 = json_decode($values['skill1']);
-									foreach ($skill1 as $skey1 => $svalue1)	echo $skey1.' - '.$svalue1;
-									?><br>
-									<?php $skill2 = json_decode($values['skill2']);
-									foreach ($skill2 as $skey2 => $svalue2)	echo $skey2.' - '.$svalue2;
-									?><br>
-									<?php $skill3 = json_decode($values['skill3']);
-									foreach ($skill3 as $skey3 => $svalue3)	echo $skey3.' - '.$svalue3;
-									?><br>
-									<?php $skill4 = json_decode($values['skill4']);
-									foreach ($skill4 as $skey4 => $svalue4)	echo $skey4.' - '.$svalue4;
-									?><br>
-									<?php $skill5 =  json_decode($values['skill5']);
-									foreach ($skill5 as $skey5 => $svalue5)	echo $skey5.' - '.$svalue5;
-									?>
-									<br>
+						<div class="col-md-4"><label class="col-md-5">Skills: </label>
+						 <span class="col-md-8 pull-right skills-wrap">
+		                  <?php 
+		                  $skill1 = json_decode($values['skill1']);
+		                  $skill2 = json_decode($values['skill2']);
+		                  $skill3 = json_decode($values['skill3']);
+		                  $skill4 = json_decode($values['skill4']);
+		                  $skill5 = json_decode($values['skill5']);
+		                  foreach ($skill1 as $key1 => $value1)
+		                  if($key1!='_empty_'){
+		                  echo $skill1 .= $key1.'<span class="skill-level">- '.$value1.'</span><br>'; }
+		                  
+			              foreach ($skill2 as $key2 => $value2)
+			              	 if($key2!='_empty_'){
+			                  echo $skill2 .= $key2.'<span class="skill-level">- '.$value2.'</span><br>';}
+			              
+			              foreach ($skill3 as $key3 => $value3)
+			              	 if($key3!='_empty_'){
+			                  echo $skill3 .= $key3.'<span class="skill-level">- '.$value3.'</span><br>';}
+			             
+			              foreach ($skill4 as $key4 => $value4)
+			              	  if($key4!='_empty_'){
+			                  echo $skill4 .= $key4.'<span class="skill-level">- '.$value4.'</span><br>';}
+			               
+			              foreach ($skill5 as $key5 => $value5)
+			              	if($key5!='_empty_'){
+			                  echo $skill5 .= $key5.'<span class="skill-level">- '.$value5.'</span><br>';}
+			                  ?>
+		                  </span>
+						
+						
 									 
 						</div> 
 						<div class="col-md-8">
