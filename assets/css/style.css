@@ -773,6 +773,19 @@ select.form-control:not([size]):not([multiple]) {
     font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
   }
+.interested-status i, .rejected-status i{
+  color: #fff;
+  padding: 3px;
+  border-radius: 3px;
+  margin-right: 5px;
+  width: 24px;
+}
+.interested-status i{
+   background: #13980a;
+}
+.rejected-status i{
+  background: #c30202;
+}
 .rejected-status{
   color: #c30202;
   margin-right: 0;
