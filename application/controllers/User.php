@@ -131,6 +131,8 @@ class User extends CI_Controller {
 	{
 		$candidate_id = $this->session->userdata("id");
 		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		$data['get_skills'] = $this->valid_m->get_skills();
+		$data['get_domains'] = $this->valid_m->get_domains();
 		if($data['get_candidate_info']['primary_skill']!='')
 		{ $this->load_view('user_details',$data); } else { $this->load_view('update_profile',$data); }
 		
