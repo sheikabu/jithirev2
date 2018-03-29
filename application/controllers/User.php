@@ -133,6 +133,7 @@ class User extends CI_Controller {
 		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
 		$data['get_skills'] = $this->valid_m->get_skills();
 		$data['get_domains'] = $this->valid_m->get_domains();
+		$data['get_cities'] = $this->valid_m->get_cities();
 		if($data['get_candidate_info']['primary_skill']!='')
 		{ $this->load_view('user_details',$data); } else { $this->load_view('update_profile',$data); }
 		
@@ -143,6 +144,7 @@ class User extends CI_Controller {
 		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
 		$data['get_skills'] = $this->valid_m->get_skills();	
 		$data['get_domains'] = $this->valid_m->get_domains();	
+		$data['get_cities'] = $this->valid_m->get_cities();
 		$this->load_view('update_profile',$data);
 		
 	}
@@ -446,40 +448,51 @@ class User extends CI_Controller {
 				} */
 
 	public function forgot() 
-	{
-		
-		$this->load->view('common/header');
-		$this->load->view('forgot');
-		$this->load->view('common/footer');
-		
+	{				
+		$this->load_view('forgot');
 	}
+
 	public function forgot_check() 
 	{
 		
-		$forgot_details=array(
-		 	'email' => $this->input->post('email'), 
-						);
-
+		 $forgot_details=array('email' => $this->input->post('email'));		
+		 
 		 $email_forgot=$this->valid_m->forgot_email_check($forgot_details['email']);
-		 $email_det=$this->session->set_userdata('email',$forgot_details['email']);
-				if($email_forgot){
-					
-				    $this->load->view('common/header');
-					$this->load->view('forgot_password');
-					$this->load->view('common/footer');
-				}
-				else{
+		 if($email_forgot==1){
 
-				  $this->session->set_flashdata('message', 'email not having please sign up');
-				  redirect('user');
+		 		    /* Send a mail to user*/
+				  	$fromemail="Sony.George@ust-global.com";
+					$toemail = $forgot_details['email'];
+					$subject = "Jithire Forget Password";					
+					$mesg = $this->load->view('template/userregemail','',true);
+					$config=array(
+					'charset'=>'utf-8',
+					'wordwrap'=> TRUE,
+					'mailtype' => 'html'
+					);
+					$this->email->initialize($config);
+					$this->email->to($toemail);
+					$this->email->from($fromemail, "Title");
+					$this->email->subject($subject);
+					$this->email->message($mesg);
+					$mail = $this->email->send();
+				  	/*EMail end */
+				  	$data['message'] = '<div class="alert alert-success text-center">Email has been send to your mail id.</div>';
+				  	$this->load_view('forgot',$data);
 
+		 }else
+		 {
+		 	$data['message'] = '<div class="alert alert-danger text-center">Email is not available</div>';
+		 	$this->load_view('forgot',$data);
+		 }
 
-				}
 		
 	}
 	public function forgot_update() 
 	{
 		
+		$userid_decode = "";
+
 		$this->form_validation->set_rules('password','Password','trim|required|matches[password]'); 
 		$this->form_validation->set_rules('confirm_password','Confirm_password','trim|required|matches[password]'); 
 
@@ -654,10 +667,10 @@ class User extends CI_Controller {
 	{
 		
 		$candidate_id = $this->session->userdata("id");
-		$this->load->view('common/header');
 		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
-		$this->load->view('post_job');
-		$this->load->view('common/footer');
+		$data['get_cities'] = $this->valid_m->get_cities();
+		$data['get_skills'] = $this->valid_m->get_skills();
+		$this->load_view('post_job',$data);	
 		
 	}
 	public function posted_jobs()
@@ -674,6 +687,8 @@ class User extends CI_Controller {
 		$link_array = explode('/',$link);
 		$job_uid = end($link_array);
     	$data['job_list'] = $this->valid_m->update_posted_job($job_uid);		
+    	$data['get_cities'] = $this->valid_m->get_cities();
+		$data['get_skills'] = $this->valid_m->get_skills();
 		$this->load_view('update_post',$data);
 		
 	}
@@ -834,10 +849,11 @@ class User extends CI_Controller {
 					'company_id' => $this->input->post('company_id'),
 					'status' => $this->input->post('status'),
 					'close_date_time'=> $this->input->post('close_date_time'),
-					'open_date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
+					'open_date_time' => date("d/m/Y")
 					
 
 		 			);
+		 			
 					//print_r ($user_details['employer_name']); exit;
 				    $this->valid_m->insert_job_posting($user_details);
 		 			 

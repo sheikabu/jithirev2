@@ -49,10 +49,14 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     
-
+     <!--SHEIK Added -->
      <script src="<?php echo base_url(); ?>assets/js/es5.js"></script>
      <script src="<?php echo base_url(); ?>assets/js/index.js"></script>
      <script src="<?php echo base_url(); ?>assets/js/selectize.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0/js/bootstrap-datepicker.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <!--SHEIK Added -->
 
   </head>
 

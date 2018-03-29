@@ -11,11 +11,6 @@ if(!$email){
 }
 
  ?>
-  <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
-
-        <script type="text/javascript" src="js/jquery.autocomplete.pack.js"></script>
-
-        <script type="text/javascript" src="js/script.js"></script>
 
 <section id="post_job">
 	<div class="container">
@@ -83,8 +78,8 @@ if(!$email){
 					</div>
 				</div>
 			 	 <div class="form-group salary-form-group">
-					<label>Preferred Joining:</label>
-					  <input name="close_date_time" class="form-control" placeholder="" type="date" value="" required>
+					<label>Preferred Joining Date:</label>
+					  <input name="close_date_time" class="form-control" id="joining_date" placeholder="Preferred Joining" type="text"  required>
 				</div>
 				<div class="form-group">
 	                <!-- First Name --><label>Job Description</label><br>
@@ -114,14 +109,22 @@ if(!$email){
 					  <div class="section">
 					
 					    <fieldset>
-						 
-					            <input class="width-60per" name="primary[]" id="primary" value="<?php echo $key; ?>" placeholder="Skill" type="text" required />
-					            <select name="proprimary[]" id="proprimary" required>
-					            	<option value = 'basic'> Basic</option>
-					            	<option value = 'Intermediate'>Intermediate</option>
-					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
-								</fieldset>
+							<select id="primary-skill" class="demo-default" name="primary[]" placeholder="Select Primary Skill...">
+							<option value="">Select Primary Skill...</option>
+							<optgroup label="primary skiils">
+							<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>"><?php echo $skillslistval['skills']; ?></option>
+							<?php } ?>
+							</optgroup>						
+							</select>
+
+							<select name="proprimary[]" id="proprimary" required>
+							<option value = 'fresher'>Fresher</option>
+							<option value = 'basic'>Basic</option>
+							<option value = 'Intermediate'>Intermediate</option>
+							<option value = 'Advanced'>Advanced</option>
+							</select>
+						</fieldset>
 						
 					  </div>
 					</div>
@@ -152,13 +155,15 @@ if(!$email){
 				<div class="form-group">
 					<label>Preferred Location</label>
 					
-					<select name="preferred_location[]" required class="form-control" multiple>
-						<option value ='Trivandrum'>Trivandrum</option>
-						<option value ='Chennai'>Chennai</option>
-						<option value ='Madurai'>Madurai</option>
-						<option value ='Kochi'>Kochi</option>
-						<option value ='Bengalore'>Bengalore</option>
+					 <select id="preferred_location" name="preferred_location[]" multiple="" placeholder="Select Locations...">
+						<option value="">Select Locations...</option>
+						<optgroup label="Locations">
+						<?php foreach($get_cities as $citylist => $citylistval) { ?>
+							<option value="<?php echo $citylistval['city_name']; ?>"><?php echo $citylistval['city_name']; ?></option>
+						<?php } ?>
+						</optgroup>						
 					</select>
+
 				</div>
 				<div class="form-group">
 	               <label>Duration</label>
@@ -169,41 +174,81 @@ if(!$email){
 		            <label>Skills</label>
 					  <div id="sections">
 					  <div class="section">
-					 		<fieldset class="mTop-5">
-					            <input name="skill1[]" id="skill1" class="width-60per"  value="<?php echo $key1; ?>" placeholder="Skill" type="text" required />
+					 		<fieldset class="mTop-5">					            
+								<select id="skill1" name="skill1[]" placeholder="Select Skill...">
+								<option value="">Select Skill...</option>
+								<optgroup label="Skiils">
+								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+								<option value="<?php echo $skillslistval['skills']; ?>"><?php echo $skillslistval['skills']; ?></option>
+								<?php } ?>
+								</optgroup>						
+								</select>
 					            <select name="skillpro1[]" id="skillpro1" required>
+					                <option value = 'fresher'>Fresher</option>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset>
-								<fieldset class="mTop-5">
-					            <input name="skill2[]" id="skill2" class="width-60per" value="<?php echo $key2; ?>" placeholder="Skill" type="text" required />
+								<fieldset class="mTop-5">					           
+					            <select id="skill2" name="skill2[]" placeholder="Select Skill...">
+								<option value="">Select Skill...</option>
+								<optgroup label="Skiils">
+								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+								<option value="<?php echo $skillslistval['skills']; ?>"><?php echo $skillslistval['skills']; ?></option>
+								<?php } ?>
+								</optgroup>						
+								</select>
 					            <select name="skillpro2[]" id="skillpro2" required>
+					            <option value = 'fresher'>Fresher</option>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset class="mTop-5">
 								<fieldset class="mTop-5">
-					            <input name="skill3[]" id="skill3" class="width-60per" value="<?php echo $key3; ?>" placeholder="Skill" type="text" required />
+					            <select id="skill3" name="skill3[]" placeholder="Select Skill...">
+								<option value="">Select Skill...</option>
+								<optgroup label="Skiils">
+								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+								<option value="<?php echo $skillslistval['skills']; ?>"><?php echo $skillslistval['skills']; ?></option>
+								<?php } ?>
+								</optgroup>						
+								</select>
 					            <select name="skillpro3[]" id="skillpro3" required>
+					            <option value = 'fresher'>Fresher</option>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset>
 								<fieldset class="mTop-5">
-					            <input name="skill4[]" id="skill4" class="width-60per" value="<?php echo $key4; ?>" placeholder="Skill" type="text" required />
+					            <select id="skill4" name="skill4[]" placeholder="Select Skill...">
+								<option value="">Select Skill...</option>
+								<optgroup label="Skiils">
+								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+								<option value="<?php echo $skillslistval['skills']; ?>"><?php echo $skillslistval['skills']; ?></option>
+								<?php } ?>
+								</optgroup>						
+								</select>
 					            <select name="skillpro4[]" id="skillpro4" required>
+					            <option value = 'fresher'>Fresher</option>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
 					            </select>
 								</fieldset>
 								<fieldset class="mTop-5">
-					            <input name="skill5[]" id="skill5" class="width-60per" value="<?php echo $key5; ?>" placeholder="Skill" type="text" required />
+					            <select id="skill5" name="skill5[]" placeholder="Select Skill...">
+								<option value="">Select Skill...</option>
+								<optgroup label="Skiils">
+								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+								<option value="<?php echo $skillslistval['skills']; ?>"><?php echo $skillslistval['skills']; ?></option>
+								<?php } ?>
+								</optgroup>						
+								</select>
 					            <select name="skillpro5[]" id="skillpro5" required>
+					            <option value = 'fresher'>Fresher</option>
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
@@ -233,8 +278,28 @@ $(function(){
 </script>
 
 
+<script>
+$('#preferred_location').selectize({
+sortField: 'text'
+});
+$('#primary-skill').selectize({
+sortField: 'text'
+});
+$('#skill1').selectize({
+sortField: 'text'
+});
+$('#skill2').selectize({
+sortField: 'text'
+});
+$('#skill3').selectize({
+sortField: 'text'
+});
+$('#skill4').selectize({
+sortField: 'text'
+});
+$('#skill5').selectize({
+sortField: 'text'
+});
 
-       
- 
-     
-
+$('#joining_date').datepicker({format: 'dd/mm/yyyy'});
+</script>

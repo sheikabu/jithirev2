@@ -78,8 +78,8 @@ if(!$email){
 					</div>
 				</div>
 			 	 <div class="form-group salary-form-group">
-					<label>Closing Date :</label>
-					  <input name="close_date_time" class="form-control" placeholder="" type="date" value="<?php echo $values['close_date_time'];?>"  required>
+					<label>Preferred Joining Date:</label>
+					  <input name="close_date_time" class="form-control" id="joining_date" value="<?php echo $values['close_date_time'];?>" placeholder="Preferred Joining" type="text"  required>
 				</div>
 				<div class="form-group">
 	                <!-- First Name --><label>Job Description</label><br>
@@ -100,7 +100,7 @@ if(!$email){
 	            </div>
 	            
 	            <div class="form-group salary-form-group">
-					<label>Salary</label>
+					<label>Salary (Lakhs per annum)</label>
 					  <input name="salary_lakhs" class="form-control" placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" required>
 				</div>
 				<div class="form-group">
@@ -113,8 +113,17 @@ if(!$email){
 					
 					    <fieldset >
 						 
-					            <input class="width-60per" name="primary[]" id="primary" value="<?php echo $pkey; ?>" placeholder="Skill" type="text"  required />
+					         
+								<select id="primary-skill" class="demo-default" name="primary[]" placeholder="Select Primary Skill...">
+								<option value="">Select Primary Skill...</option>
+								<optgroup label="primary skiils">
+								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+								<option value="<?php echo $skillslistval['skills']; ?>" <?php if($pkey==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+								<?php } ?>
+								</optgroup>						
+								</select>
 					            <select name="proprimary[]" id="proprimary"  >
+					               <option <?php if ($pval=='fresher') { echo"selected"; } ?>>Fresher</option>
 					            	<option <?php if($pval==' Basic') { echo 'selected'; } ?>> Basic</option>
 					            	<option <?php if ($pval=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
 					            	<option <?php if ($pval=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -149,14 +158,18 @@ if(!$email){
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Preferred Location</label>
-					<?php $locations  = json_decode($values['preferred_location']); ?>
-					<select name="preferred_location[]" required class="form-control" placeholder="preferred_location[]" value="<?php echo $values['preferred_location']; ?>"required multiple>
-						<option value ='Trivandrum'<?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
-						<option value ='Chennai'<?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
-						<option value ='Madurai'<?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
-						<option value ='Kochi'<?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
-						<option value ='Bengalore'<?php if (in_array('Bengalore', $locations)) { echo"selected"; } ?>>Bengalore</option>
+					<?php $locations  = json_decode($values['preferred_location']); ?>					
+
+					<select id="preferred_location" name="preferred_location[]" class="demo-default" multiple placeholder="Select locations...">
+					<option value="">Select location...</option>
+					<optgroup label="select location">
+					<?php foreach($get_cities as $citylist => $citylistval) { ?>
+					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $locations)) { echo"selected"; } ?>>
+					<?php echo $citylistval['city_name'] ?></option>
+					<?php }	 ?>
+					</optgroup>
 					</select>
+
 				</div>
 				<div class="form-group">
 	               <label>Duration</label>
@@ -174,8 +187,16 @@ if(!$email){
         		foreach($skill1 as $key => $val)
         		if($key=='') {$val = 'Basic';}
         	    ?>
-					            <input name="skill1[]" id="skill" class="mTop-5"  value="<?php echo $key; ?>" placeholder="Skill" type="text" />
+					            <select id="skill1" name="skill1[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
 					            <select name="skillpro1[]" required>
+					            <option <?php if ($val=='fresher') { echo"selected"; } ?>>Fresher</option>
 					            	 <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -185,8 +206,16 @@ if(!$email){
         		foreach($skill1 as $key1 => $val1)
         		if($key1=='') {$val1 = 'Basic';}
         	    ?>
-					            <input name="skill2[]" id="skill" class="mTop-5" value="<?php echo $key1; ?>" placeholder="Skill" type="text" />
+					             <select id="skill2" name="skill2[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key1==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
 					            <select name="skillpro2[]"  required>
+					            <option <?php if ($val1=='fresher') { echo"selected"; } ?>>Fresher</option>
 					            	<option <?php if ($val1=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val1=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val1=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -196,8 +225,16 @@ if(!$email){
         		foreach($skill2 as $key2 => $val2)
         		if($key2=='') {$val2 = 'Basic';}
         	    ?>
-					            <input name="skill3[]" id="skill" class="mTop-5" value="<?php echo $key2; ?>" placeholder="Skill" type="text" />
+					            	 <select id="skill3" name="skill3[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key2==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
 					            <select name="skillpro3[]" required>
+<option <?php if ($val2=='fresher') { echo"selected"; } ?>>Fresher</option>
 					            	 <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -207,8 +244,16 @@ if(!$email){
         		foreach($skill3 as $key3 => $val3)
         		if($key3=='') {$val3 = 'Basic';}
         	    ?>
-					            <input name="skill4[]" id="skill" class="mTop-5" value="<?php echo $key3; ?>" placeholder="Skill" type="text" />
+					             <select id="skill4" name="skill4[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key3==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
 					            <select name="skillpro4[]"  required>
+					            <option <?php if ($val3=='fresher') { echo"selected"; } ?>>Fresher</option>
 					            	<option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val3=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val3=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -216,10 +261,18 @@ if(!$email){
 								
 								<?php $skill4  = json_decode($values['skill5'],true); 				
         		foreach($skill4 as $key4 => $val4)
-        		if($key4=='') {$val4 = 'Basic';}
+        		
         	    ?>
-					            <input name="skill5[]" id="skill" class="mTop-5" value="<?php echo $key4; ?>" placeholder="Skill" type="text" />
+					             <select id="skill5" name="skill5[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key4==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
 					            <select name="skillpro5[]" required>
+					            <option <?php if ($val4=='fresher') { echo"selected"; } ?>>Fresher</option>
 					            	<option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val4=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val4=='Advanced') { echo"selected"; } ?>>Advanced</option>
@@ -308,19 +361,32 @@ if(!$email){
 </script>
 
 
+
 <script>
-$('#any-location').change(function(){
-    if($(this).is(":checked"))
-    $('#preferred_location').fadeOut('slow');
-    else
-    $('#preferred_location').fadeIn('slow');
-
-    });
+$('#preferred_location').selectize({
+sortField: 'text'
+});
+$('#primary-skill').selectize({
+sortField: 'text'
+});
+$('#skill1').selectize({
+sortField: 'text'
+});
+$('#skill2').selectize({
+sortField: 'text'
+});
+$('#skill3').selectize({
+sortField: 'text'
+});
+$('#skill4').selectize({
+sortField: 'text'
+});
+$('#skill5').selectize({
+sortField: 'text'
+});
+$(document.body).addClass('update_post');
+$('#joining_date').datepicker({format: 'dd/mm/yyyy'});
 </script>
-
-
-
-
 
 
        

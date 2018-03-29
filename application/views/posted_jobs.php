@@ -104,8 +104,7 @@ if(!$email){
 					
 			            <div class="col-md-4">
 			                <label class="col-md-5">Opening:</label><span class="col-md-7"><?php
-			                $open_timestamp = strtotime($values['open_date_time']);
-			                echo $opening_date = date('d-m-Y', $open_timestamp);  
+			              echo $values['open_date_time']; 
 			                ?></span>
 			            </div>
 			           
@@ -113,7 +112,7 @@ if(!$email){
 			                <label class="col-md-5">Preferred Joining:</label><span class="col-md-7"> <?php echo $values['close_date_time'];?></span>
 			            </div>
 			            <div class="col-md-4 text-right">
-			                <a href="<?php echo site_url() ?>user/candidates_apply/<?php echo $values['job_id']; ?>" class="link">Applied Candidates <span>(5)</span></a>
+			                <a href="<?php echo site_url() ?>user/candidates_apply/<?php echo $values['job_id']; ?>" class="link">Applied Candidates</a>
 			            </div>
             		</div>
 		   

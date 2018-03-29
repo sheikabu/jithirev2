@@ -5,7 +5,15 @@ $(function() {
 	var theme_match = String(window.location).match(/[?&]theme=([a-z0-9]+)/);
 	var theme = (theme_match && theme_match[1]) || 'default';
 	var themes = ['default','legacy','bootstrap2','bootstrap3'];
+
+	var domain = window.location.hostname;
+	
+	if($(document.body).hasClass("update_post")) {
+	$('head').append('<link rel="stylesheet" href="../../assets/css/selectize.' + theme + '.css">');	
+		} else {
 	$('head').append('<link rel="stylesheet" href="../assets/css/selectize.' + theme + '.css">');
+	}
+
 
 	var $themes = $('<div>').addClass('theme-selector').insertAfter('h1');
 	for (var i = 0; i < themes.length; i++) {

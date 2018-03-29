@@ -224,16 +224,16 @@ if(!$email){
 					</div>
 						
 	                  <div class="col-md-12" id="preferred_location"> 
-	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>   
+	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
+
 					<select id="select-gear" name="preferred_location[]" class="demo-default" multiple placeholder="Select locations...">
 							<option value="">Select location...</option>
 					<optgroup label="select location">
-					<option value="Trivandrum" <?php if (in_array('Trivandrum', $locations)) { echo"selected"; } ?>>Trivandrum</option>
-					<option value="Chennai" <?php if (in_array('Chennai', $locations)) { echo"selected"; } ?>>Chennai</option>
-					<option value="Madurai" <?php if (in_array('Madurai', $locations)) { echo"selected"; } ?>>Madurai</option>
-					<option value="Kochi" <?php if (in_array('Kochi', $locations)) { echo"selected"; } ?>>Kochi</option>
-					<option value="Bangalore" <?php if (in_array('Bangalore', $locations)) { echo"selected"; } ?>>Bangalore</option>
-					  </optgroup>
+					<?php foreach($get_cities as $citylist => $citylistval) { ?>
+					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $locations)) { echo"selected"; } ?>>
+					<?php echo $citylistval['city_name'] ?></option>
+					<?php }	 ?>
+   				    </optgroup>
 					</select>
 					 </div>
 				
@@ -407,8 +407,17 @@ if(!$email){
 				<?php $skill1  = json_decode($get_candidate_info['skill1'],true); 				
         		foreach($skill1 as $key => $val)
         		if($key=='') {$val = 'Fresher';}
-        	    ?>
-				 <input name="skill1[]" placeholder="Skill" type="text" value="<?php echo $key; ?>"  />
+        	    ?>			 
+
+				  <select id="skill1" name="skill1[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
+
                   <select name="skillpro1[]" required>
                     <option <?php if($val=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
@@ -421,7 +430,16 @@ if(!$email){
 	        		foreach($skill2 as $key2 => $val2)
 	        		if($key2=='') {$val2 = 'Fresher';}
 	        	    ?>
-				 <input name="skill2[]" placeholder="Skill" class="mTop-5" type="text" value="<?php echo $key2; ?>"  />
+				 
+				 <select id="skill2" name="skill2[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key2==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
+
                   <select name="skillpro2[]" required>
                     <option <?php if($val2=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
@@ -434,7 +452,15 @@ if(!$email){
 	        		foreach($skill3 as $key3 => $val3)
 	        		if($key3=='') {$val3 = 'Fresher';}
 	        	    ?>
-				 <input name="skill3[]" placeholder="Skill" class="mTop-5" type="text"  value="<?php echo $key3; ?>"  />
+				 <select id="skill3" name="skill3[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key3==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
+
                   <select name="skillpro3[]" required>
                      <option <?php if($val3=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
@@ -447,7 +473,15 @@ if(!$email){
 	        		foreach($skill4 as $key4 => $val4)
 	        		if($key4=='') {$val4 = 'Fresher';}
 	        	    ?>
-				 <input name="skill4[]" placeholder="Skill" class="mTop-5" type="text"  value="<?php echo $key4; ?>" />
+				  <select id="skill4" name="skill4[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key4==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
+
                   <select name="skillpro4[]" required>
                      <option <?php if($val4=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
@@ -460,7 +494,14 @@ if(!$email){
 	        		foreach($skill5 as $key5 => $val5)
 	        		if($key5=='') {$val5 = 'Fresher';}
 	        	    ?>
-				 <input name="skill5[]" placeholder="Skill" class="mTop-5" type="text"  value="<?php echo $key5; ?>" />
+				 <select id="skill5" name="skill5[]" placeholder="Select Skill...">
+						<option value="">Select Skill...</option>
+						<optgroup label="Skiils">
+						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
+							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key5==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+						<?php } ?>
+						</optgroup>						
+					</select>
                   <select name="skillpro5[]" required>
                      <option <?php if($val5=='Fresher') { echo 'selected'; } ?>>Fresher</option>
                     <option <?php if ($val5=='Basic') { echo"selected"; } ?>>Basic</option>
@@ -621,6 +662,21 @@ $('#primary-skill').selectize({
 sortField: 'text'
 });
 $('#current-location').selectize({
+sortField: 'text'
+});
+$('#skill1').selectize({
+sortField: 'text'
+});
+$('#skill2').selectize({
+sortField: 'text'
+});
+$('#skill3').selectize({
+sortField: 'text'
+});
+$('#skill4').selectize({
+sortField: 'text'
+});
+$('#skill5').selectize({
 sortField: 'text'
 });
 </script> 
