@@ -297,3 +297,12 @@ $(document).ready(function(){
 });
 
 </script>
+
+<script type="text/javascript">
+  
+
+  $('#myModel').on('click', function (e) {
+     $('#candidate_form')[0].reset();
+      $('#company_form')[0].reset();
+})
+</script>
