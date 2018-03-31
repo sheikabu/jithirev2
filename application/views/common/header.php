@@ -121,7 +121,8 @@
                 </li>
                 <li class="nav-item">
                 <div class="dropdown">
-          			    <button class=" user-dropdown dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 
+          			    <button class=" user-dropdown dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>
+                    <span class="welcome-name">Sheik Abdullah</span> 
           			    <span class="caret"></span></button>
           			    <ul class="dropdown-menu">
           			      <li><a class="nav-link" id="profile" href="<?php echo site_url() ?>user/user_details">View Profile</a></li>

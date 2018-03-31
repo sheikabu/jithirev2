@@ -350,7 +350,7 @@ if(!$email){
                   
             <div class="details col-md-12" id="basic-info">
               
-              <label class="col-md-12 paddingL-0 line2">Primary Skill</label>
+              <div class="col-md-12 paddingL-0 line2 mBot-5"><label>Primary Skill</label><label class="pull-right mRight-20">Proficiency</label></div>
                 <div class="row">
                 <div class="col-md-12">
                 
@@ -394,13 +394,13 @@ if(!$email){
 			<div class="col-md-4">
 			<div id="skills-view">
 			<div class="details col-md-12" id="basic-info">
-			<label class="col-md-12 paddingL-0 line2">Skills</label>
+			<div class="col-md-12 paddingL-0 line2"><label>Skills</label><label class="pull-right mRight-20">Proficiency</label></div>
 			<div class="row">
 			<div class="col-md-12">
 			<div id="sections">
 
 				<fieldset>
-				<div class="container paddingL-0" >
+				<div class="container paddingL-0 paddingR-0" >
 				<div class='element' id='div_1'>
 				
 				<!--skill1-->
