@@ -40,7 +40,7 @@ if(!$email){
 		  <th>Applied Date</th>
 		  <th>candidate Status</th>
 		  <th>View Profile</th>
-		  <th>company status </th>
+		  
 		  
 	    </tr>
 		  </thead>
@@ -55,22 +55,7 @@ if(!$email){
 		  <td><?php echo $values['job_status']; ?>
 		  </td>
 		  <td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>" class="link">View Profile</a></td>
-		    <td> <select id="job_status" name="job_status[]" class="demo-default" placeholder="job status">
-							
-					<optgroup label="select status">
-					
-					<option value="Rejected" <?php if (in_array('Rejected', $job_status)) { echo"selected"; } ?>>Rejected</option>
-					<option value="On Frist Interview" <?php if (in_array('Frist Interview', $job_status)) { echo"selected"; } ?>>On Frist Interview</option>
-					<option value="Selected" <?php if (in_array('Selected', $job_status)) { echo"selected"; } ?>>Selected</option>
-					
-					  </optgroup>
-					</select></td>  
-		     <td> 
-		<div class="row">
-			<div class="col-md-12">
-				<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
-			</div>
-		</div></td>
+		    
 			  
 		    </tr>
 		    <?php } ?>			

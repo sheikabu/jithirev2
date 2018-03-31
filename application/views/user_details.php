@@ -278,9 +278,9 @@ if(!$email){
 					<optgroup label="select status">
 					
 					<option value="Rejected" <?php if (in_array('Rejected', $job_status)) { echo"selected"; } ?>>Rejected</option>
-					<option value="Frist round" <?php if (in_array('Frist round', $job_status)) { echo"selected"; } ?>>Frist round</option>
+					<option value="First  round" <?php if (in_array('First round', $job_status)) { echo"selected"; } ?>>First round</option>
 					<option value="Offered" <?php if (in_array('Offered', $job_status)) { echo"selected"; } ?>>Offered</option>
-					<option value="Selected" <?php if (in_array('Selected', $job_status)) { echo"selected"; } ?>>Selected</option>
+					
 					
 					  </optgroup>
 					</select></td>  

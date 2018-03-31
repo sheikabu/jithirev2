@@ -187,7 +187,31 @@
                       
                          <div id="company_view">
                          <form method="post" class="single-form" id="company_form">
-                            
+                             <div class="col-xs-12">
+                            <div class="checkbox" id="agreement5div">
+                                <input name="agreement" id="agreement5" type="checkbox" required="required"/>
+                                <label for="agreement5">I am ready to complete selection process within 24 hours</label>
+                            </div>
+                        </div>
+                        
+                         <div class="col-xs-12">
+                            <div class="checkbox" id="agreement6div">
+                                <input name="agreement" id="agreement6" type="checkbox" required="required"/>
+                                <label for="agreement6">I am ready to share temp offer letter from jithire</label>
+                            </div>
+                        </div>
+                         <div class="col-xs-12">
+                            <div class="checkbox" id="agreement7div">
+                                <input name="agreement" id="agreement7" type="checkbox" required="required"/>
+                                <label for="agreement7">I will share feedback of the cnadidate within five business days</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="checkbox" id="agreement8div">
+                                <input name="agreement" id="agreement8" type="checkbox" required="required"/>
+                                <label for="agreement8">I will pay 2% of CTC as professional fee</label>
+                            </div>
+                        </div>
 
                           <div class="col-xs-12">                            
                            <input type="text" name="company_name" class="form-control" placeholder="Company name*" required/>
@@ -197,55 +221,47 @@
                            <input type="text" name="url" class="form-control" placeholder="Company url*" required/>
                           </div>
                           
-                          <div class="col-xs-12">                            
+                         <!-- <div class="col-xs-12">                            
                            <input type="text" name="city" class="form-control" placeholder="City*" required/>
                           </div>
 
-                          <div class="col-xs-12">                            
-                           <input type="text" name="state" class="form-control" placeholder="State*" required/>
+                         <div class="col-xs-12">                            
+                           <input type="text" name="state" class="form-control" placeholder="State*" >
+                          </div>-->
+						  
+						  <div class="col-xs-12">                            
+                           <input type="text" name="TAN" class="form-control" placeholder="TAN*" required/>
                           </div>
 
-                           <div class="col-xs-12">                            
-                           <input type="text" name="country" class="form-control" placeholder="Country*" required/>
+                           <div class="col-xs-12">      
+                        <select name="country" required class="form-control" value="India" placeholder="Country*">
+						
+		                    <option value ='India'>India</option>
+		                    <option value ='Australia' >Australia</option>
+							<option value ='Singapore' >Singapore</option>
+		                    <option value ='United Arab Emirates' >United Arab Emirates(UAE)</option>						   
+                          <!-- <input type="text" name="country" class="form-control" value="India" placeholder="Country*" >-->
                           </div>
 
                            <div class="col-xs-12">                          
                             <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
                           </div>
-
+                          <!-- <div class="col-xs-12">                          
+                            <input name="poc" class="contact-email form-control" placeholder="Poc name*" required="" type="text">
+                          </div>
+						   <div class="col-xs-12">                          
+                            <input name="Phone_no" class="contact-email form-control" placeholder="Phone Number*" required="" type="text">
+                          </div>-->
                           <div class="col-xs-12">
-                            <!-- Subject -->                            <input name="password" class="contact-password form-control" placeholder="Password*" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
+                            <!-- Subject --> 
+							<input name="password" class="contact-password form-control" placeholder="Password*" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
                         </div>
                         <div class="col-xs-12">
                             <!-- Subject -->
                             <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password*" type="password"  value="<?php echo set_value('confirm_password'); ?>"><span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
                         </div>
                         
-                         <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement5" type="checkbox" checked/>
-                                <label for="agreement5">I am ready to complete selection process within 24 hours</label>
-                            </div>
-                        </div>
                         
-                         <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement6" type="checkbox" checked/>
-                                <label for="agreement6">I am ready to share temp offer letter from jithire</label>
-                            </div>
-                        </div>
-                         <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement7" type="checkbox" checked/>
-                                <label for="agreement7">I will share feedback of the cnadidate within five business days</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input name="agreement" id="agreement8" type="checkbox" checked/>
-                                <label for="agreement8">I will pay 2% of CTC as professional fee</label>
-                            </div>
-                        </div>
                         <div class="col-xs-12">                          
                             <input name="role" type="hidden" value="company">
                         </div>
@@ -292,6 +308,33 @@ $(document).ready(function(){
   $("#agreement2div").hide();
   $("#agreement3div").hide();
   $("#agreement4div").hide();
+
+
+});
+
+</script>
+<script>
+$(document).ready(function(){
+
+  $("#agreement5").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement6div").show();
+      }
+  });
+  $("#agreement6").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement7div").show();
+      }
+  });
+  $("#agreement7").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement8div").show();
+      }
+  });
+
+  $("#agreement6div").hide();
+  $("#agreement7div").hide();
+  $("#agreement8div").hide();
 
 
 });

@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
@@ -28,17 +29,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<input type="text" name="url" class="form-control" placeholder="url"/>
 			</div>
 			
-			<div class="form-group">
+			<!--<div class="form-group">
 				<label>city</label>
 				<input type="text" name="city" class="form-control" placeholder="city"/>
 			</div>
 			<div class="form-group">
 				<label>State</label>
 				<input type="text" name="state" class="form-control" placeholder="state"/>
-			</div>
+			</div>-->
 			<div class="form-group">
 				<label>Country</label>
-				<input type="text" name="country" class="form-control" placeholder="country"/>
+				<input type="text" name="country" class="form-control" value="India" placeholder="country"/>
 			</div>
 			<div class="form-group">
 				<label>Role</label>

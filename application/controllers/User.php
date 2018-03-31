@@ -151,16 +151,14 @@ class User extends CI_Controller {
 	public function history() // add user full details
 	{
 		$data['job_history'] = $this->job_history->job_history();
+		 
+		  
 		$this->load_view('history',$data);
-		/* $user_details=array(
-			'job_id' => $this->input->post('job_id'), 
-			'comp_id' => $this->input->post('company_id'),
-			'user_id' => $this->input->post('user_id'),
-			'job_status' => $this->input->post('job_rejected_status'), 
-			'applied_date' => mdate('%Y-%m-%d %H:%i:%s', now())
-			);
-		   $this->job_history->insert_job_history($user_details);
-		    redirect('user/history'); */
+		/*$history=array(
+		'job_status' => $this->input->post('job_status'),
+	    );
+	    $this->job_history->insert_job_history($history);
+	    redirect('user/history'); */
 		
 		
 	}
@@ -619,8 +617,7 @@ class User extends CI_Controller {
                     $company_details=array(
 		 			'company_name' => $this->input->post('company_name'),	 			 
 		 			'url' => $this->input->post('url'),
-					'city' => $this->input->post('city'),
-					'state' => $this->input->post('state'),
+					'TAN' => $this->input->post('TAN'),
 					'country' => $this->input->post('country'), 
 					'role' => $this->input->post('role'),
 					'status' => $this->input->post('status'),
