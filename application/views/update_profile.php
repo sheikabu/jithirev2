@@ -184,7 +184,7 @@ if(!$email){
 		 </div>
 	 	<div class="col-md-4">
 	 	<div class="col-xs-12">
-		                  <label class="col-md-12">Expected CTC</label>
+		                  <label class="col-md-12">Annual CTC (Lakhs)</label>
 		                  <div class="col-md-12"> 
 		                <input type="text" name="salary_lakhs" class="form-control" placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required>
 		        </div>
@@ -298,7 +298,7 @@ if(!$email){
 			                   	<div><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a>
 			                   	</div>
 			                </div>
-							<div><input type="file" name="resume_file" id="image_file" size="20"  />
+							<div><input type="file" name="resume_file" id="image_file" size="20" required />
 		                   		<input type="hidden" value="<?php echo $get_candidate_info['resume']; ?>" name="old_resume">
 							</div>
 						</div>
@@ -350,7 +350,7 @@ if(!$email){
                   
             <div class="details col-md-12" id="basic-info">
               
-              <label class="col-md-12 paddingL-0 line2">Primary Skill</label>
+              <div class="col-md-12 paddingL-0 line2 mBot-5"><label>Primary Skill</label><label class="pull-right mRight-20">Proficiency</label></div>
                 <div class="row">
                 <div class="col-md-12">
                 
@@ -360,7 +360,7 @@ if(!$email){
         		foreach($primary_skill as $pkey => $pval)        	
         	?>
         	<div id="sections">       	 
-                  <select id="primary-skill" class="demo-default" name="primaryskill[]" placeholder="Select Primary Skill...">
+                  <select id="primary-skill" class="demo-default" name="primaryskill[]" placeholder="Select Primary Skill..." required>
 						<option value="">Select Primary Skill...</option>
 						<optgroup label="primary skiils">
 						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
@@ -394,13 +394,13 @@ if(!$email){
 			<div class="col-md-4">
 			<div id="skills-view">
 			<div class="details col-md-12" id="basic-info">
-			<label class="col-md-12 paddingL-0 line2">Skills</label>
+			<div class="col-md-12 paddingL-0 line2"><label>Skills</label><label class="pull-right mRight-20">Proficiency</label></div>
 			<div class="row">
 			<div class="col-md-12">
 			<div id="sections">
 
 				<fieldset>
-				<div class="container paddingL-0" >
+				<div class="container paddingL-0 paddingR-0" >
 				<div class='element' id='div_1'>
 				
 				<!--skill1-->
@@ -653,13 +653,15 @@ $(document).ready(function(){
 
 <script>
 $('#select-gear').selectize({
-sortField: 'text'
+sortField: 'text',
+maxItems:3
 });
 $('#add-domain').selectize({
 sortField: 'text'
 });
 $('#primary-skill').selectize({
-sortField: 'text'
+sortField: 'text',
+allowEmptyOption: true
 });
 $('#current-location').selectize({
 sortField: 'text'
