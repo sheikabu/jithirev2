@@ -76,16 +76,16 @@
                                 </form>
                             </div>
                             <!--Employer Login END-->
-                            <div class="text-center mTop-10">----------- or login with -----------</div>
-                            <div class="sign-in-social row">
+                            <div class="text-center mTop-10 hidden">----------- or login with -----------</div>
+                            <div class="row sign-in-social hidden">
                                 
-                                <div class="col-xs-4 col-md-4 social-nav google">
+                                <div class="col-xs-4 col-md-4 social-nav google hidden">
                                     <a href="#" alt="Google" title="Google"><i class="icon icons8-google-logo-filled"></i><span>Google</span></a>
                                 </div>
-                                <div class="col-xs-4 col-md-4 social-nav facebook">
+                                <div class="col-xs-4 col-md-4 social-nav facebook hidden">
                                     <a href="#" alt="facebook" title="Facebook"><i class="icon icons8-facebook-filled"></i><span>Facebook</span></a>
                                 </div>
-                                <div class="col-xs-4 col-md-4 social-nav linkedin">
+                                <div class="col-xs-4 col-md-4 social-nav linkedin hidden">
                                     <a href="#" alt="Linkedin" title="Linkedin"><i class="icon icons8-linkedin-filled"></i><span>Linkedin</span></a>
                                 </div>
                             </div>
