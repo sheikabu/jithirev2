@@ -755,7 +755,9 @@ select.form-control:not([size]):not([multiple]) {
 }
 .skills-wrap .skill-level{ 
     float: right;
-    width: 55%; 
+    /*width: 55%; */
+    font-size: 12px;
+    margin-right: -5px;
   }
  #mainNav {
         padding-top: 5px!important;
@@ -805,12 +807,20 @@ select.form-control:not([size]):not([multiple]) {
  .link span{
     color:#333;
  }
+.selectize-input{
+  float: left;
+  width: 60%!important;
+  margin-right: 5px;
+}
+select{
+  min-height: 36px;
+}
+.form-control::placeholder{
+  font-size: 12px;
+}
+
  /*---------------------------------------------- */ 
-}
-}
-}
-}
-}
+
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 5px!important;
