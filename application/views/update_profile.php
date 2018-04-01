@@ -186,7 +186,7 @@ if(!$email){
 	 	<div class="col-xs-12">
 		                  <label class="col-md-12">Annual CTC (Lakhs)</label>
 		                  <div class="col-md-12"> 
-		                <input type="text" name="salary_lakhs" class="form-control" placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required>
+		                <input type="text" name="salary_lakhs" class="form-control number-only" placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
 		        </div>
 	                </div>
 					<div class="col-xs-12 mTop-5" >
@@ -682,5 +682,17 @@ $('#skill5').selectize({
 sortField: 'text'
 });
 </script> 
-     
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+  $('.number-only').keypress(function(e) {
+	if(isNaN(this.value+""+String.fromCharCode(e.charCode))) return false;
+  })
+  .on("cut copy paste",function(e){
+	e.preventDefault();
+  });
+
+});
+	   </script>   
 

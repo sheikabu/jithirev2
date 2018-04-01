@@ -157,7 +157,7 @@
                               </div>
                               <div class="col-xs-12">
                                   <!-- Pancard -->
-                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
+                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
                               </div>
                               <div class="col-xs-12">
                                   <!-- Email -->
@@ -186,6 +186,7 @@
                         </div>
                       
                          <div id="company_view">
+						 <?php validation_errors(); ?>
                          <form method="post" class="single-form" id="company_form">
                              <div class="col-xs-12">
                             <div class="checkbox" id="agreement5div">
@@ -243,10 +244,11 @@
                           <!-- <input type="text" name="country" class="form-control" value="India" placeholder="Country*" >-->
                           </div>
                           <div class="col-xs-12">                          
-                            <input name="poc_name" class="contact-email form-control" placeholder="Poc name*" required="" type="text">
+                            <input name="poc_name" class="form-control" placeholder="Poc name*" required="" type="text">
                           </div>
 						   <div class="col-xs-12">                          
-                            <input name="phone_no" class="contact-email form-control" placeholder="Phone Number*" value="<?php echo set_value('phone_no'); ?>" required="" type="text" size="10"><span class="text-danger"><?php echo form_error('phone_no'); ?></span>
+                            <input name="phone_no" id="phone_no" class="form-control number-only" placeholder="Phone Number*" value="<?php echo set_value('phone_no'); ?>" required=""  >
+							
                           </div>
                            <div class="col-xs-12">                          
                             <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
@@ -286,6 +288,7 @@
               </div>
             </div>
         <!-- register modal end -->
+		
 <script>
 $(document).ready(function(){
 
@@ -351,3 +354,16 @@ $(document).ready(function(){
 })
 >>>>>>> bb51020768b931beaa2d6c9b9e737275f09154bb
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+  $('.number-only').keypress(function(e) {
+	if(isNaN(this.value+""+String.fromCharCode(e.charCode))) return false;
+  })
+  .on("cut copy paste",function(e){
+	e.preventDefault();
+  });
+
+});
+	   </script>

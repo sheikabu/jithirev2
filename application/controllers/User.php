@@ -19,6 +19,7 @@ class User extends CI_Controller {
 		//$this->load->model('jobs_browse');
 		$this->load->library('upload');
 		$this->load->library('email');
+		$this->load->library('form_validation');
 	}
 
 	public function load_view($view, $vars = array()) {
@@ -240,6 +241,7 @@ class User extends CI_Controller {
 	}
 
 	public function basic_info() { 
+	
 		
 			if(!empty($_FILES["image_file"]["name"]))  
 			{   
@@ -603,10 +605,10 @@ class User extends CI_Controller {
 	//Company Registration
 	public function registration_company() //login_check
 	{
-		
+		$this->load->library('form_validation');
 					$this->form_validation->set_rules('password','Password','trim|required|matches[password]|min_length[6]|max_length[15]'); 
 					$this->form_validation->set_rules('confirm_password','Confirm_password','trim|required|matches[password]'); 
-					$this->form_validation->set_rules('phone_no', 'phone_no', 'required|numeric|min_length[10]');
+					$this->form_validation->set_rules('phone_no', 'phone_no', 'trim|required|numeric|min_length[10]');
 					
 
                   
@@ -614,7 +616,7 @@ class User extends CI_Controller {
 					 if ($this->form_validation->run() == FALSE)
                 {
 					
-					$this->form_validation->set_message('min_length','The value you have entered for %s is too short..');
+					/* $this->form_validation->set_message('min_length','The value you have entered for %s is too short..'); */
 					 echo $message = '<div class="alert alert-danger text-center">Failed!! sorry mismatch password..Please try again.</div>'; exit; 
                 }
 				
@@ -652,9 +654,12 @@ class User extends CI_Controller {
 		 			'company_name' => $this->input->post('company_name'),
 		 			'address' => $this->input->post('address'), 
 		 			'url' => $this->input->post('url'),
-					'city' => $this->input->post('city'),
-					'state' => $this->input->post('state'),
+					'TAN' => $this->input->post('TAN'),
+					/* 'city' => $this->input->post('city'),
+					'state' => $this->input->post('state'), */
 					'country' => $this->input->post('country'), 
+					'poc_name' => $this->input->post('poc_name'),
+					'phone_no' => $this->input->post('phone_no'),
 					'role' => $this->input->post('role'),
 					'status' => $this->input->post('status')
 
