@@ -99,7 +99,7 @@
 </section>
 
 <!-- Footer -->
-    
+   
 <!-- Register modal start -->
             <div class="sign-form modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog modal-lg" role="document">
@@ -242,16 +242,16 @@
 		                    <option value ='United Arab Emirates' >United Arab Emirates(UAE)</option>						   
                           <!-- <input type="text" name="country" class="form-control" value="India" placeholder="Country*" >-->
                           </div>
-
+                          <div class="col-xs-12">                          
+                            <input name="poc_name" class="contact-email form-control" placeholder="Poc name*" required="" type="text">
+                          </div>
+						   <div class="col-xs-12">                          
+                            <input name="phone_no" class="contact-email form-control" placeholder="Phone Number*" value="<?php echo set_value('phone_no'); ?>" required="" type="text" size="10"><span class="text-danger"><?php echo form_error('phone_no'); ?></span>
+                          </div>
                            <div class="col-xs-12">                          
                             <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
                           </div>
-                          <!-- <div class="col-xs-12">                          
-                            <input name="poc" class="contact-email form-control" placeholder="Poc name*" required="" type="text">
-                          </div>
-						   <div class="col-xs-12">                          
-                            <input name="Phone_no" class="contact-email form-control" placeholder="Phone Number*" required="" type="text">
-                          </div>-->
+                          
                           <div class="col-xs-12">
                             <!-- Subject --> 
 							<input name="password" class="contact-password form-control" placeholder="Password*" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
