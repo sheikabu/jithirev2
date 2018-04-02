@@ -30,7 +30,8 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$this->load_view('login');
+		$data['get_countries'] = $this->valid_m->get_countries();
+		$this->load_view('login',$data);
 	}
 	
 	public function login_check() //login_check

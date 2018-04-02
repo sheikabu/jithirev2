@@ -199,6 +199,26 @@ public function insert_location_success() {
              $this->load_view('locations', $data);
 		}
  
+		public function skills()
+		{
+		$data['get_skills'] = $this->valid_m->get_skills();
+		$this->load_view('skills', $data);
+		}
+		public function domains()
+		{
+		$data['get_domains'] = $this->valid_m->get_domains();
+		$this->load_view('domains', $data);
+		}
+		public function countries()
+		{
+		$data['get_countries'] = $this->valid_m->get_countries();
+		$this->load_view('countries', $data);
+		}
+		public function cities()
+		{
+		$data['get_cities'] = $this->valid_m->get_cities();
+		$this->load_view('cities', $data);
+		}
 
-	} 
+} 
    

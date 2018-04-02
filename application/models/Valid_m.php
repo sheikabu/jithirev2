@@ -176,6 +176,14 @@ class Valid_m extends CI_Model{
 	  $results = $query->result_array();
 	  return $results;
 	}
+	public function get_countries(){
+	  $this->db->select('*');
+	  $this->db->from('jh_countries');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
 	
 	
 }

@@ -392,6 +392,34 @@
                         <b class="arrow"></b>                        
                     </li>
                      <li class="">
+                        <a href="<?php echo base_url('index.php/jithireAdmin/skills');  ?>">
+                            <i class="menu-icon fa fa-crosshairs"></i>
+                            <span class="menu-text"> SKILLS </span>
+                        </a>
+                        <b class="arrow"></b>                        
+                    </li>
+                     <li class="">
+                        <a href="<?php echo base_url('index.php/jithireAdmin/domains');  ?>">
+                            <i class="menu-icon fa fa-check-square-o"></i>
+                            <span class="menu-text"> DOMAINS </span>
+                        </a>
+                        <b class="arrow"></b>                        
+                    </li>
+                      <li class="">
+                        <a href="<?php echo base_url('index.php/jithireAdmin/countries');  ?>">
+                            <i class="menu-icon fa fa-check-square-o"></i>
+                            <span class="menu-text"> COUNTRIES </span>
+                        </a>
+                        <b class="arrow"></b>                        
+                    </li>
+                      <li class="">
+                        <a href="<?php echo base_url('index.php/jithireAdmin/cities');  ?>">
+                            <i class="menu-icon fa fa-check-square-o"></i>
+                            <span class="menu-text"> CITIES </span>
+                        </a>
+                        <b class="arrow"></b>                        
+                    </li>
+                     <li class="">
                         <a href="<?php echo base_url('index.php/jithireAdmin/locations');  ?>">
                             <i class="menu-icon fa fa-plane"></i>
                             <span class="menu-text"> Locations </span>

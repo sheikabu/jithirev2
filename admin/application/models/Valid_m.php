@@ -68,6 +68,38 @@ class Valid_m extends CI_Model{
 	  }
  	}
 
+ 	public function get_skills(){
+	  $this->db->select('*');
+	  $this->db->from('jh_skills');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	public function get_domains(){
+	  $this->db->select('*');
+	  $this->db->from('jh_domains');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	public function get_cities(){
+	  $this->db->select('*');
+	  $this->db->from('jh_cities');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	public function get_countries(){
+	  $this->db->select('*');
+	  $this->db->from('jh_countries');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
 }
 
 ?>

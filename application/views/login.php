@@ -234,14 +234,13 @@
                            <input type="text" name="TAN" class="form-control" placeholder="TAN*" required/>
                           </div>
 
-                           <div class="col-xs-12">      
+                           <div class="col-xs-12">  
+                          
+
                         <select name="country" required class="form-control" value="India" placeholder="Country*">
-						
-		                    <option value ='India'>India</option>
-		                    <option value ='Australia' >Australia</option>
-							<option value ='Singapore' >Singapore</option>
-		                    <option value ='United Arab Emirates' >United Arab Emirates(UAE)</option>						   
-                          <!-- <input type="text" name="country" class="form-control" value="India" placeholder="Country*" >-->
+						              <?php foreach ($get_countries as $contrykey => $contryvalue) { ?>
+                           <option <?php if($contryvalue['country_name'] == 'India') { echo"selected"; } ?>><?php echo $contryvalue['country_name']; ?></option>
+                          <?php } ?>	                    
                           </div>
                           <div class="col-xs-12">                          
                             <input name="poc_name" class="form-control" placeholder="Poc name*" required="" type="text">
@@ -316,7 +315,6 @@ $(document).ready(function(){
 });
 
 </script>
-<<<<<<< HEAD
 <script>
 $(document).ready(function(){
 
