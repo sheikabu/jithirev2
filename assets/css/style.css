@@ -809,7 +809,7 @@ select.form-control:not([size]):not([multiple]) {
  }
 #skills-view .selectize-input{
   float: left;
-  width: 65%!important;
+  width: 60%!important;
   margin-right: 5px;
   white-space: nowrap;
   text-overflow: ellipsis;
