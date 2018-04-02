@@ -916,12 +916,32 @@ class User extends CI_Controller {
 		
 	}
 
-	public function offer_letter() // add user full details
+	public function view_offer_letter() // add user full details
 	{
+		$candidate_id = $uid;
+		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
 		$this->load_view('offer_letter');
 		
 	}
-	
+	public function offer_letter() // add user full details
+	{
+		
+	$user_details=array(
+			'applied_job_id' => $this->input->post('job_id'), 
+			'comp_id' => $this->input->post('company_id'),
+			'user_id' => $this->input->post('user_id'),
+			'company_name' => $this->post('company_name'),
+			'joining_location' => $this->post('joining_location'),
+			'start_date' => $this->post('start_date'),
+			'duration' => $this->post('duration'),
+			'role' => $this->post('role'),
+			'annual_ctc' => $this->post('annual_ctc'),
+			
+			);
+		   $this->valid_m->insert_offer_letter($user_details);
+		 			 
+		 	    $data['message'] = 'Successfully ';
+	}
 }
    
    

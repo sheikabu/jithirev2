@@ -14,6 +14,11 @@ if(!$email){
 
 <section id="offer_letter">
 	<div class="container">
+	<div class="alert-success text-center"><?php if(!empty($message)) { echo $message; } ?></div>
+			<div class="col-md-12">
+				<div id="message"></div>
+			</div>
+	<?php echo form_open('user/insert_offer_letter');?>
 		<div class="row">
 			 <div class="col-md-6"> 
 	        	<div class="form-group">

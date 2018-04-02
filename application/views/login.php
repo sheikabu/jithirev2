@@ -250,7 +250,7 @@
 							
                           </div>
                            <div class="col-xs-12">                          
-                            <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
+                            <input name="email" class="contact-email form-control"  placeholder="Email*" required="" onblur="alert(/([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(this.value))">
                           </div>
                           
                           <div class="col-xs-12">
@@ -347,3 +347,15 @@ $(document).ready(function(){
       $('#company_form')[0].reset();
 })
 </script>
+<script type="text/javascript">
+function validateFreeEmail(email) 
+{
+ var reg = /^([\w-\.]+@(?!gmail.com)(?!yahoo.com)(?!hotmail.com)([\w-]+\.)+[\w-]{2,4})?$/
+ if (reg.test(email)){
+ return true;
+ }
+ else{
+ return false;
+ }
+} 
+</script> 
