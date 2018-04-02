@@ -103,7 +103,7 @@ if(!$email){
 					<label>Salary</label>
 					  <input name="salary_lakhs" class="form-control" placeholder="salary*" type="text" value="" required>
 				</div>
-				<div class="form-group">
+				<div class="form-group skills">
 	            	<label>Primary Skill :</label>
 					  <div id="sections">
 					  <div class="section">
@@ -170,7 +170,7 @@ if(!$email){
 	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="" required>
 	            </div>
 
-	            <div class="form-group">
+	            <div class="form-group skills">
 		            <label>Skills</label>
 					  <div id="sections">
 					  <div class="section">

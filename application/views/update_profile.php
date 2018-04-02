@@ -346,7 +346,7 @@ if(!$email){
             <!--End Upload Photo -->
 	 <!-- Primary skill -->
 	 <div class="col-md-4">
-	       <div id="skills-view">
+	       <div id="skills-view" class="skills">
                   
             <div class="details col-md-12" id="basic-info">
               
@@ -392,12 +392,12 @@ if(!$email){
             <!--End Primary skill -->
             <!-- Skills -->
 			<div class="col-md-4">
-			<div id="skills-view">
-			<div class="details col-md-12" id="basic-info">
-			<div class="col-md-12 paddingL-0 line2"><label>Skills</label><label class="pull-right mRight-20">Proficiency</label></div>
-			<div class="row">
-			<div class="col-md-12">
-			<div id="sections">
+			<div id="skills-view" class="skills">
+				<div class="details col-md-12" id="basic-info">
+				<div class="col-md-12 paddingL-0 line2"><label>Skills</label><label class="pull-right mRight-20">Proficiency</label></div>
+				<div class="row">
+				<div class="col-md-12">
+				<div id="sections">
 
 				<fieldset>
 				<div class="container paddingL-0 paddingR-0" >
