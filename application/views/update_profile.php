@@ -62,7 +62,7 @@ if(!$email){
 	                </div>
 	                <div class="col-xs-12 mTop-5">
 	                  <!-- Mobile number -->
-	                  <label class="col-md-12">Mobile number</label><div class="col-md-12"> <input type="text" name="mobile_number" class="form-control" placeholder="Mobile_number*" value="<?php echo $get_candidate_info['mobile_number']; ?>" required/></div>
+	                  <label class="col-md-12">Mobile number</label><div class="col-md-12"> <input type="text" name="mobile_number" class="form-control" placeholder="Mobile_number*"  onkeydown='return (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105) || event.which == 8 || event.which == 46' value="<?php echo $get_candidate_info['mobile_number']; ?>" required/></div>
 	                </div>
 	                 <div class="col-xs-12 mTop-5">
 	                  <!-- birth day -->
@@ -186,7 +186,7 @@ if(!$email){
 	 	<div class="col-xs-12">
 		                  <label class="col-md-12">Annual CTC (Lakhs)</label>
 		                  <div class="col-md-12"> 
-		                <input type="text" name="salary_lakhs" class="form-control number-only" placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
+		                <input type="text" name="salary_lakhs" class="form-control" onkeydown='return (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105) || event.which == 8 || event.which == 46' required placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
 		        </div>
 	                </div>
 					<div class="col-xs-12 mTop-5" >
@@ -298,7 +298,7 @@ if(!$email){
 			                   	<div><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a>
 			                   	</div>
 			                </div>
-							<div><input type="file" name="resume_file" id="image_file" size="20" required />
+							<div><input type="file" name="resume_file" id="image_file" size="20" value="<?php echo $get_candidate_info['resume']; ?>" />
 		                   		<input type="hidden" value="<?php echo $get_candidate_info['resume']; ?>" name="old_resume">
 							</div>
 						</div>
@@ -682,17 +682,4 @@ $('#skill5').selectize({
 sortField: 'text'
 });
 </script> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-
-  $('.number-only').keypress(function(e) {
-	if(isNaN(this.value+""+String.fromCharCode(e.charCode))) return false;
-  })
-  .on("cut copy paste",function(e){
-	e.preventDefault();
-  });
-
-});
-	   </script>   
 

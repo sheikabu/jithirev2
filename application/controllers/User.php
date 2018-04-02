@@ -914,6 +914,12 @@ class User extends CI_Controller {
 		{ $this->load_view('user_details',$data); } else { $this->load_view('update_profile',$data); }
 		
 	}
+
+	public function offer_letter() // add user full details
+	{
+		$this->load_view('offer_letter');
+		
+	}
 	
 }
    

@@ -247,7 +247,7 @@
                             <input name="poc_name" class="form-control" placeholder="Poc name*" required="" type="text">
                           </div>
 						   <div class="col-xs-12">                          
-                            <input name="phone_no" id="phone_no" class="form-control number-only" placeholder="Phone Number*" value="<?php echo set_value('phone_no'); ?>" required=""  >
+                            <input name="phone_no" id="phone_no" class="form-control" onkeydown='return (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105) || event.which == 8 || event.which == 46' placeholder="Phone Number*" value="<?php echo set_value('phone_no'); ?>" required=""  >
 							
                           </div>
                            <div class="col-xs-12">                          
@@ -343,27 +343,9 @@ $(document).ready(function(){
 
 });
 </script>
-=======
-
 <script type="text/javascript">
-  
-
   $('#myModel').on('click', function (e) {
      $('#candidate_form')[0].reset();
       $('#company_form')[0].reset();
 })
->>>>>>> bb51020768b931beaa2d6c9b9e737275f09154bb
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-
-  $('.number-only').keypress(function(e) {
-	if(isNaN(this.value+""+String.fromCharCode(e.charCode))) return false;
-  })
-  .on("cut copy paste",function(e){
-	e.preventDefault();
-  });
-
-});
-	   </script>
