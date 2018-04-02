@@ -35,7 +35,16 @@ if(!$email){
     <!-- browse job end-->
       <div class="dashboard-wrap">
         <div class="row">
-         
+         <div class="col-md-12 text-right">
+         	<label>Status</label>
+	        <div class="pull-right"> 
+		        <select name="gender" required class="form-control">
+			        <option value=''>--select--</option>
+			        <option>Pending</option>
+			        <option>Reject</option>
+		        </select> 
+			</div>
+         </div>
           <div class="col-md-12">
           		<?php 
           			 $link = $_SERVER['PHP_SELF'];
@@ -47,7 +56,7 @@ if(!$email){
           		 ?>
             <!-- Full profile view -->
               <div id="full-profile-view">
-              <div>
+              
              		<div class="line2 mBot-10">
              			<h2 class="title mRight-20 "><?php 
 		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
@@ -291,7 +300,7 @@ if(!$email){
 			</div>
 		</div></td>
 			</div> 
-            </div>
+            
             <!-- End Full profile -->
 
           
