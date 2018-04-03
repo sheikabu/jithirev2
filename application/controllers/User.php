@@ -918,29 +918,38 @@ class User extends CI_Controller {
 
 	public function view_offer_letter() // add user full details
 	{
-		$candidate_id = $uid;
-		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		$fid = $this->session->userdata('id');                                                                                                                                                
+		$data['view_letter'] = $this->valid_m->view_letter($fid);
+		$this->load_view('view_offer_letter');
+		
+	}
+	public function create_offer_letter() // add user full details
+	{
+		//$candidate_id = $uid;
+		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
 		$this->load_view('offer_letter');
 		
 	}
-	public function offer_letter() // add user full details
+	public function offer_letter() 
 	{
 		
+		
 	$user_details=array(
-			'applied_job_id' => $this->input->post('job_id'), 
-			'comp_id' => $this->input->post('company_id'),
+			'posted_job_id' => $this->input->post('posted_job_id'), 
+			'company_id' => $this->input->post('company_id'),
 			'user_id' => $this->input->post('user_id'),
-			'company_name' => $this->post('company_name'),
-			'joining_location' => $this->post('joining_location'),
-			'start_date' => $this->post('start_date'),
-			'duration' => $this->post('duration'),
-			'role' => $this->post('role'),
-			'annual_ctc' => $this->post('annual_ctc'),
-			
+			'company_name' => $this->input->post('company_name'),
+			'joining_location' => $this->input->post('joining_location'),
+			'start_date' => $this->input->post('start_date'),
+			'duration' => $this->input->post('duration'),
+			'role' => $this->input->post('role'),
+			'annual_ctc' => $this->input->post('annual_ctc')
 			);
+			
 		   $this->valid_m->insert_offer_letter($user_details);
 		 			 
-		 	    $data['message'] = 'Successfully ';
+		 	 $data['message'] = 'Successfully';
+		 	    $this->load_view('offer_letter',$data);
 	}
 }
    

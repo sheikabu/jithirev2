@@ -18,7 +18,8 @@ if(!$email){
 			<div class="col-md-12">
 				<div id="message"></div>
 			</div>
-	<?php echo form_open('user/insert_offer_letter');?>
+			<a href="#">View Offers</a>
+	<?php echo form_open('user/offer_letter');?>
 		<div class="row">
 			 <div class="col-md-6"> 
 	        	<div class="form-group">
@@ -51,6 +52,9 @@ if(!$email){
 				</div>
 			</div>
 		</div>	
+		<input name="posted_job_id" value="1" class="form-control" placeholder="Annual CTC" type="text" value="" required>
+		<input name="company_id" value="1" class="form-control" placeholder="Annual CTC" type="text" value="" required>
+		<input name="user_id" value="1" class="form-control" placeholder="Annual CTC" type="text" value="" required>
 		<div class="row">
             <div class="btn-form text-center mTop-20 col-md-12">
 	            <input type="submit" class="btn mRight-10 mBot-10" name="cancel" value="Cancel">

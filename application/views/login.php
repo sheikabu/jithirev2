@@ -250,7 +250,7 @@
 							
                           </div>
                            <div class="col-xs-12">                          
-                            <input name="email" class="contact-email form-control"  placeholder="Email*" required="" onblur="alert(/([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(this.value))">
+                            <input name="email" class="contact-email form-control"  placeholder="Email*" required="" >
                           </div>
                           
                           <div class="col-xs-12">

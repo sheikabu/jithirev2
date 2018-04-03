@@ -98,7 +98,7 @@
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/posted_jobs">Posted Jobs</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/offer_letter">Offer Letter</a>
+              <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/view_offer_letter">Offer Letter</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>

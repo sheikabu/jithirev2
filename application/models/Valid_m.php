@@ -184,10 +184,18 @@ class Valid_m extends CI_Model{
 	  $results = $query->result_array();
 	  return $results;
 	}
-	public function insert_offer_letter($user_details){		
+	public function insert_offer_letter($user_details){	
 		$this->db->insert('jh_offer_letter',$user_details);	   
 		return TRUE;
 	}
-	
+	public function view_letter($fid){
+	  $this->db->select('*');
+	  $this->db->from('jh_offer_letter');
+	  $this->db->where('offer_id',$fid);
+	  $this->db->order_by("offer_id","desc");
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+	}
 }
 ?>
