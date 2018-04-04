@@ -962,6 +962,18 @@ class User extends CI_Controller {
 		 	 $data['message'] = 'Offer Created';
 		 	 $this->load_view('offer_letter',$data);
 	}
+	public function mypdf(){
+
+
+	$this->load->library('pdf');
+
+
+  	$this->pdf->load_view('mypdf');
+  	$this->pdf->render();
+
+
+  	$this->pdf->stream("user.pdf");
+   }
 }
    
    

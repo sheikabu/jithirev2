@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['ajax-image-upload'] = 'AjaxImageUpload';
 $route['ajax-image-upload/post']['post'] = "AjaxImageUpload/uploadImage";
+$route['mypdf'] = "user/mypdf";
