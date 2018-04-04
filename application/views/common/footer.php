@@ -136,7 +136,7 @@ $('form#company-Sform').submit(function(e) {
         data: form.serialize(), // <--- THIS IS THE CHANGE        
         success: function(message){
           if(message=='success') {
-             top.location.href="<?php echo site_url('user/new_job'); ?>";//redirection
+             top.location.href="<?php echo site_url('user/company_dashboard'); ?>";//redirection
            } else {
           $('#company-sign-in-message').html(message);
           }

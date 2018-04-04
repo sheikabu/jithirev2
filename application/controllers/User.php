@@ -675,6 +675,16 @@ class User extends CI_Controller {
 			      }
 				
 	}
+	
+	public function company_dashboard() // add user full details
+	{
+		
+		$candidate_id = $this->session->userdata("id");
+		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);		
+		$this->load_view('company_dashboard');	
+		
+	}
+
 	public function new_job() // add user full details
 	{
 		
