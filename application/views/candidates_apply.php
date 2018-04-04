@@ -54,7 +54,7 @@ if(!$email){
 		  <td><?php echo $values['applied_date']; ?></td>
 		  <td><?php echo $values['job_status']; ?></td>
 		  <td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>" class="link">View Profile</a></td>
-		   <td><a href="<?php echo site_url() ?>user/create_offer_letter/<?php echo $values['user_id']; ?>" class="link">Offer letter</a></td>
+		   <td><a href="<?php echo site_url() ?>user/create_offer_letter/<?php echo $values['user_id']; ?>/<?php echo $values['job_id']; ?>/<?php echo $this->session->userdata('id'); ?>" class="link">Offer letter</a></td>
 		    
 			  
 		    </tr>

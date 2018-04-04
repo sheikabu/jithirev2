@@ -11,55 +11,41 @@ if(!$email){
 }
 
  ?>
- <?php 
-          			 $link = $_SERVER['PHP_SELF'];
-    				$link_array = explode('/',$link);
-    				$message = end($link_array); 
-    				if($message==1) {
-    					echo '<div id="message">Infomraion Successfully updated</div>';
-    				}
-          		 ?>
-<section id="view_offer_letter">
-	<div class="row">
-		<div class="container matching_job_container">
-			<div class="col-md-12">
-			<div id="message"></div>
-				
-				
-				
-					
-					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Company Name:</label> <span class="col-md-7"><?php echo $view_letter['company_name'];?></span></div><br>
-						<div class="col-md-4"><label class="col-md-5">Joining Location:</label> <span class="col-md-7"><?php echo ['joining_location'];?></span></div><br>
-						
-					</div>
-					
-					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Start Date:</label><span class="col-md-7"><?php echo ['start_date'];?></span><br>
-						</div>
-
-						<div class="col-md-4"><label class="col-md-5">Duration:</label><span class="col-md-7"> <?php echo ['duration'];?></span></div><br>
-					</div>
-					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Role:</label><span class="col-md-7"><?php echo ['role'];?></span></div><br>
-						<div class="col-md-4"><label class="col-md-5">Annual CTC:</label><span class="col-md-7"><?php echo ['job_type'];?></span></div>
-					
-			            
-            		</div>
-		  <embed id="samplePDF" type="application/pdf" src="/pdfs/2010/dash_fdm350.pdf" width="100%" height="100%" onLoad="printIt('samplePDF');" />
-<button onClick="printIt('')">Print</button>
-		
-			
-			<div class="form-group">
-				
-				<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
-			</div>
-
-			
-
-				</div>
-		</div>
-
+ <section id="offer_letter">
+	<div class="container">
+		<div class="col-md-12 job-history">
+    		<table class="table">
+				<thead>
+			    	<tr>
+				      	<th>Job Code</th>
+				      	<th>Job Role</th>
+				      	<th>Candidate Name</th>
+				      	<th>Candidate Email</th>
+				      	<th>Candidate Phone</th>
+				      	<th>Joining Date</th>					  	
+					  	<th>Joining Location</th>
+					  	<th>Status</th>
+					  	<th>Download</th>
+			    	</tr>
+			  	</thead>
+			  	<?php //print_r($view_letter); ?>
+			  	<tbody>
+			  	<?php foreach ($view_letter as $offerkey => $offervalue) { ?>
+			  		<tr>
+			      		<td><?php echo $offervalue['Job_code'] ;?></td>
+			      		<td><?php echo $offervalue['job_role'] ;?></td>
+			      		<td><?php echo $offervalue['name'] ;?></td>
+			      		<td><?php echo $offervalue['email'] ;?></td>
+			      		<td><?php echo $offervalue['mobile_number'] ;?></td>
+			      		<td><?php echo $offervalue['start_date'] ;?></td>
+			    		<td><?php echo $offervalue['joining_location'] ;?></td>
+			    		<td>Status</td>
+			    		<td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
+			    	</tr>
+			    <?php } ?>
+			   </tbody>
+			</table>
+	    </div>
 	</div>
 </section>
 <script>

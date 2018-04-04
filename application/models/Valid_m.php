@@ -188,12 +188,17 @@ class Valid_m extends CI_Model{
 		$this->db->insert('jh_offer_letter',$user_details);	   
 		return TRUE;
 	}
-	public function view_letter($fid){
-	  $this->db->select('*');
-	  $this->db->from('jh_offer_letter');
-	  $this->db->where('offer_id',$fid);
-	  $this->db->order_by("offer_id","desc");
+	public function view_letter($compid){
+
+
+	  $this->db->select('jh_job_posting.*, jh_offer_letter.*, jh_user_profile.*');
+	  $this->db->from('jh_job_posting');	  
+	  $this->db->join('jh_offer_letter', 'jh_job_posting.job_id = jh_offer_letter.posted_job_id','left');
+	  $this->db->join('jh_user_profile', 'jh_user_profile.user_id = jh_offer_letter.user_id','left');
+	  //$this->db->order_by("jh_offer_letter.offer_id","desc");
+	  $this->db->where('jh_offer_letter.company_id',$compid);
 	  $query=$this->db->get();
+	  //$this->db->last_query();
 	  $results = $query->result_array();
 	  return $results;
 	}

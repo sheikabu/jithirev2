@@ -928,22 +928,23 @@ class User extends CI_Controller {
 
 	public function view_offer_letter() // add user full details
 	{
-		$fid = $this->session->userdata('id');                                                                                                                                                
-		$data['view_letter'] = $this->valid_m->view_letter($fid);
-		$this->load_view('view_offer_letter');
+
+		$compid = $this->session->userdata('id');                                                                                        
+		$data['view_letter'] = $this->valid_m->view_letter($compid);		
+		$this->load_view('view_offer_letter',$data);
 		
 	}
 	public function create_offer_letter() // add user full details
 	{
 		//$candidate_id = $uid;
 		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		$compid = $this->session->userdata('id');
 		$this->load_view('offer_letter');
 		
 	}
 	public function offer_letter() 
 	{
-		
-		
+	
 	$user_details=array(
 			'posted_job_id' => $this->input->post('posted_job_id'), 
 			'company_id' => $this->input->post('company_id'),
@@ -958,8 +959,8 @@ class User extends CI_Controller {
 			
 		   $this->valid_m->insert_offer_letter($user_details);
 		 			 
-		 	 $data['message'] = 'Successfully';
-		 	    $this->load_view('offer_letter',$data);
+		 	 $data['message'] = 'Offer Created';
+		 	 $this->load_view('offer_letter',$data);
 	}
 }
    
