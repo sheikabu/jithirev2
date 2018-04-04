@@ -36,9 +36,9 @@ if(!$email){
       <div class="dashboard-wrap">
         <div class="row">
          <div class="col-md-12 text-right">
-         	<label>Status</label>
+         	<label class="mRight-5 mTop-5">Status</label>
 	        <div class="pull-right"> 
-		        <select name="gender" required class="form-control">
+		        <select name="status" required class="form-control">
 			        <option value=''>--select--</option>
 			        <option>Pending</option>
 			        <option>Reject</option>
