@@ -282,17 +282,7 @@ if(!$email){
 		                  </span>
 		                </div>
 		            </div>
-<td> <select id="job_status" name="job_status[]" class="demo-default" placeholder="job status">
-							
-					<optgroup label="select status">
-					
-					<option value="Rejected" <?php if (in_array('Rejected', $job_status)) { echo"selected"; } ?>>Rejected</option>
-					<option value="First  round" <?php if (in_array('First round', $job_status)) { echo"selected"; } ?>>First round</option>
-					<option value="Offered" <?php if (in_array('Offered', $job_status)) { echo"selected"; } ?>>Offered</option>
-					
-					
-					  </optgroup>
-					</select></td>  
+
 		     <td> 
 		<div class="row">
 			<div class="col-md-12">
