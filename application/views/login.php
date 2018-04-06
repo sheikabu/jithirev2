@@ -153,7 +153,7 @@
                               </div>
                               <div class="col-xs-12" id="agreement14div">
                                   <!-- First Name -->
-                                 <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First name" />
+                                 <input type="text" class="form-control" id="firstname" name="first_name" placeholder="First name" />
                              
                                   <!-- Pancard -->
                                   <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
@@ -340,9 +340,10 @@ $(document).ready(function(){
 
 <script type="text/javascript">
     $.validator.setDefaults( {
-      submitHandler: function (e) {
+      submitHandler: function () {
         //alert( "submitted!" );
-        var form = $(this);        
+        var form = $('#candidate_form');
+        console.log(form.serialize());
         $.ajax({
         type: "POST",
         url: "<?php echo site_url('user/register_check'); ?>",
@@ -359,7 +360,7 @@ $(document).ready(function(){
     
       $( "#candidate_form" ).validate( {
         rules: {
-          firstname: "required",
+          first_name: "required",
           pan_card: "required",
           email: {
             validate_email: true
@@ -375,7 +376,7 @@ $(document).ready(function(){
           },
          },
         messages: {
-          firstname: "Please enter your firstname",
+          first_name: "Please enter your firstname",
           pan_card: "Please enter your PAN Card", 
           email: "Please enter a valid email address", 
           password: {
