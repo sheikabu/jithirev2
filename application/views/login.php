@@ -362,8 +362,7 @@ $(document).ready(function(){
           firstname: "required",
           pan_card: "required",
           email: {
-            required: true,
-            email: true
+            validate_email: true
           },
           password: {
             required: true,
@@ -410,4 +409,14 @@ $(document).ready(function(){
       
       } );
     
+
+jQuery.validator.addMethod("validate_email", function(value, element) {
+
+if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+return true;
+} else {
+return false;
+}
+}, "Please enter a valid Email.");
+
       </script>
