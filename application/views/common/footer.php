@@ -35,8 +35,7 @@
     <!-- Custom scripts for this template -->
     <script src="<?php echo base_url(); ?>assets/js/agency.min.js"></script>
     
-
-    <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+    
    <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 
    <script>
@@ -53,7 +52,7 @@
 
 
 <script>
-$('form#candidate_form').submit(function(e) {
+/*$('form#candidate_form').submit(function(e) {
     var form = $(this);
     e.preventDefault();
     $.ajax({
@@ -67,7 +66,7 @@ $('form#candidate_form').submit(function(e) {
         error: function() { alert("Error posting feed."); }
    });
 
-});
+});*/
 </script>
 
 <script>

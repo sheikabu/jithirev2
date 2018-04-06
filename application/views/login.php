@@ -153,18 +153,18 @@
                               </div>
                               <div class="col-xs-12" id="agreement14div">
                                   <!-- First Name -->
-                                  <input name="first_name" class="contact-first-name form-control" placeholder="Name*" required="" type="text">
+                                 <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First name" />
                              
                                   <!-- Pancard -->
-                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
+                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
                               
                                   <!-- Email -->
-                                  <input name="email" class="contact-email form-control" placeholder="Email*"  required="" type="email">
+                                  <input name="email" class="contact-email form-control" placeholder="Email*"  type="email">
                              
-                                  <!-- Subject --> <input name="password" class="contact-password form-control" placeholder="Password" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
+                                  <!-- Subject --> <input name="password" id="password" class="contact-password form-control" placeholder="Password" type="password" ></span>
                               
                                   <!-- Subject -->
-                                  <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password" type="password"  value="<?php echo set_value('confirm_password'); ?>"><span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
+                                  <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password" type="password">
                                                        
                                   <input name="role" type="hidden" value="candidate">
                               
@@ -174,7 +174,7 @@
                               
                               <!-- Subject Button -->
                               <div class="btn-form text-center col-xs-12">
-                                  <button class="btn btn-fill"  onclick="javascript: return checkmail();"  >Sign Up</button>
+                                  <button class="btn btn-fill">Sign Up</button>
                               </div>
                           </form>
                         </div>
@@ -337,3 +337,77 @@ $(document).ready(function(){
 
 });
 </script>
+
+<script type="text/javascript">
+    $.validator.setDefaults( {
+      submitHandler: function (e) {
+        //alert( "submitted!" );
+        var form = $(this);        
+        $.ajax({
+        type: "POST",
+        url: "<?php echo site_url('user/register_check'); ?>",
+        cache: false,  
+        data: form.serialize(), // <--- THIS IS THE CHANGE        
+        success: function(message){
+          $('#message').html(message);
+        },
+        error: function() { alert("Error posting feed."); }
+        });
+      }
+    } );
+
+    
+      $( "#candidate_form" ).validate( {
+        rules: {
+          firstname: "required",
+          pan_card: "required",
+          email: {
+            required: true,
+            email: true
+          },
+          password: {
+            required: true,
+            minlength: 5
+          },
+          confirm_password: {
+            required: true,
+            minlength: 5,
+            equalTo: "#password"
+          },
+         },
+        messages: {
+          firstname: "Please enter your firstname",
+          pan_card: "Please enter your PAN Card", 
+          email: "Please enter a valid email address", 
+          password: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 5 characters long"
+          },
+          confirm_password: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 5 characters long",
+            equalTo: "Please enter the same password as above"
+          },        
+        },
+
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `help-block` class to the error element
+          error.addClass( "help-block" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+      
+      } );
+    
+      </script>
