@@ -151,36 +151,30 @@
                                       <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
                                   </div>
                               </div>
-                              <div class="col-xs-12">
+                              <div class="col-xs-12" id="agreement14div">
                                   <!-- First Name -->
                                   <input name="first_name" class="contact-first-name form-control" placeholder="Name*" required="" type="text">
-                              </div>
-                              <div class="col-xs-12">
+                             
                                   <!-- Pancard -->
-                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
-                              </div>
-                              <div class="col-xs-12">
+                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard" required="" type="text">
+                              
                                   <!-- Email -->
-                                  <input name="email" class="contact-email form-control" placeholder="Email*" required="" type="email">
-                              </div>
-                              <div class="col-xs-12">
+                                  <input name="email" class="contact-email form-control" placeholder="Email*"  required="" type="email">
+                             
                                   <!-- Subject --> <input name="password" class="contact-password form-control" placeholder="Password" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
-                              </div>
-                              <div class="col-xs-12">
+                              
                                   <!-- Subject -->
                                   <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password" type="password"  value="<?php echo set_value('confirm_password'); ?>"><span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
-                              </div>
-                              <div class="col-xs-12">                          
+                                                       
                                   <input name="role" type="hidden" value="candidate">
-                              </div>
-                              <div class="col-xs-12">
+                              
                                   <!-- Subject -->
                                   <input name="status" type="hidden" value="active">
                               </div>
                               
                               <!-- Subject Button -->
                               <div class="btn-form text-center col-xs-12">
-                                  <button class="btn btn-fill">Sign Up</button>
+                                  <button class="btn btn-fill"  onclick="javascript: return checkmail();"  >Sign Up</button>
                               </div>
                           </form>
                         </div>
@@ -214,13 +208,11 @@
                             </div>
                         </div>
 
-                          <div class="col-xs-12">                            
+                          <div class="col-xs-12" id="agreement18div">                            
                            <input type="text" name="company_name" class="form-control" placeholder="Company name*" required/>
-                          </div>
-
-                          <div class="col-xs-12">                            
+                                                    
                            <input type="text" name="url" class="form-control" placeholder="Company url*" required/>
-                          </div>
+                          
                           
                          <!-- <div class="col-xs-12">                            
                            <input type="text" name="city" class="form-control" placeholder="City*" required/>
@@ -230,34 +222,26 @@
                            <input type="text" name="state" class="form-control" placeholder="State*" >
                           </div>-->
 						  
-						  <div class="col-xs-12">                            
+						                             
                            <input type="text" name="TAN" class="form-control" placeholder="TAN*" required/>
-                          </div>
-
-                           <div class="col-xs-12">  
+                         
                           
 
                         <select name="country" required class="form-control" value="India" placeholder="Country*">
 						              <?php foreach ($get_countries as $contrykey => $contryvalue) { ?>
                            <option <?php if($contryvalue['country_name'] == 'India') { echo"selected"; } ?>><?php echo $contryvalue['country_name']; ?></option>
                           <?php } ?>	                    
-                          </div>
-                          <div class="col-xs-12">                          
-                            <input name="poc_name" class="form-control" placeholder="Poc name*" required="" type="text">
-                          </div>
-						   <div class="col-xs-12">                          
+                                                    
+                            <input name="poc_name" class="form-control" placeholder="POC name*" required="" type="text">
+                                                  
                             <input name="phone_no" id="phone_no" class="form-control" onkeydown='return (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105) || event.which == 8 || event.which == 46' placeholder="Phone Number*" value="<?php echo set_value('phone_no'); ?>" required=""  >
 							
-                          </div>
-                           <div class="col-xs-12">                          
-                            <input name="email" class="contact-email form-control"  placeholder="Email*" required="" >
-                          </div>
+                                                  
+                            <input name="email" class="contact-email form-control" id="myemail"  placeholder="Email*" required="" >
                           
-                          <div class="col-xs-12">
                             <!-- Subject --> 
 							<input name="password" class="contact-password form-control" placeholder="Password*" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
-                        </div>
-                        <div class="col-xs-12">
+                       
                             <!-- Subject -->
                             <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password*" type="password"  value="<?php echo set_value('confirm_password'); ?>"><span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
                         </div>
@@ -306,10 +290,16 @@ $(document).ready(function(){
           $("#agreement4div").show();
       }
   });
+   $("#agreement4").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement14div").show();
+      }
+  });
 
   $("#agreement2div").hide();
   $("#agreement3div").hide();
   $("#agreement4div").hide();
+   $("#agreement14div").hide();
 
 
 });
@@ -333,29 +323,17 @@ $(document).ready(function(){
           $("#agreement8div").show();
       }
   });
+   $("#agreement8").click(function () {
+      if ($(this).is(":checked")) {
+          $("#agreement18div").show();
+      }
+  });
 
   $("#agreement6div").hide();
   $("#agreement7div").hide();
   $("#agreement8div").hide();
+   $("#agreement18div").hide();
 
 
 });
 </script>
-<script type="text/javascript">
-  $('#myModel').on('click', function (e) {
-     $('#candidate_form')[0].reset();
-      $('#company_form')[0].reset();
-})
-</script>
-<script type="text/javascript">
-function validateFreeEmail(email) 
-{
- var reg = /^([\w-\.]+@(?!gmail.com)(?!yahoo.com)(?!hotmail.com)([\w-]+\.)+[\w-]{2,4})?$/
- if (reg.test(email)){
- return true;
- }
- else{
- return false;
- }
-} 
-</script> 
