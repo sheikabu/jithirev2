@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'inapp',
+	'hostname' => '192.168.20.3',
+	'username' => 'testing1',
+	'password' => 'passw1',
 	'database' => 'jithirev2',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -94,3 +94,4 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
