@@ -165,7 +165,7 @@ a .fa{
 #mainNav .navbar-nav .nav-item .nav-link.active {
     color: #1b66b3;
     text-decoration: none;
-    border-bottom: 2px solid #1b66b3;
+   /* border-bottom: 2px solid #1b66b3;*/
     font-weight: 700;
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover{
