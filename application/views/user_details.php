@@ -283,14 +283,12 @@ if(!$email){
 		                </div>
 		            </div>
 
-		     <td> 
-		<div class="row">
-			<div class="col-md-12">
-				<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
-			</div>
-		</div></td>
 			</div> 
-            
+            <div class="row">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
+				</div>
+			</div>
             <!-- End Full profile -->
 
           
