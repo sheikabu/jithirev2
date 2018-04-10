@@ -28,7 +28,7 @@ class Job_history extends CI_Model{
 	  $this->db->join('jh_job_posting', 'jh_job_posting.job_id = jh_job_applied.applied_job_id', 'left');
 	  $this->db->join('jh_company_details', 'jh_job_posting.company_id = jh_company_details.id','left');
 	  $this->db->order_by("jh_job_applied.aid","desc");
-	  
+	  $this->db->limit(1,0);
 	  $query=$this->db->get();
 	  $results = $query->result_array();
 	  return $results;

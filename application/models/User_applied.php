@@ -31,6 +31,7 @@ class User_applied extends CI_Model{
 	  
 	  $this->db->where('jh_job_applied.applied_job_id',$Job_id);
 	  $this->db->order_by("jh_job_applied.aid","desc");
+	  $this->db->limit(1,0);
 	  $query=$this->db->get();
 	  //echo $this->db->last_query(); exit;
 
