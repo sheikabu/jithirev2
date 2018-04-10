@@ -606,24 +606,7 @@ class User extends CI_Controller {
 	//Company Registration
 	public function registration_company() //login_check
 	{
-		$this->load->library('form_validation');
-					$this->form_validation->set_rules('password','Password','trim|required|matches[password]|min_length[6]|max_length[15]'); 
-					$this->form_validation->set_rules('confirm_password','Confirm_password','trim|required|matches[password]'); 
-					$this->form_validation->set_rules('phone_no', 'phone_no', 'trim|required|numeric|min_length[10]');
-					
-
-                  
-   
-					 if ($this->form_validation->run() == FALSE)
-                {
-					
-					/* $this->form_validation->set_message('min_length','The value you have entered for %s is too short..'); */
-					 echo $message = '<div class="alert alert-danger text-center">Failed!! sorry mismatch password..Please try again.</div>'; exit; 
-                }
-				
-                else
-                {
-
+		
                     $company_details=array(
 		 			'company_name' => $this->input->post('company_name'),	 			 
 		 			'url' => $this->input->post('url'),
@@ -634,19 +617,20 @@ class User extends CI_Controller {
 					'role' => $this->input->post('role'),
 					'status' => $this->input->post('status'),
 					'email' => $this->input->post('email'), 
-					'password' => md5($this->input->post('password')), 
+					'password' => md5($this->input->post('cpassword')), 
 					'date_time' => mdate('%Y-%m-%d %H:%i:%s', now())
 		 			);
 
 					$email_check=$this->valid_m->company_name_check($company_details['company_name']); 
+
 					if($email_check){
-					  	$this->valid_m->company_registration_insert($company_details);
+					  	$this->valid_m->company_registration_insert($company_details);					  	
 			 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
 					}
 					else{
 					    echo $message = '<div class="alert alert-danger text-center">Company Name already Exist!</div>'; exit;		    
 					}
-           }
+           
 	}
 	public function company_details() //login_check
 	{
@@ -679,9 +663,10 @@ class User extends CI_Controller {
 	public function company_dashboard() // add user full details
 	{
 		
-		$candidate_id = $this->session->userdata("id");
-		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);		
-		$this->load_view('company_dashboard');	
+		$comp_id = $this->session->userdata("id");
+		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);			
+		$data['job_list'] = $this->valid_m->posted_job_list($comp_id);	
+		$this->load_view('company_dashboard',$data);	
 		
 	}
 
@@ -695,10 +680,11 @@ class User extends CI_Controller {
 		$this->load_view('post_job',$data);	
 		
 	}
-	public function posted_jobs()
+	public function posted_jobs($posted_id = NULL)
 	{
-		$cid = $this->session->userdata('id');
-		$data['job_list'] = $this->valid_m->posted_job_list($cid);
+		echo $posted_id;
+		//$cid = $this->session->userdata('id');
+		$data['job_list'] = $this->valid_m->posted_job_list($posted_id);
 		$this->load_view('posted_jobs',$data);		
 	}	
 	

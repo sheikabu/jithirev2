@@ -70,7 +70,7 @@
 </script>
 
 <script>
-$('form#company_form').submit(function(e) {
+/*$('form#company_form').submit(function(e) {
     var form = $(this);
     e.preventDefault();
     $.ajax({
@@ -84,7 +84,7 @@ $('form#company_form').submit(function(e) {
         error: function() { alert("Error posting feed."); }
    });
 
-});
+});*/
 </script>
 
 <script>

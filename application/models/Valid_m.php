@@ -91,7 +91,10 @@ class Valid_m extends CI_Model{
 	
 	public function  company_registration_insert($company_details){ //comments
 
+
+
 		$this->db->insert('jh_company_details',$company_details);
+
 		return true;
 	}
 
@@ -125,10 +128,10 @@ class Valid_m extends CI_Model{
 	  return $results;
 	}
 	
-	public function posted_job_list($cid){
+	public function posted_job_list($jid){
 	  $this->db->select('*');
 	  $this->db->from('jh_job_posting');
-	  $this->db->where('company_id',$cid);
+	  $this->db->where('job_id',$jid);
 	  $this->db->order_by("job_id","desc");
 	  $query=$this->db->get();
 	  $results = $query->result_array();

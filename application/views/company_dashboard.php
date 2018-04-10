@@ -21,21 +21,27 @@ if(!$email){
 				      	<th>Job Role</th>
 				      	<th>primary Skill</th>
 					  	<th>Posted Date</th>
-					  	<th>Recruter</th>
-					  	<th>Hiring Manager</th>
+					  	<th>Close Date</th>
 					  	<th>Status</th>
+					  	<th>View</th>					  	
 			    	</tr>
 			  	</thead>
 			  	<tbody>
+			  	<?php  foreach($job_list as $key=>$values) { ?>
 			  		<tr>
-			      		<td>12233456677</td>
-			      		<td>.Net developer</td>
-			      		<td>yanbytesINC</td>
-			      		<td>2018-03-21 09:55:19</td>
-			    		<td>John Smith</td>
-			      		<td>Anitha</td>
-			      		<td>Active</td>
+			      		<td><?php echo $values['Job_code']; ?></td>
+			      		<td><?php echo $values['job_role']; ?></td>
+			      		<td><?php $primary_skill =  json_decode($values['primary_skill']);
+						foreach ($primary_skill as $pkey => $pvalue) {
+							echo $pkey.' - '.$pvalue;
+						}
+					    ?></td>
+			      		<td><?php echo $values['open_date_time']; ?></td> 	
+			      		<td><?php echo $values['close_date_time']; ?></td>
+			    		<td><?php echo $values['status']; ?></td>
+			      		<td><a href="<?php echo site_url() ?>user/posted_jobs/<?php echo $values['job_id']; ?>">View</a></td>			      		
 			    	</tr>
+			    	<?php } ?>
 			   </tbody>
 			</table>
 	    </div>

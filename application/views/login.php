@@ -129,25 +129,25 @@
                             <form method="post" id="candidate_form" class="single-form">
                               <div class="col-xs-12" id="agreement1div">
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement1" type="checkbox" required="required"/>
+                                      <input name="agreement1" id="agreement1" type="checkbox"/>
                                       <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement2div">
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement2" type="checkbox" required="required" />
+                                      <input name="agreement2" id="agreement2" type="checkbox"/>
                                       <label for="agreement2">  I will respond to job alerts/offer letter in four business hours</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement3div">
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement3" type="checkbox" required="required"/>
+                                      <input name="agreement3" id="agreement3" type="checkbox"/>
                                       <label for="agreement3">  I am ready to attend telephonic interview any time during the business hours without prior notification</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement4div" >
                                   <div class="checkbox">
-                                      <input name="agreement" id="agreement4" type="checkbox" required="required"/>
+                                      <input name="agreement4" id="agreement4" type="checkbox"/>
                                       <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
                                   </div>
                               </div>
@@ -166,7 +166,7 @@
                                   <!-- Subject -->
                                   <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password" type="password">
                                                        
-                                  <input name="role" type="hidden" value="candidate">
+                                  <input name="role" id="rolesingup"  type="hidden" value="candidate">
                               
                                   <!-- Subject -->
                                   <input name="status" type="hidden" value="active">
@@ -184,26 +184,26 @@
                          <form method="post" class="single-form" id="company_form">
                              <div class="col-xs-12">
                             <div class="checkbox" id="agreement5div">
-                                <input name="agreement" id="agreement5" type="checkbox" required="required"/>
+                                <input name="agreement5" id="agreement5" type="checkbox"/>
                                 <label for="agreement5">I am ready to complete selection process within 24 hours</label>
                             </div>
                         </div>
                         
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement6div">
-                                <input name="agreement" id="agreement6" type="checkbox" required="required"/>
+                                <input name="agreement6" id="agreement6" type="checkbox" required="required"/>
                                 <label for="agreement6">I am ready to share temp offer letter from jithire</label>
                             </div>
                         </div>
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement7div">
-                                <input name="agreement" id="agreement7" type="checkbox" required="required"/>
+                                <input name="agreement7" id="agreement7" type="checkbox" required="required"/>
                                 <label for="agreement7">I will share feedback of the cnadidate within five business days</label>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="checkbox" id="agreement8div">
-                                <input name="agreement" id="agreement8" type="checkbox" required="required"/>
+                                <input name="agreement8" id="agreement8" type="checkbox" required="required"/>
                                 <label for="agreement8">I will pay 2% of CTC as professional fee</label>
                             </div>
                         </div>
@@ -240,15 +240,15 @@
                             <input name="email" class="contact-email form-control" id="myemail"  placeholder="Email*" required="" >
                           
                             <!-- Subject --> 
-							<input name="password" class="contact-password form-control" placeholder="Password*" type="password"  value="<?php echo set_value('password'); ?>"><span class="text-danger"><?php echo form_error('password'); ?></span>
+							<input name="cpassword" class="contact-password form-control" placeholder="Password*" type="password"  id="cpassword"><span class="text-danger"></span>
                        
                             <!-- Subject -->
-                            <input name="confirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password*" type="password"  value="<?php echo set_value('confirm_password'); ?>"><span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
+                            <input name="cconfirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password*" type="password"><span class="text-danger"></span>
                         </div>
                         
                         
                         <div class="col-xs-12">                          
-                            <input name="role" type="hidden" value="company">
+                            <input name="role" id="rolesingup" type="hidden" value="company">
                         </div>
                         <div class="col-xs-12">
                             <!-- Subject -->
@@ -342,24 +342,58 @@ $(document).ready(function(){
     $.validator.setDefaults( {
       submitHandler: function () {
         //alert( "submitted!" );
-        var form = $('#candidate_form');
-        console.log(form.serialize());
-        $.ajax({
-        type: "POST",
-        url: "<?php echo site_url('user/register_check'); ?>",
-        cache: false,  
-        data: form.serialize(), // <--- THIS IS THE CHANGE        
-        success: function(message){
-          $('#message').html(message);
-        },
-        error: function() { alert("Error posting feed."); }
-        });
+        var checkcanform = $('#candidate_form');
+        var checkcompfom = $('#company_form');
+
+         var scheckcanform = checkcanform.serializeArray();
+        scheckcanform.forEach(function (item) {
+        if (item.name === 'first_name') {
+           if(item.value!=''){
+            var form = $('#candidate_form');
+             $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('user/register_check'); ?>",
+            cache: false,  
+            data: form.serialize(), // <--- THIS IS THE CHANGE        
+            success: function(message){
+              $('#message').html(message);
+            },
+            error: function() { alert("Error posting feed."); }
+            });
+           }
+        }
+      }); 
+
+        var scheckcompfom = checkcompfom.serializeArray();
+        scheckcompfom.forEach(function (item) {
+        if (item.name === 'company_name') {
+           if(item.value!=''){
+            var form = $('#company_form');
+            $.ajax({
+              type: "POST",
+              url: "<?php echo site_url('user/registration_company'); ?>",
+              cache: false,  
+              data: form.serialize(), // <--- THIS IS THE CHANGE        
+              success: function(message){
+                $('#message').html(message);
+              },
+              error: function() { alert("Error posting feed."); }
+         });
+           }
+        }
+      }); 
+
+       
       }
     } );
 
     
       $( "#candidate_form" ).validate( {
         rules: {
+           agreement1: "required",
+           agreement2: "required",
+           agreement3: "required",
+           agreement4: "required",
           first_name: "required",
           pan_card: "required",
           email: {
@@ -376,6 +410,18 @@ $(document).ready(function(){
           },
          },
         messages: {
+          agreement1: {
+            required : "check the checbox",
+          },
+          agreement2: {
+            required : "check the checbox",
+          },
+          agreement3: {
+            required : "check the checbox",
+          },
+          agreement4: {
+            required : "check the checbox",
+          },
           first_name: "Please enter your firstname",
           pan_card: "Please enter your PAN Card", 
           email: "Please enter a valid email address", 
@@ -384,6 +430,83 @@ $(document).ready(function(){
             minlength: "Your password must be at least 5 characters long"
           },
           confirm_password: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 5 characters long",
+            equalTo: "Please enter the same password as above"
+          },        
+        },
+
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `help-block` class to the error element
+          error.addClass( "help-block" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+      
+      } );
+
+      $( "#company_form" ).validate( {
+        rules: {
+          agreement5: "required",
+           agreement6: "required",
+           agreement7: "required",
+           agreement8: "required",
+          company_name: "required",
+           url: "required",
+          TAN: "required",
+          country: "required",
+          poc_name: "required",
+          phone_no: "required",
+          email: {
+            validate_email: true
+          },
+          cpassword: {
+            required: true,
+            minlength: 5
+          },
+          cconfirm_password: {
+            required: true,
+            minlength: 5,
+            equalTo: "#cpassword"
+          },
+         },
+        messages: {
+          agreement5: {
+            required : "check the checbox"
+          },
+           agreement6: {
+            required : "check the checbox",
+          },
+          agreement7: {
+            required : "check the checbox",
+          },
+          agreement8: {
+            required : "check the checbox",
+          },
+          company_name: "Please enter your company_name", 
+          url: "Please enter your Website URL",
+          TAN: "Please enter your TAN",
+          country: "Please select your country",
+          poc_name: "Please enter your POC Name",
+          phone_no: "Please enter your Phone Number",
+
+          email: "Please enter a valid email address", 
+          cpassword: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 5 characters long"
+          },
+          cconfirm_password: {
             required: "Please provide a password",
             minlength: "Your password must be at least 5 characters long",
             equalTo: "Please enter the same password as above"
