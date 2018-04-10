@@ -682,9 +682,11 @@ class User extends CI_Controller {
 	}
 	public function posted_jobs($posted_id = NULL)
 	{
-		echo $posted_id;
+		$posted_id;
 		//$cid = $this->session->userdata('id');
-		$data['job_list'] = $this->valid_m->posted_job_list($posted_id);
+		$data['job_list'] = $this->valid_m->single_posted_job($posted_id);
+		$data['applied_count'] = $this->valid_m->count_applied($posted_id);
+
 		$this->load_view('posted_jobs',$data);		
 	}	
 	
@@ -765,8 +767,11 @@ class User extends CI_Controller {
 						'close_date_time'=> $this->input->post('close_date_time'),
 		 			);
 
-		 		   $this->job_post->update_job_posting($posted_jobs, $job_id);				   
-				   redirect('user/posted_jobs');
+		 		   $this->job_post->update_job_posting($posted_jobs, $job_id);
+		 		   $message =  "updated successfully";
+
+
+				   redirect('user/posted_jobs/'.$job_id.'/success');
                 
 	}
 	public function browse_jobs()
@@ -959,6 +964,19 @@ class User extends CI_Controller {
 
 
   	$this->pdf->stream("user.pdf");
+   }
+
+   public function update_candidate_status() {
+   		$user_details=array(
+			'user_id' => $this->input->post('user_id'),
+			'applied_job_id' => $this->input->post('applied_job_id'),
+			'comp_id' => $this->input->post('comp_id'),
+			'job_status' => $this->input->post('candidate_status'),
+			'applied_date' => mdate('%Y-%m-%d %H:%i:%s', now())
+			);
+   		$this->job_applied->insert_job_applied($user_details);   		 
+   		 redirect('user/candidates_apply/'.$this->input->post('applied_job_id').'/success');
+
    }
 }
    

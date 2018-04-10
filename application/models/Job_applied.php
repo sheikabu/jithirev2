@@ -8,8 +8,9 @@ class Job_applied extends CI_Model{
 		parent::__construct();
 	}
 
-	public function insert_job_applied($user_details){		
-		$this->db->insert('jh_job_applied',$user_details);	   
+	public function insert_job_applied($user_details){	
+		$this->db->insert('jh_job_applied',$user_details);
+		$this->db->last_query();   
 		return TRUE;
 	}
 

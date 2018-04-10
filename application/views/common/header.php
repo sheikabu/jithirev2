@@ -67,7 +67,11 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="<?php echo site_url() ?>user">jithire</a>
+        <?php if($this->session->userdata('role')=='company') { ?>
+        <a class="navbar-brand js-scroll-trigger" href="<?php echo site_url() ?>user/company_dashboard">jithire</a>
+        <?php } else { ?>
+        <a class="navbar-brand js-scroll-trigger" href="<?php echo site_url() ?>">jithire</a>
+        <?php } ?>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -96,9 +100,9 @@
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/new_job">Post a Job</a>
             </li>
           
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/posted_jobs">Posted Jobs</a>
-            </li>
+            </li>-->
              <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/view_offer_letter">Offer Letter</a>
             </li>

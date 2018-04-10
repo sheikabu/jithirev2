@@ -128,11 +128,20 @@ class Valid_m extends CI_Model{
 	  return $results;
 	}
 	
-	public function posted_job_list($jid){
+	public function posted_job_list($cid){
+	  $this->db->select('*');
+	  $this->db->from('jh_job_posting');
+	  $this->db->where('company_id',$cid);
+	  $this->db->order_by("job_id","desc");
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+	}
+
+	public function single_posted_job($jid){
 	  $this->db->select('*');
 	  $this->db->from('jh_job_posting');
 	  $this->db->where('job_id',$jid);
-	  $this->db->order_by("job_id","desc");
 	  $query=$this->db->get();
 	  $results = $query->result_array();
 	  return $results;
@@ -204,6 +213,15 @@ class Valid_m extends CI_Model{
 	  //$this->db->last_query();
 	  $results = $query->result_array();
 	  return $results;
+	}
+
+	public function count_applied($jid){
+	  $this->db->select('*');
+	  $this->db->from('jh_job_applied');	
+	  $this->db->where('applied_job_id 	',$jid);  	  
+	  $query=$this->db->get();
+	  $count = $query->num_rows();
+	  return $count;
 	}
 }
 ?>
