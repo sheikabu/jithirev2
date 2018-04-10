@@ -36,7 +36,7 @@ if(!$email){
 		      <th>Job Code</th>
 		      <th>Job Role</th>
 		      <th>Company</th>
-			  <th>Applied Date</th>
+			  <th>Last updated Date</th>
 			  <th>Status</th>
 		    </tr>
 		  </thead>
@@ -47,13 +47,9 @@ if(!$email){
 		      <td><?php echo $values['job_role']; ?></td>
 		      <td><?php echo $values['company_name']; ?></td>
 		      <td> <?php echo $values['applied_date']; ?> </td>
-		      <?php if($values['job_status']=='Interested') { ?>
+		      
 		      <td class="interested-status"><?php echo $values['job_status']; ?></td>
-		      <?php } ?>
-		      <?php if($values['job_status']=='Rejected') { ?>
-		      <td class="rejected-status"><?php echo $values['job_status']; ?></td>
-		      <?php } ?>
-			  
+		      
 		    </tr>
 		    <?php } ?>			
 		  </tbody>

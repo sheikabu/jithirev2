@@ -14,6 +14,7 @@ if(!$email){
 <section id="offer_letter">
 	<div class="container">
 		<div class="col-md-12 job-history">
+
     		<table class="table">
 				<thead>
 			    	<tr>
@@ -27,6 +28,7 @@ if(!$email){
 			    	</tr>
 			  	</thead>
 			  	<tbody>
+
 			  	<?php  foreach($job_list as $key=>$values) { ?>
 			  		<tr>
 			      		<td><?php echo $values['Job_code']; ?></td>

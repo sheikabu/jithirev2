@@ -119,7 +119,7 @@ if(!$email){
                 ?></span>
              </div>
             </div>
-             <input class="hidden" type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
+             <input class="hiddsen" type="text" value="<?php echo $values['job_id']; ?>" name="job_id">
              <input class="hidden" type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
              <input class="hidden" type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
              <input class="hidden" type="text" value="Interested" name="job_applied_status">

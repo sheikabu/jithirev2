@@ -129,25 +129,33 @@
                             <form method="post" id="candidate_form" class="single-form">
                               <div class="col-xs-12" id="agreement1div">
                                   <div class="checkbox">
+
                                       <input name="agreement1" id="agreement1" type="checkbox"/>
+
                                       <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement2div">
                                   <div class="checkbox">
+
                                       <input name="agreement2" id="agreement2" type="checkbox"/>
+
                                       <label for="agreement2">  I will respond to job alerts/offer letter in four business hours</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement3div">
                                   <div class="checkbox">
+
                                       <input name="agreement3" id="agreement3" type="checkbox"/>
+
                                       <label for="agreement3">  I am ready to attend telephonic interview any time during the business hours without prior notification</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement4div" >
                                   <div class="checkbox">
+
                                       <input name="agreement4" id="agreement4" type="checkbox"/>
+
                                       <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
                                   </div>
                               </div>
@@ -408,6 +416,7 @@ $(document).ready(function(){
             minlength: 5,
             equalTo: "#password"
           },
+          agreement1: "required",
          },
         messages: {
           agreement1: {
@@ -433,7 +442,8 @@ $(document).ready(function(){
             required: "Please provide a password",
             minlength: "Your password must be at least 5 characters long",
             equalTo: "Please enter the same password as above"
-          },        
+          },      
+          agreement1: "I agree to the Terms and Conditions",  
         },
 
         errorElement: "em",
