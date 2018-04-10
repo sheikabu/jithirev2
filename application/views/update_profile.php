@@ -186,7 +186,7 @@ if(!$email){
 	 	<div class="col-xs-12">
 		                  <label class="col-md-12">Annual CTC (Lakhs)</label>
 		                  <div class="col-md-12"> 
-		                <input type="text" name="salary_lakhs" class="form-control" onkeydown='return (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105) || event.which == 8 || event.which == 46' required placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
+		                <input type="text" name="salary_lakhs" class="form-control" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;" required placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
 		        </div>
 	                </div>
 					<div class="col-xs-12 mTop-5" >
@@ -543,7 +543,24 @@ if(!$email){
        </div>
       </div>
     </section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type=”text/javascript”>
+let el = document.querySelector('input[name="numeric"]');
+el.addEventListener('keypress',(event) => {
+  let k = event.key,
+      t = isNaN(k),
+      sc = ['Backspace'].indexOf(k) === -1,
+      d = k === '.',dV = el.value.indexOf('.') > -1,
+      m = k === '-',mV = el.value.length > 0;
 
+      if((t && sc) && ((d && dV) || (m && dV) || (m && mV) || ((t && !d) && (t && !m)))){event.preventDefault();}
+},false);
+el.addEventListener('paste',(event) => {
+    if(event.clipboardData.types.indexOf('text/html') > -1){
+        if(isNaN(event.clipboardData.getData('text'))){event.preventDefault();}
+    }
+},false);
+</script>
  <script src="assets/jquery/jquery.min.js"></script>
 <script>
  var i = 0;
