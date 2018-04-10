@@ -35,16 +35,30 @@ if(!$email){
     <!-- browse job end-->
       <div class="dashboard-wrap">
         <div class="row">
+         <?php if($this->session->userdata('role')=='company'){ ?>
+         <?php echo form_open('user/update_candidate_status');?>
          <div class="col-md-12 text-right">
          	<label class="mRight-5 mTop-5">Status</label>
 	        <div class="pull-right"> 
-		        <select name="status" required class="form-control">
-			        <option value=''>--select--</option>
-			        <option>Pending</option>
-			        <option>Reject</option>
+		        <select name="candidate_status" required class="form-control">
+			        <option value=''>--SELECT--</option>
+			        <option value="Interested">Interested</option>
+			        <option value="Rejected">Rejected</option>
+			        <option value="Selected">Selected</option>
+			        <option value="Offer released">Offer released</option>
 		        </select> 
 			</div>
+			<input type="hidden" name="user_id" value="<?php echo $this->uri->segment(3); ?>">
+			<input type="hidden" name="applied_job_id" value="<?php echo $this->uri->segment(4); ?>">
+			<input type="hidden" name="comp_id" value="<?php echo $this->session->userdata('id'); ?>">
+			
+			<div class="col-md-12">
+				<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
+			</div>
          </div>
+
+         </form>
+         <?php } ?>
           <div class="col-md-12">
           		<?php 
           			 $link = $_SERVER['PHP_SELF'];
@@ -74,12 +88,8 @@ if(!$email){
 		        	
              		</div>
 	        	
-	        
-             
-             
+	                     
               	 <div class="row">
-              	 
-              	 
               		<div class="col-md-2">
 	              		<div id="photo-show2" class="col-md-12">
 	              		   <?php if($get_candidate_info['photos']!=''){ $photo = $get_candidate_info['photos']; } else { $photo = 'dummy-profile-pic.jpg'; } ?>
@@ -89,9 +99,7 @@ if(!$email){
 						</div>
 						<!--  <div class="col-md-12"><a target="_blank" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>" /><?php echo $get_candidate_info['resume']; ?></a></div> -->
 					</div>
-					
-
-
+				
 
 					<div class="col-md-5">
 			
@@ -284,11 +292,6 @@ if(!$email){
 		            </div>
 
 			</div> 
-            <div class="row">
-				<div class="col-md-12">
-					<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
-				</div>
-			</div>
             <!-- End Full profile -->
 
           

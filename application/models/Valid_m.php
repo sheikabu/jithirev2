@@ -91,7 +91,10 @@ class Valid_m extends CI_Model{
 	
 	public function  company_registration_insert($company_details){ //comments
 
+
+
 		$this->db->insert('jh_company_details',$company_details);
+
 		return true;
 	}
 
@@ -130,6 +133,15 @@ class Valid_m extends CI_Model{
 	  $this->db->from('jh_job_posting');
 	  $this->db->where('company_id',$cid);
 	  $this->db->order_by("job_id","desc");
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+	}
+
+	public function single_posted_job($jid){
+	  $this->db->select('*');
+	  $this->db->from('jh_job_posting');
+	  $this->db->where('job_id',$jid);
 	  $query=$this->db->get();
 	  $results = $query->result_array();
 	  return $results;
@@ -201,6 +213,15 @@ class Valid_m extends CI_Model{
 	  //$this->db->last_query();
 	  $results = $query->result_array();
 	  return $results;
+	}
+
+	public function count_applied($jid){
+	  $this->db->select('*');
+	  $this->db->from('jh_job_applied');	
+	  $this->db->where('applied_job_id 	',$jid);  	  
+	  $query=$this->db->get();
+	  $count = $query->num_rows();
+	  return $count;
 	}
 }
 ?>

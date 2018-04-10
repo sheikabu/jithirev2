@@ -15,8 +15,7 @@ if(!$email){
 	<div class="row">
 		<div class="container matching_job_container">
 			<div class="col-md-12">
-			<div id="message"></div>
-				
+			<div id="message"><?php  $msg = $this->uri->segment(4); if($msg == 'success'){ echo 'Job Updated Successfully';  }  ?></div>
 				<?php //echo form_open('post_job/insert_job_post');?>
 				<?php foreach($job_list as $key=>$values) { ?>
 					<div class="row">
@@ -112,7 +111,7 @@ if(!$email){
 			                <label class="col-md-5">Preferred Joining:</label><span class="col-md-7"> <?php echo $values['close_date_time'];?></span>
 			            </div>
 			            <div class="col-md-4 text-right">
-			                <a href="<?php echo site_url() ?>user/candidates_apply/<?php echo $values['job_id']; ?>" class="link">Applied Candidates</a>
+			                <a href="<?php echo site_url() ?>user/candidates_apply/<?php echo $values['job_id']; ?>" class="link">Applied Candidates (<?php echo $applied_count; ?>)</a>
 			            </div>
             		</div>
 		   
