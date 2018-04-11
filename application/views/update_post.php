@@ -104,11 +104,14 @@ if(!$email){
 					  <input name="salary_lakhs" class="form-control" placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" required>
 				</div>
 				<div class="form-group">
-	            	<label>Primary Skill :</label>
+					<div class="col-md-12 paddingL-0 line2 mBot-5">
+		            	<label>Primary Skill :</label>
+		            	<label class="pull-right mRight-20">Proficiency</label>
+		            </div>
 					<?php $primary_skill  = json_decode($values['primary_skill'],true); 
         		foreach($primary_skill as $pkey => $pval)
         	?>
-					  <div id="sections">
+					  <div id="sections" class="skills">
 					  <div class="section">
 					
 					    <fieldset >
@@ -177,8 +180,11 @@ if(!$email){
 	            </div>
 
 	            <div class="form-group">
-		            <label>Skills</label>
-					  <div id="sections">
+	            	<div class="col-md-12 paddingL-0 line2">
+			            <label>Skills</label>
+			            <label class="pull-right mRight-30">Proficiency</label>
+			        </div>
+					  <div id="sections" class="skills">
 					  <div class="section">
 					 		<fieldset class="mTop-5">
 							<div class="container paddingL-0" >
