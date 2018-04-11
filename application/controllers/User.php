@@ -10,6 +10,7 @@ class User extends CI_Controller {
 		parent::__construct();
 		//$this->load->helper('form');
 		$this->load->helper('date');
+		$this->load->helper('url');
 		$this->load->model('valid_m');
 		$this->load->model('user_profile');
 		$this->load->model('job_applied');
@@ -457,15 +458,19 @@ class User extends CI_Controller {
 	{
 		
 		 $forgot_details=array('email' => $this->input->post('email'));		
-		 
 		 $email_forgot=$this->valid_m->forgot_email_check($forgot_details['email']);
-		 if($email_forgot==1){
+		 $email_forgot[0]['email'];
+
+		 $data['name'] = $email_forgot[0]['email'];
+		 $data['user_id'] = $user_id[0]['id'];
+
+		 if($this->input->post('email')==$email_forgot[0]['email']){
 
 		 		    /* Send a mail to user*/
 				  	$fromemail="Sony.George@ust-global.com";
 					$toemail = $forgot_details['email'];
-					$subject = "Jithire Forget Password";					
-					$mesg = $this->load->view('template/userregemail','',true);
+					$subject = "Jithire Forget Password";	
+					$mesg = $this->load_view('template/forget_password',$data);
 					$config=array(
 					'charset'=>'utf-8',
 					'wordwrap'=> TRUE,
@@ -478,7 +483,7 @@ class User extends CI_Controller {
 					$this->email->message($mesg);
 					$mail = $this->email->send();
 				  	/*EMail end */
-				  	$data['message'] = '<div class="alert alert-success text-center">Email has been send to your mail id.</div>';
+				  	$data['message'] = '<div class="alert alert-success text-center">Password sent to your email id</div>';
 				  	$this->load_view('forgot',$data);
 
 		 }else
@@ -489,47 +494,10 @@ class User extends CI_Controller {
 
 		
 	}
-	public function forgot_update() 
+	public function forgot_update($user_id) 
 	{
-		
-		$userid_decode = "";
-
-		$this->form_validation->set_rules('password','Password','trim|required|matches[password]'); 
-		$this->form_validation->set_rules('confirm_password','Confirm_password','trim|required|matches[password]'); 
-
-		if ($this->form_validation->run() == FALSE)
-        {
-        $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Failed!! sorry mismatch password..Please try again.</div>');
-        
-        $this->load->view('common/header');
-		$this->load->view('forgot_password');
-		$this->load->view('common/footer');
-	
-        }
-        else
-        {
-
-        	$password_details=array(
-		 				 			
-					'password' => md5($this->input->post('password')), 
-					
-		 			);
-        	$forgot_password_model=$this->valid_m->forgot_password_check($password_details['password'],$email_det);
-        	if($forgot_password_model){
-					
-				   
-				  $this->session->set_flashdata('wel_message', 'pasword changed successfully');
-				  redirect('user');
-				}
-				else{
-
-				  $this->session->set_flashdata('message', 'email not having please sign up');
-				  redirect('user');
-
-
-				}
-		}
-		
+		$data['user_id'] = $user_id;
+		$this->load_view('forgot_password', $data);
 	}
 
 	public function about() 
@@ -575,13 +543,13 @@ class User extends CI_Controller {
 					$email_check=$this->valid_m->email_check($register_details['email']);
 
 				if($email_check){
-				  	$this->valid_m->register_insert($register_details);
-
+				  	$data['user_id'] = $this->valid_m->register_insert($register_details);
+				  	$data['user_name'] = $this->input->post('first_name');
 				  	/* Send a mail to user*/
 				  	$fromemail="Sony.George@ust-global.com";
 					$toemail = $this->input->post('email');
-					$subject = "Hi".$this->input->post('first_name').", Welcome to jithire.com";					
-					$mesg = $this->load->view('template/userregemail','',true);
+					$subject = "Hi".$this->input->post('first_name').", Welcome to jithire.com";										
+					$mesg = $this->load_view('template/userregemail',$data);		
 					$config=array(
 					'charset'=>'utf-8',
 					'wordwrap'=> TRUE,
@@ -589,7 +557,7 @@ class User extends CI_Controller {
 					);
 					$this->email->initialize($config);
 					$this->email->to($toemail);
-					$this->email->from($fromemail, "Title");
+					$this->email->from($fromemail, "JitHire");
 					$this->email->subject($subject);
 					$this->email->message($mesg);
 					$mail = $this->email->send();
@@ -777,7 +745,19 @@ class User extends CI_Controller {
 	public function browse_jobs()
 	{
 		//$candidate_id = $this->session->userdata("id");
-		$data['job_list'] = $this->valid_m->job_list();
+		$candidate_id = $this->session->userdata("id");
+		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		echo $experience = $data['get_candidate_info']['total_experience'];
+		echo $salary = $data['get_candidate_info']['salary_lakhs'];
+		echo $primary_skill = $data['get_candidate_info']['primary_skill'];
+		echo $skill1 = $data['get_candidate_info']['skill1'];
+		echo $skill2 = $data['get_candidate_info']['skill2'];
+		echo $skill3 = $data['get_candidate_info']['skill3'];
+		echo $skill4 = $data['get_candidate_info']['skill4'];
+		echo $skill5 = $data['get_candidate_info']['skill5'];
+		echo $preferred_location = $data['get_candidate_info']['preferred_location'];
+		
+		$data['job_list'] = $this->valid_m->matching_job_list();
 		//$this->load->view('common/header');
 		$this->load_view('browse_jobs',$data);
 		//$this->load->view('common/footer');
@@ -977,6 +957,23 @@ class User extends CI_Controller {
    		$this->job_applied->insert_job_applied($user_details);   		 
    		 redirect('user/candidates_apply/'.$this->input->post('applied_job_id').'/success');
 
+   }
+
+   public function verify_email($user_id = NULL){   		
+   		$this->valid_m->verify_email($user_id);
+   		 $this->load_view('verify_email');
+   }
+   public function forget_password_update($user_id = NULL){   		
+   		$password = md5($this->input->post('password'));
+   		$user_id = $this->input->post('userid');
+
+    	$forgot_password_model=$this->valid_m->forgot_password_check($password,$user_id);
+    	if($forgot_password_model){
+			  echo 'Password has been updated.<b>Please <a href="'.site_url().'">Login</a></b>'; exit;
+			}
+			else{
+			  echo 'Sorry, Please try again!'; exit;
+		}
    }
 }
    

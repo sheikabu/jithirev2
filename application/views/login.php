@@ -177,7 +177,7 @@
                                   <input name="role" id="rolesingup"  type="hidden" value="candidate">
                               
                                   <!-- Subject -->
-                                  <input name="status" type="hidden" value="active">
+                                  <input name="status" type="hidden" value="inactive">
                               </div>
                               
                               <!-- Subject Button -->
@@ -260,7 +260,7 @@
                         </div>
                         <div class="col-xs-12">
                             <!-- Subject -->
-                            <input name="status" type="hidden" value="active">
+                            <input name="status" type="hidden" value="inactive">
                         </div>
                            <div class="btn-form text-center col-xs-12">
                             <button class="btn btn-fill">Sign Up</button>

@@ -11,11 +11,14 @@ if(!$email){
 }
 
  ?>
+
 <section id="offer_letter">
+
+
 	<div class="container">
 		<div class="col-md-12 job-history">
 
-    		<table class="table">
+    		<table class="table" id="company-dashboard-table">
 				<thead>
 			    	<tr>
 				      	<th>Job Code</th>
@@ -49,3 +52,10 @@ if(!$email){
 	    </div>
 	</div>
 </section>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#company-dashboard-table').DataTable();
+});
+</script>

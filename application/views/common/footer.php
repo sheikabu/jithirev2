@@ -38,6 +38,11 @@
     
    <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 
+   <!--SHEIK datatable-->
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script> 
+     <!--SHEIK datatable END-->
+
    <script>
    $("#candidate").click(function(){
       $("#candidate_view").show();

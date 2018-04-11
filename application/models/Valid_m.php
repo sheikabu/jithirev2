@@ -60,20 +60,15 @@ class Valid_m extends CI_Model{
 
 	  $this->db->select('*');
 	  $this->db->from('jh_registration');
-	  $this->db->where('email',$email);
+	  $this->db->where('email',$email);	  
 	  $query=$this->db->get();
-
-	  if($query->num_rows()>0){
-	    return true;
-	  }else{
-	    return false;
-	  }
+	  $results = $query->result_array();
+	  return $results;
 
 	}
-	public function forgot_password_check($password,$email_det){
-		$field = array(
-		'password'=>$this->input->post('$password'));
-		$this->db->where('email', $email_det);
+	public function forgot_password_check($password,$user_id){
+		$field = array('password'=>$password);
+		$this->db->where('id', $user_id);
 		$this->db->update('jh_registration', $field);
 		//echo $this->db->last_query();extit;
 		if($this->db->affected_rows() > 0){
@@ -84,18 +79,15 @@ class Valid_m extends CI_Model{
 	}
 	
 	public function  register_insert($register_details){ //comments
-			
 		$this->db->insert('jh_registration',$register_details);		
-		return true;		
+		$insert_id = $this->db->insert_id();
+   		return  $insert_id;	
 	}
 	
 	public function  company_registration_insert($company_details){ //comments
-
-
-
 		$this->db->insert('jh_company_details',$company_details);
-
-		return true;
+		$insert_id = $this->db->insert_id();
+   		return  $insert_id;	
 	}
 
 	public function company_name_check($cName){
@@ -104,7 +96,6 @@ class Valid_m extends CI_Model{
 	  $this->db->from('jh_company_details');
 	  $this->db->where('company_name',$cName);
 	  $query=$this->db->get();
-
 	  if($query->num_rows()>0){
 	    return false;
 	  }else{
@@ -115,6 +106,21 @@ class Valid_m extends CI_Model{
 	
 	public function job_list(){ //comments
 	
+	  $this->db->select('jh_job_posting.*,jh_company_details.*, jh_job_applied.*');
+	  $this->db->from('jh_job_posting');
+	  $this->db->join('jh_company_details', 'jh_job_posting.company_id = jh_company_details.id', 'left');
+	  $this->db->join('jh_job_applied', 'jh_job_applied.applied_job_id = jh_job_posting.job_id', 'left');
+	  $this->db->order_by("jh_job_posting.job_id","desc");
+	  //$this->db->where('jh_registration.id',$candidate_id);
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+	}
+
+	public function matching_job_list(){ //comments
+		
+	  echo $this->session->userdata("id");
+
 	  $this->db->select('jh_job_posting.*,jh_company_details.*, jh_job_applied.*');
 	  $this->db->from('jh_job_posting');
 	  $this->db->join('jh_company_details', 'jh_job_posting.company_id = jh_company_details.id', 'left');
@@ -216,12 +222,27 @@ class Valid_m extends CI_Model{
 	}
 
 	public function count_applied($jid){
-	  $this->db->select('*');
-	  $this->db->from('jh_job_applied');	
-	  $this->db->where('applied_job_id 	',$jid);  	  
+	  $this->db->select('count(*)');
+	  $this->db->from('jh_job_applied');
+	  $this->db->group_by(array("user_id", "applied_job_id")); 	
+	  $this->db->where('applied_job_id 	',$jid); 
+	      
 	  $query=$this->db->get();
+	  $this->db->last_query();
 	  $count = $query->num_rows();
 	  return $count;
 	}
+
+	public function verify_email($user_id){
+		$field = array('status'=>'active');
+		$this->db->where('id', $user_id);
+		$this->db->update('jh_registration', $field);
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }
 ?>

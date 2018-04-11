@@ -14,7 +14,7 @@ if(!$email){
  <section id="offer_letter">
 	<div class="container">
 		<div class="col-md-12 job-history">
-    		<table class="table">
+    		<table class="table" id="offer-letter-table">
 				<thead>
 			    	<tr>
 				      	<th>Job Code</th>
@@ -56,4 +56,10 @@ pdf.setActive();
 pdf.focus();
 pdf.print();
 }
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#offer-letter-table').DataTable();
+});
 </script>
