@@ -58,6 +58,7 @@
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0/js/bootstrap-datepicker.js"></script>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0/css/bootstrap-datepicker.css" rel="stylesheet" />
+     
     <!--SHEIK Added -->
 
   </head>
@@ -69,6 +70,8 @@
       <div class="container">
         <?php if($this->session->userdata('role')=='company') { ?>
         <a class="navbar-brand js-scroll-trigger" href="<?php echo site_url() ?>user/company_dashboard">jithire</a>
+        <?php } else if($this->session->userdata('role')=='candidate') {  ?>
+        <a class="navbar-brand js-scroll-trigger" href="<?php echo site_url() ?>user/user_details">jithire</a>
         <?php } else { ?>
         <a class="navbar-brand js-scroll-trigger" href="<?php echo site_url() ?>">jithire</a>
         <?php } ?>
@@ -131,7 +134,7 @@
                 <li class="nav-item">
                 <div class="dropdown">
           			    <button class=" user-dropdown dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>
-                    <span class="welcome-name">Sheik Abdullah</span> 
+                    <span>Sheik Abdullah</span> 
           			    <span class="caret"></span></button>
           			    <ul class="dropdown-menu">
           			      <li><a class="nav-link" id="profile" href="<?php echo site_url() ?>user/user_details">View Profile</a></li>
