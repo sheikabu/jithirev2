@@ -75,15 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-<<<<<<< HEAD
 	'hostname' => '192.168.20.3',
 	'username' => 'testing1',
 	'password' => 'passw1',
-=======
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'inapp',
->>>>>>> dade0dca460b45e58d6521c9c123c27619d2e6e6
 	'database' => 'jithirev2',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
