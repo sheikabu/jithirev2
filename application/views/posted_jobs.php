@@ -47,7 +47,7 @@ if(!$email){
 						<div class="col-md-4"><label class="col-md-5">Duration:</label><span class="col-md-7"> <?php echo $values['duration'];?></span></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Max Salary:</label><span class="col-md-7"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>
+						<div class="col-md-4"><label class="col-md-5">Annual CTC (Lakhs):</label><span class="col-md-7"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>
 						<div class="col-md-4"><label class="col-md-5">Job Type:</label><span class="col-md-7"><?php echo $values['job_type'];?></span></div>
 						<div class="col-md-4"><label class="col-md-5">Primary skills: </label><span class="col-md-7">
 						<?php $primary_skill =  json_decode($values['primary_skill']);

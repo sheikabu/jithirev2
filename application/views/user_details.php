@@ -159,7 +159,7 @@ if(!$email){
 		                
 						
 		                 <div class="col-xs-12">
-		                  <label class="col-md-4">Expected CTC: </label>
+		                  <label class="col-md-4">Annual CTC (Lakhs): </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs </span>
 		                </div>
 		                

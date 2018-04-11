@@ -96,12 +96,12 @@ if(!$email){
 	            
 				<div class="form-group">
 	               <label>No: of positions</label>
-	                <input name="no_positions" class="form-control" placeholder="No: of positions*" type="text" value="<?php echo $values['no_positions'];?>" required>
+	                <input name="no_positions" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" placeholder="No: of positions*" type="text" value="<?php echo $values['no_positions'];?>" required>
 	            </div>
 	            
 	            <div class="form-group salary-form-group">
-					<label>Salary (Lakhs per annum)</label>
-					  <input name="salary_lakhs" class="form-control" placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" required>
+					<label>Annual CTC (Lakhs)</label>
+					  <input name="salary_lakhs" class="form-control" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;" placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" required>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12 paddingL-0 line2 mBot-5">
