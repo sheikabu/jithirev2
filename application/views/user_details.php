@@ -36,29 +36,37 @@ if(!$email){
       <div class="dashboard-wrap">
         <div class="row">
          <?php if($this->session->userdata('role')=='company'){ ?>
+         <div class="col-md-12">
          <?php echo form_open('user/update_candidate_status');?>
-         <div class="col-md-12 text-right">
-         	<label class="mRight-5 mTop-5">Status</label>
-	        <div class="pull-right"> 
-		        <select name="candidate_status" required class="form-control">
-			        <option value=''>--SELECT--</option>
-			        <option value="Interested">Interested</option>
-			        <option value="Rejected">Rejected</option>
-			        <option value="Selected">Selected</option>
-			        <option value="Offer released">Offer released</option>
-		        </select> 
-			</div>
-			<input type="hidden" name="user_id" value="<?php echo $this->uri->segment(3); ?>">
-			<input type="hidden" name="applied_job_id" value="<?php echo $this->uri->segment(4); ?>">
-			<input type="hidden" name="comp_id" value="<?php echo $this->session->userdata('id'); ?>">
-			
-			<div class="col-md-12">
-				<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
-			</div>
-         </div>
-
+         <div class="row">
+	        <div class="col-md-12">
+	        	<div class="pull-right mLeft-5 ">
+					<button type="submit" class="btn btn-fill pull-right mBot-10">update</button>
+				</div>
+	        	
+		        <div class="pull-right"> 
+			        <select name="candidate_status" required class="form-control">
+				        <option value=''>--SELECT--</option>
+				        <option value="Interested">Interested</option>
+				        <option value="Rejected">Rejected</option>
+				        <option value="Selected">Selected</option>
+				        <option value="Offer released">Offer released</option>
+			        </select> 
+				</div>
+				<input type="hidden" name="user_id" value="<?php echo $this->uri->segment(3); ?>">
+				<input type="hidden" name="applied_job_id" value="<?php echo $this->uri->segment(4); ?>">
+				<input type="hidden" name="comp_id" value="<?php echo $this->session->userdata('id'); ?>">
+				
+				
+				<div class="pull-right">	
+	         		<label class="mRight-5 mTop-5">Status</label>
+	         	</div>
+	        </div>
+        </div>
          </form>
+
          <?php } ?>
+         </div>
           <div class="col-md-12">
           		<?php 
           			 $link = $_SERVER['PHP_SELF'];
