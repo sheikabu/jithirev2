@@ -933,17 +933,12 @@ class User extends CI_Controller {
 		 	 $data['message'] = 'Offer Created';
 		 	 $this->load_view('offer_letter',$data);
 	}
-	public function mypdf(){
+	public function offer($user_id){
+		echo $user_id;
 
-
-	$this->load->library('pdf');
-
-
-  	$this->pdf->load_view('mypdf');
-  	$this->pdf->render();
-
-
-  	$this->pdf->stream("user.pdf");
+		$this->load->helper('pdf_helper');
+		$data['name'] = 'Hi Sheik';
+		$this->load_view('viewoffer', $data);
    }
 
    public function update_candidate_status() {
