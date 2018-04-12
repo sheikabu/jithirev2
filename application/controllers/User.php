@@ -592,7 +592,24 @@ class User extends CI_Controller {
 					$email_check=$this->valid_m->company_name_check($company_details['company_name']); 
 
 					if($email_check){
-					  	$this->valid_m->company_registration_insert($company_details);					  	
+					  	$data['company_id'] = $this->valid_m->company_registration_insert($company_details);	
+						$data['company_name'] = $this->input->post('first_name');
+				  	/* Send a mail to user*/
+				  	$fromemail="Sony.George@ust-global.com";
+					$toemail = $this->input->post('email');
+					$subject = "Hi".$this->input->post('first_name').", Welcome to jithire.com";										
+					$mesg = $this->load_view('template/companyregemail',$data);		
+					$config=array(
+					'charset'=>'utf-8',
+					'wordwrap'=> TRUE,
+					'mailtype' => 'html'
+					);
+					$this->email->initialize($config);
+					$this->email->to($toemail);
+					$this->email->from($fromemail, "JitHire");
+					$this->email->subject($subject);
+					$this->email->message($mesg);
+					$mail = $this->email->send();
 			 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
 					}
 					else{

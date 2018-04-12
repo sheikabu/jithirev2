@@ -123,7 +123,7 @@
                     <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/user_details"> View Profile</a>
                 </li> -->
               <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/browse_jobs"> Matching Jobs</a>
+                    <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/browse_jobs/"> Matching Jobs</a>
                 </li>
                 <li class="nav-item">
                 	<a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/history">History</a>
