@@ -40,7 +40,7 @@ if(!$email){
 			      		<td><?php echo $offervalue['start_date'] ;?></td>
 			    		<td><?php echo $offervalue['joining_location'] ;?></td>
 			    		<td>Status</td>
-			    		<td><a href="<?php echo site_url() ?>user/offer/<?php echo $values['user_id']; ?>" class="link"><i class="fa fa-file-pdf-o"  aria-hidden="true"></i></a></td>
+			    		<td><a target="_blank" href="<?php echo site_url() ?>user/offer/<?php echo $offervalue['user_id']; ?>" class="link"><i class="fa fa-file-pdf-o"  aria-hidden="true"></i></a></td>
 			    	</tr>
 			    <?php } ?>
 			   </tbody>

@@ -140,6 +140,7 @@ class Valid_m extends CI_Model{
 	  $this->db->where('company_id',$cid);
 	  $this->db->order_by("job_id","desc");
 	  $query=$this->db->get();
+	  //echo $this->db->last_query(); exit;
 	  $results = $query->result_array();
 	  return $results;
 	}

@@ -50,15 +50,15 @@ if(!$email){
 						<input name="annual_ctc" class="form-control" placeholder="Annual CTC" type="text" value="" required>
 				</div>
 				<div class="form-group">
-					<input name="user_id" value="<?php echo $this->uri->segment(3); ?>" class="form-control" placeholder="Annual CTC" type="text" value="" required>
+					<input name="user_id" value="<?php echo $this->uri->segment(3); ?>" class="form-control" placeholder="Annual CTC" type="hidden" value="" required>
 				</div>
 		
 				<div class=" form-group">
-					<input name="posted_job_id" value="<?php echo $this->uri->segment(4); ?>" class="form-control" placeholder="Annual CTC" type="text" value="" required>
+					<input name="posted_job_id" value="<?php echo $this->uri->segment(4); ?>" class="form-control" placeholder="Annual CTC" type="hidden" value="" required>
 				</div>
 		
 				<div class="form-group">
-					<input name="company_id" value="<?php echo $this->uri->segment(5); ?>" class="form-control" placeholder="Annual CTC" type="text" value="" required>
+					<input name="company_id" value="<?php echo $this->uri->segment(5); ?>" class="form-control" placeholder="Annual CTC" type="hidden" value="" required>
 				</div>
 			</div>
 		</div>

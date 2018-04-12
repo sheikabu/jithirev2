@@ -21,6 +21,7 @@ if(!$email){
     		<table class="table" id="company-dashboard-table">
 				<thead>
 			    	<tr>
+			    	    <th>Job id</th>
 				      	<th>Job Code</th>
 				      	<th>Job Role</th>
 				      	<th>primary Skill</th>
@@ -32,8 +33,9 @@ if(!$email){
 			  	</thead>
 			  	<tbody>
 
-			  	<?php  foreach($job_list as $key=>$values) { ?>
+			  	<?php foreach($job_list as $key=>$values) { ?>
 			  		<tr>
+			  		    <td><?php echo $values['job_id']; ?></td>
 			      		<td><?php echo $values['Job_code']; ?></td>
 			      		<td><?php echo $values['job_role']; ?></td>
 			      		<td><?php $primary_skill =  json_decode($values['primary_skill']);
@@ -56,6 +58,14 @@ if(!$email){
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#company-dashboard-table').DataTable();
+    var table =  $('#company-dashboard-table').DataTable();
+
+    table
+    .order( [ 0, 'desc' ] )
+    .column( 0 ).visible( false )
+    .draw();
+
+   
+
 });
 </script>

@@ -934,9 +934,10 @@ class User extends CI_Controller {
 		 	 $this->load_view('offer_letter',$data);
 	}
 	public function offer($user_id){
-		echo $user_id;
+		//echo $user_id;
 
 		$this->load->helper('pdf_helper');
+		$data['user_id']=$user_id;
 		$data['name'] = 'Hi Sheik';
 		$this->load_view('viewoffer', $data);
    }

@@ -90,7 +90,9 @@ if(!$email){
              		<div class="row text-right">
              		
              			<div class="col-md-12">
+             			<?php if($this->session->userdata('role')=='candidate') { ?>
 	             			<a class="pull-right nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/update_profile"><i class="fa fa-edit" aria-hidden="true"></i></a>
+	             		<?php } ?>
 			        		<a class="pull-right  nav-link js-scroll-trigger" href="<?php echo base_url();?>upload/resumes/<?php echo $get_candidate_info['resume']; ?>"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
 			        	</div>
 		        	
