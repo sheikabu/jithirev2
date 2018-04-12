@@ -5,6 +5,7 @@ html, body, .container{
 
 ul, li{
   list-style: none;
+  margin: 0;
 }
 label{
   font-weight: 600;
@@ -832,6 +833,11 @@ select.form-control:not([size]):not([multiple]) {
     color: #ca0404;
     margin-top: -10px;
     margin-bottom: 10px;
+  }
+  .error ul{
+    padding-left: 0;
+  }
+  .sign-form .error{
     float: left;
   }
  /*---------------------------------------------- */ 
