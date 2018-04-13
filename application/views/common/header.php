@@ -102,7 +102,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/new_job">Post a Job</a>
             </li>
-          
+           <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/Candidate_list">Candidate</a>
+            </li>
             <!--<li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/posted_jobs">Posted Jobs</a>
             </li>-->

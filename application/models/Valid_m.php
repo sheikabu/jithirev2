@@ -144,6 +144,16 @@ class Valid_m extends CI_Model{
 	  $results = $query->result_array();
 	  return $results;
 	}
+	public function candidate_job_list($uid){
+	  $this->db->select('*');
+	  $this->db->from('jh_user_profile');
+	  $this->db->where('user_id',$uid);
+	  $this->db->order_by("id","desc");
+	  $query=$this->db->get();
+	  //echo $this->db->last_query(); exit;
+	  $results = $query->result_array();
+	  return $results;
+	} 
 
 	public function single_posted_job($jid){
 	  $this->db->select('*');

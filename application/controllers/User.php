@@ -988,6 +988,17 @@ class User extends CI_Controller {
 			  echo 'Sorry, Please try again!'; exit;
 		}
    }
+   public function candidate_list() // add user full details
+	{
+
+		$user_id = $this->session->userdata('id');                                                                                        
+				$data['candidate_list'] = $this->valid_m->candidate_job_list($user_id);	
+		$this->load_view('candidate_list',$data);
+		
+	}
+   
+   
+   
 }
    
    
