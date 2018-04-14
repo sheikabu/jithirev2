@@ -7,10 +7,11 @@
 		<p style="">April 14, 2018</p>
 		<p>PHP Programmer</p>
 		<p>
-			<span>Address 1</span>
-			<span>Street</span>
-			<span>Place</span>
+			<span>Address 1,</span>
+			<span>Street,</span>
+			<span>Place.</span>
 		</p>
+		<p>Mob:<span>9999999999</span></p>
 	</div>
 	<p>Dear<span style="margin-left:5px;">Sreejith</span>,</p>
 	<div>
