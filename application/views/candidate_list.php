@@ -29,17 +29,17 @@ if(!$email){
 			  	</thead>
 			  	<?php //print_r($view_letter); ?>
 			  	<tbody>
-			  	<?php foreach ($candidate_list as $offerkey => $list) { ?>
+			  	<?php foreach ($candidate_list as $key=>$values) { ?>
 			  		<tr>
 			      		
 			      		
-			      		<td><?php echo $list['name'] ;?></td>
-			      		<td><?php echo $list['email'] ;?></td>
-			      		<td><?php echo $list['mobile_number'] ;?></td>
-			      		<td><?php echo $list['primary_skill'] ;?></td>
-			    		<td><?php echo $list['primary_skill'] ;?></td>
-						<td><?php echo $list['primary_skill'] ;?></td>
-			    		<td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>/<?php echo $values['job_id']; ?>" class="link">View Profile</a></td>
+			      		<td><?php echo $values['name'] ;?></td>
+			      		<td><?php echo $values['email'] ;?></td>
+			      		<td><?php echo $values['mobile_number'] ;?></td>
+			      		<td><?php echo $values['primary_skill'] ;?></td>
+			    		<td><?php echo $values['current_location'] ;?></td>
+						<td><?php echo $values['total_experience'] ;?></td>
+			    		<td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>?>" class="link">View Profile</a></td>
 						
 			    		
 			    	</tr>

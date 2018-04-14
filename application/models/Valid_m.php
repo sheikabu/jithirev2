@@ -146,9 +146,7 @@ class Valid_m extends CI_Model{
 	}
 	public function candidate_job_list($uid){
 	  $this->db->select('*');
-	  $this->db->from('jh_user_profile');
-	  $this->db->where('user_id',$uid);
-	  $this->db->order_by("id","desc");
+	  $this->db->from(' jh_user_profile');
 	  $query=$this->db->get();
 	  //echo $this->db->last_query(); exit;
 	  $results = $query->result_array();
@@ -234,6 +232,30 @@ class Valid_m extends CI_Model{
 	public function get_countries(){
 	  $this->db->select('*');
 	  $this->db->from('jh_countries');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	public function get_job_type(){
+	  $this->db->select('*');
+	  $this->db->from('jh_job_type');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	public function get_gender(){
+	  $this->db->select('*');
+	  $this->db->from('jh_gender');	  	  
+	  $query=$this->db->get();
+	  $this->db->last_query();
+	  $results = $query->result_array();
+	  return $results;
+	}
+	public function get_total_it_experience(){
+	  $this->db->select('*');
+	  $this->db->from('jh_total_it_experience');	  	  
 	  $query=$this->db->get();
 	  $this->db->last_query();
 	  $results = $query->result_array();

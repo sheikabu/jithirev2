@@ -366,7 +366,7 @@ class User extends CI_Controller {
 					'industry' => $this->input->post('industry'),
 					'preferred_roles' =>$this->input->post('preferred_roles'),
 					'previous_role' => $this->input->post('role'),
-					'job_type' => $this->input->post('job_type'),
+					'job_type' =>json_encode($this->input->post('job_type')),
 					'primary_skill' => $primaryskills,
 					'add_domain' =>json_encode($this->input->post('add_domain')),
 					
@@ -992,7 +992,8 @@ class User extends CI_Controller {
 	{
 
 		$user_id = $this->session->userdata('id');                                                                                        
-				$data['candidate_list'] = $this->valid_m->candidate_job_list($user_id);	
+		
+		$data['candidate_list'] = $this->valid_m->candidate_job_list($user_id);	
 		$this->load_view('candidate_list',$data);
 		
 	}
