@@ -1,6 +1,36 @@
 <section id="offer_letter">
 	<div class="container">
-     offer letter
+
+     <div style="max-width: 760px;overflow-x: hidden; font-family: 'Roboto Slab', 'Helvetica Neue',Helvetica, Arial, sans-serif; color: #3a5270; font-size: 13px;">
+     <div style="width: 100%; height: 50px; background: #1B66B3;"></div>
+	<div style="margin-top: 20px;">
+		<p style="">April 14, 2018</p>
+		<p>PHP Programmer</p>
+		<p>
+			<span>Address 1</span>
+			<span>Street</span>
+			<span>Place</span>
+		</p>
+	</div>
+	<p>Dear<span style="margin-left:5px;">Sreejith</span>,</p>
+	<div>
+		<p>This correspondence serves as evidence of on-campus employment for Mr. Mario Rossi, a current international student at Arkansas Tech University. Please use this information to assist him in securing his social security card.</p>
+		<p>Mr. Rossi has been hired to work in the English Department beginning on February 1, 2007. His employment hours will be 20 hours per week. The job duties for this student will include answering telephones, assisting students, grading papers and other duties as assigned.</p>
+		<p>My employer contact information is as follows:</p>
+	</div>
+<div>
+	<p style="font-weight: bold;"> Jithire</p>
+	<p><img src="http://staging.jithire.com/assets/img/logo-jithire.png" style="max-height: 88px;"></p>
+	<p>71-6014834 (EIN Number)</p>
+	<p>479-968-5555 (Telephone Number)</p>
+</div>
+
+<p>Sincerely,</p>
+<p>Susan Smith</p>
+<p>PHP Department</p>
+	<div style="width: 100%; height: 5px; background: #1B66B3;"></div>	
+</div>
+
 </div>
 </section>
 
