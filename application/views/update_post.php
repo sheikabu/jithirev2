@@ -67,16 +67,22 @@ if(!$email){
 				</div>
 				<div class="form-group ">
 					<label>Job Type</label>
-					 <div class="job_type">
-						<select name="job_type" required class="form-control" >
-						<option value='' >--select--</option>
-		                    <option value ='Permanent' <?php if($values['job_type'] == 'Permanent') echo"selected"; ?>>Permanent</option>
-		                    <option value ='Short Term' <?php if($values['job_type'] == 'Short Term') echo"selected"; ?>>Short Term</option>
-		                    <option value ='Both' <?php if($values['job_type'] == 'Both') echo"selected"; ?>>Both</option>
+					 <div class="job_type"  id="job_type">
+					  <?php $jobt  = json_decode($values['job_type']); ?>
+						<select id="job-type" name="job_type[]"   class="demo-default" placeholder="Select job type...">
+						 <option value=''>select job type</option>
+	                   <optgroup label="select job type">
+
+<?php foreach($get_job_type as $jobtypelist => $jobtypeval) { ?>
+<option value ='<?php echo $jobtypeval['job_type']; ?>' <?php if (in_array($jobtypeval['job_type'], $jobt)) { echo"selected"; } ?>>
+<?php echo $jobtypeval['job_type'] ?></option>
+<?php }	 ?>
+	</optgroup>
 						
 					</select>
 					</div>
 				</div>
+				 
 			 	 <div class="form-group salary-form-group">
 					<label>Preferred Joining Date:</label>
 					  <input name="close_date_time" class="form-control" id="joining_date" value="<?php echo $values['close_date_time'];?>" placeholder="Preferred Joining" type="text"  required>
@@ -101,7 +107,7 @@ if(!$email){
 	            
 	            <div class="form-group salary-form-group">
 					<label>Annual CTC (Lakhs)</label>
-					  <input name="salary_lakhs" class="form-control" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;" placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" required>
+					  <input name="salary_lakhs" class="form-control" onkeyup="if(this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));"  placeholder="salary*" type="text" value="<?php echo $values['salary_lakhs'];?>" required>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12 paddingL-0 line2 mBot-5">
@@ -373,6 +379,9 @@ $('#preferred_location').selectize({
 sortField: 'text'
 });
 $('#primary-skill').selectize({
+sortField: 'text'
+});
+$('#job-type').selectize({
 sortField: 'text'
 });
 $('#skill1').selectize({

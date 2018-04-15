@@ -187,7 +187,7 @@ if(!$email){
 	 	<div class="col-xs-12">
 		                  <label class="col-md-12">Annual CTC (Lakhs)</label>
 		                  <div class="col-md-12"> 
-		                <input type="text" name="salary_lakhs" class="form-control" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;" required placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
+		                <input type="text" name="salary_lakhs" class="form-control" onkeyup="if(this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));"  required placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
 		        </div>
 	                </div>
 					<div class="col-xs-12 mTop-5" >

@@ -668,6 +668,7 @@ class User extends CI_Controller {
 		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
 		$data['get_cities'] = $this->valid_m->get_cities();
 		$data['get_skills'] = $this->valid_m->get_skills();
+		$data['get_job_type'] = $this->valid_m->get_job_type();
 		$this->load_view('post_job',$data);	
 		
 	}
@@ -690,6 +691,7 @@ class User extends CI_Controller {
     	$data['job_list'] = $this->valid_m->update_posted_job($job_uid);		
     	$data['get_cities'] = $this->valid_m->get_cities();
 		$data['get_skills'] = $this->valid_m->get_skills();
+		$data['get_job_type'] = $this->valid_m->get_job_type();
 		$this->load_view('update_post',$data);
 		
 	}
@@ -751,7 +753,7 @@ class User extends CI_Controller {
 					'no_positions' => $this->input->post('no_positions'),
 					'duration' => $this->input->post('duration'), 
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
-					'job_type' => $this->input->post('job_type'),
+					'job_type' => json_encode($this->input->post('job_type')),
 					'status' => $this->input->post('status'),
 					
 					
@@ -857,7 +859,7 @@ class User extends CI_Controller {
 					'no_positions' => $this->input->post('no_positions'),
 					'duration' => $this->input->post('duration'), 
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
-					'job_type' => $this->input->post('job_type'),
+					'job_type' => json_encode($this->input->post('job_type')),
 
 							
 					//'company' => $this->input->post($company),

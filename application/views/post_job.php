@@ -67,12 +67,17 @@ if(!$email){
 				</div>
 				<div class="form-group ">
 					<label>Job Type</label>
-					 <div class="job_type">
-						<select name="job_type" required class="form-control">
-						<option value=''>--select--</option>
-		                    <option value ='Permanent'>Permanent</option>
-		                    <option value ='Short Term' >Short Term</option>
-		                    <option value ='Both' >Both</option>
+					 <div class="job_type"  id="job_type">
+					  <?php $jobt  = json_decode($values['job_type']); ?>
+						<select id="job-type" name="job_type[]"   class="demo-default" placeholder="Select job type...">
+						 <option value=''>select job type</option>
+	                   <optgroup label="select job type">
+
+<?php foreach($get_job_type as $jobtypelist => $jobtypeval) { ?>
+<option value ='<?php echo $jobtypeval['job_type']; ?>' <?php if (in_array($jobtypeval['job_type'], $jobt)) { echo"selected"; } ?>>
+<?php echo $jobtypeval['job_type'] ?></option>
+<?php }	 ?>
+	</optgroup>
 						
 					</select>
 					</div>
@@ -101,7 +106,7 @@ if(!$email){
 	            
 	            <div class="form-group salary-form-group">
 					<label>Annual CTC (Lakhs)</label>
-					  <input name="salary_lakhs" class="form-control" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;" placeholder="salary*" type="text" value="" required>
+					  <input name="salary_lakhs" class="form-control" onkeyup="if(this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));"  placeholder="salary*" type="text" value="" required>
 				</div>
 				<div class="form-group skills">
 	            	<label>Primary Skill :</label>
@@ -283,6 +288,9 @@ $('#preferred_location').selectize({
 sortField: 'text'
 });
 $('#primary-skill').selectize({
+sortField: 'text'
+});
+$('#job-type').selectize({
 sortField: 'text'
 });
 $('#skill1').selectize({

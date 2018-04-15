@@ -48,7 +48,19 @@ if(!$email){
 					</div>
 					<div class="row">
 						<div class="col-md-4"><label class="col-md-5">Annual CTC (Lakhs):</label><span class="col-md-7"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>
-						<div class="col-md-4"><label class="col-md-5">Job Type:</label><span class="col-md-7"><?php echo $values['job_type'];?></span></div>
+						
+						<?php $job_type  = json_decode($values['job_type']); ?>
+						 <div class="col-md-4">
+		                  <label class="col-md-5">Job Type:</label>
+		                  <span class="col-md-7">
+							<?php 
+							foreach ($job_type as $key => $value) {
+							$jobtype .= $value.', ';
+							} 
+							echo rtrim($jobtype,', ');
+							?>
+		                  </span>
+		                </div>
 						<div class="col-md-4"><label class="col-md-5">Primary skills: </label><span class="col-md-7">
 						<?php $primary_skill =  json_decode($values['primary_skill']);
 						foreach ($primary_skill as $pkey => $pvalue) {
