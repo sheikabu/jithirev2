@@ -24,108 +24,103 @@ if(!$email){
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Job code:</label> <span class="col-md-7"><?php echo $values['Job_code'];?></span></div>
-						<div class="col-md-4"><label class="col-md-5">Role:</label> <span class="col-md-7"><?php echo $values['job_role'];?></span></div>
-						<div class="col-md-4"><label class="col-md-5">Location:</label><span class="col-md-7 inline-flex">
+						<div class="col-md-6">
+							<div class="col-xs-12"><label class="col-md-4">Job code:</label> <span class="col-md-8"><?php echo $values['Job_code'];?></span>
+							</div>
+							
+							<div class="col-xs-12"><label class="col-md-4">Experience:</label><span class="col-md-8"><?php echo $values['min_exp'];?> - <?php echo $values['max_exp'];?> Years</span>
+							</div>
+							<div class="col-xs-12"><label class="col-md-4">Duration:</label><span class="col-md-8"> <?php echo $values['duration'];?></span></div>
+							<div class="col-xs-12"><label class="col-md-4">No of Positions:</label><span class="col-md-8"> <?php echo $values['no_positions'];?></span></div>
+							<div class="col-xs-12"><label class="col-md-4">Primary skills: </label><span class="col-md-8">
+								<?php $primary_skill =  json_decode($values['primary_skill']);
+								foreach ($primary_skill as $pkey => $pvalue) {
+									echo $pkey.' - '.$pvalue;
+								}
+							    ?></span>
+					    	</div>
+					    	<div class="col-xs-12"><label class="col-md-4">Skills: </label>
+							 <span class="col-md-8 pull-right skills-wrap">
+			                  <?php 
+			                  $skill1 = json_decode($values['skill1']);
+			                  $skill2 = json_decode($values['skill2']);
+			                  $skill3 = json_decode($values['skill3']);
+			                  $skill4 = json_decode($values['skill4']);
+			                  $skill5 = json_decode($values['skill5']);
+			                  foreach ($skill1 as $key1 => $value1)
+			                  if($key1!='_empty_'){
+			                  echo $skill1 .= $key1.'<span class="skill-level">- '.$value1.'</span><br>'; }
+			                  
+				              foreach ($skill2 as $key2 => $value2)
+				              	 if($key2!='_empty_'){
+				                  echo $skill2 .= $key2.'<span class="skill-level">- '.$value2.'</span><br>';}
+				              
+				              foreach ($skill3 as $key3 => $value3)
+				              	 if($key3!='_empty_'){
+				                  echo $skill3 .= $key3.'<span class="skill-level">- '.$value3.'</span><br>';}
+				             
+				              foreach ($skill4 as $key4 => $value4)
+				              	  if($key4!='_empty_'){
+				                  echo $skill4 .= $key4.'<span class="skill-level">- '.$value4.'</span><br>';}
+				               
+				              foreach ($skill5 as $key5 => $value5)
+				              	if($key5!='_empty_'){
+				                  echo $skill5 .= $key5.'<span class="skill-level">- '.$value5.'</span><br>';}
+				                  ?>
+			                  </span>
+							</div> 
+						</div>
+						<div class="col-md-6">
+								 <div class="col-xs-12">
+						 			 <label class="col-md-4">Status:</label><span class="col-md-8"> <?php echo $values['status'];?></span>
+			           			 </div>
+								<div class="col-xs-12"><label class="col-md-4">Job Type:</label><span class="col-md-8"><?php echo $values['job_type'];?></span></div>
+								<div class="col-xs-12"><label class="col-md-4">Role:</label> <span class="col-md-8"><?php echo $values['job_role'];?></span>
+								</div>
+								<div class="col-xs-12"><label class="col-md-4">Annual CTC (Lakhs):</label><span class="col-md-8"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>
+								
+								<div class="col-xs-12"><label class="col-md-4">Location:</label><span class="col-md-8 inline-flex">
 						<?php $locations= json_decode($values['preferred_location'], true);
 								foreach($locations as $lkey => $lvalues) {
 									$ploca .= $lvalues.', ';
 								} echo rtrim($ploca,', '); unset($ploca);
 								?>
 								</span>
+								</div>
 						</div>
-					</div>
-					<!-- <div class="row">
-						<div class="col-md-6"><label class="col-md-4">Job Description:</label><div class="col-md-8"> <?php echo $values['job_description'];?></div>
-						</div>
-					</div> -->
-					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Experience:</label><span class="col-md-7"><?php echo $values['min_exp'];?> - <?php echo $values['max_exp'];?> Years</span>
-						</div>
-
-						<div class="col-md-4"><label class="col-md-5">No of Positions:</label><span class="col-md-7"> <?php echo $values['no_positions'];?></span></div>
-						<div class="col-md-4"><label class="col-md-5">Duration:</label><span class="col-md-7"> <?php echo $values['duration'];?></span></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Annual CTC (Lakhs):</label><span class="col-md-7"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>
-						<div class="col-md-4"><label class="col-md-5">Job Type:</label><span class="col-md-7"><?php echo $values['job_type'];?></span></div>
-						<div class="col-md-4"><label class="col-md-5">Primary skills: </label><span class="col-md-7">
-						<?php $primary_skill =  json_decode($values['primary_skill']);
-						foreach ($primary_skill as $pkey => $pvalue) {
-							echo $pkey.' - '.$pvalue;
-						}
-					    ?></span></div>
+						<div class="col-xs-12">
+								<label class="col-md-4">Job Description:</label><div class="col-md-8 mLeft-5"> <?php echo $values['job_description'];?></div>
+							</div>
 					</div>
 					<div class="row">
-						<div class="col-md-4"><label class="col-md-5">Skills: </label>
-						 <span class="col-md-8 pull-right skills-wrap">
-		                  <?php 
-		                  $skill1 = json_decode($values['skill1']);
-		                  $skill2 = json_decode($values['skill2']);
-		                  $skill3 = json_decode($values['skill3']);
-		                  $skill4 = json_decode($values['skill4']);
-		                  $skill5 = json_decode($values['skill5']);
-		                  foreach ($skill1 as $key1 => $value1)
-		                  if($key1!='_empty_'){
-		                  echo $skill1 .= $key1.'<span class="skill-level">- '.$value1.'</span><br>'; }
-		                  
-			              foreach ($skill2 as $key2 => $value2)
-			              	 if($key2!='_empty_'){
-			                  echo $skill2 .= $key2.'<span class="skill-level">- '.$value2.'</span><br>';}
-			              
-			              foreach ($skill3 as $key3 => $value3)
-			              	 if($key3!='_empty_'){
-			                  echo $skill3 .= $key3.'<span class="skill-level">- '.$value3.'</span><br>';}
-			             
-			              foreach ($skill4 as $key4 => $value4)
-			              	  if($key4!='_empty_'){
-			                  echo $skill4 .= $key4.'<span class="skill-level">- '.$value4.'</span><br>';}
-			               
-			              foreach ($skill5 as $key5 => $value5)
-			              	if($key5!='_empty_'){
-			                  echo $skill5 .= $key5.'<span class="skill-level">- '.$value5.'</span><br>';}
-			                  ?>
-		                  </span>
-						
-						
-									 
-						</div> 
-						<div class="col-md-8">
-							
-							<label class="col-md-4">Job Description:</label><div class="col-md-10 mLeft-5"> <?php echo $values['job_description'];?></div>
-						
-						</div>
-						 <div class="col-md-4">
-						  <label class="col-md-5">Status:</label><span class="col-md-7"> <?php echo $values['status'];?></span>
-			            </div>
-					</div>
-				    <div class="row">
-					
-			            <div class="col-md-4">
-			                <label class="col-md-5">Opening:</label><span class="col-md-7"><?php
+						<div class="col-md-6 mTop-10">
+							<div class="col-xs-12">
+			                <label class="col-md-4">Opening:</label><span class="col-md-8"><?php
 			              echo $values['open_date_time']; 
 			                ?></span>
 			            </div>
-			           
-			            <div class="col-md-4">
-			                <label class="col-md-5">Preferred Joining:</label><span class="col-md-7"> <?php echo $values['close_date_time'];?></span>
-			            </div>
-			            <div class="col-md-4 text-right">
+						</div>
+						<div class="col-md-6 text-right">
+							<div class="col-xs-12">
+			                	<label class="col-md-4">Preferred Joining:</label><span class="col-md-8"> <?php echo $values['close_date_time'];?></span>
+			            	</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-right">
 			                <a href="<?php echo site_url() ?>user/candidates_apply/<?php echo $values['job_id']; ?>" class="link">Applied Candidates (<?php echo $applied_count; ?>)</a>
 			            </div>
             		</div>
 		   
-			<?php echo '<br><hr>'; } ?> 
+				<?php echo '<br><hr>'; } ?> 
 			
-			<div class="form-group">
-				
-				<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
-			</div>
-
-			
-
+				<div class="form-group">
+					
+					<input type="hidden" name="company_id" class="form-control" value='<?php echo($this->session->userdata("id")) ;  ?>' />
 				</div>
+			</div>
 		</div>
-
 	</div>
 </section>
