@@ -137,6 +137,9 @@ class User extends CI_Controller {
 		$data['get_skills'] = $this->valid_m->get_skills();
 		$data['get_domains'] = $this->valid_m->get_domains();
 		$data['get_cities'] = $this->valid_m->get_cities();
+		$data['get_job_type'] = $this->valid_m->get_job_type();
+		$data['get_gender'] = $this->valid_m->get_gender();
+		$data['get_total_it_experience'] = $this->valid_m->get_total_it_experience();
 		if($data['get_candidate_info']['primary_skill']!='')
 		{ $this->load_view('user_details',$data); } else { $this->load_view('update_profile',$data); }
 		
@@ -148,6 +151,9 @@ class User extends CI_Controller {
 		$data['get_skills'] = $this->valid_m->get_skills();	
 		$data['get_domains'] = $this->valid_m->get_domains();	
 		$data['get_cities'] = $this->valid_m->get_cities();
+		$data['get_job_type'] = $this->valid_m->get_job_type();
+		$data['get_gender'] = $this->valid_m->get_gender();
+		$data['get_total_it_experience'] = $this->valid_m->get_total_it_experience();
 		$this->load_view('update_profile',$data);
 		
 	}
@@ -212,7 +218,7 @@ class User extends CI_Controller {
 					'pancard' => $this->input->post('pancard'),
 					'mobile_number' => $this->input->post('mobile_number'),
 					'dob' => $this->input->post('bday'), 
-					'total_experience' => $this->input->post('total_experience'),
+					'total_experience' =>  json_encode($this->input->post('total_experience')),
 					'gender' => $this->input->post('gender'),
 					'industry' => $this->input->post('industry'),
 					'functional_area' =>$this->input->post('functional_area'),
@@ -351,9 +357,9 @@ class User extends CI_Controller {
 					'pancard' => $this->input->post('pancard'),
 					'mobile_number' => $this->input->post('mobile_number'),
 					'dob' => $this->input->post('bday'), 
-					'gender' => $this->input->post('gender'),
+					'gender' => json_encode($this->input->post('gender')),
 					'user_id' => $this->session->userdata("id"),
-					'total_experience' => $this->input->post("total_experience"),
+					'total_experience' => json_encode($this->input->post('total_experience')),
 					'current_location' =>json_encode($this->input->post('current_location')),
 					'year_completion' => $this->input->post("year_completion"),
 					'institute' => $this->input->post("institute"),

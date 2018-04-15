@@ -68,15 +68,20 @@ if(!$email){
 	                  <!-- birth day -->
 	                  <label class="col-md-12">Date of Birth</label><div class="col-md-12"> <input type="date" name="bday" class="form-control"  value="<?php echo $get_candidate_info['dob']; ?>" required> </div>
 	                </div>
-	                 <div class="col-xs-12">
-	                  	<label class="col-md-12">Gender</label>
-	                  	<div class="col-md-12"> 
-		                  	<select name="gender" required class="form-control">
-			        			<option value=''>--select--</option>
-			        			<option value ='m' <?php if($get_candidate_info['gender'] == 'm') echo"selected"; ?>>Male</option>
-			        			<option value ='f' <?php if($get_candidate_info['gender'] == 'f') echo"selected"; ?>>Female</option>
-		        			</select> 
-					</div>
+	                   <div class="col-xs-12 mTop-5">
+	                  <label class="col-md-12">Gender</label><div class="col-md-12" id="gender"> 
+					  <?php $gen  = json_decode($get_candidate_info['gender']); ?>
+	                   <select id="gen-der" name="gender[]"   class="demo-default" placeholder="Select gender...">
+						 <option value=''>select gender</option>
+	                   <optgroup label="select gender">
+
+<?php foreach($get_gender as $genderlist => $genderval) { ?>
+<option value ='<?php echo $genderval['gender']; ?>' <?php if (in_array($genderval['gender'], $gen)) { echo"selected"; } ?>>
+<?php echo $genderval['gender'] ?></option>
+<?php }	 ?>
+	</optgroup>
+	                  </select>
+	                </div>
 	                </div>
 	               </div>
 	                <div class="col-md-4">
@@ -102,31 +107,22 @@ if(!$email){
 	                </div>
 	                </div>
 	              
-	              	 <div class="col-xs-12 mTop-5">
-	                   <label class="col-md-12">Total IT experience</label><div class="col-md-12"> 
-	                    <select name="total_experience" id="total_experience" class="form-control" placeholder="total_experience" required onchange="showDiv(this)">
-	                    <option value=''>--YEAR--</option>
-	                    <option value ='Fresher' <?php if($get_candidate_info['total_experience'] == 'Fresher') echo"selected"; ?>>Fresher</option>
-	                    <option value ='1-2' <?php if($get_candidate_info['total_experience'] == '1-2') echo"selected"; ?>>1-2</option>
-	                    <option value ='2-3' <?php if($get_candidate_info['total_experience'] == '2-3') echo"selected"; ?>>2-3</option>
-	                    <option value ='3-4' <?php if($get_candidate_info['total_experience'] == '3-4') echo"selected"; ?>>3-4</option>
-	                    <option value ='4-5' <?php if($get_candidate_info['total_experience'] == '4-5') echo"selected"; ?>>4-5</option>
-						<option value ='5-6' <?php if($get_candidate_info['total_experience'] == '5-6') echo"selected"; ?>>5-6</option>
-	                    <option value ='6-7' <?php if($get_candidate_info['total_experience'] == '6-7') echo"selected"; ?>>6-7</option>
-	                    <option value ='7-8' <?php if($get_candidate_info['total_experience'] == '7-8') echo"selected"; ?>>7-8</option>
-	                    <option value ='8-9' <?php if($get_candidate_info['total_experience'] == '8-9') echo"selected"; ?>>8-9</option>
-						<option value ='9-10' <?php if($get_candidate_info['total_experience'] == '9-10') echo"selected"; ?>>9-10</option>
-						<option value ='10-12' <?php if($get_candidate_info['total_experience'] == '10-12') echo"selected"; ?>>10-12</option>
-	                    <option value ='12-14' <?php if($get_candidate_info['total_experience'] == '12-14') echo"selected"; ?>>12-14</option>
-	                    <option value ='14-16' <?php if($get_candidate_info['total_experience'] == '14-16') echo"selected"; ?>>14-16</option>
-	                    <option value ='16-18' <?php if($get_candidate_info['total_experience'] == '16-18') echo"selected"; ?>>16-18</option>
-						<option value ='18-20' <?php if($get_candidate_info['total_experience'] == '18-20') echo"selected"; ?>>18-20</option>
-	                    <option value ='20-25' <?php if($get_candidate_info['total_experience'] == '20-25') echo"selected"; ?>>20-25</option>
-	                    <option value ='25-30' <?php if($get_candidate_info['total_experience'] == '25-30') echo"selected"; ?>>25-30</option>
-	                   
-	                  </select>
+	              	 
+					<div class="col-xs-12 mTop-5" >
+	                  <label class="col-md-12">Total IT experience</label><div class="col-md-12" id="total_experience"> 
+	                    <?php $experience  = json_decode($get_candidate_info['total_experience']); ?>
+	<select id="total-experience" name="total_experience[]" class="demo-default"  placeholder="Select Total experience...">	
+	<option value="">Select Total experience...</option>
+	<optgroup label="select  Total experience">
+
+<?php foreach($get_total_it_experience as $experiencelist => $experienceval) { ?>
+<option value ='<?php echo $experienceval['total_experience']; ?>' <?php if (in_array($experienceval['total_experience'], $experience)) { echo"selected"; } ?>>
+<?php echo $experienceval['total_experience'] ?></option>
+<?php }	 ?>
+	</optgroup>
+	</select>
 	                </div>
-	                </div>
+	    </div>
 	              
 	                <div class="col-xs-12 mTop-5" id="pre-role">
 	                  	<label class="col-md-12">Previous Role</label>
@@ -164,13 +160,18 @@ if(!$email){
 							    <input type="text" name="branch" id="branch_input" class="form-control" placeholder="Branch" value="<?php echo $get_candidate_info['branch']; ?>">
 						</div>
 					</div>
-	                <div class="col-xs-12 mTop-5">
-	                  <label class="col-md-12">Job Type</label><div class="col-md-12"> 
-	                   <select name="job_type"  required class="form-control">
-						 <option value=''>--select--</option>
-	                    <option value ='Permanent' <?php if($get_candidate_info['job_type'] == 'Permanent') echo"selected"; ?>>Permanent</option>
-	                    <option value ='Short Term' <?php if($get_candidate_info['job_type'] == 'Short Term') echo"selected"; ?>>Short Term</option>
-	                    <option value ='Both' <?php if($get_candidate_info['job_type'] == 'Both') echo"selected"; ?>>Both</option>
+	                 <div class="col-xs-12 mTop-5">
+	                  <label class="col-md-12">Job Type</label><div class="col-md-12" id="job_type"> 
+					  <?php $jobt  = json_decode($get_candidate_info['job_type']); ?>
+	                   <select id="job-type" name="job_type[]"   class="demo-default" placeholder="Select job type...">
+						 <option value=''>select job type</option>
+	                   <optgroup label="select job type">
+
+<?php foreach($get_job_type as $jobtypelist => $jobtypeval) { ?>
+<option value ='<?php echo $jobtypeval['job_type']; ?>' <?php if (in_array($jobtypeval['job_type'], $jobt)) { echo"selected"; } ?>>
+<?php echo $jobtypeval['job_type'] ?></option>
+<?php }	 ?>
+	</optgroup>
 	                  </select>
 	                </div>
 	                </div>
@@ -253,6 +254,7 @@ if(!$email){
 	</select>
 	                </div>
 	    </div>
+		 
 	 </div>
 	 
 	 	
@@ -593,6 +595,15 @@ sortField: 'text',
 maxItems:3
 });
 $('#add-domain').selectize({
+sortField: 'text'
+});
+$('#job-type').selectize({
+sortField: 'text'
+});
+$('#gen-der').selectize({
+sortField: 'text'
+});
+$('#total-experience').selectize({
 sortField: 'text'
 });
 $('#primary-skill').selectize({
