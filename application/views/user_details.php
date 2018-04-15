@@ -131,10 +131,17 @@ if(!$email){
 					</div>
 					<div class="col-md-5">
 				
-		               <div class="col-xs-12">
-		                  <label class="col-md-4">Gender: </label>
-		                  <?php if($get_candidate_info['gender']=='m') { $gender = 'Male';} else { $gender = 'Female'; } ?>
-		                  <span class="col-md-8"><?php echo $gender; ?></span>
+		              <?php $gender  = json_decode($get_candidate_info['gender']); ?>
+						 <div class="col-xs-12">
+		                  <label class="col-md-4">Gender:</label>
+		                  <span class="col-md-8">
+							<?php 
+							foreach ($gender as $key => $value) {
+							$gen .= $value.', ';
+							} 
+							echo rtrim($gen,', ');
+							?>
+		                  </span>
 		                </div>
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Mobile No:</label>
@@ -153,9 +160,17 @@ if(!$email){
 		    	<div class="col-md-2">
 		    	</div>
 			    <div class="col-md-5">
-			    		<div class="col-xs-12">
-		                  <label class="col-md-4">IT experience: </label>
-		                  <span class="col-md-8"><?php if($get_candidate_info['total_experience']=='Fresher') { echo $get_candidate_info['total_experience']; } else { echo $get_candidate_info['total_experience'].' Year(s)'; } ?></span>
+			    		 <?php $total_experience  = json_decode($get_candidate_info['total_experience']); ?>
+						 <div class="col-xs-12">
+		                  <label class="col-md-4">Total IT experience:</label>
+		                  <span class="col-md-8">
+							<?php 
+							foreach ($total_experience as $key => $value) {
+							$total .= $value.', ';
+							} 
+							echo rtrim($total,', ');
+							?>
+		                  </span>
 		                </div>
 		                
 		                
@@ -169,9 +184,18 @@ if(!$email){
 		                  <label class="col-md-4">Preferred Roles: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['preferred_roles']; ?></span>
 		                </div>						
+						 
+						<?php $job_type  = json_decode($get_candidate_info['job_type']); ?>
 						 <div class="col-xs-12">
-		                  <label class="col-md-4">Job Type: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['job_type']; ?></span>
+		                  <label class="col-md-4">Job Type:</label>
+		                  <span class="col-md-8">
+							<?php 
+							foreach ($job_type as $key => $value) {
+							$jobtype .= $value.', ';
+							} 
+							echo rtrim($jobtype,', ');
+							?>
+		                  </span>
 		                </div>
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Primary Skill: </label>

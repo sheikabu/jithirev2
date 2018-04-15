@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2018 at 08:59 PM
+-- Generation Time: Apr 15, 2018 at 04:17 PM
 -- Server version: 5.6.17-log
 -- PHP Version: 5.5.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `jh_total_it_experience` (
   `total_it_experience_id` int(11) NOT NULL AUTO_INCREMENT,
-  `it_experience` varchar(34) DEFAULT NULL,
+  `total_experience` varchar(34) DEFAULT NULL,
   PRIMARY KEY (`total_it_experience_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=44 ;
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `jh_total_it_experience` (
 -- Dumping data for table `jh_total_it_experience`
 --
 
-INSERT INTO `jh_total_it_experience` (`total_it_experience_id`, `it_experience`) VALUES
+INSERT INTO `jh_total_it_experience` (`total_it_experience_id`, `total_experience`) VALUES
 (1, 'Fresher'),
 (2, '1-2'),
 (3, '2-3'),
