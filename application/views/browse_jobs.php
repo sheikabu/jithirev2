@@ -54,7 +54,7 @@ if(!$email){
               <span class="col-md-8 pull-left skills-wrap">
                 <span><?php  $skill1 = json_decode($values['skills']);
                 foreach ($skill1 as $skey1 => $svalue1) echo $skey1.'<span class="skill-level">- '.$svalue1;
-                ?></span><br>
+                ?></span>
                 <span><?php $skill2 = json_decode($values['skill1']);
                 foreach ($skill2 as $skey2 => $svalue2) echo $skey2.'<span class="skill-level">- '.$svalue2;
                 ?></span><br>

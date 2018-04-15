@@ -756,7 +756,8 @@ select.form-control:not([size]):not([multiple]) {
 }
 .skills-wrap .skill-level{ 
     float: right;
-    /*width: 55%; */
+    width: 32%;
+    text-align: left;
     font-size: 12px;
     margin-right: -5px;
   }
