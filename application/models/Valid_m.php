@@ -181,7 +181,7 @@ class Valid_m extends CI_Model{
 
 
 		/*find candidate logic here*/
-		if($insert_id!=''){
+		/*if($insert_id!=''){
 
 			echo '<pre>';
 			var_dump($user_details);
@@ -205,8 +205,8 @@ class Valid_m extends CI_Model{
 			  $results = $query->result_array();
 			  //print_r($results);
 	  		  //return $results;*/
-		}
-		exit;
+		//}
+		//exit;
 		/*END*/
 
 	    return TRUE;
