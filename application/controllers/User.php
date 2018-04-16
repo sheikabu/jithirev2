@@ -250,7 +250,6 @@ class User extends CI_Controller {
 
 	public function basic_info() { 
 	
-		
 			if(!empty($_FILES["image_file"]["name"]))  
 			{   
 				$config['upload_path'] = 'upload/photos';
@@ -357,9 +356,9 @@ class User extends CI_Controller {
 					'pancard' => $this->input->post('pancard'),
 					'mobile_number' => $this->input->post('mobile_number'),
 					'dob' => $this->input->post('bday'), 
-					'gender' => json_encode($this->input->post('gender')),
+					'gender' => $this->input->post('gender'),
 					'user_id' => $this->session->userdata("id"),
-					'total_experience' => json_encode($this->input->post('total_experience')),
+					'total_experience' => $this->input->post('total_experience'),
 					'current_location' =>json_encode($this->input->post('current_location')),
 					'year_completion' => $this->input->post("year_completion"),
 					'institute' => $this->input->post("institute"),
@@ -372,7 +371,7 @@ class User extends CI_Controller {
 					'industry' => $this->input->post('industry'),
 					'preferred_roles' =>$this->input->post('preferred_roles'),
 					'previous_role' => $this->input->post('role'),
-					'job_type' =>json_encode($this->input->post('job_type')),
+					'job_type' =>$this->input->post('job_type'),
 					'primary_skill' => $primaryskills,
 					'add_domain' =>json_encode($this->input->post('add_domain')),
 					
@@ -655,8 +654,9 @@ class User extends CI_Controller {
 	{
 		
 		$comp_id = $this->session->userdata("id");
-		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);			
-		$data['job_list'] = $this->valid_m->posted_job_list($comp_id);	
+		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);	
+		$data['get_skills'] = $this->valid_m->get_skills();		
+		$data['job_list'] = $this->valid_m->posted_job_list($comp_id);
 		$this->load_view('company_dashboard',$data);	
 		
 	}
@@ -669,6 +669,7 @@ class User extends CI_Controller {
 		$data['get_cities'] = $this->valid_m->get_cities();
 		$data['get_skills'] = $this->valid_m->get_skills();
 		$data['get_job_type'] = $this->valid_m->get_job_type();
+		$data['get_skills'] = $this->valid_m->get_skills();
 		$this->load_view('post_job',$data);	
 		
 	}
@@ -676,6 +677,8 @@ class User extends CI_Controller {
 	{
 		$posted_id;
 		//$cid = $this->session->userdata('id');
+		$data['get_skills'] = $this->valid_m->get_skills();
+		$data['get_job_type'] = $this->valid_m->get_job_type();
 		$data['job_list'] = $this->valid_m->single_posted_job($posted_id);
 		$data['applied_count'] = $this->valid_m->count_applied($posted_id);
 
@@ -753,7 +756,7 @@ class User extends CI_Controller {
 					'no_positions' => $this->input->post('no_positions'),
 					'duration' => $this->input->post('duration'), 
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
-					'job_type' => json_encode($this->input->post('job_type')),
+					'job_type' => $this->input->post('job_type'),
 					'status' => $this->input->post('status'),
 					
 					
@@ -859,7 +862,7 @@ class User extends CI_Controller {
 					'no_positions' => $this->input->post('no_positions'),
 					'duration' => $this->input->post('duration'), 
 					'salary_lakhs' => $this->input->post('salary_lakhs'),
-					'job_type' => json_encode($this->input->post('job_type')),
+					'job_type' => $this->input->post('job_type'),
 
 							
 					//'company' => $this->input->post($company),
@@ -872,7 +875,7 @@ class User extends CI_Controller {
 
 		 			);
 		 			
-					//print_r ($user_details['employer_name']); exit;
+					//print_r ($user_details); exit;
 				    $this->valid_m->insert_job_posting($user_details);
 		 			 
 		 	    $data['message'] = 'Successfully Posted a Job';
@@ -958,12 +961,17 @@ class User extends CI_Controller {
 		 	 $data['message'] = 'Offer Created';
 		 	 $this->load_view('offer_letter',$data);
 	}
-	public function offer($user_id){
+	public function offer($user_id, $job_id){
 		//echo $user_id;
 
 		$this->load->helper('pdf_helper');
-		$data['user_id']=$user_id;
-		$data['name'] = 'Hi Sheik';
+		$user = $this->user_profile->get_user_profile_id($user_id);
+		$job = $this->valid_m->single_posted_job($job_id);
+
+		$data['name'] = $user['first_name'];
+		$data['Job_code'] = $job[0]['Job_code'];
+		$data['job_role'] = $job[0]['job_role'];
+		$data['job_type'] = $job[0]['job_type'];
 		$this->load_view('viewoffer', $data);
    }
 
@@ -1002,6 +1010,7 @@ class User extends CI_Controller {
 		$user_id = $this->session->userdata('id');                                                                                        
 		
 		$data['candidate_list'] = $this->valid_m->candidate_job_list($user_id);	
+		$data['get_skills'] = $this->valid_m->get_skills();
 		$this->load_view('candidate_list',$data);
 		
 	}

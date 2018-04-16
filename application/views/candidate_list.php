@@ -23,7 +23,7 @@ if(!$email){
 				      	<th>Candidate Phone</th>
 				      	<th>Primary Skills</th>					  	
 					  	<th>Prefered Location</th>
-					  	<th>Expected Salary</th>
+					  	<th>Total IT Experience</th>
 					  	<th>View ProFile</th>
 			    	</tr>
 			  	</thead>
@@ -36,8 +36,28 @@ if(!$email){
 			      		<td><?php echo $values['name'] ;?></td>
 			      		<td><?php echo $values['email'] ;?></td>
 			      		<td><?php echo $values['mobile_number'] ;?></td>
-			      		<td><?php echo $values['primary_skill'] ;?></td>
-			    		<td><?php echo $values['current_location'] ;?></td>
+			      		<td>
+			      			<?php  $primary_skill = json_decode($values['primary_skill'], true);
+					                  foreach($primary_skill as $key => $value) {
+						                  		foreach ($get_skills as $skey => $svalue) {
+													if($svalue['skill_id']==$key) {
+														echo $svalue['skills'] .' - '.$value;
+												}
+											}			                  		
+					                  	}
+
+							    ?>
+
+			      		</td>
+			    		<td><?php $locations  = json_decode($values['current_location']);?>
+			    			<?php 
+		                  foreach ($locations as $key => $value) {
+		                  	 $location .= $value.', ';
+		                  } 
+		                  echo rtrim($location,', '); 
+		                  ?>
+
+			    		</td>
 						<td><?php echo $values['total_experience'] ;?></td>
 			    		<td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>?>" class="link">View Profile</a></td>
 						

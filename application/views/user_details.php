@@ -131,15 +131,16 @@ if(!$email){
 					</div>
 					<div class="col-md-5">
 				
-		              <?php $gender  = json_decode($get_candidate_info['gender']); ?>
+		              <?php $gender  = $get_candidate_info['gender']; ?>
 						 <div class="col-xs-12">
 		                  <label class="col-md-4">Gender:</label>
 		                  <span class="col-md-8">
-							<?php 
-							foreach ($gender as $key => $value) {
-							$gen .= $value.', ';
+							<?php					
+							foreach ($get_gender as $key => $value) {
+								if($value['gender_id']==$gender) {
+									echo $value['gender'];
+								}
 							} 
-							echo rtrim($gen,', ');
 							?>
 		                  </span>
 		                </div>
@@ -160,15 +161,16 @@ if(!$email){
 		    	<div class="col-md-2">
 		    	</div>
 			    <div class="col-md-5">
-			    		 <?php $total_experience  = json_decode($get_candidate_info['total_experience']); ?>
+			    		 <?php $total_experience  = $get_candidate_info['total_experience']; ?>
 						 <div class="col-xs-12">
 		                  <label class="col-md-4">Total IT experience:</label>
 		                  <span class="col-md-8">
-							<?php 
-							foreach ($total_experience as $key => $value) {
-							$total .= $value.', ';
+								<?php					
+							foreach ($get_total_it_experience as $key => $value) {
+								if($value['total_it_experience_id']==$total_experience) {
+									echo $value['total_experience'].' years Experience';
+								}
 							} 
-							echo rtrim($total,', ');
 							?>
 		                  </span>
 		                </div>
@@ -185,15 +187,16 @@ if(!$email){
 		                  <span class="col-md-8"><?php echo $get_candidate_info['preferred_roles']; ?></span>
 		                </div>						
 						 
-						<?php $job_type  = json_decode($get_candidate_info['job_type']); ?>
+						<?php $job_type  = $get_candidate_info['job_type']; ?>
 						 <div class="col-xs-12">
 		                  <label class="col-md-4">Job Type:</label>
 		                  <span class="col-md-8">
-							<?php 
-							foreach ($job_type as $key => $value) {
-							$jobtype .= $value.', ';
+							<?php					
+							foreach ($get_job_type as $key => $value) {
+								if($value['job_type_id']==$job_type) {
+									echo $value['job_type'];
+								}
 							} 
-							echo rtrim($jobtype,', ');
 							?>
 		                  </span>
 		                </div>
@@ -201,10 +204,16 @@ if(!$email){
 		                  <label class="col-md-4">Primary Skill: </label>
 		                  <span class="col-md-8">
 		                  <?php 
-		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
-		                  foreach ($primary_skill as $key => $value)
-		                  echo $primary_skill .= $key.'-'.$value.'<br>';
+		                  $primary_skill = json_decode($get_candidate_info['primary_skill'], true);
+		                  foreach($primary_skill as $key => $value) {
+			                  		foreach ($get_skills as $skey => $svalue) {
+										if($svalue['skill_id']==$key) {
+											echo $svalue['skills'] .' - '.$value;
+									}
+								}			                  		
+		                  	}
 			                ?>
+
 		                  </span>
 		                </div>
 		                <div class="col-xs-12">
@@ -216,25 +225,33 @@ if(!$email){
 		                  $skill3 = json_decode($get_candidate_info['skill3']);
 		                  $skill4 = json_decode($get_candidate_info['skill4']);
 		                  $skill5 = json_decode($get_candidate_info['skill5']);
+
 		                  foreach ($skill1 as $key1 => $value1)
+		                  	foreach ($get_skills as $skillskey => $skillsvalue) {
+		                  		if($skillsvalue['skill_id']==$key1) {
 		                  if($key1!='_empty_'){
-		                  echo $skill1 .= $key1.'<span class="skill-level">- '.$value1.'</span><br>'; }
+		                  echo $skill1 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value1.'</span><br>'; } }
 		                  
 			              foreach ($skill2 as $key2 => $value2)
+			              		if($skillsvalue['skill_id']==$key2) {
 			              	 if($key2!='_empty_'){
-			                  echo $skill2 .= $key2.'<span class="skill-level">- '.$value2.'</span><br>';}
+			                  echo $skill2 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value2.'</span><br>';} }
 			              
 			              foreach ($skill3 as $key3 => $value3)
+			              	if($skillsvalue['skill_id']==$key3) {
 			              	 if($key3!='_empty_'){
-			                  echo $skill3 .= $key3.'<span class="skill-level">- '.$value3.'</span><br>';}
+			                  echo $skill3 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value3.'</span><br>';} }
 			             
 			              foreach ($skill4 as $key4 => $value4)
+			              	 if($skillsvalue['skill_id']==$key4) {
 			              	  if($key4!='_empty_'){
-			                  echo $skill4 .= $key4.'<span class="skill-level">- '.$value4.'</span><br>';}
+			                  echo $skill4 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value4.'</span><br>';} }
 			               
 			              foreach ($skill5 as $key5 => $value5)
+			              	if($skillsvalue['skill_id']==$key5) {
 			              	if($key5!='_empty_'){
-			                  echo $skill5 .= $key5.'<span class="skill-level">- '.$value5.'</span><br>';}
+			                  echo $skill5 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value5.'</span><br>';} }
+			             }
 			                  ?>
 		                  </span>
 		                </div>

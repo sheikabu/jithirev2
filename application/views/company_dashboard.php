@@ -38,10 +38,15 @@ if(!$email){
 			  		    <td><?php echo $values['job_id']; ?></td>
 			      		<td><?php echo $values['Job_code']; ?></td>
 			      		<td><?php echo $values['job_role']; ?></td>
-			      		<td><?php $primary_skill =  json_decode($values['primary_skill']);
-						foreach ($primary_skill as $pkey => $pvalue) {
-							echo $pkey.' - '.$pvalue;
-						}
+			      		<td><?php
+			      		$primary_skill =  json_decode($values['primary_skill']);
+			      		 foreach($primary_skill as $key => $value) {
+			                  		foreach ($get_skills as $skey => $svalue) {
+										if($svalue['skill_id']==$key) {
+											echo $svalue['skills'] .' - '.$value;
+									}
+								}			                  		
+		                  	}
 					    ?></td>
 			      		<td><?php echo $values['open_date_time']; ?></td> 	
 			      		<td><?php echo $values['close_date_time']; ?></td>

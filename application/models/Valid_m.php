@@ -175,31 +175,38 @@ class Valid_m extends CI_Model{
 
 	public function  insert_job_posting($user_details){ //comments 
 		
-	    //$this->db->insert('jh_job_posting',$user_details);
-	    $insert_id = $this->db->insert_id();
+	    $insert_id =  $this->db->insert('jh_job_posting',$user_details);
+	    //$insert_id = $this->db->insert_id();
 
 
 
 		/*find candidate logic here*/
-		//if($insert_id!=''){
+		if($insert_id!=''){
 
-			/*echo '<pre>';
+			echo '<pre>';
 			var_dump($user_details);
 			echo $user_details['job_role'];
 			$primary_skill = json_decode($user_details['primary_skill']);
+
 			foreach ($primary_skill as $key => $value)
+				echo $value;
 
 			 $this->db->select('*');
 			 $this->db->from('jh_user_profile');	
-			 $this->db->like('primary_skill', $key, 'after');
-			  //$this->db->where('primary_skill',$key); 
+
+			 //$this->db->like('primary_skill', $key, 'before');
+			 $this->db->where('primary_skill','{"'.$key.'":"Basic"}'); 
+			 $this->db->or_where('primary_skill','{"'.$key.'":"Fresher"}'); 
+			 $this->db->or_where('primary_skill','{"'.$key.'":"Intermediate"}'); 
+			 $this->db->or_where('primary_skill','{"'.$key.'":"Advanced"}'); 
+		
 			  $query=$this->db->get();
-			  echo $this->db->last_query(); exit;
+			  $this->db->last_query();
 			  $results = $query->result_array();
-			  print_r($results);
+			  //print_r($results);
 	  		  //return $results;*/
-		//}
-		//exit;
+		}
+		exit;
 		/*END*/
 
 	    return TRUE;

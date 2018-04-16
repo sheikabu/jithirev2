@@ -70,17 +70,19 @@ if(!$email){
 	                </div>
 	                   <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Gender</label><div class="col-md-12" id="gender"> 
-					  <?php $gen  = json_decode($get_candidate_info['gender']); ?>
-	                   <select id="gen-der" name="gender[]"   class="demo-default" placeholder="Select gender...">
+					  <?php $gen  = $get_candidate_info['gender']; ?>
+
+	                   <select id="gen-der" name="gender"   class="demo-default" placeholder="Select gender...">
 						 <option value=''>select gender</option>
 	                   <optgroup label="select gender">
 
-<?php foreach($get_gender as $genderlist => $genderval) { ?>
-<option value ='<?php echo $genderval['gender']; ?>' <?php if (in_array($genderval['gender'], $gen)) { echo"selected"; } ?>>
-<?php echo $genderval['gender'] ?></option>
-<?php }	 ?>
-	</optgroup>
+						<?php foreach($get_gender as $genderlist => $genderval) { ?>
+						<option value ='<?php echo $genderval['gender_id']; ?>' <?php if ($genderval['gender_id']==$gen) { echo"selected"; } ?>>
+						<?php echo $genderval['gender'] ?></option>
+						<?php }	 ?>
+							</optgroup>
 	                  </select>
+
 	                </div>
 	                </div>
 	               </div>
@@ -110,13 +112,13 @@ if(!$email){
 	              	 
 					<div class="col-xs-12 mTop-5" >
 	                  <label class="col-md-12">Total IT experience</label><div class="col-md-12" id="total_experience"> 
-	                    <?php $experience  = json_decode($get_candidate_info['total_experience']); ?>
-	<select id="total-experience" name="total_experience[]" class="demo-default"  placeholder="Select Total experience...">	
+	                    <?php $experience  = $get_candidate_info['total_experience']; ?>
+	<select id="total-experience" name="total_experience" class="demo-default"  placeholder="Select Total experience...">	
 	<option value="">Select Total experience...</option>
 	<optgroup label="select  Total experience">
 
 <?php foreach($get_total_it_experience as $experiencelist => $experienceval) { ?>
-<option value ='<?php echo $experienceval['total_experience']; ?>' <?php if (in_array($experienceval['total_experience'], $experience)) { echo"selected"; } ?>>
+<option value ='<?php echo $experienceval['total_it_experience_id']; ?>' <?php if ($experienceval['total_it_experience_id']==$experience) { echo"selected"; } ?>>
 <?php echo $experienceval['total_experience'] ?></option>
 <?php }	 ?>
 	</optgroup>
@@ -162,15 +164,18 @@ if(!$email){
 					</div>
 	                 <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Job Type</label><div class="col-md-12" id="job_type"> 
-					  <?php $jobt  = json_decode($get_candidate_info['job_type']); ?>
-	                   <select id="job-type" name="job_type[]"   class="demo-default" placeholder="Select job type...">
+					  <?php $jobt  = json_decode($get_candidate_info['job_type']); 
+					  	//echo '<pre>';
+					  	//var_dump($jobt);
+					  ?>
+	                   <select id="job-type" name="job_type"   class="demo-default" placeholder="Select job type...">
 						 <option value=''>select job type</option>
 	                   <optgroup label="select job type">
 
-<?php foreach($get_job_type as $jobtypelist => $jobtypeval) { ?>
-<option value ='<?php echo $jobtypeval['job_type']; ?>' <?php if (in_array($jobtypeval['job_type'], $jobt)) { echo"selected"; } ?>>
-<?php echo $jobtypeval['job_type'] ?></option>
-<?php }	 ?>
+						<?php foreach($get_job_type as $jobtypelist => $jobtypeval) { ?>
+						<option value ='<?php echo $jobtypeval['job_type_id']; ?>' <?php if($jobtypeval['job_type_id']==$jobt) { echo"selected"; } ?>>
+						<?php echo $jobtypeval['job_type'] ?></option>
+						<?php }	 ?>
 	</optgroup>
 	                  </select>
 	                </div>
@@ -201,11 +206,10 @@ if(!$email){
 	                  <select id="current-location" name="current_location[]" class="demo-default" placeholder="Select locations...">
 							<option value="">Select location...</option>
 					<optgroup label="select location">
-					<option value="Trivandrum" <?php if (in_array('Trivandrum', $clocat)) { echo"selected"; } ?>>Trivandrum</option>
-					<option value="Chennai" <?php if (in_array('Chennai', $clocat)) { echo"selected"; } ?>>Chennai</option>
-					<option value="Madurai" <?php if (in_array('Madurai', $clocat)) { echo"selected"; } ?>>Madurai</option>
-					<option value="Kochi" <?php if (in_array('Kochi', $clocat)) { echo"selected"; } ?>>Kochi</option>
-					<option value="Bangalore" <?php if (in_array('Bangalore', $clocat)) { echo"selected"; } ?>>Bangalore</option>
+					<?php foreach($get_cities as $citylist => $citylistval) { ?>
+					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $locations)) { echo"selected"; } ?>>
+					<?php echo $citylistval['city_name'] ?></option>
+					<?php }	 ?>
 					  </optgroup>
 					</select>
 	                </div>
@@ -365,9 +369,11 @@ if(!$email){
                   <select id="primary-skill" class="demo-default" name="primaryskill[]" placeholder="Select Primary Skill..." required>
 						<option value="">Select Primary Skill...</option>
 						<optgroup label="primary skiils">
+
 						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
-							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($pkey==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+							<option value="<?php echo $skillslistval['skill_id']; ?>" <?php if($pkey==$skillslistval['skill_id']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
 						<?php } ?>
+
 						</optgroup>						
 					</select>
 
@@ -415,7 +421,7 @@ if(!$email){
 						<option value="">Select Skill...</option>
 						<optgroup label="Skiils">
 						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
-							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+							<option value="<?php echo $skillslistval['skill_id']; ?>" <?php if($key==$skillslistval['skill_id']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
 						<?php } ?>
 						</optgroup>						
 					</select>
@@ -437,7 +443,7 @@ if(!$email){
 						<option value="">Select Skill...</option>
 						<optgroup label="Skiils">
 						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
-							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key2==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+							<option value="<?php echo $skillslistval['skill_id']; ?>" <?php if($key2==$skillslistval['skill_id']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
 						<?php } ?>
 						</optgroup>						
 					</select>
@@ -458,7 +464,7 @@ if(!$email){
 						<option value="">Select Skill...</option>
 						<optgroup label="Skiils">
 						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
-							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key3==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+							<option value="<?php echo $skillslistval['skill_id']; ?>" <?php if($key3==$skillslistval['skill_id']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
 						<?php } ?>
 						</optgroup>						
 					</select>
@@ -479,7 +485,7 @@ if(!$email){
 						<option value="">Select Skill...</option>
 						<optgroup label="Skiils">
 						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
-							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key4==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+							<option value="<?php echo $skillslistval['skill_id']; ?>" <?php if($key4==$skillslistval['skill_id']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
 						<?php } ?>
 						</optgroup>						
 					</select>
@@ -500,7 +506,7 @@ if(!$email){
 						<option value="">Select Skill...</option>
 						<optgroup label="Skiils">
 						<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
-							<option value="<?php echo $skillslistval['skills']; ?>" <?php if($key5==$skillslistval['skills']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
+							<option value="<?php echo $skillslistval['skill_id']; ?>" <?php if($key5==$skillslistval['skill_id']) { echo 'selected'; } ?>><?php echo $skillslistval['skills']; ?></option>
 						<?php } ?>
 						</optgroup>						
 					</select>

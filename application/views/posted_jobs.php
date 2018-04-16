@@ -33,10 +33,15 @@ if(!$email){
 							<div class="col-xs-12"><label class="col-md-4">Duration:</label><span class="col-md-8"> <?php echo $values['duration'];?></span></div>
 							<div class="col-xs-12"><label class="col-md-4">No of Positions:</label><span class="col-md-8"> <?php echo $values['no_positions'];?></span></div>
 							<div class="col-xs-12"><label class="col-md-4">Primary skills: </label><span class="col-md-8">
-								<?php $primary_skill =  json_decode($values['primary_skill']);
-								foreach ($primary_skill as $pkey => $pvalue) {
-									echo $pkey.' - '.$pvalue;
-								}
+								<?php  $primary_skill = json_decode($values['primary_skill'], true);
+					                  foreach($primary_skill as $key => $value) {
+						                  		foreach ($get_skills as $skey => $svalue) {
+													if($svalue['skill_id']==$key) {
+														echo $svalue['skills'] .' - '.$value;
+												}
+											}			                  		
+					                  	}
+
 							    ?></span>
 					    	</div>
 					    	<div class="col-xs-12"><label class="col-md-4">Skills: </label>
@@ -48,24 +53,33 @@ if(!$email){
 			                  $skill4 = json_decode($values['skill4']);
 			                  $skill5 = json_decode($values['skill5']);
 			                  foreach ($skill1 as $key1 => $value1)
-			                  if($key1!='_empty_'){
-			                  echo $skill1 .= $key1.'<span class="skill-level">- '.$value1.'</span><br>'; }
-			                  
-				              foreach ($skill2 as $key2 => $value2)
-				              	 if($key2!='_empty_'){
-				                  echo $skill2 .= $key2.'<span class="skill-level">- '.$value2.'</span><br>';}
-				              
-				              foreach ($skill3 as $key3 => $value3)
-				              	 if($key3!='_empty_'){
-				                  echo $skill3 .= $key3.'<span class="skill-level">- '.$value3.'</span><br>';}
-				             
-				              foreach ($skill4 as $key4 => $value4)
-				              	  if($key4!='_empty_'){
-				                  echo $skill4 .= $key4.'<span class="skill-level">- '.$value4.'</span><br>';}
-				               
-				              foreach ($skill5 as $key5 => $value5)
-				              	if($key5!='_empty_'){
-				                  echo $skill5 .= $key5.'<span class="skill-level">- '.$value5.'</span><br>';}
+
+		                  	foreach ($get_skills as $skillskey => $skillsvalue) {
+		                  		
+		                  		if($skillsvalue['skill_id']==$key1) {
+		                  if($key1!='_empty_'){
+		                  echo $skill1 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value1.'</span><br>'; } }
+		                  
+			              foreach ($skill2 as $key2 => $value2)
+			              		if($skillsvalue['skill_id']==$key2) {
+			              	 if($key2!='_empty_'){
+			                  echo $skill2 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value2.'</span><br>';} }
+			              
+			              foreach ($skill3 as $key3 => $value3)
+			              	if($skillsvalue['skill_id']==$key3) {
+			              	 if($key3!='_empty_'){
+			                  echo $skill3 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value3.'</span><br>';} }
+			             
+			              foreach ($skill4 as $key4 => $value4)
+			              	 if($skillsvalue['skill_id']==$key4) {
+			              	  if($key4!='_empty_'){
+			                  echo $skill4 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value4.'</span><br>';} }
+			               
+			              foreach ($skill5 as $key5 => $value5)
+			              	if($skillsvalue['skill_id']==$key5) {
+			              	if($key5!='_empty_'){
+			                  echo $skill5 .= $skillsvalue['skills'].'<span class="skill-level">- '.$value5.'</span><br>';} }
+			             }
 				                  ?>
 			                  </span>
 							</div> 
@@ -74,7 +88,17 @@ if(!$email){
 								 <div class="col-xs-12">
 						 			 <label class="col-md-4">Status:</label><span class="col-md-8"> <?php echo $values['status'];?></span>
 			           			 </div>
-								<div class="col-xs-12"><label class="col-md-4">Job Type:</label><span class="col-md-8"><?php echo $values['job_type'];?></span></div>
+								<div class="col-xs-12"><label class="col-md-4">Job Type:</label><span class="col-md-8">
+
+								<?php
+									foreach ($get_job_type as $key => $value) {
+										if($value['job_type_id']==$values['job_type']) {
+											echo $value['job_type'];
+										}
+									} 
+								?></span>
+
+								</div>
 								<div class="col-xs-12"><label class="col-md-4">Role:</label> <span class="col-md-8"><?php echo $values['job_role'];?></span>
 								</div>
 								<div class="col-xs-12"><label class="col-md-4">Annual CTC (Lakhs):</label><span class="col-md-8"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>
@@ -90,32 +114,11 @@ if(!$email){
 						</div>
 					</div>
 					<div class="row">
-<<<<<<< HEAD
-						<div class="col-md-4"><label class="col-md-5">Annual CTC (Lakhs):</label><span class="col-md-7"><?php echo $values['salary_lakhs'];?> Lakhs  </span></div>
-						
-						<?php $job_type  = json_decode($values['job_type']); ?>
-						 <div class="col-md-4">
-		                  <label class="col-md-5">Job Type:</label>
-		                  <span class="col-md-7">
-							<?php 
-							foreach ($job_type as $key => $value) {
-							$jobtype .= $value.', ';
-							} 
-							echo rtrim($jobtype,', ');
-							?>
-		                  </span>
-		                </div>
-						<div class="col-md-4"><label class="col-md-5">Primary skills: </label><span class="col-md-7">
-						<?php $primary_skill =  json_decode($values['primary_skill']);
-						foreach ($primary_skill as $pkey => $pvalue) {
-							echo $pkey.' - '.$pvalue;
-						}
-					    ?></span></div>
-=======
+
 						<div class="col-md-12">
 								<label class="col-md-4">Job Description:</label><div class="col-md-8 mLeft-5"> <?php echo $values['job_description'];?></div>
 							</div>
->>>>>>> e87ea337fc828c4b93805e5c80a9f564780a8c16
+
 					</div>
 					<div class="row">
 						<div class="col-md-6 mTop-10">
