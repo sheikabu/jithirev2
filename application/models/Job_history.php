@@ -34,6 +34,25 @@ class Job_history extends CI_Model{
 	  return $results;
 	}
 
+	public function get_candidate_status(){ 
+		$this->db->select('*');
+		$this->db->from('jh_candidate_status');
+		$query=$this->db->get();
+		$results = $query->result_array();
+		return $results;
+	}
+
+	public function check_candidate_status($uid, $job_id){ 
+		$this->db->select('*');
+		$this->db->from('jh_job_applied');
+		$this->db->where('user_id',$uid);
+		$this->db->where('applied_job_id',$job_id);
+		$this->db->order_by("aid","desc");
+		$query=$this->db->get();
+		$results = $query->result_array();
+		return $results;
+	}
+
 
 }
 ?>

@@ -154,12 +154,7 @@ $('form#company-Sform').submit(function(e) {
 
 
 <script> 
-
 $(".user-dropdown").click(function(){
     $(".dropdown-menu ").addClass("show");
 });
-
-
-
-
 </script>

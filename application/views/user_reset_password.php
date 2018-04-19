@@ -24,7 +24,7 @@ $.validator.setDefaults( {
         var form = $('#forget_password');
         $.ajax({
             type: "POST",
-            url: "<?php echo site_url('user/forget_password_update'); ?>",
+            url: "<?php echo site_url('user/forget_password_update_user'); ?>",
             cache: false,  
             data: form.serialize(), // <--- THIS IS THE CHANGE        
             success: function(message){

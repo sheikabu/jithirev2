@@ -36,7 +36,7 @@
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-xs-6 text-right">
-                                                <a href="<?php echo site_url('user/forgot')?>">Forgot password?</a>
+                                                <a href="<?php echo site_url('user/user_forgot_pass')?>">Forgot password?</a>
                                         </div>
                                       </div>     
                                         <!-- Subject Button -->
@@ -66,7 +66,7 @@
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-xs-6 text-right">
-                                                <a href="<?php echo site_url('user/forgot')?>">Forgot password?</a>
+                                                <a href="<?php echo site_url('user/company_forgot_pass')?>">Forgot password?</a>
                                         </div>
                                       </div>     
                                         <!-- Subject Button -->

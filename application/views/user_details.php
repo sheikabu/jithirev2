@@ -25,8 +25,6 @@ if(!$email){
 
  ?>
 
-
-    
     <!-- Candidate dashboard -->
     <section id="">
       <div class="container">
@@ -46,11 +44,9 @@ if(!$email){
 	        	
 		        <div class="pull-right"> 
 			        <select name="candidate_status" required class="form-control">
-				        <option value=''>--SELECT--</option>
-				        <option value="Interested">Interested</option>
-				        <option value="Rejected">Rejected</option>
-				        <option value="Selected">Selected</option>
-				        <option value="Offer released">Offer released</option>
+			        <?php foreach ($get_candidate_status as $key => $value) { ?>				        
+				        <option value="<?php echo $value['candidate_status'] ;?>" <?php if($value['candidate_status']==$check_candidate_status[0]['job_status']) { echo "selected"; } ?> ><?php echo $value['candidate_status'] ;?></option>
+				    <?php } ?>
 			        </select> 
 				</div>
 				<input type="hidden" name="user_id" value="<?php echo $this->uri->segment(3); ?>">
@@ -81,9 +77,14 @@ if(!$email){
               
              		<div class="line2 mBot-10">
              			<h2 class="title mRight-20 "><?php 
-		                  $primary_skill = json_decode($get_candidate_info['primary_skill']);
-		                  foreach ($primary_skill as $key => $value)
-		                  echo $primary_skill .= $key;
+		                   $primary_skill = json_decode($get_candidate_info['primary_skill'], true);
+		                  foreach($primary_skill as $key => $value) {
+			                  		foreach ($get_skills as $skey => $svalue) {
+										if($svalue['skill_id']==$key) {
+											echo $svalue['skills'];
+									}
+								}			                  		
+		                  	}
 			                ?></h2> <span class="col-md-8"><?php if($get_candidate_info['total_experience'] == 'Fresher') { echo 'Fresher';} else { echo $get_candidate_info['total_experience'].' years Experience'; } ?></span>
              		</div>
              

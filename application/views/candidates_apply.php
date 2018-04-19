@@ -53,7 +53,7 @@ if(!$email){
 	      <td> <?php echo $values['mobile_number']; ?> </td>
 		  <td><?php echo $values['applied_date']; ?></td>
 		  <td><?php echo $values['job_status']; ?></td>
-		  <td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>/<?php echo $values['job_id']; ?>" class="link">View Profile</a></td>
+		  <td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>/<?php echo $values['job_id']; ?>/job" class="link">View Profile</a></td>
 
 		   <td><a href="<?php echo site_url() ?>user/create_offer_letter/<?php echo $values['user_id']; ?>/<?php echo $values['job_id']; ?>/<?php echo $this->session->userdata('id');  ?>" class="link">Offer letter</a></td>
 		    
@@ -62,47 +62,6 @@ if(!$email){
 		    <?php } ?>			
 		  </tbody>
 		</table>
-    			<!-- <div class="row">
-		    		<div class="col-md-4">
-		    			<div class="col-xs-12">
-				                  <label class="col-md-4">Company Name: </label>
-				                  <span class="col-md-8">Jithhire</span>
-				         </div>
-				         <div class="col-xs-12">
-				                  <label class="col-md-4">Description: </label>
-				                  <span class="col-md-8">Company description here..</span>
-				</div>
-		    			
-		    		</div>
-		    		<div class="col-md-4">
-		    			<div class="col-xs-12">
-				                  <label class="col-md-4">Location: </label>
-				                  <span class="col-md-8">Thiruvananthapuram</span>
-				         </div>
-		    			
-		    		</div>
-		    		<div class="col-md-4">
-		    			
-		    			<div class="col-xs-12">
-				                  <label class="col-md-4">Status: </label>
-				                  <span class="col-md-8 status-approved">Approved</span>
-				        </div>
-		    		</div>
-					 <tr>
-		      <th scope="row">jithirev</th>
-		      <td>company_Description</td>
-		      <td>trichy</td>
-		      <td class = "select">
-             <select>        
-                <option value="approved" class="status approved">approved</option>
-                <option value="Rejected" class="status rejected">Rejected</option>
-                <option value="Waiting" class="status waiting">Waiting</option>
-               
-            </select>
-            <td ALIGN="center"></td>
-            </td>
-		    </tr>
-		    	</div> -->
 		    	
 	    	</div>
 			 

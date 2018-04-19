@@ -14,6 +14,7 @@ class Valid_m extends CI_Model{
 	  $this->db->from('jh_registration');
 	  $this->db->where('email',$email);
 	  $this->db->where('password',$password);
+	  $this->db->where('status','active');
 
 	  if($query=$this->db->get())
 	  {
@@ -31,6 +32,7 @@ class Valid_m extends CI_Model{
 	  $this->db->from('jh_company_details');
 	  $this->db->where('email',$email);
 	  $this->db->where('password',$password);
+	  $this->db->where('status','active');
 
 	  if($query=$this->db->get())
 	  {
@@ -56,7 +58,7 @@ class Valid_m extends CI_Model{
 
 	}
 
-	public function forgot_email_check($email){
+	public function check_user_pass($email){
 
 	  $this->db->select('*');
 	  $this->db->from('jh_registration');
@@ -66,10 +68,31 @@ class Valid_m extends CI_Model{
 	  return $results;
 
 	}
-	public function forgot_password_check($password,$user_id){
+	public function check_company_pass($email){
+
+	  $this->db->select('*');
+	  $this->db->from('jh_company_details');
+	  $this->db->where('email',$email);	  
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+
+	}
+	public function forget_password_update_user($password,$user_id){
 		$field = array('password'=>$password);
 		$this->db->where('id', $user_id);
 		$this->db->update('jh_registration', $field);
+		//echo $this->db->last_query();extit;
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function forget_password_update_company($password,$comp_id){
+		$field = array('password'=>$password);
+		$this->db->where('id', $comp_id);
+		$this->db->update('jh_company_details', $field);
 		//echo $this->db->last_query();extit;
 		if($this->db->affected_rows() > 0){
 			return true;
@@ -119,17 +142,19 @@ class Valid_m extends CI_Model{
 
 	public function matching_job_list(){ //comments
 		
-	  echo $this->session->userdata("id");
+	  $this->session->userdata("id");
 
-	  $this->db->select('jh_job_posting.*,jh_company_details.*, jh_job_applied.*');
+	  $this->db->select('jh_job_posting.*,jh_company_details.*, GROUP_CONCAT(`jh_job_applied`.job_status) as job_status');
 	  $this->db->from('jh_job_posting');
 	  $this->db->join('jh_company_details', 'jh_job_posting.company_id = jh_company_details.id', 'left');
-	  $this->db->join('jh_job_applied', 'jh_job_applied.applied_job_id = jh_job_posting.job_id', 'left');
+	  $this->db->join('jh_job_applied', 'jh_job_applied.applied_job_id = jh_job_posting.job_id', 'right');
 	  $this->db->order_by("jh_job_posting.job_id","desc");
-	  //$this->db->where('jh_registration.id',$candidate_id);
-
+	   $this->db->group_by("jh_job_posting.job_id");
 	  
+	  //$this->db->where('jh_registration.id',$candidate_id);
+      
 	  $query=$this->db->get();
+	  //echo $this->db->last_query(); exit;
 	  $results = $query->result_array();
 	  return $results;
 	}
@@ -262,9 +287,9 @@ class Valid_m extends CI_Model{
 	}
 	public function get_total_it_experience(){
 	  $this->db->select('*');
-	  $this->db->from('jh_total_it_experience');	  	  
+	  $this->db->from('jh_total_it_experience');	 
+	  $this->db->order_by("total_it_experience_id","asc"); 	  
 	  $query=$this->db->get();
-	  $this->db->last_query();
 	  $results = $query->result_array();
 	  return $results;
 	}
@@ -303,6 +328,17 @@ class Valid_m extends CI_Model{
 		$field = array('status'=>'active');
 		$this->db->where('id', $user_id);
 		$this->db->update('jh_registration', $field);
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function company_verify($comp_id){
+		$field = array('status'=>'active');
+		$this->db->where('id', $comp_id);
+		$this->db->update('jh_company_details', $field);
 		if($this->db->affected_rows() > 0){
 			return true;
 		}else{

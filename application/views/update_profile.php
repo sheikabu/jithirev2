@@ -566,9 +566,9 @@ $('#any-location').change(function(){
 <script>
 $(document).ready(function(){
   // Use className or Id instead of direct tag name
-  $('#total_experience').on('change', function() {
-    var val = $(this).val();
-    if(val=='Fresher') {
+  $('#total-experience').on('change', function() {
+    var val = $(this).val(); alert(val);
+    if(val==1) {
     $('#pre-role').fadeOut('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
     $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',true);
@@ -579,8 +579,8 @@ $(document).ready(function(){
     }
   })
 
-   var valload = $("#total_experience").val();
-   if(valload=='Fresher') {
+   var valload = $("#total-experience").val();
+   if(valload==1) {
     $('#pre-role').fadeOut('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
     $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',true);

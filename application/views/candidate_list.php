@@ -58,7 +58,7 @@ if(!$email){
 		                  ?>
 
 			    		</td>
-						<td><?php echo $values['total_experience'] ;?></td>
+						<td><?php echo $values['total_experience'] ;?> Years</td>
 			    		<td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>?>" class="link">View Profile</a></td>
 						
 			    		

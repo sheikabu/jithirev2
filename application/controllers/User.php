@@ -454,28 +454,35 @@ class User extends CI_Controller {
 
 				} */
 
-	public function forgot() 
+	public function user_forgot_pass() 
 	{				
-		$this->load_view('forgot');
+		$this->load_view('user_forgot_pass');
 	}
 
-	public function forgot_check() 
+	public function company_forgot_pass() 
+	{				
+		$this->load_view('company_forgot_pass');
+	}
+
+	public function check_user_pass() 
 	{
 		
 		 $forgot_details=array('email' => $this->input->post('email'));		
-		 $email_forgot=$this->valid_m->forgot_email_check($forgot_details['email']);
+		 $email_forgot=$this->valid_m->check_user_pass($forgot_details['email']);
+
 		 $email_forgot[0]['email'];
 
-		 $data['name'] = $email_forgot[0]['email'];
-		 $data['user_id'] = $user_id[0]['id'];
+		 $data['email'] = $email_forgot[0]['email'];
+		 $data['name'] = $email_forgot[0]['first_name'];
+		 $data['user_id'] = $email_forgot[0]['id'];
 
 		 if($this->input->post('email')==$email_forgot[0]['email']){
 
 		 		    /* Send a mail to user*/
-				  	$fromemail="Sony.George@ust-global.com";
-					$toemail = $forgot_details['email'];
+				  	$fromemail="sony@jithire.com";
+					$toemail = $data['email'];
 					$subject = "Jithire Forget Password";	
-					$mesg = $this->load_view('template/forget_password',$data);
+					$message = $this->load->view('template/user_forget_password', $data, TRUE);	
 					$config=array(
 					'charset'=>'utf-8',
 					'wordwrap'=> TRUE,
@@ -483,9 +490,9 @@ class User extends CI_Controller {
 					);
 					$this->email->initialize($config);
 					$this->email->to($toemail);
-					$this->email->from($fromemail, "Title");
+					$this->email->from($fromemail, "JitHire");
 					$this->email->subject($subject);
-					$this->email->message($mesg);
+					$this->email->message($message);
 					$mail = $this->email->send();
 				  	/*EMail end */
 				  	$data['message'] = '<div class="alert alert-success text-center">Password sent to your email id</div>';
@@ -499,10 +506,58 @@ class User extends CI_Controller {
 
 		
 	}
-	public function forgot_update($user_id) 
+	public function check_company_pass() 
+	{
+		
+		 $forgot_details=array('email' => $this->input->post('email'));		
+		 $email_forgot=$this->valid_m->check_company_pass($forgot_details['email']);
+
+		 $email_forgot[0]['email'];
+
+		 $data['email'] = $email_forgot[0]['email'];
+		 $data['name'] = $email_forgot[0]['company_name'];
+		 $data['comp_id'] = $email_forgot[0]['id'];
+
+		 if($this->input->post('email')==$email_forgot[0]['email']){
+
+		 		    /* Send a mail to user*/
+				  	$fromemail="sony@jithire.com";
+					$toemail = $data['email'];
+					$subject = "Jithire Forget Password";	
+					$message = $this->load->view('template/company_forget_password', $data, TRUE);	
+					$config=array(
+					'charset'=>'utf-8',
+					'wordwrap'=> TRUE,
+					'mailtype' => 'html'
+					);
+					$this->email->initialize($config);
+					$this->email->to($toemail);
+					$this->email->from($fromemail, "JitHire");
+					$this->email->subject($subject);
+					$this->email->message($message);
+					$mail = $this->email->send();
+				  	/*EMail end */
+				  	$data['message'] = '<div class="alert alert-success text-center">Password sent to your email id</div>';
+				  	$this->load_view('forgot',$data);
+
+		 }else
+		 {
+		 	$data['message'] = '<div class="alert alert-danger text-center">Email is not available</div>';
+		 	$this->load_view('forgot',$data);
+		 }
+
+		
+	}
+	public function reset_user_password($user_id) 
 	{
 		$data['user_id'] = $user_id;
-		$this->load_view('forgot_password', $data);
+		$this->load_view('user_reset_password', $data);
+	}
+
+	public function reset_company_password($company_id) 
+	{
+		$data['company_id'] = $company_id;
+		$this->load_view('company_reset_password', $data);
 	}
 
 	public function about() 
@@ -551,10 +606,11 @@ class User extends CI_Controller {
 				  	$data['user_id'] = $this->valid_m->register_insert($register_details);
 				  	$data['user_name'] = $this->input->post('first_name');
 				  	/* Send a mail to user*/
-				  	$fromemail="Sony.George@ust-global.com";
+				  	$fromemail="sony@jithire.com";
 					$toemail = $this->input->post('email');
-					$subject = "Hi".$this->input->post('first_name').", Welcome to jithire.com";										
-					$mesg = $this->load_view('template/userregemail',$data);		
+					$subject = "Hi ".$this->input->post('first_name').", Welcome to jithire.com";										
+					$message = $this->load->view('template/userregemail', $data, TRUE);	
+
 					$config=array(
 					'charset'=>'utf-8',
 					'wordwrap'=> TRUE,
@@ -564,7 +620,7 @@ class User extends CI_Controller {
 					$this->email->to($toemail);
 					$this->email->from($fromemail, "JitHire");
 					$this->email->subject($subject);
-					$this->email->message($mesg);
+					$this->email->message($message);
 					$mail = $this->email->send();
 				  	/*EMail end */
 
@@ -598,12 +654,12 @@ class User extends CI_Controller {
 
 					if($email_check){
 					  	$data['company_id'] = $this->valid_m->company_registration_insert($company_details);	
-						$data['company_name'] = $this->input->post('first_name');
+						$data['company_name'] = $this->input->post('company_name');
 				  	/* Send a mail to user*/
-				  	$fromemail="Sony.George@ust-global.com";
+				    $fromemail="sony@jithire.com";
 					$toemail = $this->input->post('email');
 					$subject = "Hi".$this->input->post('first_name').", Welcome to jithire.com";										
-					$mesg = $this->load_view('template/companyregemail',$data);		
+					$message = $this->load->view('template/companyregemail', $data, TRUE);	
 					$config=array(
 					'charset'=>'utf-8',
 					'wordwrap'=> TRUE,
@@ -613,7 +669,7 @@ class User extends CI_Controller {
 					$this->email->to($toemail);
 					$this->email->from($fromemail, "JitHire");
 					$this->email->subject($subject);
-					$this->email->message($mesg);
+					$this->email->message($message);
 					$mail = $this->email->send();
 			 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
 					}
@@ -775,16 +831,19 @@ class User extends CI_Controller {
 		//$candidate_id = $this->session->userdata("id");
 		$candidate_id = $this->session->userdata("id");
 		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
-		echo $experience = $data['get_candidate_info']['total_experience'];
-		echo $salary = $data['get_candidate_info']['salary_lakhs'];
-		echo $primary_skill = $data['get_candidate_info']['primary_skill'];
-		echo $skill1 = $data['get_candidate_info']['skill1'];
-		echo $skill2 = $data['get_candidate_info']['skill2'];
-		echo $skill3 = $data['get_candidate_info']['skill3'];
-		echo $skill4 = $data['get_candidate_info']['skill4'];
-		echo $skill5 = $data['get_candidate_info']['skill5'];
-		echo $preferred_location = $data['get_candidate_info']['preferred_location'];
+		$experience = $data['get_candidate_info']['total_experience'];
+		$salary = $data['get_candidate_info']['salary_lakhs'];
+		$primary_skill = $data['get_candidate_info']['primary_skill'];
+		$skill1 = $data['get_candidate_info']['skill1'];
+		$skill2 = $data['get_candidate_info']['skill2'];
+		$skill3 = $data['get_candidate_info']['skill3'];
+		$skill4 = $data['get_candidate_info']['skill4'];
+		$skill5 = $data['get_candidate_info']['skill5'];
+		$preferred_location = $data['get_candidate_info']['preferred_location'];
 		
+		$data['get_skills'] = $this->valid_m->get_skills();
+		$data['get_job_type'] = $this->valid_m->get_job_type();
+
 		$data['job_list'] = $this->valid_m->matching_job_list();
 		//$this->load->view('common/header');
 		$this->load_view('browse_jobs',$data);
@@ -916,20 +975,29 @@ class User extends CI_Controller {
   	$this->load_view('candidates_apply',$data);  	
   }
 
-  public function view_profile($uid) // add user full details
+  public function view_profile($uid, $job_id) // add user full details
 	{
 		$candidate_id = $uid;
 		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+		$data['get_skills'] = $this->valid_m->get_skills();
+		$data['get_job_type'] = $this->valid_m->get_job_type();	
+		$data['get_gender'] = $this->valid_m->get_gender();
+		$data['get_total_it_experience'] = $this->valid_m->get_total_it_experience();
+		$data['get_candidate_status'] = $this->job_history->get_candidate_status();
+		$data['check_candidate_status'] = $this->job_history->check_candidate_status($uid, $job_id);
+
 		if($data['get_candidate_info']['primary_skill']!='')
 		{ $this->load_view('user_details',$data); } else { $this->load_view('update_profile',$data); }
-		
 	}
 
 	public function view_offer_letter() // add user full details
 	{
 
 		$compid = $this->session->userdata('id');                                                                                        
-		$data['view_letter'] = $this->valid_m->view_letter($compid);		
+		$data['view_letter'] = $this->valid_m->view_letter($compid);	
+		$data['get_skills'] = $this->valid_m->get_skills();
+		$data['get_job_type'] = $this->valid_m->get_job_type();	
+		$data['get_gender'] = $this->valid_m->get_gender();
 		$this->load_view('view_offer_letter',$data);
 		
 	}
@@ -992,11 +1060,29 @@ class User extends CI_Controller {
    		$this->valid_m->verify_email($user_id);
    		 $this->load_view('verify_email');
    }
-   public function forget_password_update($user_id = NULL){   		
+
+   public function company_verify($company_id = NULL){   		
+   		$this->valid_m->company_verify($company_id);
+   		 $this->load_view('verify_email');
+   }
+
+   public function forget_password_update_user($user_id = NULL){   		
    		$password = md5($this->input->post('password'));
    		$user_id = $this->input->post('userid');
 
-    	$forgot_password_model=$this->valid_m->forgot_password_check($password,$user_id);
+    	$forgot_password_model=$this->valid_m->forget_password_update_user($password,$user_id);
+    	if($forgot_password_model){
+			  echo 'Password has been updated.<b>Please <a href="'.site_url().'">Login</a></b>'; exit;
+			}
+			else{
+			  echo 'Sorry, Please try again!'; exit;
+		}
+   }
+    public function forget_password_update_company($comp_id = NULL){   		
+   		$password = md5($this->input->post('password'));
+   		$comp_id = $this->input->post('company_id');
+
+    	$forgot_password_model=$this->valid_m->forget_password_update_company($password,$comp_id);
     	if($forgot_password_model){
 			  echo 'Password has been updated.<b>Please <a href="'.site_url().'">Login</a></b>'; exit;
 			}
