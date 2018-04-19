@@ -25,7 +25,18 @@ if(!$email){
 	               <label>Company Name</label>
 	                <input name="company_name" class="form-control" placeholder="Company Name*" type="text" value="" required>
 	            </div>   
-	            
+	             <div class="form-group">
+	               <label>Company Address</label>
+	                <input name="company_address" class="form-control" placeholder="Company Address*" type="text" value="" required>
+	            </div> 
+				<div class="form-group">
+	               <label>Hiring Manager Name</label>
+	                <input name="hiring_manager_name" class="form-control" placeholder="Hiring Manager Name*" type="text" value="" required>
+	            </div> 
+				<div class="form-group">
+	               <label>Hiring Manager Number</label>
+	                <input name="hiring_manager_number" class="form-control" placeholder="Hiring Manager Number*" type="text" value="" required>
+	            </div> 
 				<div class="form-group">
 	               <label>Joining Location</label>
 	                <input name="joining_location" class="form-control" placeholder="Joining Location*" type="text" value="" required>
