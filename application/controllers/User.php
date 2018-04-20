@@ -844,7 +844,9 @@ class User extends CI_Controller {
 		$data['get_skills'] = $this->valid_m->get_skills();
 		$data['get_job_type'] = $this->valid_m->get_job_type();
 
-		$data['job_list'] = $this->valid_m->matching_job_list();
+		$data['job_list'] = $this->valid_m->job_list();
+
+		//$data['job_list'] = $this->valid_m->matching_job_list();
 		//$this->load->view('common/header');
 		$this->load_view('browse_jobs',$data);
 		//$this->load->view('common/footer');
@@ -935,10 +937,14 @@ class User extends CI_Controller {
 		 			);
 		 			
 					//print_r ($user_details); exit;
-				    $this->valid_m->insert_job_posting($user_details);
+				$jobid = $this->valid_m->insert_job_posting($user_details);
 		 			 
 		 	    $data['message'] = 'Successfully Posted a Job';
-		 	    $this->load_view('post_job',$data);		
+
+		 	    //$this->load_view('post_job',$data);
+
+		 	    redirect('user/posted_jobs/'.$jobid.'');
+
 		 		//redirect('post_job/job_posting_page/'.$msg);
                 
 	}

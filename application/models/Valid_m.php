@@ -144,7 +144,7 @@ class Valid_m extends CI_Model{
 		
 	  $this->session->userdata("id");
 
-	  $this->db->select('jh_job_posting.*,jh_company_details.*, GROUP_CONCAT(`jh_job_applied`.job_status) as job_status');
+	  $this->db->select('jh_job_posting.*,jh_company_details.*, GROUP_CONCAT(`jh_job_posting`.Job_code) as Job_code');
 	  $this->db->from('jh_job_posting');
 	  $this->db->join('jh_company_details', 'jh_job_posting.company_id = jh_company_details.id', 'left');
 	  $this->db->join('jh_job_applied', 'jh_job_applied.applied_job_id = jh_job_posting.job_id', 'right');
@@ -200,8 +200,8 @@ class Valid_m extends CI_Model{
 
 	public function  insert_job_posting($user_details){ //comments 
 		
-	    $insert_id =  $this->db->insert('jh_job_posting',$user_details);
-	    //$insert_id = $this->db->insert_id();
+	    $this->db->insert('jh_job_posting',$user_details);
+	    $insert_id = $this->db->insert_id();
 
 
 
@@ -234,7 +234,7 @@ class Valid_m extends CI_Model{
 		//exit;
 		/*END*/
 
-	    return TRUE;
+	    return $insert_id;
 	}
 
 	public function get_skills(){
