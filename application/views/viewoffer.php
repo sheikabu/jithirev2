@@ -11,47 +11,47 @@
               
               	 <div class="row">
               		
-					<div class="col-md-5">
+					<div class="col-md-10">
 			
 	              		
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Company Name: </label>
-		                  <span class="col-md-8"><?php echo $offervalue['company_name']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['company_name']; ?></span>
 		                </div><br>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Company Address: </label>
-		                  <span class="col-md-8"><?php echo $offervalue['company_address']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['company_address']; ?></span>
 		                </div><br>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Hiring Manager Name: </label>
-		                  <span class="col-md-8"><?php echo $offervalue['hiring_manager_name']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['hiring_manager_name']; ?></span>
 		                </div><br>
 		               <div class="col-xs-12">
 		                  <label class="col-md-4">Hiring Manager Number:</label>
-		                  <span class="col-md-8"><?php echo $offervalue['hiring_manager_number']; ?>
+		                  <span class="col-md-8"><?php echo $view_letter['hiring_manager_number']; ?>
 							
 		                  </span>
 		                </div><br>
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Joining Location:</label>
-		                  <span class="col-md-8"><?php echo $offervalue['joining_location']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['joining_location']; ?></span>
 		                </div><br>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Start Date: </label>
-		                  <span class="col-md-8"><?php echo $offervalue['start_date']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['start_date']; ?></span>
 		                </div><br>
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Duration:</label>
-		                  <span class="col-md-8"><?php echo $offervalue['duration']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['duration']; ?></span>
 		                </div><br>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Role: </label>
-		                  <span class="col-md-8"><?php echo $offervalue['role']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['role']; ?></span>
 		                </div><br>
 						
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Annual CTC (Lakhs): </label>
-		                  <span class="col-md-8"><?php echo $offervalue['annual_ctc']; ?></span>
+		                  <span class="col-md-8"><?php echo $view_letter['annual_ctc']; ?></span>
 		                </div><br><br>
 		               
 					</div>
