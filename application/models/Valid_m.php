@@ -294,7 +294,9 @@ class Valid_m extends CI_Model{
 	  return $results;
 	}
 	public function insert_offer_letter($user_details){	
-		$this->db->insert('jh_offer_letter',$user_details);	   
+		$this->db->insert('jh_offer_letter',$user_details);	  
+        $query=$this->db->get();
+	    $results = $query->result_array();		
 		return TRUE;
 	}
 	public function view_letter($compid){

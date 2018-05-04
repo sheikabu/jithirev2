@@ -27,7 +27,7 @@ if(!$email){
 	            </div>   
 	             <div class="form-group">
 	               <label>Company Address</label>
-	                <input name="company_address" class="form-control" placeholder="Company Address*" type="text" value="" required>
+	                <textarea name="company_address" class="form-control" placeholder="Company Address*"  value="" required></textarea>
 	            </div> 
 				<div class="form-group">
 	               <label>Hiring Manager Name</label>
