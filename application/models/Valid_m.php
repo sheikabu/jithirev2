@@ -345,6 +345,23 @@ class Valid_m extends CI_Model{
 			return false;
 		}
 	}
+
+	public function candidate_list(){
+	  $this->db->select('*');
+	  $this->db->from(' jh_user_profile');
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+	} 
+
+	public function select_shortlisted_candidates($candidate_id){
+	  $this->db->select('*');
+	  $this->db->from(' jh_user_profile');
+	  $this->db->where('id 	',$candidate_id); 
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  return $results;
+	} 
 	
 }
 ?>

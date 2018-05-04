@@ -14,6 +14,34 @@ if(!$email){
 <section id="posted_jobs">
 	<div class="row">
 		<div class="container matching_job_container">
+		   <div class="shortlisted_candidates">
+		      <h2>Shortlisted Candidates</h2>
+		   	<table class="table" id="shortlisted_candidates-table">
+				<thead>
+			    	<tr>
+			    	    <th></th>
+			    	    <th>Name</th>
+				      	<th>Email</th>
+				      	<th>Phone</th>
+					  	<th>View</th>					  	
+			    	</tr>
+			  	</thead>
+			  	<tbody>
+
+			  	<?php foreach($shortlisted_candidates as $key=>$values) { ?>
+
+			  		<tr>
+			  		    <td></td>
+			  		    <td><?php echo $values['name']; ?></td>
+			      		<td><?php echo $values['email']; ?></td>
+			      		<td><?php echo $values['mobile_number']; ?></td>
+			      		<td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>" class="link">View Profile</a></td>
+			      	</tr>
+
+			    	<?php } ?>
+			   </tbody>
+			</table>
+		   </div>
 			<div class="col-md-12">
 			<div id="message"><?php  $msg = $this->uri->segment(4); if($msg == 'success'){ echo 'Job Updated Successfully';  }  ?></div>
 				<?php //echo form_open('post_job/insert_job_post');?>
@@ -150,3 +178,17 @@ if(!$email){
 		</div>
 	</div>
 </section>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var table =  $('#shortlisted_candidates-table').DataTable();
+
+    table
+    .order( [ 0, 'desc' ] )
+    .column( 0 ).visible( false )
+    .draw();
+
+   
+
+});
+</script>

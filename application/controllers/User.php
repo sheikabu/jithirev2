@@ -722,6 +722,8 @@ class User extends CI_Controller {
 		
 		$candidate_id = $this->session->userdata("id");
 		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
+
+		
 		$data['get_cities'] = $this->valid_m->get_cities();
 		$data['get_skills'] = $this->valid_m->get_skills();
 		$data['get_job_type'] = $this->valid_m->get_job_type();
@@ -729,6 +731,136 @@ class User extends CI_Controller {
 		$this->load_view('post_job',$data);	
 		
 	}
+
+	public function get_a_candidate($job) {
+        $skillProf = array("advanced" => 4, "intermediate" => 3, "basic" => 2, "fresher" => 1);
+
+        $jobExperienceMin = $job['min_exp'];
+        $jobExperienceMax = $job['max_exp'];
+        $jobsalary = $job['salary_lakhs'];
+        $jobLocation = $job['preferred_location'];
+
+        $primaryskillDetails = json_decode($job['primary_skill'], true);
+        reset($primaryskillDetails);
+        $jobPrimarySkill = key($primaryskillDetails);
+        $job_primary_skill_prof = $skillProf[strtolower($primaryskillDetails[$jobPrimarySkill])];
+
+
+        $secskillDetails = json_decode($job['skill1'], true);
+        reset($secskillDetails);
+        $jobSecSkill1 = key($secskillDetails);
+        $jobSecSkillProf1 = $skillProf[strtolower($secskillDetails[$jobSecSkill1])];
+
+        $secskillDetails = json_decode($job['skill2'], true);
+        reset($secskillDetails);
+        $jobSecSkill2 = key($secskillDetails);
+        $jobSecSkillProf2 = $skillProf[strtolower($secskillDetails[$jobSecSkill2])];
+
+        $secskillDetails = json_decode($job['skill3'], true);
+        reset($secskillDetails);
+        $jobSecSkill3 = key($secskillDetails);
+        $jobSecSkillProf3 = $skillProf[strtolower($secskillDetails[$jobSecSkill3])];
+
+        $secskillDetails = json_decode($job['skill4'], true);
+        reset($secskillDetails);
+        $jobSecSkill4 = key($secskillDetails);
+        $jobSecSkillProf4 = $skillProf[strtolower($secskillDetails[$jobSecSkill4])];
+
+        $secskillDetails = json_decode($job['skill5'], true);
+        reset($secskillDetails);
+        $jobSecSkill5 = key($secskillDetails);
+        $jobSecSkillProf5 = $skillProf[strtolower($secskillDetails[$jobSecSkill5])];
+
+        $i = 0;
+        $selectedCandidates = array();
+        $candidateInfo = $this->valid_m->candidate_list();
+        //echo '<pre>';print_r($candidateInfo);
+        foreach ($candidateInfo as $candidate) {
+            $score = 0;
+            $candidate_id = $candidate['id'];
+            $experience = $candidate['total_experience'];
+            $salary = $candidate['salary_lakhs'];
+            
+            $primaryskillDetails = json_decode($candidate['primary_skill'], true);
+            reset($primaryskillDetails);
+            $primary_skill = key($primaryskillDetails);
+            
+            $skill1 = $candidate['skill1'];
+            $skill2 = $candidate['skill2'];
+            $skill3 = $candidate['skill3'];
+            $skill4 = $candidate['skill4'];
+            $skill5 = $candidate['skill5'];
+            $primary_skill_prof = $skillProf[strtolower($primaryskillDetails[$primary_skill])];
+
+            $preferred_location = $candidate['preferred_location'];
+            if ($jobPrimarySkill == $primary_skill) {
+                $score += 50;
+                if ($primary_skill_prof == $job_primary_skill_prof) {
+                    $score += 25;
+                } else if ($primary_skill_prof == ($job_primary_skill_prof - 1)) {
+                    $score += 15;
+                }
+            } else {
+                for ($j = 1; $j <= 5; $j++) {
+                    $secSkillDetails = json_decode(${'skill' . $j}, true);
+                    reset($secSkillDetails);
+                    $first_key = key($secSkillDetails);
+                    $sec_skill = $secSkillDetails[$first_key];
+                    $sec_skill_prof = $skillProf[strtolower($secSkillDetails[$sec_skill])];
+                    if ($jobPrimarySkill == $sec_skill) {
+                        $score += 25;
+                        if ($sec_skill_prof == $job_primary_skill_prof) {
+                            $score += 25;
+                        } else if ($sec_skill_prof == ($job_primary_skill_prof - 1)) {
+                            $score += 15;
+                        }
+                    }
+                }
+            }
+
+            for ($j = 1; $j <= 5; $j++) {
+                for ($k = 1; $k <= 5; $k++) {
+                    $secSkillDetails = json_decode(${'skill' . $k}, true);
+                    reset($secSkillDetails);
+                    $first_key = key($secSkillDetails);
+                    $sec_skill = $secSkillDetails[$first_key];
+                    $sec_skill_prof = $skillProf[strtolower($secSkillDetails[$sec_skill])];
+                    if (${'skill' . $k} == ${'jobSecSkill' . $j}) {
+                        $score += 25;
+                        if ($sec_skill_prof == ${'jobSecSkillProf' . $j}) {
+                            $score += 25;
+                        } else if ($sec_skill_prof == (${'jobSecSkillProf' . $j} - 1)) {
+                            $score += 15;
+                        }
+                    }
+                }
+            }
+            if ($experience >= $jobExperienceMin && $experience <= $jobExperienceMax) {
+                $score += 5;
+            } else {
+                if (($experience - 1) >= $jobExperienceMin || ($experience + 1) <= $jobExperienceMax) {
+                    $score += 3;
+                }
+            }
+            if ($jobLocation == $preferred_location) {
+                $score += 5;
+            }
+
+            if ($jobsalary == $salary) {
+                $score += 5;
+            } else if (($jobsalary == ($salary + 1)) || ($jobsalary == ($salary - 1))) {
+                $score += 3;
+            }
+
+            $selectedCandidates[$candidate_id] = $score;
+            $i++;
+        }
+        arsort($selectedCandidates);
+        //print_r($selectedCandidates);
+        return $selectedCandidates;
+        //exit;
+    }
+
 	public function posted_jobs($posted_id = NULL)
 	{
 		$posted_id;
@@ -738,7 +870,18 @@ class User extends CI_Controller {
 		$data['job_list'] = $this->valid_m->single_posted_job($posted_id);
 		$data['applied_count'] = $this->valid_m->count_applied($posted_id);
 
-		$this->load_view('posted_jobs',$data);		
+
+		//Kavya
+		$job = $this->valid_m->single_posted_job($posted_id);
+
+        $get_candidate_info = $this->get_a_candidate($job[0]);       
+        reset($get_candidate_info);
+		list($candidate_id, $candidate_score) = each($get_candidate_info);
+        $data['shortlisted_candidates'] = $this->valid_m->select_shortlisted_candidates($candidate_id);
+        
+		//Kavya END		       
+
+		$this->load_view('posted_jobs',$data);
 	}	
 	
 	public function update_post() // add user full details
