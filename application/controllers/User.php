@@ -1121,6 +1121,45 @@ class User extends CI_Controller {
   public function candidates_apply($Job_id)
   {
 	$data['user_applied'] = $this->user_applied->user_applied($Job_id);
+	if (isset($_POST['Company not interested'])) {
+		    $user_applied=array(
+			'candidate_status_id' => $this->input->post('Job_id'), 
+			'candidate_status' => $this->input->post('Company not interested')
+			);
+		   $this->user_applied->user_applied($Job_id);	
+		} else {
+		     $user_applied=array(
+			'candidate_status_id' => $this->input->post('Job_id'), 
+			'candidate_status' => $this->input->post('candidate_status')
+			);
+		  $this->user_applied->user_applied($Job_id);	
+		}
+		if (isset($_POST['Candidate not interested'])) {
+		    $user_applied=array(
+			'candidate_status_id' => $this->input->post('Job_id'), 
+			'candidate_status' => $this->input->post('Candidate not interested')
+			);
+		   $this->user_applied->user_applied($Job_id);	
+		} else {
+		     $user_applied=array(
+			'candidate_status_id' => $this->input->post('Job_id'), 
+			'candidate_status' => $this->input->post('candidate_status')
+			);
+		  $this->user_applied->user_applied($Job_id);	
+		}
+		if (isset($_POST['Rejected after interview'])) {
+		    $user_applied=array(
+			'candidate_status_id' => $this->input->post('Job_id'), 
+			'candidate_status' => $this->input->post('Rejected after interview')
+			);
+		   $this->user_applied->user_applied($Job_id);	
+		} else {
+		     $user_applied=array(
+			'candidate_status_id' => $this->input->post('Job_id'), 
+			'candidate_status' => $this->input->post('candidate_status')
+			);
+		  $this->user_applied->user_applied($Job_id);	
+		}
   	$this->load_view('candidates_apply',$data);  	
   }
 
