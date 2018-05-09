@@ -45,13 +45,19 @@ if(!$email){
 		        <div class="pull-right"> 
 			        <select name="candidate_status" required class="form-control">
 			        <?php foreach ($get_candidate_status as $key => $value) { ?>				        
-				        <option value="<?php echo $value['candidate_status'] ;?>" <?php if($value['candidate_status']==$check_candidate_status[0]['job_status']) { echo "selected"; } ?> ><?php echo $value['candidate_status'] ;?></option>
+				        <option value="<?php echo $value['candidate_status'] ;?>" 
+						<?php if($value['candidate_status']==$check_candidate_status[0]['job_status']) { echo "selected"; } ?> >
+						<?php echo $value['candidate_status'] ;?></option>
 				    <?php } ?>
 			        </select> 
 				</div>
 				<input type="hidden" name="user_id" value="<?php echo $this->uri->segment(3); ?>">
 				<input type="hidden" name="applied_job_id" value="<?php echo $this->uri->segment(4); ?>">
 				<input type="hidden" name="comp_id" value="<?php echo $this->session->userdata('id'); ?>">
+				<input class="hidden" type="text" value="Company not interested" name="Company not interested">
+             <input class="hidden" type="text" value="Candidate not interested" name="Candidate not interested">
+			 <input class="hidden" type="text" value="Rejected after interview" name="Rejected after interview">
+             <input class="hidden" type="text" value="Candidate not interested" name="Candidate not interested">
 				
 				
 				<div class="pull-right">	
