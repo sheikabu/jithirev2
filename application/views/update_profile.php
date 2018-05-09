@@ -207,7 +207,7 @@ if(!$email){
 							<option value="">Select location...</option>
 					<optgroup label="select location">
 					<?php foreach($get_cities as $citylist => $citylistval) { ?>
-					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $locations)) { echo"selected"; } ?>>
+					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $clocat)) { echo"selected"; } ?>>
 					<?php echo $citylistval['city_name'] ?></option>
 					<?php }	 ?>
 					  </optgroup>

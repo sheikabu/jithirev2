@@ -11,19 +11,7 @@ if(!$email){
 }
 
  ?>
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<?php
-$email=$this->session->userdata('email');
 
-
-if(!$email){
-
-  redirect('user');
-}
-
- ?>
 
     <!-- Candidate dashboard -->
     <section id="">
@@ -207,6 +195,7 @@ if(!$email){
 							?>
 		                  </span>
 		                </div>
+
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Primary Skill: </label>
 		                  <span class="col-md-8">
@@ -264,13 +253,13 @@ if(!$email){
 		                </div>
 			    </div>
 			    <div class="col-md-5">
-			    		<?php if($get_candidate_info['total_experience']!='Fresher') { ?>
+			    		
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">Previous Role: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['previous_role']; ?></span>
 		                </div>
-		                <?php } else { ?>
-		                
+		               
+		                <?php if($get_candidate_info['total_experience']!='Fresher') { ?>
 						<div class="col-xs-12">
 		                  <label class="col-md-4">Year of completion: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['year_completion']; ?></span>
@@ -296,6 +285,7 @@ if(!$email){
 		                  <label class="col-md-4">Industry: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['industry']; ?></span>
 		                </div>
+						 <?php } else { ?>
 		                <?php } ?>
 						  <?php
 		                $clocat  = json_decode($get_candidate_info['current_location']);		                             
@@ -358,3 +348,31 @@ if(!$email){
        </div>
       </div>
     </section>
+	<script>
+$('#preferred_location').selectize({
+sortField: 'text'
+});
+$('#primary-skill').selectize({
+sortField: 'text'
+});
+$('#job-type').selectize({
+sortField: 'text'
+});
+$('#skill1').selectize({
+sortField: 'text'
+});
+$('#skill2').selectize({
+sortField: 'text'
+});
+$('#skill3').selectize({
+sortField: 'text'
+});
+$('#skill4').selectize({
+sortField: 'text'
+});
+$('#skill5').selectize({
+sortField: 'text'
+});
+
+$('#joining_date').datepicker({format: 'dd/mm/yyyy'});
+</script>
