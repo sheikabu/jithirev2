@@ -1124,7 +1124,7 @@ class User extends CI_Controller {
   	$this->load_view('candidates_apply',$data);  	
   }
 
-  public function view_profile($uid, $job_id) // add user full details
+  public function view_profile($uid, $job_id=NULL) // add user full details
 	{
 		$candidate_id = $uid;
 		$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
