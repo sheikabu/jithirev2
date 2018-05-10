@@ -35,7 +35,7 @@ if(!$email){
 			  		    <td><?php echo $values['name']; ?></td>
 			      		<td><?php echo $values['email']; ?></td>
 			      		<td><?php echo $values['mobile_number']; ?></td>
-			      		<td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>" class="link">View Profile</a></td>
+			      		<td><a href="<?php echo site_url() ?>user/view_profile/<?php echo $values['user_id']; ?>/<?php echo $this->uri->segment(3); ?>/job" class="link">View Profile</a></td>
 			      	</tr>
 
 			    	<?php } ?>

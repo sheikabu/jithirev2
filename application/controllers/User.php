@@ -1215,22 +1215,26 @@ class User extends CI_Controller {
 			'annual_ctc' => $this->input->post('annual_ctc')
 			);
 			
+
 		   $this->valid_m->insert_offer_letter($user_details);
 		 			 
 		 	 $data['message'] = 'Offer Created';
 		 	 $this->load_view('offer_letter',$data);
 	}
-	public function offer($user_id, $job_id){
+	public function offer($user_id, $offer_id){
 		//echo $user_id;
 
 		$this->load->helper('pdf_helper');
 		$user = $this->user_profile->get_user_profile_id($user_id);
-		$job = $this->valid_m->single_posted_job($job_id);
+
+		//$job = $this->valid_m->single_posted_job($job_id);
+		$data['view_letter'] =  $this->valid_m->print_offer_letter($offer_id);
 
 		$data['name'] = $user['first_name'];
 		$data['Job_code'] = $job[0]['Job_code'];
 		$data['job_role'] = $job[0]['job_role'];
 		$data['job_type'] = $job[0]['job_type'];
+		
 		$this->load_view('viewoffer', $data);
    }
 

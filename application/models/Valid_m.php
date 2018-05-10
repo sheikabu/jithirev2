@@ -294,10 +294,9 @@ class Valid_m extends CI_Model{
 	  return $results;
 	}
 	public function insert_offer_letter($user_details){	
-		$this->db->insert('jh_offer_letter',$user_details);	  
-        $query=$this->db->get();
-	    $results = $query->result_array();		
-		return TRUE;
+		$this->db->insert('jh_offer_letter',$user_details);		
+		$insert_id = $this->db->insert_id();
+   		return  $insert_id;	
 	}
 	public function view_letter($compid){
 
@@ -362,6 +361,16 @@ class Valid_m extends CI_Model{
 	  $this->db->where('id 	',$candidate_id); 
 	  $query=$this->db->get();
 	  $results = $query->result_array();
+	  return $results;
+	} 
+	public function print_offer_letter($offer_id){
+	  $this->db->select('*');
+	  $this->db->from('jh_offer_letter');
+	  $this->db->where('offer_id',$offer_id); 
+	  //$this->db->last_query();
+	  $query=$this->db->get();
+	  $results = $query->result_array();
+	  
 	  return $results;
 	} 
 	

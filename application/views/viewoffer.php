@@ -12,6 +12,7 @@
               	 <div class="row">
               		
 					<div class="col-md-10">
+					
 				<?php foreach ($view_letter as $offerkey => $offervalue) { ?>
 	              		
 		                <div class="col-xs-12">

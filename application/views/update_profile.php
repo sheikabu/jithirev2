@@ -200,24 +200,24 @@ if(!$email){
 										
 						
 	                  <div class="col-md-12" id="current_location">
-	                    <?php $clocat  = json_decode($get_candidate_info['current_location']); ?>
-	                 
+	                    <?php $clocats=json_decode($get_candidate_info['current_location']); ?>
+
+
+
 
 	                  <select id="current-location" name="current_location[]" class="demo-default" placeholder="Select locations...">
 							<option value="">Select location...</option>
 					<optgroup label="select location">
 					<?php foreach($get_cities as $citylist => $citylistval) { ?>
-					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $locations)) { echo"selected"; } ?>>
+
+					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $clocats)) { echo"selected"; } ?>>
 					<?php echo $citylistval['city_name'] ?></option>
 					<?php }	 ?>
 					  </optgroup>
 					</select>
 	                </div>
 	    </div>
-
-
-
-	 	 <div class="col-xs-12 mTop-5">
+ 	 <div class="col-xs-12 mTop-5">
 	 	 			<div class="col-xs-12">
 	                  <label class="col-md-6">Preferred location</label>
 	                  <div class="col-md-6 pull-right">
@@ -229,7 +229,7 @@ if(!$email){
 					</div>
 						
 	                  <div class="col-md-12" id="preferred_location"> 
-	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']); ?>
+	                    <?php $locations  = json_decode($get_candidate_info['preferred_location']);?>
 
 					<select id="select-gear" name="preferred_location[]" class="demo-default" multiple placeholder="Select locations...">
 							<option value="">Select location...</option>
@@ -564,10 +564,11 @@ $('#any-location').change(function(){
 </script>
 
 <script>
-$(document).ready(function(){
+
   // Use className or Id instead of direct tag name
-  $('#total-experience').on('change', function() {
-    var val = $(this).val(); alert(val);
+  var select = $('#total-experience').selectize({
+	onChange: function(value) {
+    var val =value;
     if(val==1) {
     $('#pre-role').fadeOut('slow');
     $('#year_completion, #institute, #score, #degree, #branch').fadeIn('slow');
@@ -577,7 +578,8 @@ $(document).ready(function(){
     $('#year_completion, #institute, #score, #degree, #branch').fadeOut('slow');
     $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',false);
     }
-  })
+     }
+  });
 
    var valload = $("#total-experience").val();
    if(valload==1) {
@@ -591,7 +593,7 @@ $(document).ready(function(){
     $("#year_completion_input, #institute_input, #score_input, #degree_input, #branch_input").prop('required',false);
     }
 
-});
+
 
 </script>
 
