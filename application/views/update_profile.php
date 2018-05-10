@@ -200,7 +200,7 @@ if(!$email){
 										
 						
 	                  <div class="col-md-12" id="current_location">
-	                    <?php $clocats=json_decode($get_candidate_info['current_location']); ?>
+	                    <?php $clocat=json_decode($get_candidate_info['current_location']); ?>
 
 
 
@@ -210,7 +210,8 @@ if(!$email){
 					<optgroup label="select location">
 					<?php foreach($get_cities as $citylist => $citylistval) { ?>
 
-					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $clocats)) { echo"selected"; } ?>>
+					<option value ='<?php echo $citylistval['city_name']; ?>' <?php if (in_array($citylistval['city_name'], $clocat)) { echo"selected"; } ?>>
+
 					<?php echo $citylistval['city_name'] ?></option>
 					<?php }	 ?>
 					  </optgroup>
