@@ -82,15 +82,24 @@ if(!$email){
 					</select>
 					</div>
 				</div>
+				 <?php if($jobtypeval['job_type']=='2') { ?>
+				<div class="form-group">
+	               <label>Duration</label>
+	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="" required>
+	            </div>
+				 <?php } else { ?>
+				 
 			 	 <div class="form-group salary-form-group">
 					<label>Preferred Joining Date:</label>
 					  <input name="close_date_time" class="form-control" id="joining_date" placeholder="Preferred Joining" type="text"  required>
 				</div>
+				 
 				<div class="form-group">
 	                <!-- First Name --><label>Job Description</label><br>
 
 	                <textarea rows="4" class="width-fluid" name="job_description" required></textarea>
 	            </div>
+				<?php } ?>
 	        </div>
 
 	        <div class="col-md-4"> 
@@ -170,10 +179,7 @@ if(!$email){
 					</select>
 
 				</div>
-				<div class="form-group">
-	               <label>Duration</label>
-	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="" required>
-	            </div>
+				
 
 	            <div class="form-group skills">
 		            <label>Skills</label>

@@ -87,7 +87,7 @@
                <!--<button type="button" class="btn btn-fill text-uppercase" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</button>-->
                <a class="nav-link js-scroll-trigger" href="#" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</a>
             </li>
-            <?php } ?>
+           
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/about">About Us</a>
             </li>
@@ -95,6 +95,7 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="<?php echo site_url() ?>user/contact">Contact Us</a>
             </li>
+			 <?php } ?>
            <?php if($this->session->userdata('role')=='company'){ ?>
          <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
