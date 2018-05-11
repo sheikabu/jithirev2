@@ -66,7 +66,7 @@ if(!$email){
 	                </div>
 	                 <div class="col-xs-12 mTop-5">
 	                  <!-- birth day -->
-	                  <label class="col-md-12">Date of Birth</label><div class="col-md-12"> <input type="date" name="bday" class="form-control"  value="<?php echo $get_candidate_info['dob']; ?>" required> </div>
+	                  <label class="col-md-12">Date of Birth</label><div class="col-md-12"> <input type="date" name="bday" class="form-control" id="datepicker" value="<?php echo $get_candidate_info['dob']; ?>" required> </div>
 	                </div>
 	                   <div class="col-xs-12 mTop-5">
 	                  <label class="col-md-12">Gender</label><div class="col-md-12" id="gender"> 
@@ -270,7 +270,7 @@ if(!$email){
             
       <div class="row mTop-30">      
 	    <!-- Upload photo -->
-	    <div class="col-md-4">
+	    <div class="col-md-3">
 	    
 	            <div id="upload_photo-view" class="upload-photo-wrap">
 	                 
@@ -400,7 +400,7 @@ if(!$email){
             </div>
             <!--End Primary skill -->
             <!-- Skills -->
-			<div class="col-md-4">
+			<div class="col-md-5">
 			<div id="skills-view" class="skills">
 				<div class="details col-md-12" id="basic-info">
 				<div class="col-md-12 paddingL-0 line2"><label>Skills</label><label class="pull-right mRight-20">Proficiency</label></div>
@@ -432,7 +432,7 @@ if(!$email){
                     <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select>                  
+                  </select> <input type="button" class="btn btn-success" name="plus" id="plus" value="+">                 
                   <!--skill1 END-->
                   <!--skill2-->
                   <?php $skill2  = json_decode($get_candidate_info['skill2'],true); 					
@@ -454,7 +454,7 @@ if(!$email){
                     <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select>                  
+                  </select>  <input type="button" class="btn btn-success" name="plus" id="plus" value="+">                
                   <!--skill2 END-->
                   <!--skill3-->
                   <?php $skill3  = json_decode($get_candidate_info['skill3'],true); 					
@@ -475,7 +475,7 @@ if(!$email){
                     <option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val3=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val3=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select>
+                  </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
                   <!--skill3 END-->
                   <!--skill4-->
                    <?php $skill4  = json_decode($get_candidate_info['skill4'],true); 					
@@ -496,7 +496,7 @@ if(!$email){
                     <option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val4=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val4=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select>
+                  </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
                   <!--skill4 END-->
                   <!--skill5-->
                   <?php $skill5  = json_decode($get_candidate_info['skill5'],true); 					
@@ -516,7 +516,7 @@ if(!$email){
                     <option <?php if ($val5=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val5=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val5=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select>
+                  </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
                   <!--skill5 END-->
 
 				</div>
@@ -638,4 +638,16 @@ $('#skill5').selectize({
 sortField: 'text'
 });
 </script> 
+<script>
+$(document).ready(function () {
+    var date = new Date();
+    var currentMonth = date.getMonth();
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
 
+    $('#datepicker').datepicker({
+        minDate: new Date(currentYear, currentMonth, currentDate),
+        dateFormat: 'yy-mm-dd'
+    });
+});
+</script>

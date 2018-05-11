@@ -23,7 +23,12 @@ if(!$email){
 		<div class="col-md-4">
 		 <div class="form-group">
 	               <label>Jobcode </label>
-	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="" required>
+	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="<?php
+echo(rand() . "");
+
+?>
+" required>
+
 	            </div>
 				 
 				 <div class="form-group ">
@@ -148,7 +153,7 @@ if(!$email){
 					<div class="row">
 						<div class="col-md-12">
 							<select name="status" required class="form-control">
-							<option value=''>--select--</option>
+							
 							<option value ='Draft'>Draft</option>
 							<option value ='Open'>Open</option>
 							<option value ='Closed'>Closed</option>
@@ -185,7 +190,7 @@ if(!$email){
 		            <label>Skills</label>
 					  <div id="sections">
 					  <div class="section">
-					 		<fieldset class="mTop-5">					            
+					 		<fieldset class="mTop-5" >					            
 								<select id="skill1" name="skill1[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -199,8 +204,9 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
-								</fieldset>
+					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
+								
+								</fieldset> 
 								<fieldset class="mTop-5">					           
 					            <select id="skill2" name="skill2[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
@@ -215,8 +221,8 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
-								</fieldset class="mTop-5">
+					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
+								</fieldset  >
 								<fieldset class="mTop-5">
 					            <select id="skill3" name="skill3[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
@@ -231,9 +237,9 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
+					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
 								</fieldset>
-								<fieldset class="mTop-5">
+								<fieldset class="mTop-5" >
 					            <select id="skill4" name="skill4[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -247,9 +253,9 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
+					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
 								</fieldset>
-								<fieldset class="mTop-5">
+								<fieldset class="mTop-5" >
 					            <select id="skill5" name="skill5[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -263,7 +269,7 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
+					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
 								</fieldset>
 						
 					</div>
@@ -287,6 +293,10 @@ $(function(){
     });
 });
 </script>
+
+
+
+
 
 
 <script>

@@ -51,7 +51,7 @@ if(!$email){
 			      		<td><?php echo $values['open_date_time']; ?></td> 	
 			      		<td><?php echo $values['close_date_time']; ?></td>
 			    		<td><?php echo $values['status']; ?></td>
-			      		<td><a href="<?php echo site_url() ?>user/posted_jobs/<?php echo $values['job_id']; ?>">View</a></td>			      		
+			      		<td><a href="<?php echo site_url() ?>user/posted_jobs/<?php echo $values['job_id']; ?>">View Job</a></td>			      		
 			    	</tr>
 			    	<?php } ?>
 			   </tbody>
