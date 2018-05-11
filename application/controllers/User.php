@@ -856,7 +856,7 @@ class User extends CI_Controller {
             $i++;
         }
         arsort($selectedCandidates);
-        //print_r($selectedCandidates);
+        //print_r($selectedCandidates); exit;
         return $selectedCandidates;
         //exit;
     }
@@ -869,20 +869,21 @@ class User extends CI_Controller {
 		$data['get_job_type'] = $this->valid_m->get_job_type();
 		$data['job_list'] = $this->valid_m->single_posted_job($posted_id);
 		$data['applied_count'] = $this->valid_m->count_applied($posted_id);
+		$this->load_view('posted_jobs',$data);
+	}
 
-
+	public function matching_candidates($posted_id = NULL)
+	{
 		//Kavya
-		$job = $this->valid_m->single_posted_job($posted_id);
-
-        $get_candidate_info = $this->get_a_candidate($job[0]);       
+		$data['job'] = $this->valid_m->single_posted_job($posted_id);
+        $get_candidate_info = $this->get_a_candidate($data['job'][0]);       
         reset($get_candidate_info);
 		list($candidate_id, $candidate_score) = each($get_candidate_info);
         $data['shortlisted_candidates'] = $this->valid_m->select_shortlisted_candidates($candidate_id);
-        
 		//Kavya END		       
 
-		$this->load_view('posted_jobs',$data);
-	}	
+		$this->load_view('matching_candidates',$data);
+	}
 	
 	public function update_post() // add user full details
 	{

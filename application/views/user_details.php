@@ -23,6 +23,7 @@ if(!$email){
         <div class="row">
          <?php if($this->session->userdata('role')=='company'){ ?>
          <div class="col-md-12">
+         <button onclick="goBack()">Go Back</button>
          <?php echo form_open('user/update_candidate_status');?>
          <div class="row">
 	        <div class="col-md-12">
@@ -32,10 +33,11 @@ if(!$email){
 	        	
 		        <div class="pull-right"> 
 			        <select name="candidate_status" required class="form-control">
-			        <?php foreach ($get_candidate_status as $key => $value) { ?>	
+			        <?php foreach ($get_candidate_status as $key => $value) { ?>
 			            	        
 				        <option  value="<?php echo $value['candidate_status'] ;?>" 
-						<?php if($value['candidate_status']==$check_candidate_status[0]['job_status']) { echo "selected"; } ?>  >
+						<?php if($value['closed']=='Closed') { echo "disabled"; }
+						if($value['candidate_status']==$check_candidate_status[0]['job_status']) { echo "selected"; } ?>  >
 						<?php echo $value['candidate_status'] ;?></option>
 						
 				    <?php } ?>
@@ -54,6 +56,7 @@ if(!$email){
 
          <?php } ?>
          </div>
+
           <div class="col-md-12">
           		<?php 
           			 $link = $_SERVER['PHP_SELF'];
@@ -64,8 +67,9 @@ if(!$email){
     				}
           		 ?>
             <!-- Full profile view -->
+
               <div id="full-profile-view">
-              
+              		
              		<div class="line2 mBot-10">
              			<h2 class="title mRight-20 "><?php 
 		                   $primary_skill = json_decode($get_candidate_info['primary_skill'], true);
@@ -104,8 +108,12 @@ if(!$email){
 				
 
 					<div class="col-md-5">
-			
-	              		
+					<?php if($this->session->userdata('role')=='company'){ ?>
+	              		<div class="col-xs-12" style="color: blue">
+		                  <label class="col-md-4">Current Status: </label>
+		                  <span class="col-md-8"><?php echo $check_candidate_status[0]['job_status']; ?></span>
+		                </div>
+		            <?php } ?>
 		                <div class="col-xs-12">
 		                  <label class="col-md-4">Name: </label>
 		                  <span class="col-md-8"><?php echo $get_candidate_info['first_name']; ?></span>
@@ -373,4 +381,9 @@ sortField: 'text'
 });
 
 $('#joining_date').datepicker({format: 'dd/mm/yyyy'});
+</script>
+<script>
+function goBack() {
+    window.history.back();
+}
 </script>

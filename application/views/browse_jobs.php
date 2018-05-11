@@ -155,7 +155,7 @@ if(!$email){
              <input class="hidden" type="text" value="<?php echo $values['company_id']; ?>" name="company_id">
              <input class="hidden" type="text" value="<?php echo $this->session->userdata('id'); ?>" name="user_id">
              <input class="hidden" type="text" value="Candidate Interested" name="job_applied_status">
-             <input class="hidden" type="text" value="Rejected" name="job_rejected_status">
+             <input class="hidden" type="text" value="Candidate not interested" name="job_rejected_status">
 
               <div class="row">
               <div class="btn-form text-center mTop-20 col-md-12 line2">
