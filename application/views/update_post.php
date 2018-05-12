@@ -195,6 +195,10 @@ if(!$email){
 					 		<fieldset class="mTop-5">
 							<div class="container paddingL-0" >
 				<div class='element' id='div_1'>
+				<div id="agreement1div">
+					  <div class="button">
+					  <div for="agreement1">
+				
 							<?php $skill1  = json_decode($values['skill1'],true); 				
         		foreach($skill1 as $key => $val)
         		if($key=='') {$val = 'Basic';}
@@ -212,8 +216,13 @@ if(!$email){
 					            	 <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
-					            </select>
-								
+					            </select><input name="agreement1" id="agreement1" type="button" value="+"/> 
+								 </div>
+				  </div>
+				  </div>
+								 <div id="agreement2div">
+					  <div class="button">
+					  <div for="agreement2">
 								<?php $skill1  = json_decode($values['skill2'],true); 				
         		foreach($skill1 as $key1 => $val1)
         		if($key1=='') {$val1 = 'Basic';}
@@ -231,8 +240,13 @@ if(!$email){
 					            	<option <?php if ($val1=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val1=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val1=='Advanced') { echo"selected"; } ?>>Advanced</option>
-					            </select>
-								
+					            </select><input name="agreement2" id="agreement2" type="button" value="+"/> 
+								 </div>
+				  </div>
+				  </div>
+								  <div id="agreement3div">
+					  <div class="button">
+					  <div for="agreement3">
 								<?php $skill2  = json_decode($values['skill3'],true); 				
         		foreach($skill2 as $key2 => $val2)
         		if($key2=='') {$val2 = 'Basic';}
@@ -250,8 +264,13 @@ if(!$email){
 					            	 <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
-					            </select>
-								
+					            </select><input name="agreement3" id="agreement3" type="button" value="+"/> 
+								 </div>
+				  </div>
+				  </div>
+								 <div id="agreement4div">
+					  <div class="button">
+					  <div for="agreement4">
 								<?php $skill3  = json_decode($values['skill4'],true); 				
         		foreach($skill3 as $key3 => $val3)
         		if($key3=='') {$val3 = 'Basic';}
@@ -269,8 +288,13 @@ if(!$email){
 					            	<option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val3=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val3=='Advanced') { echo"selected"; } ?>>Advanced</option>
-					            </select>
-								
+					            </select><input name="agreement4" id="agreement4" type="button" value="+"/> 
+								 </div>
+				  </div>
+				  </div>
+								  <div id="agreement5div">
+					  <div class="button">
+					  <div for="agreement5">
 								<?php $skill4  = json_decode($values['skill5'],true); 				
         		foreach($skill4 as $key4 => $val4)
         		
@@ -288,7 +312,10 @@ if(!$email){
 					            	<option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val4=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val4=='Advanced') { echo"selected"; } ?>>Advanced</option>
-					            </select>
+					            </select><input name="agreement5" id="agreement5" type="button" value="+"/> 
+								 </div>
+				  </div>
+				  </div>
 								</div>
 								</div>
 								</fieldset>
@@ -310,6 +337,45 @@ if(!$email){
 	</div>
 </section>
 <script src="assets/jquery/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  $("#agreement1").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement2div").show();
+      }
+  });
+  $("#agreement2").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement3div").show();
+      }
+  });
+  $("#agreement3").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement4div").show();
+      }
+  });
+   $("#agreement4").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+  $("#agreement5").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+
+  $("#agreement2div").hide();
+  $("#agreement3div").hide();
+  $("#agreement4div").hide();
+   $("#agreement5div").hide();
+    $("#agreement5div").hide();
+
+
+});
+
+</script>
 <script>
  var i = 0;
  var original = document.getElementById('duplicater');

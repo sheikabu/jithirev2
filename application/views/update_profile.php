@@ -411,7 +411,9 @@ if(!$email){
 				<fieldset>
 				<div class="container paddingL-0 paddingR-0" >
 				<div class='element' id='div_1'>
-				
+				<div id="agreement1div">
+					  <div class="button">
+					  <div for="agreement1">
 				<!--skill1-->
 				<?php $skill1  = json_decode($get_candidate_info['skill1'],true); 				
         		foreach($skill1 as $key => $val)
@@ -432,9 +434,18 @@ if(!$email){
                     <option <?php if ($val=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select> <input type="button" class="btn btn-success" name="plus" id="plus" value="+">                 
-                  <!--skill1 END-->
+                  </select><input name="agreement1" id="agreement1" type="button" value="+"/>                
+                  
+				  <!--skill1 END-->
+				   </div>
+				  </div>
+				  </div>
+				  
+				  <div id="agreement2div">
+					  <div class="button">
+					  <div for="agreement2">
                   <!--skill2-->
+				  
                   <?php $skill2  = json_decode($get_candidate_info['skill2'],true); 					
 	        		foreach($skill2 as $key2 => $val2)
 	        		if($key2=='') {$val2 = 'Fresher';}
@@ -454,8 +465,14 @@ if(!$email){
                     <option <?php if ($val2=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val2=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val2=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select>  <input type="button" class="btn btn-success" name="plus" id="plus" value="+">                
+                  </select>  <input name="agreement2" id="agreement2" type="button" value="+"/>               
                   <!--skill2 END-->
+				   </div>
+				  </div>
+				  </div>
+				  <div id="agreement3div">
+					  <div class="button">
+					  <div for="agreement3">
                   <!--skill3-->
                   <?php $skill3  = json_decode($get_candidate_info['skill3'],true); 					
 	        		foreach($skill3 as $key3 => $val3)
@@ -475,8 +492,14 @@ if(!$email){
                     <option <?php if ($val3=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val3=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val3=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
+                  </select><input name="agreement3" id="agreement3" type="button" value="+"/>
                   <!--skill3 END-->
+				   </div>
+				  </div>
+				  </div>
+				  <div id="agreement4div">
+					  <div class="button">
+					  <div for="agreement4">
                   <!--skill4-->
                    <?php $skill4  = json_decode($get_candidate_info['skill4'],true); 					
 	        		foreach($skill4 as $key4 => $val4)
@@ -496,8 +519,14 @@ if(!$email){
                     <option <?php if ($val4=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val4=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val4=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
+                  </select><input name="agreement4" id="agreement4" type="button" value="+"/>
                   <!--skill4 END-->
+				  </div>
+				  </div>
+				  </div>
+				  <div id="agreement5div">
+					  <div class="button">
+					  <div for="agreement5">
                   <!--skill5-->
                   <?php $skill5  = json_decode($get_candidate_info['skill5'],true); 					
 	        		foreach($skill5 as $key5 => $val5)
@@ -516,9 +545,11 @@ if(!$email){
                     <option <?php if ($val5=='Basic') { echo"selected"; } ?>>Basic</option>
                     <option <?php if ($val5=='Intermediate') { echo"selected"; } ?>>Intermediate</option>
                     <option <?php if ($val5=='Advanced') { echo"selected"; } ?>>Advanced</option>
-                  </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
+                  </select><input name="agreement5" id="agreement5" type="button" value="+"/>
                   <!--skill5 END-->
-
+ </div>
+				  </div>
+				  </div>
 				</div>
 				</div>
 				</fieldset>
@@ -552,7 +583,45 @@ if(!$email){
        </div>
       </div>
     </section>
+<script>
+$(document).ready(function(){
 
+  $("#agreement1").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement2div").show();
+      }
+  });
+  $("#agreement2").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement3div").show();
+      }
+  });
+  $("#agreement3").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement4div").show();
+      }
+  });
+   $("#agreement4").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+  $("#agreement5").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+
+  $("#agreement2div").hide();
+  $("#agreement3div").hide();
+  $("#agreement4div").hide();
+   $("#agreement5div").hide();
+    $("#agreement5div").hide();
+
+
+});
+
+</script>
 
 <script>
 $('#any-location').change(function(){

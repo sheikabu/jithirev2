@@ -23,11 +23,13 @@ if(!$email){
 		<div class="col-md-4">
 		 <div class="form-group">
 	               <label>Jobcode </label>
-	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="<?php
+
+	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $company_details['company_name'];  ?><?php
 echo(rand() . "");
 
 ?>
 " required>
+
 
 	            </div>
 				 
@@ -87,12 +89,12 @@ echo(rand() . "");
 					</select>
 					</div>
 				</div>
-				 <?php if($jobtypeval['job_type']=='2') { ?>
+				
 				<div class="form-group">
 	               <label>Duration</label>
 	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="" required>
 	            </div>
-				 <?php } else { ?>
+				`
 				 
 			 	 <div class="form-group salary-form-group">
 					<label>Preferred Joining Date:</label>
@@ -104,7 +106,7 @@ echo(rand() . "");
 
 	                <textarea rows="4" class="width-fluid" name="job_description" required></textarea>
 	            </div>
-				<?php } ?>
+				
 	        </div>
 
 	        <div class="col-md-4"> 
@@ -190,7 +192,9 @@ echo(rand() . "");
 		            <label>Skills</label>
 					  <div id="sections">
 					  <div class="section">
-					 		<fieldset class="mTop-5" >					            
+					  <div id="agreement1div">
+					  <div class="button">
+					 		<fieldset class="mTop-5 button" for="agreement1">					            
 								<select id="skill1" name="skill1[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -204,10 +208,14 @@ echo(rand() . "");
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+">
+					            </select><input name="agreement1" id="agreement1" type="button" value="+"/>
 								
 								</fieldset> 
-								<fieldset class="mTop-5">					           
+								</div>
+								</div>
+								<div id="agreement2div">
+								<div class="button">
+								<fieldset class="mTop-5 button" for="agreement2">					           
 					            <select id="skill2" name="skill2[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -221,9 +229,13 @@ echo(rand() . "");
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
+					            </select><input name="agreement2" id="agreement2" type="button" value="+"/> 
 								</fieldset  >
-								<fieldset class="mTop-5">
+								</div>
+								</div>
+								<div id="agreement3div">
+								<div class="button">
+								<fieldset class="mTop-5 button"  for="agreement3">
 					            <select id="skill3" name="skill3[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -237,10 +249,14 @@ echo(rand() . "");
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
+					            </select><input name="agreement3" id="agreement3" type="button" value="+"/>
 								</fieldset>
-								<fieldset class="mTop-5" >
-					            <select id="skill4" name="skill4[]" placeholder="Select Skill...">
+								</div>
+								</div>
+								<div id="agreement4div">
+								<div class="button">
+								<fieldset class="mTop-5 button" id="agreement4fieldset" >
+					            <select id="skill4" name="skill4[]" placeholder="Select Skill..." for="agreement4">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
 								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
@@ -253,10 +269,14 @@ echo(rand() . "");
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
+					            </select><input name="agreement4" id="agreement4" type="button" value="+"/>
 								</fieldset>
-								<fieldset class="mTop-5" >
-					            <select id="skill5" name="skill5[]" placeholder="Select Skill...">
+								</div>
+								</div>
+								<div id="agreement5div">
+								<div class="button">
+								<fieldset class="mTop-5 " for="agreement5">
+					            <select id="skill5" name="skill5[]" placeholder="Select Skill..." >
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
 								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
@@ -269,8 +289,11 @@ echo(rand() . "");
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select><input type="button" class="btn btn-success" name="plus" id="plus" value="+"> 
+					            </select><input name="agreement5" id="agreement5" type="button" value="+"/>
+								
 								</fieldset>
+								</div>
+								</div>
 						
 					</div>
 				</div>
@@ -284,6 +307,47 @@ echo(rand() . "");
 		</div>
 	</div>
 </section>
+<script>
+$(document).ready(function(){
+
+  $("#agreement1").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement2div").show();
+      }
+  });
+  $("#agreement2").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement3div").show();
+      }
+  });
+  $("#agreement3").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement4div").show();
+      }
+  });
+   $("#agreement4").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+  $("#agreement5").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+
+  $("#agreement2div").hide();
+  $("#agreement3div").hide();
+  $("#agreement4div").hide();
+   $("#agreement5div").hide();
+    $("#agreement5div").hide();
+
+
+});
+
+</script>
+
+
 <script>
 $(function(){
    
