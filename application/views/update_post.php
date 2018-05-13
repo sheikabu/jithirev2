@@ -82,6 +82,10 @@ if(!$email){
 					</select>
 					</div>
 				</div>
+				<div class="form-group">
+	               <label>Duration</label>
+	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="<?php echo $values['duration'];?>" >
+	            </div>
 				 
 			 	 <div class="form-group">
 					<label>Preferred Joining Date:</label>
@@ -147,7 +151,7 @@ if(!$email){
 					<div class="row">
 						<div class="col-md-12">
 							<select name="status" required class="form-control">
-							<option value=''>--select--</option>
+							
 							<option value ='Draft' <?php if($values['status'] == 'Draft') echo"selected"; ?>>Draft</option>
 							<option value ='Open' <?php if($values['status'] == 'Open') echo"selected"; ?>>Open</option>
 							<option value ='Closed' <?php if($values['status'] == 'Closed') echo"selected"; ?>>Closed</option>
@@ -180,10 +184,7 @@ if(!$email){
 					</select>
 
 				</div>
-				<div class="form-group">
-	               <label>Duration</label>
-	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="<?php echo $values['duration'];?>"  required>
-	            </div>
+				
 
 	            <div class="form-group">
 	            	<div class="col-md-12 paddingL-0 line2">

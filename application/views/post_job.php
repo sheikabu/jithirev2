@@ -24,7 +24,7 @@ if(!$email){
 		 <div class="form-group">
 	               <label>Jobcode </label>
 
-	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $get_company_info['company_name']; ?><?php
+	                <input name="Job_code" readonly class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $get_company_info['company_name']; ?><?php
 echo(rand() . "");
 
 ?>
@@ -74,7 +74,7 @@ echo(rand() . "");
 				</div>
 				<div class="form-group ">
 					<label>Job Type</label>
-					 <div class="job_type"  id="job_type">
+					 <div class="job_type"id="job_type" >
 					  <?php $jobt  = $values['job_type']; ?>
 						<select id="job-type" name="job_type"   class="demo-default" placeholder="Select job type...">
 						 <option value=''>select job type</option>
@@ -90,9 +90,9 @@ echo(rand() . "");
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" id="duration">
 	               <label>Duration</label>
-	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="" required>
+	                <input name="duration" id="duration_input" class="form-control" placeholder="Duration*" type="text" value="" >
 	            </div>
 				`
 				 
@@ -307,6 +307,40 @@ echo(rand() . "");
 		</div>
 	</div>
 </section>
+
+<script>
+
+  // Use className or Id instead of direct tag name
+  var select = $('#job_type').selectize({
+	onChange: function(value) {
+    var val =value;
+    if(val==1) {
+    $('#pre-role').fadeOut('slow');
+    $('#duration').fadeIn('slow');
+    $("#duration_input").prop('required',true);
+    } else {
+    $('#pre-role').fadeIn('slow');
+    $('#duration').fadeOut('slow');
+    $("#duration_input").prop('required',false);
+    }
+     }
+  });
+
+   var valload = $("#job_type").val();
+   if(valload==1) {
+    $('#pre-role').fadeOut('slow');
+    $('#duration').fadeIn('slow');
+    $("#duration_input").prop('required',true);
+    }
+    else {
+    $('#pre-role').fadeIn('slow');
+    $('#duration').fadeOut('slow');
+    $("#duration_input").prop('required',false);
+    }
+
+
+
+</script>
 <script>
 $(document).ready(function(){
 
