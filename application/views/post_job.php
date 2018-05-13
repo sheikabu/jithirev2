@@ -24,7 +24,7 @@ if(!$email){
 		 <div class="form-group">
 	               <label>Jobcode </label>
 
-	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $company_details['company_name'];  ?><?php
+	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $get_company_info['company_name']; ?><?php
 echo(rand() . "");
 
 ?>
@@ -98,7 +98,7 @@ echo(rand() . "");
 				 
 			 	 <div class="form-group salary-form-group">
 					<label>Preferred Joining Date:</label>
-					  <input name="close_date_time" class="form-control" id="joining_date" placeholder="Preferred Joining" type="text"  required>
+					  <input name="close_date_time" class="form-control" id="datepicker" placeholder="Preferred Joining" type="date"  required>
 				</div>
 				 
 				<div class="form-group">
@@ -389,5 +389,18 @@ $('#skill5').selectize({
 sortField: 'text'
 });
 
-$('#joining_date').datepicker({format: 'dd/mm/yyyy'});
+
+</script>
+<script>
+$(document).ready(function () {
+    var date = new Date();
+    var currentMonth = date.getMonth();
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
+
+    $('#datepicker').datepicker({
+        minDate: new Date(currentYear, currentMonth, currentDate),
+        dateFormat: 'yy-mm-dd'
+    });
+});
 </script>

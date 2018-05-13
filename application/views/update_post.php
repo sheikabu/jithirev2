@@ -83,9 +83,9 @@ if(!$email){
 					</div>
 				</div>
 				 
-			 	 <div class="form-group salary-form-group">
+			 	 <div class="form-group">
 					<label>Preferred Joining Date:</label>
-					  <input name="close_date_time" class="form-control" id="joining_date" value="<?php echo $values['close_date_time'];?>" placeholder="Preferred Joining" type="text"  required>
+					  <input type="data"  name="close_date_time" class="form-control" id="datepicker" value="<?php echo $values['close_date_time'];?>" placeholder="Preferred Joining"  required>
 				</div>
 				<div class="form-group">
 	                <!-- First Name --><label>Job Description</label><br>
@@ -466,9 +466,22 @@ $('#skill5').selectize({
 sortField: 'text'
 });
 $(document.body).addClass('update_post');
-$('#joining_date').datepicker({format: 'dd/mm/yyyy'});
+
 </script>
 
+<script>
+$(document).ready(function () {
+    var date = new Date();
+    var currentMonth = date.getMonth();
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
+
+    $('#datepicker').datepicker({
+        minDate: new Date(currentYear, currentMonth, currentDate),
+        dateFormat: 'yy-mm-dd'
+    });
+});
+</script>
 
        
  
