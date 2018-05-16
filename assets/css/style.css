@@ -841,10 +841,12 @@ select.form-control:not([size]):not([multiple]) {
   .sign-form .error{
     float: left;
   }
+
  /*---------------------------------------------- */ 
 }
 }
 
+/*----------------------------------------------------*/
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 5px!important;
