@@ -635,7 +635,7 @@ class User extends CI_Controller {
 	//Company Registration
 	public function registration_company() //login_check
 	{
-		
+		$company_id = $this->session->userdata("id");
                     $company_details=array(
 		 			'company_name' => $this->input->post('company_name'),	 			 
 		 			'url' => $this->input->post('url'),
@@ -680,6 +680,7 @@ class User extends CI_Controller {
 	}
 	public function company_details() //login_check
 	{
+		
 		$company_details=array(
 		 			'id' => $this->input->post('id'), 
 		 			'company_name' => $this->input->post('company_name'),
@@ -720,7 +721,8 @@ class User extends CI_Controller {
 	public function new_job() // add user full details
 	{
 		
-		$candidate_id = $this->session->userdata("id");
+		$company_id = $this->session->userdata("id");
+		$data['get_company_info'] = $this->job_post->get_user_profile_id($company_id);
 		//$data['get_candidate_info'] = $this->user_profile->get_user_profile_id($candidate_id);
 
 		

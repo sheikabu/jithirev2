@@ -124,7 +124,7 @@ if(!$email){
 		                </div>
 		                 <div class="col-xs-12">
 		                  <label class="col-md-4">DOB: </label>
-		                  <span class="col-md-8"><?php echo $get_candidate_info['dob']; ?></span>
+		                  <span class="col-md-8" ><?php echo $get_candidate_info['dob']; ?></span>
 		                </div>
 		               
 		               

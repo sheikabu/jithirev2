@@ -8,13 +8,11 @@ class Job_post extends CI_Model{
 		parent::__construct();
 	}
 
-	public function  get_user_profile_id($candidate_id){ //comments
-		
-	  $this->db->select('jh_registration.*,jh_user_profile.*');
-	  $this->db->from('jh_registration');
-	   $this->db->join('jh_user_profile', 'jh_registration.id = jh_user_profile.user_id');
-	  $this->db->where('jh_registration.id',$candidate_id);
-
+	public function  get_user_profile_id($company_id){ //comments
+		$this->db->select('*');
+	  	 $this->db->from('jh_company_details');
+		 $this->db->where('id',$company_id);
+		 
 	  if($query=$this->db->get())
 	  {
 	      return $query->row_array();

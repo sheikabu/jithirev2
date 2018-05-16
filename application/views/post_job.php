@@ -23,7 +23,14 @@ if(!$email){
 		<div class="col-md-4">
 		 <div class="form-group">
 	               <label>Jobcode </label>
-	                <input name="Job_code" class="form-control" placeholder="Jobcode*" type="text" value="" required>
+
+	                <input name="Job_code" readonly class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $get_company_info['company_name']; ?><?php
+echo(rand() . "");
+
+?>
+" required>
+
+
 	            </div>
 				 
 				 <div class="form-group ">
@@ -67,7 +74,7 @@ if(!$email){
 				</div>
 				<div class="form-group ">
 					<label>Job Type</label>
-					 <div class="job_type"  id="job_type">
+					 <div class="job_type"id="job_type" >
 					  <?php $jobt  = $values['job_type']; ?>
 						<select id="job-type" name="job_type"   class="demo-default" placeholder="Select job type...">
 						 <option value=''>select job type</option>
@@ -82,16 +89,16 @@ if(!$email){
 					</select>
 					</div>
 				</div>
-				 <?php if($jobtypeval['job_type']=='2') { ?>
-				<div class="form-group">
+				
+				<div class="form-group" id="duration">
 	               <label>Duration</label>
-	                <input name="duration" class="form-control" placeholder="Duration*" type="text" value="" required>
+	                <input name="duration" id="duration_input" class="form-control" placeholder="Duration*" type="text" value="" >
 	            </div>
-				 <?php } else { ?>
+				`
 				 
 			 	 <div class="form-group salary-form-group">
 					<label>Preferred Joining Date:</label>
-					  <input name="close_date_time" class="form-control" id="joining_date" placeholder="Preferred Joining" type="text"  required>
+					  <input name="close_date_time" class="form-control" id="datepicker" placeholder="Preferred Joining" type="date"  required>
 				</div>
 				 
 				<div class="form-group">
@@ -99,7 +106,7 @@ if(!$email){
 
 	                <textarea rows="4" class="width-fluid" name="job_description" required></textarea>
 	            </div>
-				<?php } ?>
+				
 	        </div>
 
 	        <div class="col-md-4"> 
@@ -148,7 +155,7 @@ if(!$email){
 					<div class="row">
 						<div class="col-md-12">
 							<select name="status" required class="form-control">
-							<option value=''>--select--</option>
+							
 							<option value ='Draft'>Draft</option>
 							<option value ='Open'>Open</option>
 							<option value ='Closed'>Closed</option>
@@ -185,7 +192,9 @@ if(!$email){
 		            <label>Skills</label>
 					  <div id="sections">
 					  <div class="section">
-					 		<fieldset class="mTop-5">					            
+					  <div id="agreement1div">
+					  <div class="button">
+					 		<fieldset class="mTop-5 button" for="agreement1">					            
 								<select id="skill1" name="skill1[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -199,9 +208,14 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
-								</fieldset>
-								<fieldset class="mTop-5">					           
+					            </select><input name="agreement1" id="agreement1" type="button" value="+"/>
+								
+								</fieldset> 
+								</div>
+								</div>
+								<div id="agreement2div">
+								<div class="button">
+								<fieldset class="mTop-5 button" for="agreement2">					           
 					            <select id="skill2" name="skill2[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -215,9 +229,13 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
-								</fieldset class="mTop-5">
-								<fieldset class="mTop-5">
+					            </select><input name="agreement2" id="agreement2" type="button" value="+"/> 
+								</fieldset  >
+								</div>
+								</div>
+								<div id="agreement3div">
+								<div class="button">
+								<fieldset class="mTop-5 button"  for="agreement3">
 					            <select id="skill3" name="skill3[]" placeholder="Select Skill...">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
@@ -231,10 +249,14 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
+					            </select><input name="agreement3" id="agreement3" type="button" value="+"/>
 								</fieldset>
-								<fieldset class="mTop-5">
-					            <select id="skill4" name="skill4[]" placeholder="Select Skill...">
+								</div>
+								</div>
+								<div id="agreement4div">
+								<div class="button">
+								<fieldset class="mTop-5 button" id="agreement4fieldset" >
+					            <select id="skill4" name="skill4[]" placeholder="Select Skill..." for="agreement4">
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
 								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
@@ -247,10 +269,14 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
+					            </select><input name="agreement4" id="agreement4" type="button" value="+"/>
 								</fieldset>
-								<fieldset class="mTop-5">
-					            <select id="skill5" name="skill5[]" placeholder="Select Skill...">
+								</div>
+								</div>
+								<div id="agreement5div">
+								<div class="button">
+								<fieldset class="mTop-5 " for="agreement5">
+					            <select id="skill5" name="skill5[]" placeholder="Select Skill..." >
 								<option value="">Select Skill...</option>
 								<optgroup label="Skiils">
 								<?php foreach($get_skills as $skiilslist => $skillslistval) { ?>
@@ -263,8 +289,11 @@ if(!$email){
 					            	<option value = 'basic'> Basic</option>
 					            	<option value = 'Intermediate'>Intermediate</option>
 					            	<option value = 'Advanced'>Advanced</option>
-					            </select>
+					            </select><input name="agreement5" id="agreement5" type="button" value="+"/>
+								
 								</fieldset>
+								</div>
+								</div>
 						
 					</div>
 				</div>
@@ -278,6 +307,81 @@ if(!$email){
 		</div>
 	</div>
 </section>
+
+<script>
+
+  // Use className or Id instead of direct tag name
+  var select = $('#job_type').selectize({
+	onChange: function(value) {
+    var val =value;
+    if(val==1) {
+    $('#pre-role').fadeOut('slow');
+    $('#duration').fadeIn('slow');
+    $("#duration_input").prop('required',true);
+    } else {
+    $('#pre-role').fadeIn('slow');
+    $('#duration').fadeOut('slow');
+    $("#duration_input").prop('required',false);
+    }
+     }
+  });
+
+   var valload = $("#job_type").val();
+   if(valload==1) {
+    $('#pre-role').fadeOut('slow');
+    $('#duration').fadeIn('slow');
+    $("#duration_input").prop('required',true);
+    }
+    else {
+    $('#pre-role').fadeIn('slow');
+    $('#duration').fadeOut('slow');
+    $("#duration_input").prop('required',false);
+    }
+
+
+
+</script>
+<script>
+$(document).ready(function(){
+
+  $("#agreement1").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement2div").show();
+      }
+  });
+  $("#agreement2").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement3div").show();
+      }
+  });
+  $("#agreement3").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement4div").show();
+      }
+  });
+   $("#agreement4").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+  $("#agreement5").click(function () {
+      if ($(this).is(":button")) {
+          $("#agreement5div").show();
+      }
+  });
+
+  $("#agreement2div").hide();
+  $("#agreement3div").hide();
+  $("#agreement4div").hide();
+   $("#agreement5div").hide();
+    $("#agreement5div").hide();
+
+
+});
+
+</script>
+
+
 <script>
 $(function(){
    
@@ -287,6 +391,10 @@ $(function(){
     });
 });
 </script>
+
+
+
+
 
 
 <script>
@@ -315,5 +423,18 @@ $('#skill5').selectize({
 sortField: 'text'
 });
 
-$('#joining_date').datepicker({format: 'dd/mm/yyyy'});
+
+</script>
+<script>
+$(document).ready(function () {
+    var date = new Date();
+    var currentMonth = date.getMonth();
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
+
+    $('#datepicker').datepicker({
+        minDate: new Date(currentYear, currentMonth, currentDate),
+        dateFormat: 'yy-mm-dd'
+    });
+});
 </script>

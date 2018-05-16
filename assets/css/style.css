@@ -160,9 +160,7 @@ a .fa{
 	background:url(../img/logo-jithire.png) no-repeat;
 	text-indent: -9999px; 
 }
-#mainNav .navbar-nav .nav-item .nav-link {
-  border-bottom: 2px solid #fff;
-}
+
 #mainNav .navbar-nav .nav-item .nav-link.active {
     color: #1b66b3;
     text-decoration: none;
@@ -764,7 +762,6 @@ select.form-control:not([size]):not([multiple]) {
  #mainNav {
         padding-top: 5px!important;
         padding-bottom: 5px!important;
-        background:#fff!important;
         /*box-shadow: 0 1px 2px #ced4da;*/
     }
 .interested-status, .rejected-status{
@@ -844,28 +841,47 @@ select.form-control:not([size]):not([multiple]) {
 
  /*---------------------------------------------- */ 
 }
-}
 
 /*----------------------------------------------------*/
 @media (min-width: 992px) {
-    #mainNav {
+  #mainNav {
         padding-top: 5px!important;
         padding-bottom: 5px!important;
         background:#fff!important;
-    }
-    section {
+  }
+  section {
     padding: 70px 0!important;
-   }
-
+  }
 }
 @media (max-width: 992px) {
-.skills select, .skills .selectize-input{
+  .skills select, .skills .selectize-input{
     width: 100%!important;
     margin-top: 0;
    }
-.skills .selectize-input{
+  .skills .selectize-input{
     margin-top: 10px;
    }
+  #mainNav .navbar-nav .nav-item
+  #mainNav .navbar-nav .nav-item a{ 
+    color: #fff; 
+  }
+  #mainNav .navbar-nav .nav-item .nav-link.active{
+  color:#fff;
+  }
+  #mainNav .navbar-nav .nav-item .dropdown-menu{
+    background: transparent;
+    box-shadow:none;
+    border:none;
+  }
+  #mainNav .navbar-nav .nav-item a .fa{
+    color: #ffffff80!important;
+  }
+  #mainNav .navbar-nav .nav-item .user-dropdown{
+    background: transparent;
+    font-size: 18px;
+    color: #ffffff80;
+    padding: 0;
+  }
 }
 
 
