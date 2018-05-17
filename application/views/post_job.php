@@ -308,14 +308,14 @@ echo(rand() . "");
 	</div>
 </section>
 
-<script>
+<!--<script>
 
   // Use className or Id instead of direct tag name
   var select = $('#job_type').selectize({
 	onChange: function(value) {
     var val =value;
     if(val==1) {
-    $('#pre-role').fadeOut('slow');
+    $('#post-role').fadeOut('slow');
     $('#duration').fadeIn('slow');
     $("#duration_input").prop('required',true);
     } else {
@@ -328,7 +328,7 @@ echo(rand() . "");
 
    var valload = $("#job_type").val();
    if(valload==1) {
-    $('#pre-role').fadeOut('slow');
+    $('#post-role').fadeOut('slow');
     $('#duration').fadeIn('slow');
     $("#duration_input").prop('required',true);
     }
@@ -340,7 +340,7 @@ echo(rand() . "");
 
 
 
-</script>
+</script>-->
 <script>
 $(document).ready(function(){
 
