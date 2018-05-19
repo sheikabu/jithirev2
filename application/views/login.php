@@ -40,9 +40,17 @@
                                         </div>
                                       </div>     
                                         <!-- Subject Button -->
-                                        <div class="btn-form text-center col-xs-12">
+                                        <div class="container">
+ 
+  <div class="row">
+                                        <div class="btn-form text-center col-sm-6">
                                                 <button class="btn btn-fill">Sign In</button>
                                         </div>
+										<div class="btn-form text-center col-sm-6">
+                            <a class="nav-link js-scroll-trigger" href="#" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</a>
+                        </div>
+										</div>
+										</div>
                                 </form>
                             </div>
                             <!-- Job Seeker Login END -->
@@ -69,10 +77,17 @@
                                                 <a href="<?php echo site_url('user/company_forgot_pass')?>">Forgot password?</a>
                                         </div>
                                       </div>     
-                                        <!-- Subject Button -->
-                                        <div class="btn-form text-center col-xs-12">
+                                        <!-- Subject Button --><div class="container">
+ 
+  <div class="row">
+                                        <div class="btn-form text-center col-sm-6">
                                                 <button class="btn btn-fill">Sign In</button>
                                         </div>
+										<div class="btn-form text-center col-sm-6">
+                            <a class="nav-link js-scroll-trigger" href="#" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</a>
+                        </div>
+										</div>
+										</div>
                                 </form>
                             </div>
                             <!--Employer Login END-->
