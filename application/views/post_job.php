@@ -23,12 +23,12 @@ if(!$email){
 		<div class="col-md-4">
 		 <div class="form-group">
 	               <label>Jobcode </label>
-
-	                <input name="Job_code" readonly class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $get_company_info['company_name']; ?><?php
-echo(rand() . "");
-
-?>
-" required>
+	               <?php
+	               $cname = substr($get_company_info['company_name'], 0, 3);
+	               $random = rand(1, 10000);
+	               $jcode = $cname.$random;
+	               ?>
+	                <input name="Job_code" readonly class="form-control" placeholder="Jobcode*" type="text" value="<?php echo $jcode ?>" required>
 
 
 	            </div>
@@ -392,7 +392,19 @@ $(function(){
 });
 </script>
 
-
+<script>
+var select = $('#job-type').selectize({
+	onChange: function(value) {
+    var val =value; 
+    if(val==1) {
+    $('#duration').fadeOut('slow');
+	}
+	 if(val==2) {
+    $('#duration').fadeIn('slow');
+	}
+  }
+  });
+</script>
 
 
 
@@ -438,3 +450,4 @@ $(document).ready(function () {
     });
 });
 </script>
+
