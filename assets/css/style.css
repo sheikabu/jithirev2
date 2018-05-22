@@ -877,6 +877,9 @@ select.form-control:not([size]):not([multiple]) {
   #mainNav .navbar-nav .nav-item a .fa{
     color: #ffffff80!important;
   }
+  #mainNav .navbar-nav .nav-item a:hover .fa{
+    color: #333!important;
+  }
   #mainNav .navbar-nav .nav-item .user-dropdown{
     background: transparent;
     font-size: 18px;
