@@ -142,6 +142,7 @@
                          </div> 
                           <div id="candidate_view" class="mTop-20">
                             <form method="post" id="candidate_form" class="single-form">
+							<!--<div id="ifYes" id="ifno" style="visibility:show">-->
                               <div class="col-xs-12" id="agreement1div">
                                   <div class="checkbox">
 
@@ -176,7 +177,7 @@
                               </div>
                               <div class="col-xs-12" id="agreement14div">
                                   <!-- First Name -->
-                                 <input type="text" class="form-control" id="firstname" name="first_name" placeholder="First name" />
+                                 <input type="text" class="form-control" id="firstname" name="first_name" placeholder="Full name" />
                              
                                   <!-- Pancard -->
                                   <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
@@ -194,7 +195,7 @@
                                   <!-- Subject -->
                                   <input name="status" type="hidden" value="inactive">
                               </div>
-                              
+                           <!-- </div>-->
                               <!-- Subject Button -->
                               <div class="btn-form text-center col-xs-12">
                                   <button class="btn btn-fill">Sign Up</button>
@@ -294,7 +295,18 @@
               </div>
             </div>
         <!-- register modal end -->
-		
+		<script type="text/javascript">
+
+function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.visibility = 'visible';
+    }
+    else document.getElementById('ifYes').style.visibility = 'hidden';
+
+}
+
+</script>
+
 <script>
 $(document).ready(function(){
 
