@@ -250,6 +250,7 @@ a .fa{
  /* visibility: hidden;*/
   width: 18px;
   height: 18px;
+  vertical-align: top;
 }
 .single-form .checkbox {
   margin: 0 0 10px 0;
@@ -840,8 +841,15 @@ select.form-control:not([size]):not([multiple]) {
   .sign-form .error{
     float: left;
   }
-
+#company-dashboard-table_wrapper, #history_jobs{
+    overflow-x: scroll;
+}
+#full-profile-view div{
+  display: inline-block;
+}
  /*---------------------------------------------- */ 
+}
+}
 }
 
 /*----------------------------------------------------*/
