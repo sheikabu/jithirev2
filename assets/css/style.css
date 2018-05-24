@@ -841,7 +841,7 @@ select.form-control:not([size]):not([multiple]) {
   .sign-form .error{
     float: left;
   }
-#company-dashboard-table_wrapper, #history_jobs{
+#company-dashboard-table_wrapper, #history_jobs, #offer_letter, #canditate_list{
     overflow-x: scroll;
 }
 #full-profile-view div{
@@ -896,7 +896,10 @@ select.form-control:not([size]):not([multiple]) {
     padding: 0;
   }
 }
+@media (max-width: 768px) {
 
+
+}
 
 /*-------------------------footer--------------------*/
 footer{
