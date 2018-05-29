@@ -624,7 +624,7 @@ class User extends CI_Controller {
 					$mail = $this->email->send();
 				  	/*EMail end */
 
-		 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.please check the mail for verification.</div>';exit;
+		 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.please activate your account from your email id.</div>';exit;
 				}
 				else{
 				    echo $message = '<div class="alert alert-danger text-center">Email already Exist!</div>'; exit;		    

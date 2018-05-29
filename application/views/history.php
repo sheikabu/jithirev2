@@ -33,7 +33,7 @@ if(!$email){
       ?>
     	<div class="row">
     		<div class="col-md-12 job-history">
-    		<table class="table">
+    		<table class="table" id="history">
 		  <thead>
 		    <tr>
 		      <th>Job Code</th>
@@ -67,7 +67,18 @@ if(!$email){
       </div>
     </section>
 
-
+<script type="text/javascript">
+$(document).ready(function() {
+     $('#history').DataTable( {
+    responsive: true
+});
+ table
+	
+    .order( [ 0, 'desc' ] )
+    .column( 0 ).visible( false )
+    .draw();
+	});
+</script>
 
        
  

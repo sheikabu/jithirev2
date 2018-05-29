@@ -60,6 +60,14 @@ pdf.print();
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#offer-letter-table').DataTable();
+    $('#offer-letter-table').DataTable( {
+    responsive: true
+});
+ table
+	
+    .order( [ 0, 'desc' ] )
+    .column( 0 ).visible( false )
+    .draw();
+
 });
 </script>
