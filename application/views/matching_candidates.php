@@ -56,8 +56,10 @@ if(!$email){
 
 <script type="text/javascript">
 $(document).ready(function() {
-    var table =  $('#matching_candidates-table').DataTable();
-
+    var table =  $('#matching_candidates-table')
+.DataTable( {
+    responsive: true
+});
     table
     .order( [ 0, 'desc' ] )
     .column( 0 ).visible( false )
