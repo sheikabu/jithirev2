@@ -59,21 +59,16 @@ if(!$email){
 	    </div>
 	</div>
 </section>
-
-
 <script type="text/javascript">
 $(document).ready(function() {
-  $('#company-dashboard-table').DataTable( {
+     $('#company-dashboard-table').DataTable( {
     responsive: true
 });
-
-    table
+ table
 	
     .order( [ 0, 'desc' ] )
     .column( 0 ).visible( false )
     .draw();
-
-   
-
-});
+	});
 </script>
+
