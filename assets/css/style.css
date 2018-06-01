@@ -844,9 +844,9 @@ select.form-control:not([size]):not([multiple]) {
 #company-dashboard-table_wrapper, #history_jobs, #offer_letter, #canditate_list{
     overflow-x: scroll;
 }
-#full-profile-view div{
+/*#full-profile-view div{
   display: inline-block;
-}
+}*/
 #mainNav{
   background: #fff!important;
   box-shadow: 2px 2px 3px #ccc;

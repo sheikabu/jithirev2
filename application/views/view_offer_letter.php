@@ -13,7 +13,7 @@ if(!$email){
  ?>
  <section id="offer_letter">
 	<div class="container border">
-		<div class="col-md-12 mBot-30 line2  padding-10">
+		<!-- <div class="col-md-12 mBot-30 line2  padding-10">
 			<div class="row">
 				<div class="col-md-12">
 					<h2 class="line2 padding-5">UI/UX Designer</h2>
@@ -64,7 +64,7 @@ if(!$email){
 					
 				</div>
 			</div>	
-		</div>
+		</div> -->
 
 		<div class="col-md-12 job-history">
     		<table class="table" id="offer-letter-table">
