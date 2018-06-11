@@ -851,11 +851,15 @@ select.form-control:not([size]):not([multiple]) {
   background: #fff!important;
   box-shadow: 2px 2px 3px #ccc;
 }
+#mainNav .navbar-toggler{
+    background-color: #2196F3!important;
+}
+#mainNav .navbar-toggler.collapsed{
+    background-color: #3a5270!important;
+  }
  /*---------------------------------------------- */ 
 }
-}
-}
-}
+
 
 /*----------------------------------------------------*/
 @media (min-width: 992px) {
