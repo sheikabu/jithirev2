@@ -221,7 +221,7 @@ if(!$email){
  	 <div class="col-xs-12 mTop-5">
 	 	 			<div class="col-xs-12">
 	                  <label class="col-md-6">Preferred location</label>
-	                  <div class="col-md-6 pull-right">
+	                  <div class="col-md-6 ">
                             <div class="checkbox">
                                 <input type="checkbox" <?php if ($get_candidate_info['preferred_location']=='on'){ echo"checked"; } ?> name="anylocation" id="any-location">
                                 <label for="any-location" >Any locaton</label>
@@ -624,7 +624,7 @@ $(document).ready(function(){
 </script>
 
 <script>
-$('#any-location').change(function(){
+ var select = $('#any-location').change(function(){
     if($(this).is(":checked"))
     $('#preferred_location').fadeOut('slow');
     else
