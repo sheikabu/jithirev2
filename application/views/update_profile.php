@@ -111,7 +111,7 @@ if(!$email){
 	              
 	              	 
 					<div class="col-xs-12 mTop-5" >
-	                  <label class="col-md-12">Total IT experience</label><div class="col-md-12" id="total_experience"> 
+	                  <label class="col-md-12">Total IT experience *</label><div class="col-md-12" id="total_experience"> 
 	                    <?php $experience  = $get_candidate_info['total_experience']; ?>
 	<select id="total-experience" name="total_experience" class="demo-default"  placeholder="Select Total experience...">	
 	<option value="">Select Total experience...</option>
@@ -163,7 +163,7 @@ if(!$email){
 						</div>
 					</div>
 	                 <div class="col-xs-12 mTop-5">
-	                  <label class="col-md-12">Job Type</label><div class="col-md-12" id="job_type"> 
+	                  <label class="col-md-12">Preferred Job Type</label><div class="col-md-12" id="job_type"> 
 					  <?php $jobt  = json_decode($get_candidate_info['job_type']); 
 					  	//echo '<pre>';
 					  	//var_dump($jobt);
@@ -190,7 +190,7 @@ if(!$email){
 		 </div>
 	 	<div class="col-md-4">
 	 	<div class="col-xs-12">
-		                  <label class="col-md-12">Annual CTC (Lakhs)</label>
+		                  <label class="col-md-12">Expected Annual CTC (Lakhs)</label>
 		                  <div class="col-md-12"> 
 		                <input type="text" name="salary_lakhs" class="form-control" onkeyup="if(this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));"  required placeholder="Expected salary" value="<?php echo $get_candidate_info['salary_lakhs']; ?>" required  maxlength="10">
 		        </div>
@@ -403,7 +403,7 @@ if(!$email){
 			<div class="col-md-5">
 			<div id="skills-view" class="skills">
 				<div class="details col-md-12" id="basic-info">
-				<div class="col-md-12 paddingL-0 line2"><label>Skills</label><label class="pull-right mRight-20">Proficiency</label></div>
+				<div class="col-md-12 paddingL-0 line2"><label>Secondary Skills</label><label class="pull-right mRight-20">Proficiency</label></div>
 				<div class="row">
 				<div class="col-md-12">
 				<div id="sections">
