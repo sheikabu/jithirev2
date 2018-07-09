@@ -403,6 +403,17 @@ box-shadow: none
 a.btn-fill{
 	color:#fff!important;
 }
+.btn-secondary{
+  /*color: #333;
+  background-color: #EAEAEA;
+  border: 1px solid #EAEAEA;*/
+  padding: .375rem .75rem!important;
+}
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+    /*background-color: #666;*/
+    color: #fff!important;
+
+}
 .sign-in-social {
     /*padding: 15px*/
 }
@@ -447,7 +458,7 @@ a.btn-fill{
 
 /* When the radio button is checked, add a blue background */
 .sign-in-options-wrap .label input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #1B66B3;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -633,7 +644,7 @@ h2.section-heading{
 }
 .single-form .checkbox label{
 	font-size:13px;
-  width: 90%;
+  width: 70%;
 }
 /*------------------ Matching Job --------------------*/
 .posted{
@@ -860,6 +871,7 @@ select.form-control:not([size]):not([multiple]) {
 .section-login{
   padding: 100px 0 0 !important;
 }
+
  /*---------------------------------------------- */ 
 
 
@@ -913,7 +925,12 @@ select.form-control:not([size]):not([multiple]) {
 
 
 }
+@media (max-width: 575px) {
+.btn{
+  margin-top: 5px;
+}
 
+}
 /*-------------------------footer--------------------*/
 footer{
     position: fixed;

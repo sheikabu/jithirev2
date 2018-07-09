@@ -7,7 +7,7 @@
         </div>
         <!-- =============== Start: Sign In Form =================== -->
                         <div class="sign-in-wrap col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-1">
-                         <div class="sign-in-options-wrap">
+                         <div class="sign-in-options-wrap paddingL-0">
                            <label class="label">Jobseeker <input type="radio" name='Srole' id="candidate-sign-in" class="candidate" value="candidate" checked> 
                              <span class="checkmark"></span>
                             </label>
@@ -35,7 +35,7 @@
                                                     <label for="remember-me">Remember me</label>
                                                 </div>
                                         </div>
-                                        <div class="col-md-6 col-xs-6 text-right">
+                                        <div class="col-md-6 col-xs-6">
                                                 <a href="<?php echo site_url('user/user_forgot_pass')?>">Forgot password?</a>
                                         </div>
                                       </div>     
@@ -43,11 +43,11 @@
                                         <div class="container">
  
                     <div class="row">
-                      <div class="btn-form text-center col-sm-6">
+                      <div class="btn-form text-center col-sm-6 paddingL-0">
                         <button class="btn btn-fill">Sign In</button>
                       </div>
-                    	<div class="btn-form text-center col-sm-6">
-                        <a class="nav-link js-scroll-trigger" href="#" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</a>
+                    	<div class="btn-form text-center col-sm-6 paddingL-0">
+                        <a class="nav-link js-scroll-trigger btn btn-secondary" href="#" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</a>
                       </div>
                     </div>
 										</div>
@@ -131,11 +131,11 @@
 
                         <div class="btn-group" data-toggle="buttons">-->
                          <div class="sign-in-options-wrap">
-                         <label class="label">Jobseeker's
+                         <label class="label">Jobseeker
                           <input type="radio" name='role' id="candidate" class="candidate" value="candidate" checked> 
                            <span class="checkmark"></span>
                           </label>
-                          <label class="label">Employer's
+                          <label class="label">Employer
                           <input type="radio" name='role' id="company" class="company" value="company">
                            <span class="checkmark"></span>
                           </label>
@@ -148,7 +148,7 @@
 
                                       <input name="agreement1" id="agreement1" type="checkbox"/>
 
-                                      <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
+                                      <label for="agreement1"> Currently available and ready to join in 24 hrs</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement2div">
@@ -156,7 +156,7 @@
 
                                       <input name="agreement2" id="agreement2" type="checkbox"/>
 
-                                      <label for="agreement2">  I will respond to job alerts/offer letter in four business hours</label>
+                                      <label for="agreement2">Respond to job alerts/offer letter in four business hours</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement3div">
@@ -164,7 +164,7 @@
 
                                       <input name="agreement3" id="agreement3" type="checkbox"/>
 
-                                      <label for="agreement3">  I am ready to attend telephonic interview any time during the business hours without prior notification</label>
+                                      <label for="agreement3"> Ready to attend telephonic interview </label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement4div" >
@@ -172,7 +172,7 @@
 
                                       <input name="agreement4" id="agreement4" type="checkbox"/>
 
-                                      <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
+                                      <label for="agreement4">Ready to join the next business after accepting the offer</label>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement14div">
