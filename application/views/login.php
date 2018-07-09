@@ -209,26 +209,26 @@
                              <div class="col-xs-12">
                             <div class="checkbox" id="agreement5div">
                                 <input name="agreement5" id="agreement5" type="checkbox"/>
-                                <label for="agreement5">I am ready to complete selection process within 24 hours</label>
+                                <label for="agreement5">Ready to complete selection process within 24 hours</label>
                             </div>
                         </div>
                         
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement6div">
                                 <input name="agreement6" id="agreement6" type="checkbox" required="required"/>
-                                <label for="agreement6">I am ready to share temp offer letter from jithire</label>
+                                <label for="agreement6">Ready to share temp offer letter from jithire</label>
                             </div>
                         </div>
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement7div">
                                 <input name="agreement7" id="agreement7" type="checkbox" required="required"/>
-                                <label for="agreement7">I will share feedback of the cnadidate within five business days</label>
+                                <label for="agreement7">Share feedback of the cnadidate within five business days</label>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="checkbox" id="agreement8div">
                                 <input name="agreement8" id="agreement8" type="checkbox" required="required"/>
-                                <label for="agreement8">I will pay 2% of CTC as professional fee</label>
+                                <label for="agreement8">Pay 2% of CTC as professional fee</label>
                             </div>
                         </div>
 
