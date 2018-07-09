@@ -163,7 +163,7 @@ if(!$email){
 			    <div class="col-md-5">
 			    		 <?php $total_experience  = $get_candidate_info['total_experience']; ?>
 						 <div class="col-xs-12 col-md-12">
-		                  <label class="col-md-5">Total IT experience:</label>
+		                  <label class="col-md-5">Total IT experience*:</label>
 		                  <div class="col-md-7 d-inline">
 								<?php					
 							foreach ($get_total_it_experience as $key => $value) {
@@ -178,7 +178,7 @@ if(!$email){
 		                
 						
 		                 <div class="col-xs-12 col-md-12">
-		                  <label class="col-md-5">Annual CTC (Lakhs): </label>
+		                  <label class="col-md-5">Expected Annual CTC (Lakhs): </label>
 		                  <div class="col-md-7 d-inline"><?php echo $get_candidate_info['salary_lakhs']; ?> Lakhs </div>
 		                </div>
 		                
@@ -189,7 +189,7 @@ if(!$email){
 						 
 						<?php $job_type  = $get_candidate_info['job_type']; ?>
 						 <div class="col-xs-12 col-md-12">
-		                  <label class="col-md-5">Job Type:</label>
+		                  <label class="col-md-5">Preferred Job Type:</label>
 		                  <div class="col-md-7 d-inline">
 							<?php					
 							foreach ($get_job_type as $key => $value) {
@@ -218,7 +218,7 @@ if(!$email){
 		                  </div>
 		                </div>
 		                <div class="col-xs-12 col-md-12">
-		                  <label class="col-md-5">Skills: </label>
+		                  <label class="col-md-5">Secondary Skills: </label>
 		                  <div class="col-md-7 pull-right skills-wrap">
 		                  <?php 
 		                  $skill1 = json_decode($get_candidate_info['skill1']);
