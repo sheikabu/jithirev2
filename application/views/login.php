@@ -146,38 +146,38 @@
                               <div class="col-xs-12" id="agreement1div">
                                   <div class="checkbox">
 
-                                      <input name="agreement1" id="agreement1" type="checkbox"/>
+                                    <p>   <input name="agreement1" id="agreement1" type="checkbox"/>
 
-                                      <label for="agreement1"> Currently available and ready to join in 24 hrs</label>
+                                      <label for="agreement1"> Currently available and ready to join in 24 hrs</label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement2div">
                                   <div class="checkbox">
 
-                                      <input name="agreement2" id="agreement2" type="checkbox"/>
+                                     <p>  <input name="agreement2" id="agreement2" type="checkbox"/>
 
-                                      <label for="agreement2">Respond to job alerts/offer letter in four business hours</label>
+                                      <label for="agreement2">Respond to job alerts/offer letter in four business hours</label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement3div">
                                   <div class="checkbox">
 
-                                      <input name="agreement3" id="agreement3" type="checkbox"/>
+                                      <p> <input name="agreement3" id="agreement3" type="checkbox"/>
 
-                                      <label for="agreement3"> Ready to attend telephonic interview </label>
+                                      <label for="agreement3"> Ready to attend telephonic interview </label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement4div" >
                                   <div class="checkbox">
 
-                                      <input name="agreement4" id="agreement4" type="checkbox"/>
+                                    <p>   <input name="agreement4" id="agreement4" type="checkbox"/>
 
-                                      <label for="agreement4">Ready to join the next business after accepting the offer</label>
+                                      <label for="agreement4">Ready to join the next business after accepting the offer</label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement14div">
                                   <!-- First Name -->
-                                 <input type="text" class="form-control" id="firstname" name="first_name" placeholder="Full name" />
+                                 <p> <input type="text" class="form-control" id="firstname" name="first_name" placeholder="Full name" />
                              
                                   <!-- Pancard -->
                                   <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
@@ -193,7 +193,7 @@
                                   <input name="role" id="rolesingup"  type="hidden" value="candidate">
                               
                                   <!-- Subject -->
-                                  <input name="status" type="hidden" value="inactive">
+                                  <input name="status" type="hidden" value="inactive"> </p>
                               </div>
                            <!-- </div>-->
                               <!-- Subject Button -->
@@ -208,32 +208,32 @@
                          <form method="post" class="single-form" id="company_form">
                              <div class="col-xs-12">
                             <div class="checkbox" id="agreement5div">
-                                <input name="agreement5" id="agreement5" type="checkbox"/>
-                                <label for="agreement5">Ready to complete selection process within 24 hours</label>
+                              <p>   <input name="agreement5" id="agreement5" type="checkbox"/>
+                                <label for="agreement5">Ready to complete selection process within 24 hours</label> </p>
                             </div>
                         </div>
                         
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement6div">
-                                <input name="agreement6" id="agreement6" type="checkbox" required="required"/>
-                                <label for="agreement6">Ready to share temp offer letter from jithire</label>
+                               <p>  <input name="agreement6" id="agreement6" type="checkbox" required="required"/>
+                                <label for="agreement6">Ready to share temp offer letter from jithire</label> </p>
                             </div>
                         </div>
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement7div">
-                                <input name="agreement7" id="agreement7" type="checkbox" required="required"/>
-                                <label for="agreement7">Share feedback of the cnadidate within five business days</label>
+                              <p>   <input name="agreement7" id="agreement7" type="checkbox" required="required"/>
+                                <label for="agreement7">Share feedback of the cnadidate within five business days</label> </p>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="checkbox" id="agreement8div">
-                                <input name="agreement8" id="agreement8" type="checkbox" required="required"/>
-                                <label for="agreement8">Pay 2% of CTC as professional fee</label>
+                              <p>   <input name="agreement8" id="agreement8" type="checkbox" required="required"/>
+                                <label for="agreement8">Pay 2% of CTC as professional fee</label> </p>
                             </div>
                         </div>
 
-                          <div class="col-xs-12" id="agreement18div">                            
-                           <input type="text" name="company_name" class="form-control" placeholder="Company name*" required/>
+                         <div class="col-xs-12" id="agreement18div">                            
+                          <p> <input type="text" name="company_name" class="form-control" placeholder="Company name*" required/>
                                                     
                            <input type="text" name="url" class="form-control" placeholder="Company url*" required/>
                           
@@ -268,7 +268,7 @@
                        
                             <!-- Subject -->
                             <input name="cconfirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password*" type="password"><span class="text-danger"></span>
-                        </div>
+                       </p> </div>
                         
                         
                         <div class="col-xs-12">                          
@@ -278,6 +278,7 @@
                             <!-- Subject -->
                             <input name="status" type="hidden" value="inactive">
                         </div>
+						
                            <div class="btn-form text-center col-xs-12">
                             <button class="btn btn-fill">Sign Up</button>
                         </div>
@@ -295,6 +296,13 @@
               </div>
             </div>
         <!-- register modal end -->
+		<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle();
+    });
+});
+</script>
 		<script type="text/javascript">
 
 function yesnoCheck() {
