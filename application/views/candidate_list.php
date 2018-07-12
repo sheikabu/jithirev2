@@ -81,6 +81,13 @@ pdf.print();
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#canditate-list-table').DataTable();
+     $('#canditate-list-table').DataTable( {
+    responsive: true
 });
+ table
+	
+    .order( [ 0, 'desc' ] )
+    .column( 0 ).visible( false )
+    .draw();
+	});
 </script>

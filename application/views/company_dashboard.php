@@ -16,7 +16,7 @@ if(!$email){
 
 
 	<div class="container">
-		<div class="col-md-12 job-history">
+		<div class="col-md-12 job-history ">
 
     		<table class="table" id="company-dashboard-table">
 				<thead>
@@ -59,18 +59,16 @@ if(!$email){
 	    </div>
 	</div>
 </section>
-
-
 <script type="text/javascript">
 $(document).ready(function() {
-    var table =  $('#company-dashboard-table').DataTable();
-
-    table
+     $('#company-dashboard-table').DataTable( {
+    responsive: true
+});
+ table
+	
     .order( [ 0, 'desc' ] )
     .column( 0 ).visible( false )
     .draw();
-
-   
-
-});
+	});
 </script>
+

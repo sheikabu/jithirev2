@@ -1,3 +1,17 @@
+
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<?php
+$email=$this->session->userdata('email');
+
+
+if(!$email){
+
+  redirect('user');
+}
+
+ ?>
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -16,6 +30,7 @@ if(!$email){
 
 
 	<div class="container">
+	<div class="row">
 		<div class="col-md-12 job-history">
 			 <?php $job_role = $job[0]['job_role']; ?>
 			 <div class="title">Matching Candidates for <?php echo $job_role; ?></div>
@@ -50,20 +65,19 @@ if(!$email){
 			   </tbody>
 			</table>
 	    </div>
+		</div>
 	</div>
 </section>
 
-
 <script type="text/javascript">
 $(document).ready(function() {
-    var table =  $('#matching_candidates-table').DataTable();
-
-    table
+     $('#matching_candidates-table').DataTable( {
+    responsive: true
+});
+ table
+	
     .order( [ 0, 'desc' ] )
     .column( 0 ).visible( false )
     .draw();
-
-   
-
-});
+	});
 </script>

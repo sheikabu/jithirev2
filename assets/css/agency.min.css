@@ -133,7 +133,8 @@ body {
     font-weight: 400;
     padding: .75em 0;
     letter-spacing: 1px;
-    font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
+    font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: grey;
 }
 /*#mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {

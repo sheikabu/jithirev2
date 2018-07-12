@@ -1,6 +1,21 @@
 <section id="offer_letter">
 	<div class="container">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <div style="max-width: 1200px;overflow-x: hidden; font-family: 'Roboto Slab', 'Helvetica Neue',Helvetica, Arial, sans-serif; color: #3a5270; font-size: 13px;">
      <div style="width: 100%; height: 50px; background: #1B66B3;"></div>
 	<div style="margin-top: 20px;">
@@ -9,7 +24,60 @@
             <!-- Full profile view -->
               <div id="full-profile-view">
               
-              	 <div class="row">
+              	<div class="col-md-12 mBot-30 line2  padding-10">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="line2 padding-5">UI/UX Designer</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					
+						<label class="col-xs-12 col-md-5">Company Name:</label>
+						<span class="col-xs-12 col-md-7">Jithire</span>
+					
+				</div>
+				
+				<div class="col-md-6 col-xs-12">
+					
+						<label class="col-xs-12 col-md-5">start date:</label>
+						<span class="col-xs-12 col-md-7">01/06/2018</span>
+					
+				</div>
+				
+			</div>	
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					
+						<label class="col-xs-12 col-md-5">Joining Location:</label>
+						<span class="col-xs-12 col-md-7">Technopark, Trivandrum</span>
+					
+				</div>
+				<div class="col-md-6 col-xs-12">
+					
+						<label class="col-xs-12 col-md-5">Duration:</label>
+						<span class="col-xs-12 col-md-7">6 Months</span>
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					
+						<label class="col-xs-12 col-md-5">Role:</label>
+						<span class="col-xs-12 col-md-7">UI/UX Designer</span>
+					
+				</div>
+				
+				<div class="col-md-6 col-xs-12">
+					
+						<label class="col-xs-12 col-md-5">Annual CTC:</label>
+						<span class="col-xs-12 col-md-7"><i class="fa fa-inr"></i>10,00,000</span>
+					
+				</div>
+			</div>	
+		</div>
+              
+              	 <!-- <div class="row">
               		
 					<div class="col-md-10">
 					
@@ -57,7 +125,7 @@
 		              <?php } ?> 
 					</div>
 				
-		    </div>
+		    </div> -->
 
 		 
             <!-- End Full profile -->

@@ -250,6 +250,7 @@ a .fa{
  /* visibility: hidden;*/
   width: 18px;
   height: 18px;
+  vertical-align: top;
 }
 .single-form .checkbox {
   margin: 0 0 10px 0;
@@ -402,6 +403,17 @@ box-shadow: none
 a.btn-fill{
 	color:#fff!important;
 }
+.btn-secondary{
+  /*color: #333;
+  background-color: #EAEAEA;
+  border: 1px solid #EAEAEA;*/
+  padding: .375rem .75rem!important;
+}
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+    /*background-color: #666;*/
+    color: #fff!important;
+
+}
 .sign-in-social {
     /*padding: 15px*/
 }
@@ -446,7 +458,7 @@ a.btn-fill{
 
 /* When the radio button is checked, add a blue background */
 .sign-in-options-wrap .label input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #1B66B3;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -632,7 +644,8 @@ h2.section-heading{
 }
 .single-form .checkbox label{
 	font-size:13px;
-	}
+  width: 70%;
+}
 /*------------------ Matching Job --------------------*/
 .posted{
 	font-size: 13px;
@@ -762,6 +775,7 @@ select.form-control:not([size]):not([multiple]) {
  #mainNav {
         padding-top: 5px!important;
         padding-bottom: 5px!important;
+		/*background: #fff!important;*/
         /*box-shadow: 0 1px 2px #ced4da;*/
     }
 .interested-status, .rejected-status{
@@ -838,9 +852,30 @@ select.form-control:not([size]):not([multiple]) {
   .sign-form .error{
     float: left;
   }
+#company-dashboard-table_wrapper, #history_jobs, #offer_letter, #canditate_list{
+    overflow-x: scroll;
+}
+/*#full-profile-view div{
+  display: inline-block;
+}*/
+#mainNav{
+  background: #fff!important;
+  box-shadow: 2px 2px 3px #ccc;
+}
+#mainNav .navbar-toggler{
+    background-color: #2196F3!important;
+}
+#mainNav .navbar-toggler.collapsed{
+    background-color: #3a5270!important;
+}
+.section-login{
+  padding: 100px 0 0 !important;
+}
 
  /*---------------------------------------------- */ 
-}
+
+
+
 
 /*----------------------------------------------------*/
 @media (min-width: 992px) {
@@ -866,7 +901,7 @@ select.form-control:not([size]):not([multiple]) {
     color: #fff; 
   }
   #mainNav .navbar-nav .nav-item .nav-link.active{
-  color:#fff;
+  color:#1b66b3;
   }
   #mainNav .navbar-nav .nav-item .dropdown-menu{
     background: transparent;
@@ -874,17 +909,28 @@ select.form-control:not([size]):not([multiple]) {
     border:none;
   }
   #mainNav .navbar-nav .nav-item a .fa{
-    color: #ffffff80!important;
+    color: #808080!important;
+  }
+  #mainNav .navbar-nav .nav-item a:hover .fa{
+    color: #333!important;
   }
   #mainNav .navbar-nav .nav-item .user-dropdown{
     background: transparent;
     font-size: 18px;
-    color: #ffffff80;
+    color: #808080;
     padding: 0;
   }
 }
+@media (max-width: 768px) {
 
 
+}
+@media (max-width: 575px) {
+.btn{
+  margin-top: 5px;
+}
+
+}
 /*-------------------------footer--------------------*/
 footer{
     position: fixed;

@@ -37,7 +37,7 @@ class User extends CI_Controller {
 	
 	public function login_check() //login_check
 	{	
-		
+		echo 'login'; exit;
 		 		$user_login=array(
 		 			'email' => $this->input->post('email'), 
 					'password' => md5($this->input->post('password')), 

@@ -1,4 +1,4 @@
- <section id="login">
+ <section id="login"  class="section-login">
     
       <div class="container">
         <div class="row">
@@ -7,7 +7,7 @@
         </div>
         <!-- =============== Start: Sign In Form =================== -->
                         <div class="sign-in-wrap col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-1">
-                         <div class="sign-in-options-wrap">
+                         <div class="sign-in-options-wrap paddingL-0">
                            <label class="label">Jobseeker <input type="radio" name='Srole' id="candidate-sign-in" class="candidate" value="candidate" checked> 
                              <span class="checkmark"></span>
                             </label>
@@ -35,21 +35,21 @@
                                                     <label for="remember-me">Remember me</label>
                                                 </div>
                                         </div>
-                                        <div class="col-md-6 col-xs-6 text-right">
+                                        <div class="col-md-6 col-xs-6">
                                                 <a href="<?php echo site_url('user/user_forgot_pass')?>">Forgot password?</a>
                                         </div>
                                       </div>     
                                         <!-- Subject Button -->
                                         <div class="container">
  
-  <div class="row">
-                                        <div class="btn-form text-center col-sm-6">
-                                                <button class="btn btn-fill">Sign In</button>
-                                        </div>
-										<div class="btn-form text-center col-sm-6">
-                            <a class="nav-link js-scroll-trigger" href="#" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</a>
-                        </div>
-										</div>
+                    <div class="row">
+                      <div class="btn-form text-center col-sm-6 paddingL-0">
+                        <button class="btn btn-fill">Sign In</button>
+                      </div>
+                    	<div class="btn-form text-center col-sm-6 paddingL-0">
+                        <a class="nav-link js-scroll-trigger btn btn-secondary" href="#" data-toggle="modal" id="myModel" data-target="#myModal">Sign Up</a>
+                      </div>
+                    </div>
 										</div>
                                 </form>
                             </div>
@@ -131,52 +131,53 @@
 
                         <div class="btn-group" data-toggle="buttons">-->
                          <div class="sign-in-options-wrap">
-                         <label class="label">Jobseeker's
+                         <label class="label">Jobseeker
                           <input type="radio" name='role' id="candidate" class="candidate" value="candidate" checked> 
                            <span class="checkmark"></span>
                           </label>
-                          <label class="label">Employer's
+                          <label class="label">Employer
                           <input type="radio" name='role' id="company" class="company" value="company">
                            <span class="checkmark"></span>
                           </label>
                          </div> 
                           <div id="candidate_view" class="mTop-20">
                             <form method="post" id="candidate_form" class="single-form">
+							<!--<div id="ifYes" id="ifno" style="visibility:show">-->
                               <div class="col-xs-12" id="agreement1div">
                                   <div class="checkbox">
 
-                                      <input name="agreement1" id="agreement1" type="checkbox"/>
+                                    <p>   <input name="agreement1" id="agreement1" type="checkbox"/>
 
-                                      <label for="agreement1">I am currently available and ready to join in 24 hrs</label>
+                                      <label for="agreement1"> Currently available and ready to join in 24 hrs</label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement2div">
                                   <div class="checkbox">
 
-                                      <input name="agreement2" id="agreement2" type="checkbox"/>
+                                     <p>  <input name="agreement2" id="agreement2" type="checkbox"/>
 
-                                      <label for="agreement2">  I will respond to job alerts/offer letter in four business hours</label>
+                                      <label for="agreement2">Respond to job alerts/offer letter in four business hours</label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement3div">
                                   <div class="checkbox">
 
-                                      <input name="agreement3" id="agreement3" type="checkbox"/>
+                                      <p> <input name="agreement3" id="agreement3" type="checkbox"/>
 
-                                      <label for="agreement3">  I am ready to attend telephonic interview any time during the business hours without prior notification</label>
+                                      <label for="agreement3"> Ready to attend telephonic interview </label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement4div" >
                                   <div class="checkbox">
 
-                                      <input name="agreement4" id="agreement4" type="checkbox"/>
+                                    <p>   <input name="agreement4" id="agreement4" type="checkbox"/>
 
-                                      <label for="agreement4">  I am ready to join the next business after accepting the offer</label>
+                                      <label for="agreement4">Ready to join the next business after accepting the offer</label> </p>
                                   </div>
                               </div>
                               <div class="col-xs-12" id="agreement14div">
                                   <!-- First Name -->
-                                 <input type="text" class="form-control" id="firstname" name="first_name" placeholder="First name" />
+                                 <p> <input type="text" class="form-control" id="firstname" name="first_name" placeholder="Full name" />
                              
                                   <!-- Pancard -->
                                   <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
@@ -192,9 +193,9 @@
                                   <input name="role" id="rolesingup"  type="hidden" value="candidate">
                               
                                   <!-- Subject -->
-                                  <input name="status" type="hidden" value="inactive">
+                                  <input name="status" type="hidden" value="inactive"> </p>
                               </div>
-                              
+                           <!-- </div>-->
                               <!-- Subject Button -->
                               <div class="btn-form text-center col-xs-12">
                                   <button class="btn btn-fill">Sign Up</button>
@@ -207,32 +208,32 @@
                          <form method="post" class="single-form" id="company_form">
                              <div class="col-xs-12">
                             <div class="checkbox" id="agreement5div">
-                                <input name="agreement5" id="agreement5" type="checkbox"/>
-                                <label for="agreement5">I am ready to complete selection process within 24 hours</label>
+                              <p>   <input name="agreement5" id="agreement5" type="checkbox"/>
+                                <label for="agreement5">Ready to complete selection process within 24 hours</label> </p>
                             </div>
                         </div>
                         
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement6div">
-                                <input name="agreement6" id="agreement6" type="checkbox" required="required"/>
-                                <label for="agreement6">I am ready to share temp offer letter from jithire</label>
+                               <p>  <input name="agreement6" id="agreement6" type="checkbox" required="required"/>
+                                <label for="agreement6">Ready to share temp offer letter from jithire</label> </p>
                             </div>
                         </div>
                          <div class="col-xs-12">
                             <div class="checkbox" id="agreement7div">
-                                <input name="agreement7" id="agreement7" type="checkbox" required="required"/>
-                                <label for="agreement7">I will share feedback of the cnadidate within five business days</label>
+                              <p>   <input name="agreement7" id="agreement7" type="checkbox" required="required"/>
+                                <label for="agreement7">Share feedback of the cnadidate within five business days</label> </p>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="checkbox" id="agreement8div">
-                                <input name="agreement8" id="agreement8" type="checkbox" required="required"/>
-                                <label for="agreement8">I will pay 2% of CTC as professional fee</label>
+                              <p>   <input name="agreement8" id="agreement8" type="checkbox" required="required"/>
+                                <label for="agreement8">Pay 2% of CTC as professional fee</label> </p>
                             </div>
                         </div>
 
-                          <div class="col-xs-12" id="agreement18div">                            
-                           <input type="text" name="company_name" class="form-control" placeholder="Company name*" required/>
+                         <div class="col-xs-12" id="agreement18div">                            
+                          <p> <input type="text" name="company_name" class="form-control" placeholder="Company name*" required/>
                                                     
                            <input type="text" name="url" class="form-control" placeholder="Company url*" required/>
                           
@@ -267,7 +268,7 @@
                        
                             <!-- Subject -->
                             <input name="cconfirm_password" class="contact-cmp-password form-control" placeholder="Confirm Password*" type="password"><span class="text-danger"></span>
-                        </div>
+                       </p> </div>
                         
                         
                         <div class="col-xs-12">                          
@@ -277,6 +278,7 @@
                             <!-- Subject -->
                             <input name="status" type="hidden" value="inactive">
                         </div>
+						
                            <div class="btn-form text-center col-xs-12">
                             <button class="btn btn-fill">Sign Up</button>
                         </div>
@@ -294,7 +296,25 @@
               </div>
             </div>
         <!-- register modal end -->
-		
+		<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle();
+    });
+});
+</script>
+		<script type="text/javascript">
+
+function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.visibility = 'visible';
+    }
+    else document.getElementById('ifYes').style.visibility = 'hidden';
+
+}
+
+</script>
+
 <script>
 $(document).ready(function(){
 $("#myModel").click(function () {  
@@ -395,7 +415,7 @@ $(document).ready(function(){
               if(message==='success') {
               $("div.sign-in-options-wrap").hide();
               $("div#candidate_view").hide();
-              var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire."+"</div>";
+              var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire.Please check your email and activate your account."+"</div>";
               $('#message').html(message); } else {
               var message = "<div class='alert alert-danger text-center'>"+ "Email already Exist!."+"</div>";
               $('#message').html(message);
@@ -423,7 +443,7 @@ $(document).ready(function(){
                 if(message==='success') { 
                 $("div.sign-in-options-wrap").hide();
                 $("div#company_view").hide();
-                var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire."+"</div>";
+                var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire.Please check your email and activate your account."+"</div>";
                 $('#message').html(message); } else {
                 var message = "<div class='alert alert-danger text-center'>"+ "Email already Exist!."+"</div>";
                 $('#message').html(message);
