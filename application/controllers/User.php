@@ -1290,7 +1290,7 @@ class User extends CI_Controller {
    public function candidate_list() // add user full details
 	{
 
-		$user_id = $this->session->userdata('id');                                                                                        
+		$user_id = $this->session->userdata('id');                                                                                         
 		
 		$data['candidate_list'] = $this->valid_m->candidate_job_list($user_id);	
 		//$data['get_skills'] = $this->valid_m->get_skills();

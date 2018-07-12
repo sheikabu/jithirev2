@@ -126,7 +126,7 @@ if(!$email){
 			                <label class="col-md-4">Opening:</label><span class="col-md-8"><?php
 			              $date = $values['open_date_time'];
 			              echo date("d-m-Y", strtotime($date) );
-			                ?></span>
+			                ?></span> 
 			            </div>
 						</div>
 						<div class="col-md-6 text-right">

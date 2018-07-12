@@ -77,7 +77,7 @@ if(!$email){
 					 <div class="job_type"id="job_type" >
 					  <?php $jobt  = $values['job_type']; ?>
 						<select id="job-type" name="job_type"   class="demo-default" placeholder="Select job type...">
-						 <option value=''>select job type</option>
+						 <option value=''>select job type</option> 
 	                   <optgroup label="select job type">
 
 						<?php foreach($get_job_type as $jobtypelist => $jobtypeval) { ?>

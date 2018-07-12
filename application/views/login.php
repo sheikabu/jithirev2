@@ -400,7 +400,7 @@ $(document).ready(function(){
               var message = "<div class='alert alert-danger text-center'>"+ "Email already Exist!."+"</div>";
               $('#message').html(message);
 
-              }
+              } 
               
             },
             error: function() { alert("Error posting feed."); }
