@@ -623,19 +623,18 @@ class User extends CI_Controller {
 					$this->email->message($message);
 					$mail = $this->email->send();
 				  	/*EMail end */
-
-		 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
+		 			echo $message = 'success';exit;
 				}
 				else{
-				    echo $message = '<div class="alert alert-danger text-center">Email already Exist!</div>'; exit;		    
+				    echo $message = 'failed'; exit;		    
 				}
            }
 	}
 
 	//Company Registration
 	public function registration_company() //login_check
-	{
-		$company_id = $this->session->userdata("id");
+	{					
+					$company_id = $this->session->userdata("id");
                     $company_details=array(
 		 			'company_name' => $this->input->post('company_name'),	 			 
 		 			'url' => $this->input->post('url'),
@@ -652,7 +651,7 @@ class User extends CI_Controller {
 
 					$email_check=$this->valid_m->company_name_check($company_details['company_name']); 
 
-					if($email_check){
+					if($email_check){						
 					  	$data['company_id'] = $this->valid_m->company_registration_insert($company_details);	
 						$data['company_name'] = $this->input->post('company_name');
 				  	/* Send a mail to user*/
@@ -671,10 +670,10 @@ class User extends CI_Controller {
 					$this->email->subject($subject);
 					$this->email->message($message);
 					$mail = $this->email->send();
-			 			echo $message = '<div class="alert alert-success text-center">Thank You for registering with Jithire.</div>';exit;
+			 			echo $message = 'success';exit;
 					}
 					else{
-					    echo $message = '<div class="alert alert-danger text-center">Company Name already Exist!</div>'; exit;		    
+					    echo $message = 'failed'; exit;		    
 					}
            
 	}
@@ -1294,7 +1293,7 @@ class User extends CI_Controller {
 		$user_id = $this->session->userdata('id');                                                                                        
 		
 		$data['candidate_list'] = $this->valid_m->candidate_job_list($user_id);	
-		$data['get_skills'] = $this->valid_m->get_skills();
+		//$data['get_skills'] = $this->valid_m->get_skills();
 		$this->load_view('candidate_list',$data);
 		
 	}

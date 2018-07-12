@@ -91,7 +91,7 @@ if(!$email){
 				</div>
 				
 				<div class="form-group" id="duration">
-	               <label>Duration</label>
+	               <label>Duration (by Months)</label>
 	                <input name="duration" id="duration_input" class="form-control" placeholder="Duration*" type="text" value="" >
 	            </div>
 				`

@@ -124,13 +124,14 @@ if(!$email){
 						<div class="col-md-6 mTop-10">
 							<div class="col-xs-12">
 			                <label class="col-md-4">Opening:</label><span class="col-md-8"><?php
-			              echo $values['open_date_time']; 
+			              $date = $values['open_date_time'];
+			              echo date("d-m-Y", strtotime($date) );
 			                ?></span>
 			            </div>
 						</div>
 						<div class="col-md-6 text-right">
 							<div class="col-xs-12">
-			                	<label class="col-md-4">Preferred Joining:</label><span class="col-md-8"> <?php echo $values['close_date_time'];?></span>
+			                	<label class="col-md-4">Preferred Joining:</label><span class="col-md-8"> <?php $pdate = $values['close_date_time']; echo date("d-m-Y", strtotime($pdate) );?></span>
 			            	</div>
 						</div>
 					</div>

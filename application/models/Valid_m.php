@@ -170,8 +170,11 @@ class Valid_m extends CI_Model{
 	  return $results;
 	}
 	public function candidate_job_list($uid){
-	  $this->db->select('*');
-	  $this->db->from(' jh_user_profile');
+
+	  $this->db->select('jh_job_applied.*,jh_user_profile.*');
+	  $this->db->from('jh_job_applied');
+	  $this->db->join('jh_user_profile', 'jh_job_applied.user_id = jh_user_profile.user_id', 'left');	  	  
+	  $this->db->where('jh_job_applied.comp_id',$uid);
 	  $query=$this->db->get();
 	  //echo $this->db->last_query(); exit;
 	  $results = $query->result_array();

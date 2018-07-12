@@ -297,6 +297,19 @@
 		
 <script>
 $(document).ready(function(){
+$("#myModel").click(function () {  
+    $("#candidate_form")[0].reset();
+    $("#agreement2div").hide();
+    $("#agreement3div").hide();
+    $("#agreement4div").hide();
+    $("#agreement14div").hide();
+
+    $("#company_form")[0].reset();
+    $("#agreement6div").hide();
+    $("#agreement7div").hide();
+    $("#agreement8div").hide();
+    $("#agreement18div").hide();
+});
 
   $("#agreement1").click(function () {
       if ($(this).is(":checked")) {
@@ -355,7 +368,7 @@ $(document).ready(function(){
   $("#agreement6div").hide();
   $("#agreement7div").hide();
   $("#agreement8div").hide();
-   $("#agreement18div").hide();
+  $("#agreement18div").hide();
 
 
 });
@@ -379,7 +392,16 @@ $(document).ready(function(){
             cache: false,  
             data: form.serialize(), // <--- THIS IS THE CHANGE        
             success: function(message){
+              if(message==='success') {
+              $("div.sign-in-options-wrap").hide();
+              $("div#candidate_view").hide();
+              var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire."+"</div>";
+              $('#message').html(message); } else {
+              var message = "<div class='alert alert-danger text-center'>"+ "Email already Exist!."+"</div>";
               $('#message').html(message);
+
+              }
+              
             },
             error: function() { alert("Error posting feed."); }
             });
@@ -398,7 +420,14 @@ $(document).ready(function(){
               cache: false,  
               data: form.serialize(), // <--- THIS IS THE CHANGE        
               success: function(message){
+                if(message==='success') { 
+                $("div.sign-in-options-wrap").hide();
+                $("div#company_view").hide();
+                var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire."+"</div>";
+                $('#message').html(message); } else {
+                var message = "<div class='alert alert-danger text-center'>"+ "Email already Exist!."+"</div>";
                 $('#message').html(message);
+                }
               },
               error: function() { alert("Error posting feed."); }
          });
