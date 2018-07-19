@@ -37,12 +37,13 @@ class User extends CI_Controller {
 	
 	public function login_check() //login_check
 	{	
-		echo 'login'; exit;
 		 		$user_login=array(
 		 			'email' => $this->input->post('email'), 
 					'password' => md5($this->input->post('password')), 
 					);
+					
 		 		$data=$this->valid_m->login_user($user_login['email'],$user_login['password']);
+				
 			 	if($data)
 			      {
 			      	$user_data=array(
@@ -57,6 +58,7 @@ class User extends CI_Controller {
 			       
 			      	$this->session->set_flashdata('user_loggedin','you are now loggedin');
 			        $this->user_details();
+					
 			        echo $message = 'success'; 
 			        //redirect('user/user_details');
 			        exit;
