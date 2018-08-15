@@ -298,27 +298,34 @@
         <!-- register modal end -->
 		<script>
 $(document).ready(function(){
-    $("button").click(function(){
+    /*$("button").click(function(){
         $("p").toggle();
-    });
+    });*/
 });
 </script>
 		<script type="text/javascript">
 
-function yesnoCheck() {
+/*function yesnoCheck() {
     if (document.getElementById('yesCheck').checked) {
         document.getElementById('ifYes').style.visibility = 'visible';
     }
     else document.getElementById('ifYes').style.visibility = 'hidden';
 
-}
+}*/
 
 </script>
 
 <script>
 $(document).ready(function(){
-$("#myModel").click(function () {  
-    $("#candidate_form")[0].reset();
+  var i = 0; 
+$("#myModel").click(function () { 
+    if(i!=0) {
+    $('#candidate_form').trigger("reset");
+    $('#company_form').trigger("reset");
+    $("#message").hide();
+    }
+    i++;
+ /*   $("#candidate_form").reset();
     $("#agreement2div").hide();
     $("#agreement3div").hide();
     $("#agreement4div").hide();
@@ -328,10 +335,10 @@ $("#myModel").click(function () {
     $("#agreement6div").hide();
     $("#agreement7div").hide();
     $("#agreement8div").hide();
-    $("#agreement18div").hide();
+    $("#agreement18div").hide();*/
 });
 
-  $("#agreement1").click(function () {
+  /*$("#agreement1").click(function () {
       if ($(this).is(":checked")) {
           $("#agreement2div").show();
       }
@@ -355,16 +362,16 @@ $("#myModel").click(function () {
   $("#agreement2div").hide();
   $("#agreement3div").hide();
   $("#agreement4div").hide();
-   $("#agreement14div").hide();
+   $("#agreement14div").hide();*/
 
 
-});
+}); 
 
 </script>
 <script>
 $(document).ready(function(){
 
-  $("#agreement5").click(function () {
+  /*$("#agreement5").click(function () {
       if ($(this).is(":checked")) {
           $("#agreement6div").show();
       }
@@ -389,7 +396,7 @@ $(document).ready(function(){
   $("#agreement7div").hide();
   $("#agreement8div").hide();
   $("#agreement18div").hide();
-
+*/
 
 });
 </script>
@@ -413,8 +420,9 @@ $(document).ready(function(){
             data: form.serialize(), // <--- THIS IS THE CHANGE        
             success: function(message){
               if(message==='success') {
-              $("div.sign-in-options-wrap").hide();
-              $("div#candidate_view").hide();
+              //$("div.sign-in-options-wrap").hide();
+              //$("div#candidate_view").hide();
+               $('#candidate_form').trigger("reset");
               var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire.Please check your email and activate your account."+"</div>";
               $('#message').html(message); } else {
               var message = "<div class='alert alert-danger text-center'>"+ "Email already Exist!."+"</div>";
@@ -441,8 +449,9 @@ $(document).ready(function(){
               data: form.serialize(), // <--- THIS IS THE CHANGE        
               success: function(message){
                 if(message==='success') { 
-                $("div.sign-in-options-wrap").hide();
-                $("div#company_view").hide();
+                //$("div.sign-in-options-wrap").hide();
+                //$("div#company_view").hide();
+                $('#company_form').trigger("reset");
                 var message = "<div class='alert alert-success text-center'>"+"Thank You for registering with Jithire.Please check your email and activate your account."+"</div>";
                 $('#message').html(message); } else {
                 var message = "<div class='alert alert-danger text-center'>"+ "Email already Exist!."+"</div>";
