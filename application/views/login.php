@@ -180,7 +180,7 @@
                                  <p> <input type="text" class="form-control" id="firstname" name="first_name" placeholder="Full name" />
                              
                                   <!-- Pancard -->
-                                  <input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="text">
+                                  <!--<input name="pan_card" class="contact-first-name form-control" placeholder="Pancard"  type="hidden">-->
                               
                                   <!-- Email -->
                                   <input name="email" class="contact-email form-control" placeholder="Email*"  type="email">

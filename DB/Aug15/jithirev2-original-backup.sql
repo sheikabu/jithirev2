@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `jh_candidate_status` (
   `candidate_status_id` int(11) NOT NULL,
   `candidate_status` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_candidate_status`
@@ -1568,8 +1568,8 @@ CREATE TABLE `jh_company_details` (
   `status` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `date_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_company_details`
@@ -1949,7 +1949,7 @@ CREATE TABLE `jh_job_applied` (
   `comp_id` int(11) NOT NULL,
   `job_status` varchar(30) NOT NULL,
   `applied_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_job_applied`
@@ -2004,7 +2004,7 @@ CREATE TABLE `jh_job_posting` (
   `status` varchar(11) NOT NULL,
   `open_date_time` varchar(20) NOT NULL,
   `close_date_time` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_job_posting`
@@ -2060,8 +2060,8 @@ CREATE TABLE `jh_job_posting-old` (
   `salary_thousands` varchar(30) NOT NULL,
   `company_id` int(11) NOT NULL,
   `status` varchar(11) NOT NULL,
-  `date_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_job_posting-old`
@@ -2101,8 +2101,8 @@ INSERT INTO `jh_job_type` (`job_type_id`, `job_type`) VALUES
 CREATE TABLE `jh_location` (
   `id` int(15) NOT NULL,
   `location` varchar(300) NOT NULL,
-  `date_time` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_time` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_location`
@@ -2136,7 +2136,7 @@ CREATE TABLE `jh_offer_letter` (
   `annual_ctc` varchar(100) NOT NULL,
   `posted_job_id` int(20) NOT NULL,
   `company_id` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_offer_letter`
@@ -2183,8 +2183,8 @@ CREATE TABLE `jh_registration` (
   `role` varchar(25) NOT NULL,
   `pan_card` varchar(20) NOT NULL,
   `status` varchar(25) NOT NULL,
-  `date_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_registration`
@@ -3716,7 +3716,7 @@ CREATE TABLE `jh_user_profile` (
   `skill3` text NOT NULL,
   `skill4` text NOT NULL,
   `skill5` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_user_profile`
@@ -3770,7 +3770,7 @@ CREATE TABLE `jh_user_profile-old` (
   `skill4` text NOT NULL,
   `skill5` text NOT NULL,
   `user_id` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jh_user_profile-old`
